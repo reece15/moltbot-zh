@@ -20,6 +20,19 @@ export const KIMI_CODE_MAX_TOKENS = 32768;
 export const KIMI_CODE_HEADERS = { "User-Agent": "KimiCLI/0.77" } as const;
 export const KIMI_CODE_COMPAT = { supportsDeveloperRole: false } as const;
 
+export const SILICONFLOW_BASE_URL = "https://api.siliconflow.cn/v1";
+export const SILICONFLOW_DEFAULT_MODEL_ID = "Pro/MiniMaxAI/MiniMax-M2.1"; // Fallback/Default
+export const SILICONFLOW_DEFAULT_MODEL_REF = `siliconflow/${SILICONFLOW_DEFAULT_MODEL_ID}`;
+export const SILICONFLOW_DEFAULT_CONTEXT_WINDOW = 128000; // Updated for MiniMax M2.1
+export const SILICONFLOW_DEFAULT_MAX_TOKENS = 8192;
+
+export const SILICONFLOW_DEFAULT_COST = {
+  input: 0,
+  output: 0,
+  cacheRead: 0,
+  cacheWrite: 0,
+};
+
 // Pricing: MiniMax doesn't publish public rates. Override in models.json for accurate costs.
 export const MINIMAX_API_COST = {
   input: 15,
@@ -79,6 +92,25 @@ export function buildMinimaxModelDefinition(params: {
     cost: params.cost,
     contextWindow: params.contextWindow,
     maxTokens: params.maxTokens,
+  };
+}
+
+export function buildSiliconFlowModelDefinition(params: {
+  id: string;
+  name?: string;
+  reasoning?: boolean;
+  cost?: ModelDefinitionConfig["cost"];
+  contextWindow?: number;
+  maxTokens?: number;
+}): ModelDefinitionConfig {
+  return {
+    id: params.id,
+    name: params.name ?? params.id,
+    reasoning: params.reasoning ?? false,
+    input: ["text"],
+    cost: params.cost ?? SILICONFLOW_DEFAULT_COST,
+    contextWindow: params.contextWindow ?? SILICONFLOW_DEFAULT_CONTEXT_WINDOW,
+    maxTokens: params.maxTokens ?? SILICONFLOW_DEFAULT_MAX_TOKENS,
   };
 }
 
