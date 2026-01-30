@@ -1,0 +1,56 @@
+name: Release Package
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Prepare Release Package
+        run: |
+          mkdir -p moltbot-package
+          cp -r dist moltbot-package/
+          cp moltbot.mjs moltbot-package/
+          cp package.json moltbot-package/
+          cp pnpm-lock.yaml moltbot-package/
+          cp README-zh.md moltbot-package/
+          cp LICENSE moltbot-package/
+          
+          # Create a simple startup script
+          echo '#!/bin/bash' > moltbot-package/start.sh
+          echo 'npm install --omit=dev' >> moltbot-package/start.sh
+          echo 'node moltbot.mjs "$@"' >> moltbot-package/start.sh
+          chmod +x moltbot-package/start.sh
+          
+          # Create zip
+          zip -r moltbot-release.zip moltbot-package
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: moltbot-release.zip
+          generate_release_notes: true
