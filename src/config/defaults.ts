@@ -143,6 +143,28 @@ export function applyTalkApiKey(config: MoltbotConfig): MoltbotConfig {
   };
 }
 
+export function applyPrimaryModelFromEnv(cfg: MoltbotConfig): MoltbotConfig {
+  const envModel = process.env.MOLTBOT_AGENTS_DEFAULTS_PRIMARY_MODEL?.trim();
+  if (!envModel) return cfg;
+
+  const defaults = cfg.agents?.defaults;
+  const existingModel = defaults?.model;
+
+  return {
+    ...cfg,
+    agents: {
+      ...cfg.agents,
+      defaults: {
+        ...defaults,
+        model: {
+          ...(typeof existingModel === "object" ? existingModel : undefined),
+          primary: envModel,
+        },
+      },
+    },
+  };
+}
+
 export function applyModelDefaults(cfg: MoltbotConfig): MoltbotConfig {
   let mutated = false;
   let nextCfg = cfg;

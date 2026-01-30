@@ -19,6 +19,7 @@ import {
   applyLoggingDefaults,
   applyMessageDefaults,
   applyModelDefaults,
+  applyPrimaryModelFromEnv,
   applySessionDefaults,
   applyTalkApiKey,
 } from "./defaults.js";
@@ -431,9 +432,13 @@ export function createConfigIO(overrides: ConfigIoDeps = {}) {
         valid: true,
         config: normalizeConfigPaths(
           applyTalkApiKey(
-            applyModelDefaults(
-              applyAgentDefaults(
-                applySessionDefaults(applyLoggingDefaults(applyMessageDefaults(validated.config))),
+            applyPrimaryModelFromEnv(
+              applyModelDefaults(
+                applyAgentDefaults(
+                  applySessionDefaults(
+                    applyLoggingDefaults(applyMessageDefaults(validated.config)),
+                  ),
+                ),
               ),
             ),
           ),
