@@ -34,6 +34,7 @@ export function stripEnvelope(text: string): string {
 }
 
 export function extractText(message: unknown): string | null {
+  if (!message || typeof message !== "object") return null;
   const m = message as Record<string, unknown>;
   const role = typeof m.role === "string" ? m.role : "";
   const content = m.content;

@@ -11,7 +11,7 @@ Use `memo notes` to manage Apple Notes directly from the terminal. Create, view,
 
 Setup
 - Install (Homebrew): `brew tap antoniorodr/memo && brew install antoniorodr/memo/memo`
-- Manual (pip): `pip install .` (after cloning the repo)
+- Manual (uv): `uv tool install git+https://github.com/antoniorodr/memo.git`
 - macOS-only; if prompted, grant Automation access to Notes.app.
 
 View Notes

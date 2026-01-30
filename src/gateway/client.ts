@@ -36,6 +36,7 @@ type Pending = {
   resolve: (value: unknown) => void;
   reject: (err: unknown) => void;
   expectFinal: boolean;
+  onProgress?: (payload: unknown) => void;
 };
 
 export type GatewayClientOptions = {
@@ -309,6 +310,7 @@ export class GatewayClient {
         const payload = parsed.payload as { status?: unknown } | undefined;
         const status = payload?.status;
         if (pending.expectFinal && status === "accepted") {
+          pending.onProgress?.(parsed.payload);
           return;
         }
         this.pending.delete(parsed.id);
@@ -382,7 +384,7 @@ export class GatewayClient {
   async request<T = unknown>(
     method: string,
     params?: unknown,
-    opts?: { expectFinal?: boolean },
+    opts?: { expectFinal?: boolean; onProgress?: (payload: unknown) => void },
   ): Promise<T> {
     if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
       throw new Error("gateway not connected");
@@ -400,6 +402,7 @@ export class GatewayClient {
         resolve: (value) => resolve(value as T),
         reject,
         expectFinal,
+        onProgress: opts?.onProgress,
       });
     });
     this.ws.send(JSON.stringify(frame));

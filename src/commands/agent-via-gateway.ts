@@ -116,7 +116,7 @@ export async function agentViaGatewayCommand(opts: AgentCliOpts, runtime: Runtim
       indeterminate: true,
       enabled: opts.json !== true,
     },
-    async () =>
+    async (progress) =>
       await callGateway<GatewayAgentResponse>({
         method: "agent",
         params: {
@@ -135,6 +135,16 @@ export async function agentViaGatewayCommand(opts: AgentCliOpts, runtime: Runtim
           lane: opts.lane,
           extraSystemPrompt: opts.extraSystemPrompt,
           idempotencyKey,
+        },
+        onProgress: (raw: unknown) => {
+          const payload = raw as { status?: string; thinking?: string; label?: string };
+          if (payload?.thinking) {
+            progress.setLabel(`Thinking: ${payload.thinking.split("\n")[0].substring(0, 60)}…`);
+          } else if (payload?.label) {
+            progress.setLabel(payload.label);
+          } else if (payload?.status && payload.status !== "accepted") {
+            progress.setLabel(payload.status);
+          }
         },
         expectFinal: true,
         timeoutMs: gatewayTimeoutMs,

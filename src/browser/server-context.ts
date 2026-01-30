@@ -282,7 +282,7 @@ function createProfileContext(
         }
       }
 
-      if (await isReachable(600)) return;
+      if (await isReachable(5000)) return;
       // Relay server is up, but no attached tab yet. Prompt user to attach.
       throw new Error(
         `Chrome extension relay is running, but no tab is connected. Click the Moltbot Chrome extension icon on a tab to attach it (profile "${profile.name}").`,

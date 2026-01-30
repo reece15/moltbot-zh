@@ -14,6 +14,7 @@ import {
   applyMoonshotConfig,
   applyOpencodeZenConfig,
   applyOpenrouterConfig,
+  applySiliconFlowConfig,
   applySyntheticConfig,
   applyVeniceConfig,
   applyVercelAiGatewayConfig,
@@ -25,6 +26,7 @@ import {
   setMoonshotApiKey,
   setOpencodeZenApiKey,
   setOpenrouterApiKey,
+  setSiliconFlowApiKey,
   setSyntheticApiKey,
   setVeniceApiKey,
   setVercelAiGatewayApiKey,
@@ -175,6 +177,25 @@ export async function applyNonInteractiveAuthChoice(params: {
       mode: "api_key",
     });
     return applyZaiConfig(nextConfig);
+  }
+
+  if (authChoice === "siliconflow-api-key") {
+    const resolved = await resolveNonInteractiveApiKey({
+      provider: "siliconflow",
+      cfg: baseConfig,
+      flagValue: opts.siliconflowApiKey,
+      flagName: "--siliconflow-api-key",
+      envVar: "SILICONFLOW_API_KEY",
+      runtime,
+    });
+    if (!resolved) return null;
+    if (resolved.source !== "profile") await setSiliconFlowApiKey(resolved.key);
+    nextConfig = applyAuthProfileConfig(nextConfig, {
+      profileId: "siliconflow:default",
+      provider: "siliconflow",
+      mode: "api_key",
+    });
+    return applySiliconFlowConfig(nextConfig);
   }
 
   if (authChoice === "openai-api-key") {

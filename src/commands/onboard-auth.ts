@@ -29,6 +29,11 @@ export {
 } from "./onboard-auth.config-minimax.js";
 
 export {
+  applySiliconFlowConfig,
+  applySiliconFlowProviderConfig,
+} from "./onboard-auth.config-siliconflow.js";
+
+export {
   applyOpencodeZenConfig,
   applyOpencodeZenProviderConfig,
 } from "./onboard-auth.config-opencode.js";
@@ -41,6 +46,7 @@ export {
   setMoonshotApiKey,
   setOpencodeZenApiKey,
   setOpenrouterApiKey,
+  setSiliconFlowApiKey,
   setSyntheticApiKey,
   setVeniceApiKey,
   setVercelAiGatewayApiKey,
@@ -64,4 +70,6 @@ export {
   MOONSHOT_BASE_URL,
   MOONSHOT_DEFAULT_MODEL_ID,
   MOONSHOT_DEFAULT_MODEL_REF,
+  SILICONFLOW_DEFAULT_COST,
+  SILICONFLOW_DEFAULT_MODEL_REF,
 } from "./onboard-auth.models.js";

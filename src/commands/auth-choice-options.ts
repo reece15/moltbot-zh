@@ -18,6 +18,7 @@ export type AuthChoiceGroupId =
   | "zai"
   | "opencode-zen"
   | "minimax"
+  | "siliconflow"
   | "synthetic"
   | "venice"
   | "qwen";
@@ -46,6 +47,12 @@ const AUTH_CHOICE_GROUP_DEFS: {
     label: "Anthropic",
     hint: "setup-token + API key",
     choices: ["token", "apiKey"],
+  },
+  {
+    value: "siliconflow",
+    label: "SiliconFlow",
+    hint: "DeepSeek/GLM/Kimi (recommended)",
+    choices: ["siliconflow-api-key"],
   },
   {
     value: "minimax",

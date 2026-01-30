@@ -47,6 +47,19 @@ export async function setGeminiApiKey(key: string, agentDir?: string) {
   });
 }
 
+export async function setSiliconFlowApiKey(key: string, agentDir?: string) {
+  // Write to resolved agent dir so gateway finds credentials on startup.
+  upsertAuthProfile({
+    profileId: "siliconflow:default",
+    credential: {
+      type: "api_key",
+      provider: "siliconflow",
+      key,
+    },
+    agentDir: resolveAuthAgentDir(agentDir),
+  });
+}
+
 export async function setMinimaxApiKey(key: string, agentDir?: string) {
   // Write to resolved agent dir so gateway finds credentials on startup.
   upsertAuthProfile({

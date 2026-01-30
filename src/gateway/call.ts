@@ -41,6 +41,7 @@ export type CallGatewayOptions = {
    * Does not affect config loading; callers still control auth via opts.token/password/env/config.
    */
   configPath?: string;
+  onProgress?: (payload: unknown) => void;
 };
 
 export type GatewayConnectionDetails = {
@@ -215,6 +216,7 @@ export async function callGateway<T = unknown>(opts: CallGatewayOptions): Promis
         try {
           const result = await client.request<T>(opts.method, opts.params, {
             expectFinal: opts.expectFinal,
+            onProgress: opts.onProgress,
           });
           ignoreClose = true;
           stop(undefined, result);

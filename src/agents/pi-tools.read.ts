@@ -272,14 +272,35 @@ export function createMoltbotReadTool(base: AnyAgentTool): AnyAgentTool {
         normalized ??
         (params && typeof params === "object" ? (params as Record<string, unknown>) : undefined);
       assertRequiredParams(record, CLAUDE_PARAM_GROUPS.read, base.name);
-      const result = (await base.execute(
-        toolCallId,
-        normalized ?? params,
-        signal,
-      )) as AgentToolResult<unknown>;
       const filePath = typeof record?.path === "string" ? String(record.path) : "<unknown>";
-      const normalizedResult = await normalizeReadImageResult(result, filePath);
-      return sanitizeToolResultImages(normalizedResult, `read:${filePath}`);
+      try {
+        const result = (await base.execute(
+          toolCallId,
+          normalized ?? params,
+          signal,
+        )) as AgentToolResult<unknown>;
+        const normalizedResult = await normalizeReadImageResult(result, filePath);
+        return sanitizeToolResultImages(normalizedResult, `read:${filePath}`);
+      } catch (err: unknown) {
+        if (
+          err &&
+          typeof err === "object" &&
+          "code" in err &&
+          (err as { code: unknown }).code === "EISDIR"
+        ) {
+          return {
+            content: [
+              {
+                type: "text",
+                text: `Error: "${filePath}" is a directory, not a file. Use the 'ls' (or 'list_files') tool to view directory contents.`,
+              },
+            ],
+            isError: true,
+            details: { status: "error" },
+          };
+        }
+        throw err;
+      }
     },
   };
 }
