@@ -165,6 +165,106 @@ export function applyPrimaryModelFromEnv(cfg: MoltbotConfig): MoltbotConfig {
   };
 }
 
+export function applyGatewayEnv(cfg: MoltbotConfig): MoltbotConfig {
+  const mode = process.env.GATEWAY_MODE?.trim();
+  if (!mode) return cfg;
+  // Only apply if not already set in config
+  if (cfg.gateway?.mode) return cfg;
+
+  return {
+    ...cfg,
+    gateway: {
+      ...cfg.gateway,
+      mode: mode as any,
+    },
+  };
+}
+
+export function applySiliconFlowEnv(cfg: MoltbotConfig): MoltbotConfig {
+  const apiKey = process.env.SILICONFLOW_API_KEY?.trim();
+  if (!apiKey) return cfg;
+
+  const existingProviders = cfg.models?.providers ?? {};
+  // If already configured, don't override
+  if (existingProviders.siliconflow) return cfg;
+
+  const siliconFlowProvider = {
+    baseUrl: "https://api.siliconflow.cn/v1",
+    apiKey,
+    api: "openai-completions",
+    models: [
+      {
+        id: "deepseek-ai/DeepSeek-V3",
+        name: "DeepSeek V3",
+        reasoning: false,
+        contextWindow: 64000,
+        maxTokens: 8192,
+        cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+      },
+      {
+        id: "deepseek-ai/DeepSeek-R1",
+        name: "DeepSeek R1",
+        reasoning: true,
+        contextWindow: 64000,
+        maxTokens: 8192,
+        cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+      },
+      {
+        id: "Pro/zai-org/GLM-4.7",
+        name: "GLM-4.7 Pro",
+        contextWindow: 128000,
+        maxTokens: 4096,
+        cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+      },
+    ],
+  };
+
+  return {
+    ...cfg,
+    models: {
+      ...cfg.models,
+      providers: {
+        ...existingProviders,
+        siliconflow: siliconFlowProvider as any,
+      },
+    },
+  };
+}
+
+export function applyWeComEnv(cfg: MoltbotConfig): MoltbotConfig {
+  const corpid = process.env.WECOM_CORP_ID?.trim() || process.env.WECOM_CORPID?.trim();
+  const agentid = process.env.WECOM_AGENT_ID?.trim() || process.env.WECOM_AGENTID?.trim();
+  const secret = process.env.WECOM_SECRET?.trim() || process.env.WECOM_CORPSECRET?.trim();
+  const token = process.env.WECOM_TOKEN?.trim();
+  const aesKey = process.env.WECOM_ENCODING_AES_KEY?.trim() || process.env.WECOM_AESKEY?.trim();
+
+  if (!corpid || !agentid || !secret) return cfg;
+
+  const existingWeCom = (cfg.channels?.wecom as Record<string, any>) || {};
+  // If already configured, don't override
+  if (existingWeCom["env"]) return cfg;
+
+  const envAccount = {
+    corpid,
+    corpsecret: secret,
+    agentid,
+    token,
+    encodingAESKey: aesKey,
+    enabled: true,
+  };
+
+  return {
+    ...cfg,
+    channels: {
+      ...cfg.channels,
+      wecom: {
+        ...existingWeCom,
+        env: envAccount,
+      },
+    },
+  };
+}
+
 export function applyModelDefaults(cfg: MoltbotConfig): MoltbotConfig {
   let mutated = false;
   let nextCfg = cfg;

@@ -42,7 +42,6 @@ jobs:
           cp README-zh.md moltbot-package/
           cp LICENSE moltbot-package/
           cp -r scripts moltbot-package/
-          cp -r docs moltbot-package/
           rsync -av --exclude='node_modules' extensions moltbot-package/
 
           # Create .npmrc to prevent pnpm from failing on peer dependencies
@@ -76,6 +75,18 @@ jobs:
           echo '  else' >> moltbot-package/start.sh
           echo '    echo "Using npm with npmmirror registry..."' >> moltbot-package/start.sh
           echo '    npm install --omit=dev --no-audit --no-fund --registry=https://registry.npmmirror.com' >> moltbot-package/start.sh
+          echo '  fi' >> moltbot-package/start.sh
+          echo 'fi' >> moltbot-package/start.sh
+          echo '' >> moltbot-package/start.sh
+          echo '# Ensure .env exists' >> moltbot-package/start.sh
+          echo 'if [ ! -f ".env" ]; then' >> moltbot-package/start.sh
+          echo '  if [ -f ".env.example" ]; then' >> moltbot-package/start.sh
+          echo '    echo "Creating .env from .env.example..."' >> moltbot-package/start.sh
+          echo '    cp .env.example .env' >> moltbot-package/start.sh
+          echo '    echo "Note: .env created. Please edit it to add your API keys."' >> moltbot-package/start.sh
+          echo '  else' >> moltbot-package/start.sh
+          echo '    echo "Warning: .env.example not found. Creating empty .env with GATEWAY_MODE=local..."' >> moltbot-package/start.sh
+          echo '    echo "GATEWAY_MODE=local" > .env' >> moltbot-package/start.sh
           echo '  fi' >> moltbot-package/start.sh
           echo 'fi' >> moltbot-package/start.sh
           echo '' >> moltbot-package/start.sh

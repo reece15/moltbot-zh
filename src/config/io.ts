@@ -13,15 +13,18 @@ import {
 } from "../infra/shell-env.js";
 import { DuplicateAgentDirError, findDuplicateAgentDirs } from "./agent-dirs.js";
 import {
+  applyAgentDefaults,
   applyCompactionDefaults,
   applyContextPruningDefaults,
-  applyAgentDefaults,
+  applyGatewayEnv,
   applyLoggingDefaults,
   applyMessageDefaults,
   applyModelDefaults,
   applyPrimaryModelFromEnv,
   applySessionDefaults,
+  applySiliconFlowEnv,
   applyTalkApiKey,
+  applyWeComEnv,
 } from "./defaults.js";
 import { VERSION } from "../version.js";
 import { MissingEnvVarError, resolveConfigEnvVars } from "./env-substitution.js";
@@ -256,11 +259,19 @@ export function createConfigIO(overrides: ConfigIoDeps = {}) {
         deps.logger.warn(`Config warnings:\\n${details}`);
       }
       warnIfConfigFromFuture(validated.config, deps.logger);
-      const cfg = applyModelDefaults(
-        applyCompactionDefaults(
-          applyContextPruningDefaults(
-            applyAgentDefaults(
-              applySessionDefaults(applyLoggingDefaults(applyMessageDefaults(validated.config))),
+      const cfg = applySiliconFlowEnv(
+        applyGatewayEnv(
+          applyPrimaryModelFromEnv(
+            applyModelDefaults(
+              applyCompactionDefaults(
+                applyContextPruningDefaults(
+                  applyAgentDefaults(
+                    applySessionDefaults(
+                      applyLoggingDefaults(applyMessageDefaults(validated.config)),
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
         ),
@@ -432,13 +443,9 @@ export function createConfigIO(overrides: ConfigIoDeps = {}) {
         valid: true,
         config: normalizeConfigPaths(
           applyTalkApiKey(
-            applyPrimaryModelFromEnv(
-              applyModelDefaults(
-                applyAgentDefaults(
-                  applySessionDefaults(
-                    applyLoggingDefaults(applyMessageDefaults(validated.config)),
-                  ),
-                ),
+            applyModelDefaults(
+              applyAgentDefaults(
+                applySessionDefaults(applyLoggingDefaults(applyMessageDefaults(validated.config))),
               ),
             ),
           ),
