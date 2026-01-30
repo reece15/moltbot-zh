@@ -2,6 +2,15 @@
 
 Docs: https://docs.molt.bot
 
+## 2026.1.37
+Status: stable.
+
+### Changes
+- Config: add `GATEWAY_PORT` and `GATEWAY_BIND` environment variable support.
+- Config: auto-configure web search from environment variables.
+- Tools: add one-click deployment package and config check tool.
+- Docs: update Chinese documentation and environment configuration templates.
+
 ## 2026.1.27-beta.1
 Status: beta.
 
