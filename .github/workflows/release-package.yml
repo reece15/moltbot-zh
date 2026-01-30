@@ -43,7 +43,8 @@ jobs:
           
           # Create a simple startup script
           echo '#!/bin/bash' > moltbot-package/start.sh
-          echo 'npm install --omit=dev' >> moltbot-package/start.sh
+          echo 'set -e' >> moltbot-package/start.sh
+          echo 'npm install --omit=dev --no-audit --no-fund' >> moltbot-package/start.sh
           echo 'node moltbot.mjs "$@"' >> moltbot-package/start.sh
           chmod +x moltbot-package/start.sh
           
