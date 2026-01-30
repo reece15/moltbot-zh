@@ -25,6 +25,7 @@ import {
   applySiliconFlowEnv,
   applyTalkApiKey,
   applyWeComEnv,
+  applyWebSearchEnv,
 } from "./defaults.js";
 import { VERSION } from "../version.js";
 import { MissingEnvVarError, resolveConfigEnvVars } from "./env-substitution.js";
@@ -259,15 +260,19 @@ export function createConfigIO(overrides: ConfigIoDeps = {}) {
         deps.logger.warn(`Config warnings:\\n${details}`);
       }
       warnIfConfigFromFuture(validated.config, deps.logger);
-      const cfg = applySiliconFlowEnv(
-        applyGatewayEnv(
-          applyPrimaryModelFromEnv(
-            applyModelDefaults(
-              applyCompactionDefaults(
-                applyContextPruningDefaults(
-                  applyAgentDefaults(
-                    applySessionDefaults(
-                      applyLoggingDefaults(applyMessageDefaults(validated.config)),
+      const cfg = applyWebSearchEnv(
+        applyWeComEnv(
+          applySiliconFlowEnv(
+            applyGatewayEnv(
+              applyPrimaryModelFromEnv(
+                applyModelDefaults(
+                  applyCompactionDefaults(
+                    applyContextPruningDefaults(
+                      applyAgentDefaults(
+                        applySessionDefaults(
+                          applyLoggingDefaults(applyMessageDefaults(validated.config)),
+                        ),
+                      ),
                     ),
                   ),
                 ),

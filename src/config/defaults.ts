@@ -284,6 +284,64 @@ export function applyWeComEnv(cfg: MoltbotConfig): MoltbotConfig {
   };
 }
 
+export function applyWebSearchEnv(cfg: MoltbotConfig): MoltbotConfig {
+  const provider = process.env.WEB_SEARCH_PROVIDER?.trim();
+  const tavilyKey = process.env.TAVILY_API_KEY?.trim();
+  const braveKey = process.env.BRAVE_API_KEY?.trim();
+  const perplexityKey = process.env.PERPLEXITY_API_KEY?.trim();
+
+  // If none of the web search env vars are set, skip
+  if (!provider && !tavilyKey && !braveKey && !perplexityKey) return cfg;
+
+  const existingSearch = cfg.tools?.web?.search;
+  // If already configured, don't override
+  if (existingSearch) return cfg;
+
+  const nextSearch: Record<string, any> = {};
+
+  // Set provider if specified and valid
+  if (provider && (provider === "tavily" || provider === "brave" || provider === "perplexity")) {
+    nextSearch.provider = provider;
+    nextSearch.enabled = true;
+  }
+
+  // Set Tavily config if key is present
+  if (tavilyKey && !nextSearch.tavily?.apiKey) {
+    nextSearch.tavily = {
+      apiKey: tavilyKey,
+    };
+  }
+
+  // Set Brave config if key is present
+  if (braveKey && !nextSearch.apiKey) {
+    nextSearch.apiKey = braveKey;
+  }
+
+  // Set Perplexity config if key is present
+  if (perplexityKey && !nextSearch.perplexity?.apiKey) {
+    nextSearch.perplexity = {
+      ...nextSearch.perplexity,
+      apiKey: perplexityKey,
+    };
+  }
+
+  // If we have any API key, enable the tool
+  if (tavilyKey || braveKey || perplexityKey) {
+    nextSearch.enabled = true;
+  }
+
+  return {
+    ...cfg,
+    tools: {
+      ...cfg.tools,
+      web: {
+        ...cfg.tools?.web,
+        search: nextSearch,
+      },
+    },
+  };
+}
+
 export function applyModelDefaults(cfg: MoltbotConfig): MoltbotConfig {
   let mutated = false;
   let nextCfg = cfg;
