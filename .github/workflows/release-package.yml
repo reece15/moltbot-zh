@@ -43,6 +43,10 @@ jobs:
           cp LICENSE moltbot-package/
           cp -r scripts moltbot-package/
           rsync -av --exclude='node_modules' extensions moltbot-package/
+
+          # Create .npmrc to prevent pnpm from failing on peer dependencies
+          echo 'auto-install-peers=false' > moltbot-package/.npmrc
+          echo 'strict-peer-dependencies=false' >> moltbot-package/.npmrc
           
           # Create a simple startup script
           echo '#!/bin/bash' > moltbot-package/start.sh

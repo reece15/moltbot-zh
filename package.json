@@ -1,6 +1,6 @@
 {
   "name": "moltbot",
-  "version": "2026.1.32",
+  "version": "2026.1.33",
   "description": "WhatsApp gateway CLI (Baileys web) with Pi RPC agent",
   "type": "module",
   "main": "dist/index.js",
