@@ -167,16 +167,35 @@ export function applyPrimaryModelFromEnv(cfg: MoltbotConfig): MoltbotConfig {
 
 export function applyGatewayEnv(cfg: MoltbotConfig): MoltbotConfig {
   const mode = process.env.GATEWAY_MODE?.trim();
-  if (!mode) return cfg;
-  // Only apply if not already set in config
-  if (cfg.gateway?.mode) return cfg;
+  const portRaw = process.env.GATEWAY_PORT?.trim();
+  const bind = process.env.GATEWAY_BIND?.trim();
+
+  let nextGateway = { ...cfg.gateway };
+  let modified = false;
+
+  if (mode && !nextGateway.mode) {
+    nextGateway.mode = mode as any;
+    modified = true;
+  }
+
+  if (portRaw && nextGateway.port === undefined) {
+    const port = Number.parseInt(portRaw, 10);
+    if (Number.isFinite(port) && port > 0) {
+      nextGateway.port = port;
+      modified = true;
+    }
+  }
+
+  if (bind && !nextGateway.bind) {
+    nextGateway.bind = bind as any;
+    modified = true;
+  }
+
+  if (!modified) return cfg;
 
   return {
     ...cfg,
-    gateway: {
-      ...cfg.gateway,
-      mode: mode as any,
-    },
+    gateway: nextGateway,
   };
 }
 
