@@ -27,7 +27,10 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Build
+      - name: Build UI
+        run: pnpm ui:build
+
+      - name: Build Project
         run: pnpm build
 
       - name: Prepare Release Package
@@ -56,6 +59,10 @@ jobs:
           echo '' >> moltbot-package/start.sh
           echo '# Ensure we are in the script directory' >> moltbot-package/start.sh
           echo 'cd "$(dirname "$0")"' >> moltbot-package/start.sh
+          echo 'SCRIPT_DIR="$(pwd)"' >> moltbot-package/start.sh
+          echo '' >> moltbot-package/start.sh
+          echo '# Set bundled plugins directory explicitly' >> moltbot-package/start.sh
+          echo 'export CLAWDBOT_BUNDLED_PLUGINS_DIR="$SCRIPT_DIR/extensions"' >> moltbot-package/start.sh
           echo '' >> moltbot-package/start.sh
           echo '# Function to check command existence' >> moltbot-package/start.sh
           echo 'exists() { command -v "$1" >/dev/null 2>&1; }' >> moltbot-package/start.sh
@@ -87,6 +94,8 @@ jobs:
           echo '  else' >> moltbot-package/start.sh
           echo '    echo "Warning: .env.example not found. Creating empty .env with GATEWAY_MODE=local..."' >> moltbot-package/start.sh
           echo '    echo "GATEWAY_MODE=local" > .env' >> moltbot-package/start.sh
+          echo '    echo "# GATEWAY_PORT=18789" >> .env' >> moltbot-package/start.sh
+          echo '    echo "# GATEWAY_BIND=loopback" >> .env' >> moltbot-package/start.sh
           echo '  fi' >> moltbot-package/start.sh
           echo 'fi' >> moltbot-package/start.sh
           echo '' >> moltbot-package/start.sh
