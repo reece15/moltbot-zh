@@ -40,6 +40,7 @@ jobs:
           cp pnpm-lock.yaml moltbot-package/
           cp README-zh.md moltbot-package/
           cp LICENSE moltbot-package/
+          cp -r scripts moltbot-package/
           
           # Create a simple startup script
           echo '#!/bin/bash' > moltbot-package/start.sh
