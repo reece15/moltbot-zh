@@ -92,6 +92,27 @@ CLAWDBOT_GATEWAY_TOKEN="my-secret-token"
 
 完成配置后，即可启动 Moltbot 网关服务。
 
+### 🔍 步骤 1: 验证配置（推荐）
+
+在启动前，建议运行配置检查脚本验证您的配置是否正确：
+
+```bash
+# 赋予脚本执行权限
+chmod +x check-config.sh
+
+# 运行配置检查
+./check-config.sh
+```
+
+该脚本会检查：
+- ✅ 必要的配置项是否已设置
+- ✅ API Key 是否正确填写
+- ✅ 企业微信、网络搜索等可选功能的配置状态
+
+如果检查通过，将显示访问地址和启动命令。
+
+### 🚀 步骤 2: 启动服务
+
 我们提供了一个便捷的启动脚本 `start.sh`，它会自动检查依赖并启动服务。
 
 ```bash
@@ -100,6 +121,12 @@ chmod +x start.sh
 
 # 启动网关服务 (默认)
 ./start.sh
+```
+
+启动成功后，您会看到：
+```
+🚀 Starting Moltbot Gateway...
+📍 Dashboard: http://localhost:18789/
 ```
 
 您也可以通过该脚本执行其他命令，例如查看版本或帮助：
@@ -144,3 +171,94 @@ A: 您的服务器需要有公网 IP 或配置内网穿透。在企业微信后�
 
 **Q: 如何启用 Brave 搜索？**
 A: 在 `.env` 中设置 `WEB_SEARCH_PROVIDER="brave"` 并填入 `BRAVE_API_KEY`。
+
+**Q: UI 无法访问？**
+A: 检查以下几点：
+1. 确认 `.env` 文件中设置了 `GATEWAY_MODE="local"`
+2. 确认设置了 `CLAWDBOT_GATEWAY_TOKEN`
+3. 访问 `http://localhost:18789/?token=您的token值`
+4. 检查防火墙是否阻止了 18789 端口
+5. 查看终端日志是否有错误信息
+
+---
+
+## ✅ 配置验证
+
+启动成功后，可以运行以下命令验证配置：
+
+### 1. 检查服务状态
+```bash
+node moltbot.mjs channels status
+```
+
+### 2. 验证 SiliconFlow 配置
+```bash
+node moltbot.mjs config get models.providers.siliconflow
+```
+
+### 3. 验证企业微信配置
+```bash
+node moltbot.mjs channels list
+```
+应该能看到 `wecom:env` 账户。
+
+### 4. 测试 AI 对话
+```bash
+node moltbot.mjs agent --message "你好，测试一下"
+```
+
+---
+
+## 🔧 故障排除
+
+### 问题：启动失败，提示缺少依赖
+**解决方案**：删除 `node_modules` 目录，重新运行 `./start.sh`
+
+### 问题：企业微信收不到消息
+**检查清单**：
+1. 在企业微信后台验证 Webhook URL 配置是否正确
+2. 检查 `.env` 中的 `WECOM_TOKEN` 和 `WECOM_ENCODING_AES_KEY` 是否与后台一致
+3. 确认服务器防火墙已开放 18789 端口
+4. 查看终端日志，确认企业微信 Webhook 已注册成功
+
+### 问题：AI 回复错误或不工作
+**检查清单**：
+1. 验证 `SILICONFLOW_API_KEY` 是否正确
+2. 检查 API Key 是否有足够的配额
+3. 查看终端日志中的错误信息
+4. 尝试切换到其他模型
+
+---
+
+## 📚 进阶配置
+
+### 自定义 OpenAI 兼容服务商
+
+如果您想使用其他 OpenAI 兼容的服务商，可以在 `.env` 中添加：
+
+```properties
+# 自定义 OpenAI 兼容服务商
+OPENAI_API_KEY="your-api-key"
+OPENAI_BASE_URL="https://your-custom-endpoint.com/v1"
+MOLTBOT_AGENTS_DEFAULTS_PRIMARY_MODEL="your-model-name"
+```
+
+### 修改网关端口和绑定地址
+
+```properties
+# 修改端口（默认 18789）
+GATEWAY_PORT="8080"
+
+# 绑定到所有网络接口（允许外部访问）
+GATEWAY_BIND="lan"  # 选项: loopback, lan, auto
+```
+
+⚠️ **安全提示**：如果设置 `GATEWAY_BIND="lan"`，请务必设置强密码的 `CLAWDBOT_GATEWAY_TOKEN`。
+
+---
+
+## 📖 更多文档
+
+- [官方文档](https://docs.molt.bot)
+- [GitHub 仓库](https://github.com/moltbot/moltbot)
+- [问题反馈](https://github.com/moltbot/moltbot/issues)
