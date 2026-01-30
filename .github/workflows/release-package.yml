@@ -47,6 +47,8 @@ jobs:
           # Create .npmrc to prevent pnpm from failing on peer dependencies
           echo 'auto-install-peers=false' > moltbot-package/.npmrc
           echo 'strict-peer-dependencies=false' >> moltbot-package/.npmrc
+          # Ensure typescript is ignored as a peer dependency
+          echo 'public-hoist-pattern[]=*typescript*' >> moltbot-package/.npmrc
           
           # Create a simple startup script
           echo '#!/bin/bash' > moltbot-package/start.sh
