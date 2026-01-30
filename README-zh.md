@@ -92,12 +92,28 @@ CLAWDBOT_GATEWAY_TOKEN="my-secret-token"
 
 完成配置后，即可启动 Moltbot 网关服务。
 
+我们提供了一个便捷的启动脚本 `start.sh`，它会自动检查依赖并启动服务。
+
 ```bash
-# 启动网关
-node moltbot.mjs gateway
+# 赋予脚本执行权限 (仅第一次需要)
+chmod +x start.sh
+
+# 启动网关服务 (默认)
+./start.sh
 ```
 
-启动成功后：
+您也可以通过该脚本执行其他命令，例如查看版本或帮助：
+```bash
+./start.sh --version
+./start.sh --help
+```
+
+### 停止服务
+如需停止服务，请在终端中按 `Ctrl+C`。
+
+---
+
+## ❓ 常见问题
 1.  终端会显示运行日志。
 2.  您可以访问 Web 管理后台: `http://localhost:18789/?token=my-secret-token` (端口默认为 18789)。
 

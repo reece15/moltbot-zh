@@ -42,6 +42,7 @@ jobs:
           cp README-zh.md moltbot-package/
           cp LICENSE moltbot-package/
           cp -r scripts moltbot-package/
+          cp -r docs moltbot-package/
           rsync -av --exclude='node_modules' extensions moltbot-package/
 
           # Create .npmrc to prevent pnpm from failing on peer dependencies
@@ -50,24 +51,41 @@ jobs:
           # Ensure typescript is ignored as a peer dependency
           echo 'public-hoist-pattern[]=*typescript*' >> moltbot-package/.npmrc
           
-          # Create a simple startup script
+          # Create start.sh with improved logic
           echo '#!/bin/bash' > moltbot-package/start.sh
           echo 'set -e' >> moltbot-package/start.sh
+          echo '' >> moltbot-package/start.sh
+          echo '# Ensure we are in the script directory' >> moltbot-package/start.sh
+          echo 'cd "$(dirname "$0")"' >> moltbot-package/start.sh
           echo '' >> moltbot-package/start.sh
           echo '# Function to check command existence' >> moltbot-package/start.sh
           echo 'exists() { command -v "$1" >/dev/null 2>&1; }' >> moltbot-package/start.sh
           echo '' >> moltbot-package/start.sh
-          echo '# Try to use pnpm if available (fastest)' >> moltbot-package/start.sh
-          echo 'if exists pnpm; then' >> moltbot-package/start.sh
-          echo '  echo "Using pnpm for installation..."' >> moltbot-package/start.sh
-          echo '  pnpm install --prod --no-frozen-lockfile --registry=https://registry.npmmirror.com' >> moltbot-package/start.sh
-          echo '# Fallback to npm with mirror' >> moltbot-package/start.sh
-          echo 'else' >> moltbot-package/start.sh
-          echo '  echo "Using npm with npmmirror registry..."' >> moltbot-package/start.sh
-          echo '  npm install --omit=dev --no-audit --no-fund --registry=https://registry.npmmirror.com' >> moltbot-package/start.sh
+          echo '# Check for node' >> moltbot-package/start.sh
+          echo 'if ! exists node; then' >> moltbot-package/start.sh
+          echo '  echo "Error: node is not installed or not in PATH."' >> moltbot-package/start.sh
+          echo '  exit 1' >> moltbot-package/start.sh
           echo 'fi' >> moltbot-package/start.sh
           echo '' >> moltbot-package/start.sh
-          echo 'node moltbot.mjs "$@"' >> moltbot-package/start.sh
+          echo '# Install dependencies if node_modules is missing' >> moltbot-package/start.sh
+          echo 'if [ ! -d "node_modules" ]; then' >> moltbot-package/start.sh
+          echo '  echo "First run detected. Installing dependencies..."' >> moltbot-package/start.sh
+          echo '  if exists pnpm; then' >> moltbot-package/start.sh
+          echo '    echo "Using pnpm for installation..."' >> moltbot-package/start.sh
+          echo '    pnpm install --prod --no-frozen-lockfile --registry=https://registry.npmmirror.com' >> moltbot-package/start.sh
+          echo '  else' >> moltbot-package/start.sh
+          echo '    echo "Using npm with npmmirror registry..."' >> moltbot-package/start.sh
+          echo '    npm install --omit=dev --no-audit --no-fund --registry=https://registry.npmmirror.com' >> moltbot-package/start.sh
+          echo '  fi' >> moltbot-package/start.sh
+          echo 'fi' >> moltbot-package/start.sh
+          echo '' >> moltbot-package/start.sh
+          echo '# Default to starting gateway if no args provided' >> moltbot-package/start.sh
+          echo 'if [ $# -eq 0 ]; then' >> moltbot-package/start.sh
+          echo '  echo "Starting Moltbot Gateway..."' >> moltbot-package/start.sh
+          echo '  exec node moltbot.mjs gateway' >> moltbot-package/start.sh
+          echo 'else' >> moltbot-package/start.sh
+          echo '  exec node moltbot.mjs "$@"' >> moltbot-package/start.sh
+          echo 'fi' >> moltbot-package/start.sh
           chmod +x moltbot-package/start.sh
           
           # Create zip
