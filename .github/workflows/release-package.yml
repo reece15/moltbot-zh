@@ -41,11 +41,25 @@ jobs:
           cp README-zh.md moltbot-package/
           cp LICENSE moltbot-package/
           cp -r scripts moltbot-package/
+          cp -r extensions moltbot-package/
           
           # Create a simple startup script
           echo '#!/bin/bash' > moltbot-package/start.sh
           echo 'set -e' >> moltbot-package/start.sh
-          echo 'npm install --omit=dev --no-audit --no-fund' >> moltbot-package/start.sh
+          echo '' >> moltbot-package/start.sh
+          echo '# Function to check command existence' >> moltbot-package/start.sh
+          echo 'exists() { command -v "$1" >/dev/null 2>&1; }' >> moltbot-package/start.sh
+          echo '' >> moltbot-package/start.sh
+          echo '# Try to use pnpm if available (fastest)' >> moltbot-package/start.sh
+          echo 'if exists pnpm; then' >> moltbot-package/start.sh
+          echo '  echo "Using pnpm for installation..."' >> moltbot-package/start.sh
+          echo '  pnpm install --prod --no-frozen-lockfile --registry=https://registry.npmmirror.com' >> moltbot-package/start.sh
+          echo '# Fallback to npm with mirror' >> moltbot-package/start.sh
+          echo 'else' >> moltbot-package/start.sh
+          echo '  echo "Using npm with npmmirror registry..."' >> moltbot-package/start.sh
+          echo '  npm install --omit=dev --no-audit --no-fund --registry=https://registry.npmmirror.com' >> moltbot-package/start.sh
+          echo 'fi' >> moltbot-package/start.sh
+          echo '' >> moltbot-package/start.sh
           echo 'node moltbot.mjs "$@"' >> moltbot-package/start.sh
           chmod +x moltbot-package/start.sh
           
