@@ -249,7 +249,8 @@
     "overrides": {
       "@sinclair/typebox": "0.34.47",
       "hono": "4.11.4",
-      "tar": "7.5.4"
+      "tar": "7.5.4",
+      "libsignal": "git+https://github.com/whiskeysockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67"
     }
   },
   "vitest": {
