@@ -217,7 +217,7 @@ node moltbot.mjs agent --message "你好，测试一下"
 ### 问题：企业微信收不到消息
 **检查清单**：
 1. 在企业微信后台验证 Webhook URL 配置是否正确
-2. 检查 `.env` 中的 `WECOM_TOKEN` 和 `WECOM_ENCODING_AES_KEY` 是否与后台一致
+2. 检查 `.env` 中的 `WECOM_TOKEN` 和 `WECOM_AESKEY` 是否与后台一致
 3. 确认服务器防火墙已开放 18789 端口
 4. 查看终端日志，确认企业微信 Webhook 已注册成功
 

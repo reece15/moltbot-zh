@@ -251,11 +251,11 @@ export function applySiliconFlowEnv(cfg: MoltbotConfig): MoltbotConfig {
 }
 
 export function applyWeComEnv(cfg: MoltbotConfig): MoltbotConfig {
-  const corpid = process.env.WECOM_CORP_ID?.trim() || process.env.WECOM_CORPID?.trim();
-  const agentid = process.env.WECOM_AGENT_ID?.trim() || process.env.WECOM_AGENTID?.trim();
-  const secret = process.env.WECOM_SECRET?.trim() || process.env.WECOM_CORPSECRET?.trim();
+  const corpid = process.env.WECOM_CORPID?.trim() || process.env.WECOM_CORPID?.trim();
+  const agentid = process.env.WECOM_AGENTID?.trim() || process.env.WECOM_AGENTID?.trim();
+  const secret = process.env.WECOM_CORPSECRET?.trim() || process.env.WECOM_CORPSECRET?.trim();
   const token = process.env.WECOM_TOKEN?.trim();
-  const aesKey = process.env.WECOM_ENCODING_AES_KEY?.trim() || process.env.WECOM_AESKEY?.trim();
+  const aesKey = process.env.WECOM_AESKEY?.trim() || process.env.WECOM_AESKEY?.trim();
 
   if (!corpid || !agentid || !secret) return cfg;
 
