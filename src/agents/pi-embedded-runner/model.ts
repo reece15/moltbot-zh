@@ -65,7 +65,9 @@ export function resolveModel(
     const inlineModels = buildInlineProviderModels(providers);
     const normalizedProvider = normalizeProviderId(provider);
     const inlineMatch = inlineModels.find(
-      (entry) => normalizeProviderId(entry.provider) === normalizedProvider && entry.id === modelId,
+      (entry) =>
+        normalizeProviderId(entry.provider) === normalizedProvider &&
+        (entry.id === modelId || entry.id === `${entry.provider}/${modelId}`),
     );
     if (inlineMatch) {
       const normalized = normalizeModelCompat(inlineMatch as Model<Api>);
@@ -75,7 +77,9 @@ export function resolveModel(
         modelRegistry,
       };
     }
-    const providerCfg = providers[provider];
+    const providerCfg =
+      providers[provider] ??
+      Object.entries(providers).find(([k]) => normalizeProviderId(k) === normalizedProvider)?.[1];
     if (providerCfg || modelId.startsWith("mock-")) {
       const fallbackModel: Model<Api> = normalizeModelCompat({
         id: modelId,

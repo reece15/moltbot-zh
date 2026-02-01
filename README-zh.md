@@ -8,26 +8,29 @@ Moltbot 是一个强大的多模态 AI 机器人网关，支持 WhatsApp, Telegr
 
 ## 🚀 快速开始：使用发布包运行 (推荐)
 
-### 📋 1. 环境准备
-
-在开始之前，请确保您的运行环境满足以下要求：
-
-- **操作系统**: Linux, macOS 或 Windows
-- **Node.js**: 版本 22 或更高 (推荐使用 `nvm` 安装管理)
-
-### 📥 2. 下载与安装
+如果您不想配置复杂的开发环境，可以直接使用我们提供的预编译发布包。
 
 1.  **下载发布包**:
-    前往 [GitHub Releases](https://github.com/moltbot/moltbot/releases) 页面，下载最新版本的发布包 (通常命名为 `moltbot-release.zip`)。
+    前往 [GitHub Releases](https://github.com/moltbot/moltbot/releases) 页面，下载最新版本的发布包 (`moltbot-release.zip`)。
 
-2.  **解压文件**:
-    将下载的压缩包解压到您希望运行的目录。
-
-3.  **安装依赖**:
-    进入解压后的目录，运行以下命令安装必要的运行依赖：
+2.  **解压并进入目录**:
     ```bash
-    npm install --omit=dev
+    unzip moltbot-release.zip
+    cd moltbot-package
     ```
+
+3.  **配置环境**:
+    ```bash
+    cp .env.example .env
+    # 编辑 .env 文件，填入您的 API Key (SiliconFlow, WeCom 等)
+    nano .env
+    ```
+
+4.  **一键启动**:
+    ```bash
+    ./start.sh
+    ```
+    脚本会自动检测并安装依赖（如需），然后启动 Moltbot 网关。
 
 ---
 

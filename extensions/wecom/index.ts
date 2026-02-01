@@ -8,6 +8,9 @@ const plugin = {
   id: "wecom",
   name: "WeCom",
   description: "Enterprise WeChat (WeCom) channel plugin",
+  meta: {
+    quickstartAllowFrom: true,
+  },
   configSchema: emptyPluginConfigSchema(),
   register(api: MoltbotPluginApi) {
     setWeComRuntime(api.runtime);

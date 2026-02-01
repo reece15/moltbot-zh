@@ -208,7 +208,7 @@ export function applySiliconFlowEnv(cfg: MoltbotConfig): MoltbotConfig {
   if (existingProviders.siliconflow) return cfg;
 
   const siliconFlowProvider = {
-    baseUrl: "https://api.siliconflow.cn/v1",
+    baseUrl: process.env.SILICONFLOW_BASE_URL || "https://api.siliconflow.cn/v1",
     apiKey,
     api: "openai-completions",
     models: [

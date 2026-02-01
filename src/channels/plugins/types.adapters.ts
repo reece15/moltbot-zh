@@ -2,6 +2,7 @@ import type { MoltbotConfig } from "../../config/config.js";
 import type { ReplyPayload } from "../../auto-reply/types.js";
 import type { GroupToolPolicyConfig } from "../../config/types.tools.js";
 import type { OutboundDeliveryResult, OutboundSendDeps } from "../../infra/outbound/deliver.js";
+export type { OutboundDeliveryResult };
 import type { RuntimeEnv } from "../../runtime.js";
 import type {
   ChannelAccountSnapshot,

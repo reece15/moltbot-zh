@@ -31,7 +31,7 @@ export class WeComCrypto {
     ]);
 
     // Remove PKCS7 padding
-    const pad = decrypted[decrypted.length - 1];
+    let pad = decrypted[decrypted.length - 1];
     if (pad < 1 || pad > 32) {
       pad = 0;
     }

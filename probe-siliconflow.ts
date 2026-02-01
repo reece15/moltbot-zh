@@ -1,6 +1,6 @@
 
 const apiKey = process.env.SILICONFLOW_API_KEY;
-const baseURL = "https://api.siliconflow.cn/v1";
+const baseURL = process.env.SILICONFLOW_BASE_URL || "https://api.siliconflow.cn/v1";
 
 if (!apiKey) {
   console.error("Please set SILICONFLOW_API_KEY");

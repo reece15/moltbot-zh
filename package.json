@@ -1,6 +1,6 @@
 {
   "name": "moltbot",
-  "version": "2026.1.37",
+  "version": "2026.1.38",
   "description": "WhatsApp gateway CLI (Baileys web) with Pi RPC agent",
   "type": "module",
   "main": "dist/index.js",
@@ -243,7 +243,7 @@
   },
   "overrides": {
     "tar": "7.5.4",
-    "libsignal": "git+https://github.com/whiskeysockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67"
+    "libsignal": "file:vendor/libsignal-node.tar.gz"
   },
   "pnpm": {
     "minimumReleaseAge": 2880,
@@ -251,7 +251,7 @@
       "@sinclair/typebox": "0.34.47",
       "hono": "4.11.4",
       "tar": "7.5.4",
-      "libsignal": "git+https://github.com/whiskeysockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67"
+      "libsignal": "file:vendor/libsignal-node.tar.gz"
     }
   },
   "vitest": {

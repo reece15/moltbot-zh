@@ -45,9 +45,12 @@ jobs:
           cp README-zh.md moltbot-package/
           cp LICENSE moltbot-package/
           cp -r scripts moltbot-package/
+          cp -r docs moltbot-package/
+          cp -r assets moltbot-package/
+          cp -r skills moltbot-package/
           rsync -av --exclude='node_modules' extensions moltbot-package/
 
-          # Create .npmrc to prevent pnpm from failing on peer dependencies
+          # Create .npmrc for production
           echo 'auto-install-peers=false' > moltbot-package/.npmrc
           echo 'strict-peer-dependencies=false' >> moltbot-package/.npmrc
           # Ensure typescript is ignored as a peer dependency
@@ -97,6 +100,14 @@ jobs:
           echo '    echo "# GATEWAY_PORT=18789" >> .env' >> moltbot-package/start.sh
           echo '    echo "# GATEWAY_BIND=loopback" >> .env' >> moltbot-package/start.sh
           echo '  fi' >> moltbot-package/start.sh
+          echo 'fi' >> moltbot-package/start.sh
+          echo '' >> moltbot-package/start.sh
+          echo '# Check templates' >> moltbot-package/start.sh
+          echo 'TEMPLATE_DIR="docs/reference/templates"' >> moltbot-package/start.sh
+          echo 'if [ ! -d "$TEMPLATE_DIR" ]; then' >> moltbot-package/start.sh
+          echo '  echo "Creating missing template directory..."' >> moltbot-package/start.sh
+          echo '  mkdir -p "$TEMPLATE_DIR"' >> moltbot-package/start.sh
+          echo '  echo "You are Moltbot." > "$TEMPLATE_DIR/IDENTITY.md"' >> moltbot-package/start.sh
           echo 'fi' >> moltbot-package/start.sh
           echo '' >> moltbot-package/start.sh
           echo '# Default to starting gateway if no args provided' >> moltbot-package/start.sh

@@ -8,7 +8,7 @@ overrides:
   '@sinclair/typebox': 0.34.47
   hono: 4.11.4
   tar: 7.5.4
-  libsignal: git+https://github.com/whiskeysockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67
+  libsignal: file:vendor/libsignal-node.tar.gz
 
 importers:
 
@@ -2919,8 +2919,8 @@ packages:
       link-preview-js:
         optional: true
 
-  '@whiskeysockets/libsignal-node@https://codeload.github.com/whiskeysockets/libsignal-node/tar.gz/1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67':
-    resolution: {tarball: https://codeload.github.com/whiskeysockets/libsignal-node/tar.gz/1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67}
+  '@whiskeysockets/libsignal-node@file:vendor/libsignal-node.tar.gz':
+    resolution: {integrity: sha512-/bVVmcH9cQi0WljVkF/jfSMXDhq5P3HkkJw6633ZsYe7DXKP72BOPM+Oi09ZkR6SoCcXePk6i5xgYY/FiRH4xA==, tarball: file:vendor/libsignal-node.tar.gz}
     version: 2.0.1
 
   abort-controller@3.0.0:
@@ -8717,7 +8717,7 @@ snapshots:
       '@cacheable/node-cache': 1.7.6
       '@hapi/boom': 9.1.4
       async-mutex: 0.5.0
-      libsignal: '@whiskeysockets/libsignal-node@https://codeload.github.com/whiskeysockets/libsignal-node/tar.gz/1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67'
+      libsignal: '@whiskeysockets/libsignal-node@file:vendor/libsignal-node.tar.gz'
       lru-cache: 11.2.4
       music-metadata: 11.10.6
       p-queue: 9.1.0
@@ -8732,7 +8732,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@whiskeysockets/libsignal-node@https://codeload.github.com/whiskeysockets/libsignal-node/tar.gz/1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67':
+  '@whiskeysockets/libsignal-node@file:vendor/libsignal-node.tar.gz':
     dependencies:
       curve25519-js: 0.0.4
       protobufjs: 6.8.8

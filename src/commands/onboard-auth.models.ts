@@ -20,7 +20,8 @@ export const KIMI_CODE_MAX_TOKENS = 32768;
 export const KIMI_CODE_HEADERS = { "User-Agent": "KimiCLI/0.77" } as const;
 export const KIMI_CODE_COMPAT = { supportsDeveloperRole: false } as const;
 
-export const SILICONFLOW_BASE_URL = "https://api.siliconflow.cn/v1";
+export const SILICONFLOW_BASE_URL =
+  process.env.SILICONFLOW_BASE_URL || "https://api.siliconflow.cn/v1";
 export const SILICONFLOW_DEFAULT_MODEL_ID = "Pro/MiniMaxAI/MiniMax-M2.1"; // Fallback/Default
 export const SILICONFLOW_DEFAULT_MODEL_REF = `siliconflow/${SILICONFLOW_DEFAULT_MODEL_ID}`;
 export const SILICONFLOW_DEFAULT_CONTEXT_WINDOW = 128000; // Updated for MiniMax M2.1

@@ -94,12 +94,17 @@ async function promptWebToolsConfig(
 ): Promise<MoltbotConfig> {
   const existingSearch = nextConfig.tools?.web?.search;
   const existingFetch = nextConfig.tools?.web?.fetch;
-  const hasSearchKey = Boolean(existingSearch?.apiKey);
+
+  const envProvider = process.env.WEB_SEARCH_PROVIDER?.trim().toLowerCase();
+  const configProvider = existingSearch?.provider;
+  const hasBraveKey = Boolean(existingSearch?.apiKey);
+  // Default to config, then env, then check if legacy Brave key exists
+  const effectiveProvider = configProvider || envProvider || (hasBraveKey ? "brave" : undefined);
 
   note(
     [
       "Web search lets your agent look things up online using the `web_search` tool.",
-      "It requires a Brave Search API key (you can store it in the config or set BRAVE_API_KEY in the Gateway environment).",
+      "Supported providers: Brave, Tavily, Perplexity.",
       "Docs: https://docs.molt.bot/tools/web",
     ].join("\n"),
     "Web search",
@@ -107,39 +112,95 @@ async function promptWebToolsConfig(
 
   const enableSearch = guardCancel(
     await confirm({
-      message: "Enable web_search (Brave Search)?",
-      initialValue: existingSearch?.enabled ?? hasSearchKey,
+      message: "Enable web_search?",
+      initialValue: existingSearch?.enabled ?? (Boolean(effectiveProvider) || hasBraveKey),
     }),
     runtime,
   );
 
-  let nextSearch = {
+  // Use 'any' to build up the search config incrementally without strict type errors during construction
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let nextSearch: any = {
     ...existingSearch,
     enabled: enableSearch,
   };
 
   if (enableSearch) {
-    const keyInput = guardCancel(
-      await text({
-        message: hasSearchKey
-          ? "Brave Search API key (leave blank to keep current or use BRAVE_API_KEY)"
-          : "Brave Search API key (paste it here; leave blank to use BRAVE_API_KEY)",
-        placeholder: hasSearchKey ? "Leave blank to keep current" : "BSA...",
+    const provider = guardCancel(
+      await select({
+        message: "Select search provider",
+        options: [
+          { value: "brave", label: "Brave Search" },
+          { value: "tavily", label: "Tavily" },
+          { value: "perplexity", label: "Perplexity" },
+        ],
+        initialValue: effectiveProvider || "brave",
       }),
       runtime,
-    );
-    const key = String(keyInput ?? "").trim();
-    if (key) {
-      nextSearch = { ...nextSearch, apiKey: key };
-    } else if (!hasSearchKey) {
-      note(
-        [
-          "No key stored yet, so web_search will stay unavailable.",
-          "Store a key here or set BRAVE_API_KEY in the Gateway environment.",
-          "Docs: https://docs.molt.bot/tools/web",
-        ].join("\n"),
-        "Web search",
+    ) as "brave" | "tavily" | "perplexity";
+
+    nextSearch.provider = provider;
+
+    if (provider === "brave") {
+      const currentKey = existingSearch?.apiKey;
+      const keyInput = guardCancel(
+        await text({
+          message: currentKey
+            ? "Brave Search API key (leave blank to keep current or use BRAVE_API_KEY)"
+            : "Brave Search API key (paste it here; leave blank to use BRAVE_API_KEY)",
+          placeholder: currentKey ? "Leave blank to keep current" : "BSA...",
+        }),
+        runtime,
       );
+      const key = String(keyInput ?? "").trim();
+      if (key) {
+        nextSearch.apiKey = key;
+      } else if (!currentKey) {
+        note(
+          "No key stored yet. Set BRAVE_API_KEY in the Gateway environment or configure here.",
+          "Web search",
+        );
+      }
+    } else if (provider === "tavily") {
+      const currentKey = existingSearch?.tavily?.apiKey;
+      const keyInput = guardCancel(
+        await text({
+          message: currentKey
+            ? "Tavily API key (leave blank to keep current or use TAVILY_API_KEY)"
+            : "Tavily API key (paste it here; leave blank to use TAVILY_API_KEY)",
+          placeholder: currentKey ? "Leave blank to keep current" : "tvly-...",
+        }),
+        runtime,
+      );
+      const key = String(keyInput ?? "").trim();
+      if (key) {
+        nextSearch.tavily = { ...nextSearch.tavily, apiKey: key };
+      } else if (!currentKey) {
+        note(
+          "No key stored yet. Set TAVILY_API_KEY in the Gateway environment or configure here.",
+          "Web search",
+        );
+      }
+    } else if (provider === "perplexity") {
+      const currentKey = existingSearch?.perplexity?.apiKey;
+      const keyInput = guardCancel(
+        await text({
+          message: currentKey
+            ? "Perplexity API key (leave blank to keep current or use PERPLEXITY_API_KEY)"
+            : "Perplexity API key (paste it here; leave blank to use PERPLEXITY_API_KEY)",
+          placeholder: currentKey ? "Leave blank to keep current" : "pplx-...",
+        }),
+        runtime,
+      );
+      const key = String(keyInput ?? "").trim();
+      if (key) {
+        nextSearch.perplexity = { ...nextSearch.perplexity, apiKey: key };
+      } else if (!currentKey) {
+        note(
+          "No key stored yet. Set PERPLEXITY_API_KEY in the Gateway environment or configure here.",
+          "Web search",
+        );
+      }
     }
   }
 

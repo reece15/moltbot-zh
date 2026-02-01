@@ -147,6 +147,11 @@ export function buildAuthChoiceOptions(params: {
     label: "Vercel AI Gateway API key",
   });
   options.push({ value: "moonshot-api-key", label: "Moonshot AI API key" });
+  options.push({
+    value: "siliconflow-api-key",
+    label: "SiliconFlow API key",
+    hint: "DeepSeek/GLM/Kimi (recommended)",
+  });
   options.push({ value: "kimi-code-api-key", label: "Kimi Code API key" });
   options.push({ value: "synthetic-api-key", label: "Synthetic API key" });
   options.push({

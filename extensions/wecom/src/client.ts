@@ -39,16 +39,26 @@ export class WeComClient {
   }
 
   async sendText(toUser: string, content: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.queue = this.queue.then(async () => {
-        try {
-          await this.doSendText(toUser, content);
-          resolve();
-        } catch (err) {
-          reject(err);
-        }
-      });
-    });
+    const task = async () => {
+      console.log(`[WeCom] Processing sendText for ${toUser}: ${content.slice(0, 20)}...`);
+      try {
+        await this.doSendText(toUser, content);
+        console.log(`[WeCom] Successfully sent to ${toUser}`);
+      } catch (err) {
+        console.error(`[WeCom] Failed to send to ${toUser}:`, err);
+        throw err;
+      }
+    };
+
+    // Ensure we run regardless of previous task status
+    const next = this.queue.then(task, task);
+    
+    // Update queue but keep it chainable (catch errors so they don't crash the loop, 
+    // though .then(task, task) actually propagates the new error which is fine 
+    // as long as the next iteration handles rejection via .then(..., ...))
+    this.queue = next;
+
+    return next;
   }
 
   private async doSendText(toUser: string, content: string): Promise<void> {

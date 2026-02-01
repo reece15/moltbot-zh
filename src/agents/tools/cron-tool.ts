@@ -1,5 +1,6 @@
 import { Type } from "@sinclair/typebox";
 import { normalizeCronJobCreate, normalizeCronJobPatch } from "../../cron/normalize.js";
+import { parseDurationMs } from "../../cli/parse-duration.js";
 import { loadConfig } from "../../config/config.js";
 import { truncateUtf16Safe } from "../../utils.js";
 import { optionalStringEnum, stringEnum } from "../schema/typebox.js";
@@ -157,6 +158,8 @@ JOB SCHEMA (for add action):
 SCHEDULE TYPES (schedule.kind):
 - "at": One-shot at absolute time
   { "kind": "at", "atMs": <unix-ms-timestamp> }
+  OR
+  { "kind": "at", "at": "<duration>" } (e.g. "5m", "1h", "30s") - PREFERRED for relative times
 - "every": Recurring interval
   { "kind": "every", "everyMs": <interval-ms>, "anchorMs": <optional-start-ms> }
 - "cron": Cron expression
@@ -200,7 +203,49 @@ Use jobId as the canonical identifier; id is accepted for compatibility. Use con
           if (!params.job || typeof params.job !== "object") {
             throw new Error("job required");
           }
+
+          // Pre-process relative 'at' times in schedule
+          const rawJob = params.job as {
+            schedule?: { at?: unknown; atMs?: unknown; kind?: unknown };
+          };
+          if (rawJob.schedule && typeof rawJob.schedule === "object") {
+            const at = rawJob.schedule.at;
+            if (typeof at === "string" && at.trim()) {
+              try {
+                // If it looks like a duration, parse it and convert to absolute time
+                // This avoids LLM hallucinating current timestamps or doing bad math
+                if (/^(\d+(?:\.\d+)?)(ms|s|m|h|d)$/i.test(at.trim())) {
+                  const durationMs = parseDurationMs(at);
+                  rawJob.schedule.atMs = Date.now() + durationMs;
+                  // Ensure kind is 'at'
+                  if (!rawJob.schedule.kind) {
+                    rawJob.schedule.kind = "at";
+                  }
+                }
+              } catch {
+                // Ignore parse errors, let normalization handle it or fail later
+              }
+            }
+          }
+
           const job = normalizeCronJobCreate(params.job) ?? params.job;
+
+          // Ensure one-shot jobs use wakeMode="now" by default for reliable delivery
+          if (
+            job &&
+            typeof job === "object" &&
+            "schedule" in job &&
+            (job as { schedule: { kind?: string } }).schedule?.kind === "at" &&
+            "wakeMode" in job &&
+            (job as { wakeMode: string }).wakeMode === "next-heartbeat"
+          ) {
+            // Only override if the original input didn't specify it (meaning it got the default)
+            const rawWakeMode = (params.job as { wakeMode?: unknown }).wakeMode;
+            if (!rawWakeMode) {
+              (job as { wakeMode: string }).wakeMode = "now";
+            }
+          }
+
           if (job && typeof job === "object" && !("agentId" in job)) {
             const cfg = loadConfig();
             const agentId = opts?.agentSessionKey

@@ -398,7 +398,7 @@ export function createDiscordNativeCommand(params: {
   accountId: string;
   sessionPrefix: string;
   ephemeralDefault: boolean;
-}) {
+}): Command {
   const { command, cfg, discordConfig, accountId, sessionPrefix, ephemeralDefault } = params;
   const commandDefinition =
     findCommandByNativeName(command.name, "discord") ??

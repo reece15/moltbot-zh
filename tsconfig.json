@@ -11,6 +11,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noEmitOnError": true,
+    "declaration": true,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"],
@@ -19,6 +20,8 @@
     "dist",
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
-    "src/**/test-helpers.ts"
+    "src/**/test-helpers.ts",
+    "src/**/*.mocks.ts",
+    "src/**/*.test-helpers*.ts"
   ]
 }

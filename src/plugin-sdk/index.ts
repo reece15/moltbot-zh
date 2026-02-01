@@ -37,6 +37,7 @@ export type {
   ChannelMeta,
   ChannelOutboundAdapter,
   ChannelOutboundContext,
+  OutboundDeliveryResult,
   ChannelOutboundTargetMode,
   ChannelPairingAdapter,
   ChannelPollContext,
@@ -208,6 +209,10 @@ export { PAIRING_APPROVED_MESSAGE } from "../channels/plugins/pairing-message.js
 export type {
   ChannelOnboardingAdapter,
   ChannelOnboardingDmPolicy,
+  ChannelOnboardingConfigureContext,
+  ChannelOnboardingResult,
+  ChannelOnboardingStatus,
+  ChannelOnboardingStatusContext,
 } from "../channels/plugins/onboarding-types.js";
 export { addWildcardAllowFrom, promptAccountId } from "../channels/plugins/onboarding/helpers.js";
 export { promptChannelAccessConfig } from "../channels/plugins/onboarding/channel-access.js";

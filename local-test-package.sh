@@ -19,6 +19,8 @@ cp README-zh.md moltbot-package/
 cp LICENSE moltbot-package/
 cp -r scripts moltbot-package/
 cp -r docs moltbot-package/
+cp -r assets moltbot-package/
+cp -r skills moltbot-package/
 rsync -av --exclude='node_modules' extensions moltbot-package/
 
 # Create .npmrc
@@ -71,6 +73,14 @@ echo '    echo "GATEWAY_MODE=local" > .env' >> "$START_SCRIPT"
 echo '    echo "# GATEWAY_PORT=18789" >> .env' >> "$START_SCRIPT"
 echo '    echo "# GATEWAY_BIND=loopback" >> .env' >> "$START_SCRIPT"
 echo '  fi' >> "$START_SCRIPT"
+echo 'fi' >> "$START_SCRIPT"
+echo '' >> "$START_SCRIPT"
+echo '# Check templates' >> "$START_SCRIPT"
+echo 'TEMPLATE_DIR="docs/reference/templates"' >> "$START_SCRIPT"
+echo 'if [ ! -d "$TEMPLATE_DIR" ]; then' >> "$START_SCRIPT"
+echo '  echo "Creating missing template directory..."' >> "$START_SCRIPT"
+echo '  mkdir -p "$TEMPLATE_DIR"' >> "$START_SCRIPT"
+echo '  echo "You are Moltbot." > "$TEMPLATE_DIR/IDENTITY.md"' >> "$START_SCRIPT"
 echo 'fi' >> "$START_SCRIPT"
 echo '' >> "$START_SCRIPT"
 echo '# Default to starting gateway if no args provided' >> "$START_SCRIPT"

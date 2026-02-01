@@ -116,13 +116,22 @@ async function collectChannelStatus(params: {
     (entry) => !installedIds.has(entry.id),
   );
   const statusEntries = await Promise.all(
-    listChannelOnboardingAdapters().map((adapter) =>
-      adapter.getStatus({
+    listChannelOnboardingAdapters().map(async (adapter) => {
+      if (typeof adapter.getStatus !== "function") {
+        return {
+          channel: adapter.channel,
+          configured: false,
+          statusLines: [],
+          selectionHint: "not configured",
+          quickstartScore: 0,
+        };
+      }
+      return adapter.getStatus({
         cfg: params.cfg,
         options: params.options,
         accountOverrides: params.accountOverrides,
-      }),
-    ),
+      });
+    }),
   );
   const statusByChannel = new Map(statusEntries.map((entry) => [entry.channel, entry]));
   const fallbackStatuses = listChatChannels()
