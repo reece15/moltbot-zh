@@ -64,7 +64,7 @@ MOLTBOT_AGENTS_DEFAULTS_PRIMARY_MODEL="deepseek-ai/DeepSeek-V3.2"
 ```
 
 #### 💬 2. 企业微信 (WeCom)
-配置企业微信参数。
+发布包已默认启用企业微信插件，无需额外安装。请配置以下参数：
 ```properties
 # 填入企业微信后台获取的信息
 WECOM_CORPID="ww-your-corp-id"
