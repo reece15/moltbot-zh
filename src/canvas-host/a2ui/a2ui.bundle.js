@@ -1,240 +1,239 @@
+
+//#region rolldown:runtime
 var __defProp$1 = Object.defineProperty;
-var __exportAll = (all, symbols) => {
-	let target = {};
-	for (var name in all) {
-		__defProp$1(target, name, {
-			get: all[name],
-			enumerable: true
-		});
-	}
-	if (symbols) {
-		__defProp$1(target, Symbol.toStringTag, { value: "Module" });
-	}
-	return target;
+var __export = (target, all) => {
+	for (var name in all) __defProp$1(target, name, {
+		get: all[name],
+		enumerable: true
+	});
 };
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/css-tag.js
 /**
 * @license
 * Copyright 2019 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-const t$6 = globalThis, e$13 = t$6.ShadowRoot && (void 0 === t$6.ShadyCSS || t$6.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, s$8 = Symbol(), o$14 = new WeakMap();
-var n$12 = class {
-	constructor(t, e, o) {
-		if (this._$cssResult$ = !0, o !== s$8) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
-		this.cssText = t, this.t = e;
+const t$6 = globalThis, e$12 = t$6.ShadowRoot && (void 0 === t$6.ShadyCSS || t$6.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, s$8 = Symbol(), o$13 = new WeakMap();
+var n$9 = class {
+	constructor(t$7, e$14, o$14) {
+		if (this._$cssResult$ = !0, o$14 !== s$8) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
+		this.cssText = t$7, this.t = e$14;
 	}
 	get styleSheet() {
-		let t = this.o;
-		const s = this.t;
-		if (e$13 && void 0 === t) {
-			const e = void 0 !== s && 1 === s.length;
-			e && (t = o$14.get(s)), void 0 === t && ((this.o = t = new CSSStyleSheet()).replaceSync(this.cssText), e && o$14.set(s, t));
+		let t$7 = this.o;
+		const s$9 = this.t;
+		if (e$12 && void 0 === t$7) {
+			const e$14 = void 0 !== s$9 && 1 === s$9.length;
+			e$14 && (t$7 = o$13.get(s$9)), void 0 === t$7 && ((this.o = t$7 = new CSSStyleSheet()).replaceSync(this.cssText), e$14 && o$13.set(s$9, t$7));
 		}
-		return t;
+		return t$7;
 	}
 	toString() {
 		return this.cssText;
 	}
 };
-const r$11 = (t) => new n$12("string" == typeof t ? t : t + "", void 0, s$8), i$9 = (t, ...e) => {
-	const o = 1 === t.length ? t[0] : e.reduce((e, s, o) => e + ((t) => {
-		if (!0 === t._$cssResult$) return t.cssText;
-		if ("number" == typeof t) return t;
-		throw Error("Value passed to 'css' function must be a 'css' function result: " + t + ". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.");
-	})(s) + t[o + 1], t[0]);
-	return new n$12(o, t, s$8);
-}, S$1 = (s, o) => {
-	if (e$13) s.adoptedStyleSheets = o.map((t) => t instanceof CSSStyleSheet ? t : t.styleSheet);
-	else for (const e of o) {
-		const o = document.createElement("style"), n = t$6.litNonce;
-		void 0 !== n && o.setAttribute("nonce", n), o.textContent = e.cssText, s.appendChild(o);
+const r = (t$7) => new n$9("string" == typeof t$7 ? t$7 : t$7 + "", void 0, s$8), i = (t$7, ...e$14) => {
+	const o$14 = 1 === t$7.length ? t$7[0] : e$14.reduce((e$15, s$9, o$15) => e$15 + ((t$8) => {
+		if (!0 === t$8._$cssResult$) return t$8.cssText;
+		if ("number" == typeof t$8) return t$8;
+		throw Error("Value passed to 'css' function must be a 'css' function result: " + t$8 + ". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.");
+	})(s$9) + t$7[o$15 + 1], t$7[0]);
+	return new n$9(o$14, t$7, s$8);
+}, S$1 = (s$9, o$14) => {
+	if (e$12) s$9.adoptedStyleSheets = o$14.map((t$7) => t$7 instanceof CSSStyleSheet ? t$7 : t$7.styleSheet);
+else for (const e$14 of o$14) {
+		const o$15 = document.createElement("style"), n$11 = t$6.litNonce;
+		void 0 !== n$11 && o$15.setAttribute("nonce", n$11), o$15.textContent = e$14.cssText, s$9.appendChild(o$15);
 	}
-}, c$6 = e$13 ? (t) => t : (t) => t instanceof CSSStyleSheet ? ((t) => {
-	let e = "";
-	for (const s of t.cssRules) e += s.cssText;
-	return r$11(e);
-})(t) : t;
+}, c$5 = e$12 ? (t$7) => t$7 : (t$7) => t$7 instanceof CSSStyleSheet ? ((t$8) => {
+	let e$14 = "";
+	for (const s$9 of t$8.cssRules) e$14 += s$9.cssText;
+	return r(e$14);
+})(t$7) : t$7;
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/reactive-element.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const { is: i$8, defineProperty: e$12, getOwnPropertyDescriptor: h$6, getOwnPropertyNames: r$10, getOwnPropertySymbols: o$13, getPrototypeOf: n$11 } = Object, a$1 = globalThis, c$5 = a$1.trustedTypes, l$4 = c$5 ? c$5.emptyScript : "", p$2 = a$1.reactiveElementPolyfillSupport, d$2 = (t, s) => t, u$3 = {
-	toAttribute(t, s) {
-		switch (s) {
+*/ const { is: i$9, defineProperty: e$13, getOwnPropertyDescriptor: h$6, getOwnPropertyNames: r$10, getOwnPropertySymbols: o$12, getPrototypeOf: n$10 } = Object, a$1 = globalThis, c$6 = a$1.trustedTypes, l$4 = c$6 ? c$6.emptyScript : "", p$2 = a$1.reactiveElementPolyfillSupport, d$2 = (t$7, s$9) => t$7, u = {
+	toAttribute(t$7, s$9) {
+		switch (s$9) {
 			case Boolean:
-				t = t ? l$4 : null;
+				t$7 = t$7 ? l$4 : null;
 				break;
 			case Object:
-			case Array: t = null == t ? t : JSON.stringify(t);
+			case Array: t$7 = null == t$7 ? t$7 : JSON.stringify(t$7);
 		}
-		return t;
+		return t$7;
 	},
-	fromAttribute(t, s) {
-		let i = t;
-		switch (s) {
+	fromAttribute(t$7, s$9) {
+		let i$10 = t$7;
+		switch (s$9) {
 			case Boolean:
-				i = null !== t;
+				i$10 = null !== t$7;
 				break;
 			case Number:
-				i = null === t ? null : Number(t);
+				i$10 = null === t$7 ? null : Number(t$7);
 				break;
 			case Object:
 			case Array: try {
-				i = JSON.parse(t);
-			} catch (t) {
-				i = null;
+				i$10 = JSON.parse(t$7);
+			} catch (t$8) {
+				i$10 = null;
 			}
 		}
-		return i;
+		return i$10;
 	}
-}, f$3 = (t, s) => !i$8(t, s), b$1 = {
+}, f$1 = (t$7, s$9) => !i$9(t$7, s$9), b$1 = {
 	attribute: !0,
 	type: String,
-	converter: u$3,
+	converter: u,
 	reflect: !1,
 	useDefault: !1,
-	hasChanged: f$3
+	hasChanged: f$1
 };
 Symbol.metadata ??= Symbol("metadata"), a$1.litPropertyMetadata ??= new WeakMap();
-var y$1 = class extends HTMLElement {
-	static addInitializer(t) {
-		this._$Ei(), (this.l ??= []).push(t);
+var y = class extends HTMLElement {
+	static addInitializer(t$7) {
+		this._$Ei(), (this.l ??= []).push(t$7);
 	}
 	static get observedAttributes() {
 		return this.finalize(), this._$Eh && [...this._$Eh.keys()];
 	}
-	static createProperty(t, s = b$1) {
-		if (s.state && (s.attribute = !1), this._$Ei(), this.prototype.hasOwnProperty(t) && ((s = Object.create(s)).wrapped = !0), this.elementProperties.set(t, s), !s.noAccessor) {
-			const i = Symbol(), h = this.getPropertyDescriptor(t, i, s);
-			void 0 !== h && e$12(this.prototype, t, h);
+	static createProperty(t$7, s$9 = b$1) {
+		if (s$9.state && (s$9.attribute = !1), this._$Ei(), this.prototype.hasOwnProperty(t$7) && ((s$9 = Object.create(s$9)).wrapped = !0), this.elementProperties.set(t$7, s$9), !s$9.noAccessor) {
+			const i$10 = Symbol(), h$7 = this.getPropertyDescriptor(t$7, i$10, s$9);
+			void 0 !== h$7 && e$13(this.prototype, t$7, h$7);
 		}
 	}
-	static getPropertyDescriptor(t, s, i) {
-		const { get: e, set: r } = h$6(this.prototype, t) ?? {
+	static getPropertyDescriptor(t$7, s$9, i$10) {
+		const { get: e$14, set: r$11 } = h$6(this.prototype, t$7) ?? {
 			get() {
-				return this[s];
+				return this[s$9];
 			},
-			set(t) {
-				this[s] = t;
+			set(t$8) {
+				this[s$9] = t$8;
 			}
 		};
 		return {
-			get: e,
-			set(s) {
-				const h = e?.call(this);
-				r?.call(this, s), this.requestUpdate(t, h, i);
+			get: e$14,
+			set(s$10) {
+				const h$7 = e$14?.call(this);
+				r$11?.call(this, s$10), this.requestUpdate(t$7, h$7, i$10);
 			},
 			configurable: !0,
 			enumerable: !0
 		};
 	}
-	static getPropertyOptions(t) {
-		return this.elementProperties.get(t) ?? b$1;
+	static getPropertyOptions(t$7) {
+		return this.elementProperties.get(t$7) ?? b$1;
 	}
 	static _$Ei() {
 		if (this.hasOwnProperty(d$2("elementProperties"))) return;
-		const t = n$11(this);
-		t.finalize(), void 0 !== t.l && (this.l = [...t.l]), this.elementProperties = new Map(t.elementProperties);
+		const t$7 = n$10(this);
+		t$7.finalize(), void 0 !== t$7.l && (this.l = [...t$7.l]), this.elementProperties = new Map(t$7.elementProperties);
 	}
 	static finalize() {
 		if (this.hasOwnProperty(d$2("finalized"))) return;
 		if (this.finalized = !0, this._$Ei(), this.hasOwnProperty(d$2("properties"))) {
-			const t = this.properties, s = [...r$10(t), ...o$13(t)];
-			for (const i of s) this.createProperty(i, t[i]);
+			const t$8 = this.properties, s$9 = [...r$10(t$8), ...o$12(t$8)];
+			for (const i$10 of s$9) this.createProperty(i$10, t$8[i$10]);
 		}
-		const t = this[Symbol.metadata];
-		if (null !== t) {
-			const s = litPropertyMetadata.get(t);
-			if (void 0 !== s) for (const [t, i] of s) this.elementProperties.set(t, i);
+		const t$7 = this[Symbol.metadata];
+		if (null !== t$7) {
+			const s$9 = litPropertyMetadata.get(t$7);
+			if (void 0 !== s$9) for (const [t$8, i$10] of s$9) this.elementProperties.set(t$8, i$10);
 		}
 		this._$Eh = new Map();
-		for (const [t, s] of this.elementProperties) {
-			const i = this._$Eu(t, s);
-			void 0 !== i && this._$Eh.set(i, t);
+		for (const [t$8, s$9] of this.elementProperties) {
+			const i$10 = this._$Eu(t$8, s$9);
+			void 0 !== i$10 && this._$Eh.set(i$10, t$8);
 		}
 		this.elementStyles = this.finalizeStyles(this.styles);
 	}
-	static finalizeStyles(s) {
-		const i = [];
-		if (Array.isArray(s)) {
-			const e = new Set(s.flat(1 / 0).reverse());
-			for (const s of e) i.unshift(c$6(s));
-		} else void 0 !== s && i.push(c$6(s));
-		return i;
+	static finalizeStyles(s$9) {
+		const i$10 = [];
+		if (Array.isArray(s$9)) {
+			const e$14 = new Set(s$9.flat(1 / 0).reverse());
+			for (const s$10 of e$14) i$10.unshift(c$5(s$10));
+		} else void 0 !== s$9 && i$10.push(c$5(s$9));
+		return i$10;
 	}
-	static _$Eu(t, s) {
-		const i = s.attribute;
-		return !1 === i ? void 0 : "string" == typeof i ? i : "string" == typeof t ? t.toLowerCase() : void 0;
+	static _$Eu(t$7, s$9) {
+		const i$10 = s$9.attribute;
+		return !1 === i$10 ? void 0 : "string" == typeof i$10 ? i$10 : "string" == typeof t$7 ? t$7.toLowerCase() : void 0;
 	}
 	constructor() {
 		super(), this._$Ep = void 0, this.isUpdatePending = !1, this.hasUpdated = !1, this._$Em = null, this._$Ev();
 	}
 	_$Ev() {
-		this._$ES = new Promise((t) => this.enableUpdating = t), this._$AL = new Map(), this._$E_(), this.requestUpdate(), this.constructor.l?.forEach((t) => t(this));
+		this._$ES = new Promise((t$7) => this.enableUpdating = t$7), this._$AL = new Map(), this._$E_(), this.requestUpdate(), this.constructor.l?.forEach((t$7) => t$7(this));
 	}
-	addController(t) {
-		(this._$EO ??= new Set()).add(t), void 0 !== this.renderRoot && this.isConnected && t.hostConnected?.();
+	addController(t$7) {
+		(this._$EO ??= new Set()).add(t$7), void 0 !== this.renderRoot && this.isConnected && t$7.hostConnected?.();
 	}
-	removeController(t) {
-		this._$EO?.delete(t);
+	removeController(t$7) {
+		this._$EO?.delete(t$7);
 	}
 	_$E_() {
-		const t = new Map(), s = this.constructor.elementProperties;
-		for (const i of s.keys()) this.hasOwnProperty(i) && (t.set(i, this[i]), delete this[i]);
-		t.size > 0 && (this._$Ep = t);
+		const t$7 = new Map(), s$9 = this.constructor.elementProperties;
+		for (const i$10 of s$9.keys()) this.hasOwnProperty(i$10) && (t$7.set(i$10, this[i$10]), delete this[i$10]);
+		t$7.size > 0 && (this._$Ep = t$7);
 	}
 	createRenderRoot() {
-		const t = this.shadowRoot ?? this.attachShadow(this.constructor.shadowRootOptions);
-		return S$1(t, this.constructor.elementStyles), t;
+		const t$7 = this.shadowRoot ?? this.attachShadow(this.constructor.shadowRootOptions);
+		return S$1(t$7, this.constructor.elementStyles), t$7;
 	}
 	connectedCallback() {
-		this.renderRoot ??= this.createRenderRoot(), this.enableUpdating(!0), this._$EO?.forEach((t) => t.hostConnected?.());
+		this.renderRoot ??= this.createRenderRoot(), this.enableUpdating(!0), this._$EO?.forEach((t$7) => t$7.hostConnected?.());
 	}
-	enableUpdating(t) {}
+	enableUpdating(t$7) {}
 	disconnectedCallback() {
-		this._$EO?.forEach((t) => t.hostDisconnected?.());
+		this._$EO?.forEach((t$7) => t$7.hostDisconnected?.());
 	}
-	attributeChangedCallback(t, s, i) {
-		this._$AK(t, i);
+	attributeChangedCallback(t$7, s$9, i$10) {
+		this._$AK(t$7, i$10);
 	}
-	_$ET(t, s) {
-		const i = this.constructor.elementProperties.get(t), e = this.constructor._$Eu(t, i);
-		if (void 0 !== e && !0 === i.reflect) {
-			const h = (void 0 !== i.converter?.toAttribute ? i.converter : u$3).toAttribute(s, i.type);
-			this._$Em = t, null == h ? this.removeAttribute(e) : this.setAttribute(e, h), this._$Em = null;
+	_$ET(t$7, s$9) {
+		const i$10 = this.constructor.elementProperties.get(t$7), e$14 = this.constructor._$Eu(t$7, i$10);
+		if (void 0 !== e$14 && !0 === i$10.reflect) {
+			const h$7 = (void 0 !== i$10.converter?.toAttribute ? i$10.converter : u).toAttribute(s$9, i$10.type);
+			this._$Em = t$7, null == h$7 ? this.removeAttribute(e$14) : this.setAttribute(e$14, h$7), this._$Em = null;
 		}
 	}
-	_$AK(t, s) {
-		const i = this.constructor, e = i._$Eh.get(t);
-		if (void 0 !== e && this._$Em !== e) {
-			const t = i.getPropertyOptions(e), h = "function" == typeof t.converter ? { fromAttribute: t.converter } : void 0 !== t.converter?.fromAttribute ? t.converter : u$3;
-			this._$Em = e;
-			const r = h.fromAttribute(s, t.type);
-			this[e] = r ?? this._$Ej?.get(e) ?? r, this._$Em = null;
+	_$AK(t$7, s$9) {
+		const i$10 = this.constructor, e$14 = i$10._$Eh.get(t$7);
+		if (void 0 !== e$14 && this._$Em !== e$14) {
+			const t$8 = i$10.getPropertyOptions(e$14), h$7 = "function" == typeof t$8.converter ? { fromAttribute: t$8.converter } : void 0 !== t$8.converter?.fromAttribute ? t$8.converter : u;
+			this._$Em = e$14;
+			const r$11 = h$7.fromAttribute(s$9, t$8.type);
+			this[e$14] = r$11 ?? this._$Ej?.get(e$14) ?? r$11, this._$Em = null;
 		}
 	}
-	requestUpdate(t, s, i, e = !1, h) {
-		if (void 0 !== t) {
-			const r = this.constructor;
-			if (!1 === e && (h = this[t]), i ??= r.getPropertyOptions(t), !((i.hasChanged ?? f$3)(h, s) || i.useDefault && i.reflect && h === this._$Ej?.get(t) && !this.hasAttribute(r._$Eu(t, i)))) return;
-			this.C(t, s, i);
+	requestUpdate(t$7, s$9, i$10, e$14 = !1, h$7) {
+		if (void 0 !== t$7) {
+			const r$11 = this.constructor;
+			if (!1 === e$14 && (h$7 = this[t$7]), i$10 ??= r$11.getPropertyOptions(t$7), !((i$10.hasChanged ?? f$1)(h$7, s$9) || i$10.useDefault && i$10.reflect && h$7 === this._$Ej?.get(t$7) && !this.hasAttribute(r$11._$Eu(t$7, i$10)))) return;
+			this.C(t$7, s$9, i$10);
 		}
 		!1 === this.isUpdatePending && (this._$ES = this._$EP());
 	}
-	C(t, s, { useDefault: i, reflect: e, wrapped: h }, r) {
-		i && !(this._$Ej ??= new Map()).has(t) && (this._$Ej.set(t, r ?? s ?? this[t]), !0 !== h || void 0 !== r) || (this._$AL.has(t) || (this.hasUpdated || i || (s = void 0), this._$AL.set(t, s)), !0 === e && this._$Em !== t && (this._$Eq ??= new Set()).add(t));
+	C(t$7, s$9, { useDefault: i$10, reflect: e$14, wrapped: h$7 }, r$11) {
+		i$10 && !(this._$Ej ??= new Map()).has(t$7) && (this._$Ej.set(t$7, r$11 ?? s$9 ?? this[t$7]), !0 !== h$7 || void 0 !== r$11) || (this._$AL.has(t$7) || (this.hasUpdated || i$10 || (s$9 = void 0), this._$AL.set(t$7, s$9)), !0 === e$14 && this._$Em !== t$7 && (this._$Eq ??= new Set()).add(t$7));
 	}
 	async _$EP() {
 		this.isUpdatePending = !0;
 		try {
 			await this._$ES;
-		} catch (t) {
-			Promise.reject(t);
+		} catch (t$8) {
+			Promise.reject(t$8);
 		}
-		const t = this.scheduleUpdate();
-		return null != t && await t, !this.isUpdatePending;
+		const t$7 = this.scheduleUpdate();
+		return null != t$7 && await t$7, !this.isUpdatePending;
 	}
 	scheduleUpdate() {
 		return this.performUpdate();
@@ -243,27 +242,27 @@ var y$1 = class extends HTMLElement {
 		if (!this.isUpdatePending) return;
 		if (!this.hasUpdated) {
 			if (this.renderRoot ??= this.createRenderRoot(), this._$Ep) {
-				for (const [t, s] of this._$Ep) this[t] = s;
+				for (const [t$9, s$10] of this._$Ep) this[t$9] = s$10;
 				this._$Ep = void 0;
 			}
-			const t = this.constructor.elementProperties;
-			if (t.size > 0) for (const [s, i] of t) {
-				const { wrapped: t } = i, e = this[s];
-				!0 !== t || this._$AL.has(s) || void 0 === e || this.C(s, void 0, i, e);
+			const t$8 = this.constructor.elementProperties;
+			if (t$8.size > 0) for (const [s$10, i$10] of t$8) {
+				const { wrapped: t$9 } = i$10, e$14 = this[s$10];
+				!0 !== t$9 || this._$AL.has(s$10) || void 0 === e$14 || this.C(s$10, void 0, i$10, e$14);
 			}
 		}
-		let t = !1;
-		const s = this._$AL;
+		let t$7 = !1;
+		const s$9 = this._$AL;
 		try {
-			t = this.shouldUpdate(s), t ? (this.willUpdate(s), this._$EO?.forEach((t) => t.hostUpdate?.()), this.update(s)) : this._$EM();
-		} catch (s) {
-			throw t = !1, this._$EM(), s;
+			t$7 = this.shouldUpdate(s$9), t$7 ? (this.willUpdate(s$9), this._$EO?.forEach((t$8) => t$8.hostUpdate?.()), this.update(s$9)) : this._$EM();
+		} catch (s$10) {
+			throw t$7 = !1, this._$EM(), s$10;
 		}
-		t && this._$AE(s);
+		t$7 && this._$AE(s$9);
 	}
-	willUpdate(t) {}
-	_$AE(t) {
-		this._$EO?.forEach((t) => t.hostUpdated?.()), this.hasUpdated || (this.hasUpdated = !0, this.firstUpdated(t)), this.updated(t);
+	willUpdate(t$7) {}
+	_$AE(t$7) {
+		this._$EO?.forEach((t$8) => t$8.hostUpdated?.()), this.hasUpdated || (this.hasUpdated = !0, this.firstUpdated(t$7)), this.updated(t$7);
 	}
 	_$EM() {
 		this._$AL = new Map(), this.isUpdatePending = !1;
@@ -274,107 +273,109 @@ var y$1 = class extends HTMLElement {
 	getUpdateComplete() {
 		return this._$ES;
 	}
-	shouldUpdate(t) {
+	shouldUpdate(t$7) {
 		return !0;
 	}
-	update(t) {
-		this._$Eq &&= this._$Eq.forEach((t) => this._$ET(t, this[t])), this._$EM();
+	update(t$7) {
+		this._$Eq &&= this._$Eq.forEach((t$8) => this._$ET(t$8, this[t$8])), this._$EM();
 	}
-	updated(t) {}
-	firstUpdated(t) {}
+	updated(t$7) {}
+	firstUpdated(t$7) {}
 };
-y$1.elementStyles = [], y$1.shadowRootOptions = { mode: "open" }, y$1[d$2("elementProperties")] = new Map(), y$1[d$2("finalized")] = new Map(), p$2?.({ ReactiveElement: y$1 }), (a$1.reactiveElementVersions ??= []).push("2.1.2");
+y.elementStyles = [], y.shadowRootOptions = { mode: "open" }, y[d$2("elementProperties")] = new Map(), y[d$2("finalized")] = new Map(), p$2?.({ ReactiveElement: y }), (a$1.reactiveElementVersions ??= []).push("2.1.2");
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/lit-html.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-const t$5 = globalThis, i$7 = (t) => t, s$7 = t$5.trustedTypes, e$11 = s$7 ? s$7.createPolicy("lit-html", { createHTML: (t) => t }) : void 0, h$5 = "$lit$", o$12 = `lit$${Math.random().toFixed(9).slice(2)}$`, n$10 = "?" + o$12, r$9 = `<${n$10}>`, l$3 = document, c$4 = () => l$3.createComment(""), a = (t) => null === t || "object" != typeof t && "function" != typeof t, u$2 = Array.isArray, d$1 = (t) => u$2(t) || "function" == typeof t?.[Symbol.iterator], f$2 = "[ 	\n\f\r]", v$1 = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, _ = /-->/g, m$2 = />/g, p$1 = RegExp(`>|${f$2}(?:([^\\s"'>=/]+)(${f$2}*=${f$2}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`, "g"), g = /'/g, $ = /"/g, y = /^(?:script|style|textarea|title)$/i, x = (t) => (i, ...s) => ({
-	_$litType$: t,
-	strings: i,
-	values: s
+const t$5 = globalThis, i$8 = (t$7) => t$7, s$7 = t$5.trustedTypes, e$11 = s$7 ? s$7.createPolicy("lit-html", { createHTML: (t$7) => t$7 }) : void 0, h$5 = "$lit$", o$11 = `lit$${Math.random().toFixed(9).slice(2)}$`, n$8 = "?" + o$11, r$9 = `<${n$8}>`, l$3 = document, c$4 = () => l$3.createComment(""), a = (t$7) => null === t$7 || "object" != typeof t$7 && "function" != typeof t$7, u$3 = Array.isArray, d$1 = (t$7) => u$3(t$7) || "function" == typeof t$7?.[Symbol.iterator], f$3 = "[ 	\n\f\r]", v$1 = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, _ = /-->/g, m$2 = />/g, p$1 = RegExp(`>|${f$3}(?:([^\\s"'>=/]+)(${f$3}*=${f$3}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`, "g"), g = /'/g, $ = /"/g, y$1 = /^(?:script|style|textarea|title)$/i, x = (t$7) => (i$10, ...s$9) => ({
+	_$litType$: t$7,
+	strings: i$10,
+	values: s$9
 }), b = x(1), w = x(2), T = x(3), E = Symbol.for("lit-noChange"), A = Symbol.for("lit-nothing"), C = new WeakMap(), P = l$3.createTreeWalker(l$3, 129);
-function V(t, i) {
-	if (!u$2(t) || !t.hasOwnProperty("raw")) throw Error("invalid template strings array");
-	return void 0 !== e$11 ? e$11.createHTML(i) : i;
+function V(t$7, i$10) {
+	if (!u$3(t$7) || !t$7.hasOwnProperty("raw")) throw Error("invalid template strings array");
+	return void 0 !== e$11 ? e$11.createHTML(i$10) : i$10;
 }
-const N = (t, i) => {
-	const s = t.length - 1, e = [];
-	let n, l = 2 === i ? "<svg>" : 3 === i ? "<math>" : "", c = v$1;
-	for (let i = 0; i < s; i++) {
-		const s = t[i];
-		let a, u, d = -1, f = 0;
-		for (; f < s.length && (c.lastIndex = f, u = c.exec(s), null !== u);) f = c.lastIndex, c === v$1 ? "!--" === u[1] ? c = _ : void 0 !== u[1] ? c = m$2 : void 0 !== u[2] ? (y.test(u[2]) && (n = RegExp("</" + u[2], "g")), c = p$1) : void 0 !== u[3] && (c = p$1) : c === p$1 ? ">" === u[0] ? (c = n ?? v$1, d = -1) : void 0 === u[1] ? d = -2 : (d = c.lastIndex - u[2].length, a = u[1], c = void 0 === u[3] ? p$1 : "\"" === u[3] ? $ : g) : c === $ || c === g ? c = p$1 : c === _ || c === m$2 ? c = v$1 : (c = p$1, n = void 0);
-		const x = c === p$1 && t[i + 1].startsWith("/>") ? " " : "";
-		l += c === v$1 ? s + r$9 : d >= 0 ? (e.push(a), s.slice(0, d) + h$5 + s.slice(d) + o$12 + x) : s + o$12 + (-2 === d ? i : x);
+const N = (t$7, i$10) => {
+	const s$9 = t$7.length - 1, e$14 = [];
+	let n$11, l$5 = 2 === i$10 ? "<svg>" : 3 === i$10 ? "<math>" : "", c$7 = v$1;
+	for (let i$11 = 0; i$11 < s$9; i$11++) {
+		const s$10 = t$7[i$11];
+		let a$2, u$4, d$3 = -1, f$4 = 0;
+		for (; f$4 < s$10.length && (c$7.lastIndex = f$4, u$4 = c$7.exec(s$10), null !== u$4);) f$4 = c$7.lastIndex, c$7 === v$1 ? "!--" === u$4[1] ? c$7 = _ : void 0 !== u$4[1] ? c$7 = m$2 : void 0 !== u$4[2] ? (y$1.test(u$4[2]) && (n$11 = RegExp("</" + u$4[2], "g")), c$7 = p$1) : void 0 !== u$4[3] && (c$7 = p$1) : c$7 === p$1 ? ">" === u$4[0] ? (c$7 = n$11 ?? v$1, d$3 = -1) : void 0 === u$4[1] ? d$3 = -2 : (d$3 = c$7.lastIndex - u$4[2].length, a$2 = u$4[1], c$7 = void 0 === u$4[3] ? p$1 : "\"" === u$4[3] ? $ : g) : c$7 === $ || c$7 === g ? c$7 = p$1 : c$7 === _ || c$7 === m$2 ? c$7 = v$1 : (c$7 = p$1, n$11 = void 0);
+		const x$1 = c$7 === p$1 && t$7[i$11 + 1].startsWith("/>") ? " " : "";
+		l$5 += c$7 === v$1 ? s$10 + r$9 : d$3 >= 0 ? (e$14.push(a$2), s$10.slice(0, d$3) + h$5 + s$10.slice(d$3) + o$11 + x$1) : s$10 + o$11 + (-2 === d$3 ? i$11 : x$1);
 	}
-	return [V(t, l + (t[s] || "<?>") + (2 === i ? "</svg>" : 3 === i ? "</math>" : "")), e];
+	return [V(t$7, l$5 + (t$7[s$9] || "<?>") + (2 === i$10 ? "</svg>" : 3 === i$10 ? "</math>" : "")), e$14];
 };
 var S = class S {
-	constructor({ strings: t, _$litType$: i }, e) {
-		let r;
+	constructor({ strings: t$7, _$litType$: i$10 }, e$14) {
+		let r$11;
 		this.parts = [];
-		let l = 0, a = 0;
-		const u = t.length - 1, d = this.parts, [f, v] = N(t, i);
-		if (this.el = S.createElement(f, e), P.currentNode = this.el.content, 2 === i || 3 === i) {
-			const t = this.el.content.firstChild;
-			t.replaceWith(...t.childNodes);
+		let l$5 = 0, a$2 = 0;
+		const u$4 = t$7.length - 1, d$3 = this.parts, [f$4, v$2] = N(t$7, i$10);
+		if (this.el = S.createElement(f$4, e$14), P.currentNode = this.el.content, 2 === i$10 || 3 === i$10) {
+			const t$8 = this.el.content.firstChild;
+			t$8.replaceWith(...t$8.childNodes);
 		}
-		for (; null !== (r = P.nextNode()) && d.length < u;) {
-			if (1 === r.nodeType) {
-				if (r.hasAttributes()) for (const t of r.getAttributeNames()) if (t.endsWith(h$5)) {
-					const i = v[a++], s = r.getAttribute(t).split(o$12), e = /([.?@])?(.*)/.exec(i);
-					d.push({
+		for (; null !== (r$11 = P.nextNode()) && d$3.length < u$4;) {
+			if (1 === r$11.nodeType) {
+				if (r$11.hasAttributes()) for (const t$8 of r$11.getAttributeNames()) if (t$8.endsWith(h$5)) {
+					const i$11 = v$2[a$2++], s$9 = r$11.getAttribute(t$8).split(o$11), e$15 = /([.?@])?(.*)/.exec(i$11);
+					d$3.push({
 						type: 1,
-						index: l,
-						name: e[2],
-						strings: s,
-						ctor: "." === e[1] ? I : "?" === e[1] ? L : "@" === e[1] ? z : H
-					}), r.removeAttribute(t);
-				} else t.startsWith(o$12) && (d.push({
+						index: l$5,
+						name: e$15[2],
+						strings: s$9,
+						ctor: "." === e$15[1] ? I : "?" === e$15[1] ? L : "@" === e$15[1] ? z : H
+					}), r$11.removeAttribute(t$8);
+				} else t$8.startsWith(o$11) && (d$3.push({
 					type: 6,
-					index: l
-				}), r.removeAttribute(t));
-				if (y.test(r.tagName)) {
-					const t = r.textContent.split(o$12), i = t.length - 1;
-					if (i > 0) {
-						r.textContent = s$7 ? s$7.emptyScript : "";
-						for (let s = 0; s < i; s++) r.append(t[s], c$4()), P.nextNode(), d.push({
+					index: l$5
+				}), r$11.removeAttribute(t$8));
+				if (y$1.test(r$11.tagName)) {
+					const t$8 = r$11.textContent.split(o$11), i$11 = t$8.length - 1;
+					if (i$11 > 0) {
+						r$11.textContent = s$7 ? s$7.emptyScript : "";
+						for (let s$9 = 0; s$9 < i$11; s$9++) r$11.append(t$8[s$9], c$4()), P.nextNode(), d$3.push({
 							type: 2,
-							index: ++l
+							index: ++l$5
 						});
-						r.append(t[i], c$4());
+						r$11.append(t$8[i$11], c$4());
 					}
 				}
-			} else if (8 === r.nodeType) if (r.data === n$10) d.push({
+			} else if (8 === r$11.nodeType) if (r$11.data === n$8) d$3.push({
 				type: 2,
-				index: l
+				index: l$5
 			});
-			else {
-				let t = -1;
-				for (; -1 !== (t = r.data.indexOf(o$12, t + 1));) d.push({
+else {
+				let t$8 = -1;
+				for (; -1 !== (t$8 = r$11.data.indexOf(o$11, t$8 + 1));) d$3.push({
 					type: 7,
-					index: l
-				}), t += o$12.length - 1;
+					index: l$5
+				}), t$8 += o$11.length - 1;
 			}
-			l++;
+			l$5++;
 		}
 	}
-	static createElement(t, i) {
-		const s = l$3.createElement("template");
-		return s.innerHTML = t, s;
+	static createElement(t$7, i$10) {
+		const s$9 = l$3.createElement("template");
+		return s$9.innerHTML = t$7, s$9;
 	}
 };
-function M$1(t, i, s = t, e) {
-	if (i === E) return i;
-	let h = void 0 !== e ? s._$Co?.[e] : s._$Cl;
-	const o = a(i) ? void 0 : i._$litDirective$;
-	return h?.constructor !== o && (h?._$AO?.(!1), void 0 === o ? h = void 0 : (h = new o(t), h._$AT(t, s, e)), void 0 !== e ? (s._$Co ??= [])[e] = h : s._$Cl = h), void 0 !== h && (i = M$1(t, h._$AS(t, i.values), h, e)), i;
+function M$1(t$7, i$10, s$9 = t$7, e$14) {
+	if (i$10 === E) return i$10;
+	let h$7 = void 0 !== e$14 ? s$9._$Co?.[e$14] : s$9._$Cl;
+	const o$14 = a(i$10) ? void 0 : i$10._$litDirective$;
+	return h$7?.constructor !== o$14 && (h$7?._$AO?.(!1), void 0 === o$14 ? h$7 = void 0 : (h$7 = new o$14(t$7), h$7._$AT(t$7, s$9, e$14)), void 0 !== e$14 ? (s$9._$Co ??= [])[e$14] = h$7 : s$9._$Cl = h$7), void 0 !== h$7 && (i$10 = M$1(t$7, h$7._$AS(t$7, i$10.values), h$7, e$14)), i$10;
 }
 var R = class {
-	constructor(t, i) {
-		this._$AV = [], this._$AN = void 0, this._$AD = t, this._$AM = i;
+	constructor(t$7, i$10) {
+		this._$AV = [], this._$AN = void 0, this._$AD = t$7, this._$AM = i$10;
 	}
 	get parentNode() {
 		return this._$AM.parentNode;
@@ -382,35 +383,35 @@ var R = class {
 	get _$AU() {
 		return this._$AM._$AU;
 	}
-	u(t) {
-		const { el: { content: i }, parts: s } = this._$AD, e = (t?.creationScope ?? l$3).importNode(i, !0);
-		P.currentNode = e;
-		let h = P.nextNode(), o = 0, n = 0, r = s[0];
-		for (; void 0 !== r;) {
-			if (o === r.index) {
-				let i;
-				2 === r.type ? i = new k(h, h.nextSibling, this, t) : 1 === r.type ? i = new r.ctor(h, r.name, r.strings, this, t) : 6 === r.type && (i = new Z(h, this, t)), this._$AV.push(i), r = s[++n];
+	u(t$7) {
+		const { el: { content: i$10 }, parts: s$9 } = this._$AD, e$14 = (t$7?.creationScope ?? l$3).importNode(i$10, !0);
+		P.currentNode = e$14;
+		let h$7 = P.nextNode(), o$14 = 0, n$11 = 0, r$11 = s$9[0];
+		for (; void 0 !== r$11;) {
+			if (o$14 === r$11.index) {
+				let i$11;
+				2 === r$11.type ? i$11 = new k(h$7, h$7.nextSibling, this, t$7) : 1 === r$11.type ? i$11 = new r$11.ctor(h$7, r$11.name, r$11.strings, this, t$7) : 6 === r$11.type && (i$11 = new Z(h$7, this, t$7)), this._$AV.push(i$11), r$11 = s$9[++n$11];
 			}
-			o !== r?.index && (h = P.nextNode(), o++);
+			o$14 !== r$11?.index && (h$7 = P.nextNode(), o$14++);
 		}
-		return P.currentNode = l$3, e;
+		return P.currentNode = l$3, e$14;
 	}
-	p(t) {
-		let i = 0;
-		for (const s of this._$AV) void 0 !== s && (void 0 !== s.strings ? (s._$AI(t, s, i), i += s.strings.length - 2) : s._$AI(t[i])), i++;
+	p(t$7) {
+		let i$10 = 0;
+		for (const s$9 of this._$AV) void 0 !== s$9 && (void 0 !== s$9.strings ? (s$9._$AI(t$7, s$9, i$10), i$10 += s$9.strings.length - 2) : s$9._$AI(t$7[i$10])), i$10++;
 	}
 };
 var k = class k {
 	get _$AU() {
 		return this._$AM?._$AU ?? this._$Cv;
 	}
-	constructor(t, i, s, e) {
-		this.type = 2, this._$AH = A, this._$AN = void 0, this._$AA = t, this._$AB = i, this._$AM = s, this.options = e, this._$Cv = e?.isConnected ?? !0;
+	constructor(t$7, i$10, s$9, e$14) {
+		this.type = 2, this._$AH = A, this._$AN = void 0, this._$AA = t$7, this._$AB = i$10, this._$AM = s$9, this.options = e$14, this._$Cv = e$14?.isConnected ?? !0;
 	}
 	get parentNode() {
-		let t = this._$AA.parentNode;
-		const i = this._$AM;
-		return void 0 !== i && 11 === t?.nodeType && (t = i.parentNode), t;
+		let t$7 = this._$AA.parentNode;
+		const i$10 = this._$AM;
+		return void 0 !== i$10 && 11 === t$7?.nodeType && (t$7 = i$10.parentNode), t$7;
 	}
 	get startNode() {
 		return this._$AA;
@@ -418,45 +419,45 @@ var k = class k {
 	get endNode() {
 		return this._$AB;
 	}
-	_$AI(t, i = this) {
-		t = M$1(this, t, i), a(t) ? t === A || null == t || "" === t ? (this._$AH !== A && this._$AR(), this._$AH = A) : t !== this._$AH && t !== E && this._(t) : void 0 !== t._$litType$ ? this.$(t) : void 0 !== t.nodeType ? this.T(t) : d$1(t) ? this.k(t) : this._(t);
+	_$AI(t$7, i$10 = this) {
+		t$7 = M$1(this, t$7, i$10), a(t$7) ? t$7 === A || null == t$7 || "" === t$7 ? (this._$AH !== A && this._$AR(), this._$AH = A) : t$7 !== this._$AH && t$7 !== E && this._(t$7) : void 0 !== t$7._$litType$ ? this.$(t$7) : void 0 !== t$7.nodeType ? this.T(t$7) : d$1(t$7) ? this.k(t$7) : this._(t$7);
 	}
-	O(t) {
-		return this._$AA.parentNode.insertBefore(t, this._$AB);
+	O(t$7) {
+		return this._$AA.parentNode.insertBefore(t$7, this._$AB);
 	}
-	T(t) {
-		this._$AH !== t && (this._$AR(), this._$AH = this.O(t));
+	T(t$7) {
+		this._$AH !== t$7 && (this._$AR(), this._$AH = this.O(t$7));
 	}
-	_(t) {
-		this._$AH !== A && a(this._$AH) ? this._$AA.nextSibling.data = t : this.T(l$3.createTextNode(t)), this._$AH = t;
+	_(t$7) {
+		this._$AH !== A && a(this._$AH) ? this._$AA.nextSibling.data = t$7 : this.T(l$3.createTextNode(t$7)), this._$AH = t$7;
 	}
-	$(t) {
-		const { values: i, _$litType$: s } = t, e = "number" == typeof s ? this._$AC(t) : (void 0 === s.el && (s.el = S.createElement(V(s.h, s.h[0]), this.options)), s);
-		if (this._$AH?._$AD === e) this._$AH.p(i);
-		else {
-			const t = new R(e, this), s = t.u(this.options);
-			t.p(i), this.T(s), this._$AH = t;
+	$(t$7) {
+		const { values: i$10, _$litType$: s$9 } = t$7, e$14 = "number" == typeof s$9 ? this._$AC(t$7) : (void 0 === s$9.el && (s$9.el = S.createElement(V(s$9.h, s$9.h[0]), this.options)), s$9);
+		if (this._$AH?._$AD === e$14) this._$AH.p(i$10);
+else {
+			const t$8 = new R(e$14, this), s$10 = t$8.u(this.options);
+			t$8.p(i$10), this.T(s$10), this._$AH = t$8;
 		}
 	}
-	_$AC(t) {
-		let i = C.get(t.strings);
-		return void 0 === i && C.set(t.strings, i = new S(t)), i;
+	_$AC(t$7) {
+		let i$10 = C.get(t$7.strings);
+		return void 0 === i$10 && C.set(t$7.strings, i$10 = new S(t$7)), i$10;
 	}
-	k(t) {
-		u$2(this._$AH) || (this._$AH = [], this._$AR());
-		const i = this._$AH;
-		let s, e = 0;
-		for (const h of t) e === i.length ? i.push(s = new k(this.O(c$4()), this.O(c$4()), this, this.options)) : s = i[e], s._$AI(h), e++;
-		e < i.length && (this._$AR(s && s._$AB.nextSibling, e), i.length = e);
+	k(t$7) {
+		u$3(this._$AH) || (this._$AH = [], this._$AR());
+		const i$10 = this._$AH;
+		let s$9, e$14 = 0;
+		for (const h$7 of t$7) e$14 === i$10.length ? i$10.push(s$9 = new k(this.O(c$4()), this.O(c$4()), this, this.options)) : s$9 = i$10[e$14], s$9._$AI(h$7), e$14++;
+		e$14 < i$10.length && (this._$AR(s$9 && s$9._$AB.nextSibling, e$14), i$10.length = e$14);
 	}
-	_$AR(t = this._$AA.nextSibling, s) {
-		for (this._$AP?.(!1, !0, s); t !== this._$AB;) {
-			const s = i$7(t).nextSibling;
-			i$7(t).remove(), t = s;
+	_$AR(t$7 = this._$AA.nextSibling, s$9) {
+		for (this._$AP?.(!1, !0, s$9); t$7 !== this._$AB;) {
+			const s$10 = i$8(t$7).nextSibling;
+			i$8(t$7).remove(), t$7 = s$10;
 		}
 	}
-	setConnected(t) {
-		void 0 === this._$AM && (this._$Cv = t, this._$AP?.(t));
+	setConnected(t$7) {
+		void 0 === this._$AM && (this._$Cv = t$7, this._$AP?.(t$7));
 	}
 };
 var H = class {
@@ -466,68 +467,68 @@ var H = class {
 	get _$AU() {
 		return this._$AM._$AU;
 	}
-	constructor(t, i, s, e, h) {
-		this.type = 1, this._$AH = A, this._$AN = void 0, this.element = t, this.name = i, this._$AM = e, this.options = h, s.length > 2 || "" !== s[0] || "" !== s[1] ? (this._$AH = Array(s.length - 1).fill(new String()), this.strings = s) : this._$AH = A;
+	constructor(t$7, i$10, s$9, e$14, h$7) {
+		this.type = 1, this._$AH = A, this._$AN = void 0, this.element = t$7, this.name = i$10, this._$AM = e$14, this.options = h$7, s$9.length > 2 || "" !== s$9[0] || "" !== s$9[1] ? (this._$AH = Array(s$9.length - 1).fill(new String()), this.strings = s$9) : this._$AH = A;
 	}
-	_$AI(t, i = this, s, e) {
-		const h = this.strings;
-		let o = !1;
-		if (void 0 === h) t = M$1(this, t, i, 0), o = !a(t) || t !== this._$AH && t !== E, o && (this._$AH = t);
-		else {
-			const e = t;
-			let n, r;
-			for (t = h[0], n = 0; n < h.length - 1; n++) r = M$1(this, e[s + n], i, n), r === E && (r = this._$AH[n]), o ||= !a(r) || r !== this._$AH[n], r === A ? t = A : t !== A && (t += (r ?? "") + h[n + 1]), this._$AH[n] = r;
+	_$AI(t$7, i$10 = this, s$9, e$14) {
+		const h$7 = this.strings;
+		let o$14 = !1;
+		if (void 0 === h$7) t$7 = M$1(this, t$7, i$10, 0), o$14 = !a(t$7) || t$7 !== this._$AH && t$7 !== E, o$14 && (this._$AH = t$7);
+else {
+			const e$15 = t$7;
+			let n$11, r$11;
+			for (t$7 = h$7[0], n$11 = 0; n$11 < h$7.length - 1; n$11++) r$11 = M$1(this, e$15[s$9 + n$11], i$10, n$11), r$11 === E && (r$11 = this._$AH[n$11]), o$14 ||= !a(r$11) || r$11 !== this._$AH[n$11], r$11 === A ? t$7 = A : t$7 !== A && (t$7 += (r$11 ?? "") + h$7[n$11 + 1]), this._$AH[n$11] = r$11;
 		}
-		o && !e && this.j(t);
+		o$14 && !e$14 && this.j(t$7);
 	}
-	j(t) {
-		t === A ? this.element.removeAttribute(this.name) : this.element.setAttribute(this.name, t ?? "");
+	j(t$7) {
+		t$7 === A ? this.element.removeAttribute(this.name) : this.element.setAttribute(this.name, t$7 ?? "");
 	}
 };
 var I = class extends H {
 	constructor() {
 		super(...arguments), this.type = 3;
 	}
-	j(t) {
-		this.element[this.name] = t === A ? void 0 : t;
+	j(t$7) {
+		this.element[this.name] = t$7 === A ? void 0 : t$7;
 	}
 };
 var L = class extends H {
 	constructor() {
 		super(...arguments), this.type = 4;
 	}
-	j(t) {
-		this.element.toggleAttribute(this.name, !!t && t !== A);
+	j(t$7) {
+		this.element.toggleAttribute(this.name, !!t$7 && t$7 !== A);
 	}
 };
 var z = class extends H {
-	constructor(t, i, s, e, h) {
-		super(t, i, s, e, h), this.type = 5;
+	constructor(t$7, i$10, s$9, e$14, h$7) {
+		super(t$7, i$10, s$9, e$14, h$7), this.type = 5;
 	}
-	_$AI(t, i = this) {
-		if ((t = M$1(this, t, i, 0) ?? A) === E) return;
-		const s = this._$AH, e = t === A && s !== A || t.capture !== s.capture || t.once !== s.once || t.passive !== s.passive, h = t !== A && (s === A || e);
-		e && this.element.removeEventListener(this.name, this, s), h && this.element.addEventListener(this.name, this, t), this._$AH = t;
+	_$AI(t$7, i$10 = this) {
+		if ((t$7 = M$1(this, t$7, i$10, 0) ?? A) === E) return;
+		const s$9 = this._$AH, e$14 = t$7 === A && s$9 !== A || t$7.capture !== s$9.capture || t$7.once !== s$9.once || t$7.passive !== s$9.passive, h$7 = t$7 !== A && (s$9 === A || e$14);
+		e$14 && this.element.removeEventListener(this.name, this, s$9), h$7 && this.element.addEventListener(this.name, this, t$7), this._$AH = t$7;
 	}
-	handleEvent(t) {
-		"function" == typeof this._$AH ? this._$AH.call(this.options?.host ?? this.element, t) : this._$AH.handleEvent(t);
+	handleEvent(t$7) {
+		"function" == typeof this._$AH ? this._$AH.call(this.options?.host ?? this.element, t$7) : this._$AH.handleEvent(t$7);
 	}
 };
 var Z = class {
-	constructor(t, i, s) {
-		this.element = t, this.type = 6, this._$AN = void 0, this._$AM = i, this.options = s;
+	constructor(t$7, i$10, s$9) {
+		this.element = t$7, this.type = 6, this._$AN = void 0, this._$AM = i$10, this.options = s$9;
 	}
 	get _$AU() {
 		return this._$AM._$AU;
 	}
-	_$AI(t) {
-		M$1(this, t);
+	_$AI(t$7) {
+		M$1(this, t$7);
 	}
 };
-const j$1 = {
+const j = {
 	M: h$5,
-	P: o$12,
-	A: n$10,
+	P: o$11,
+	A: n$8,
 	C: 1,
 	L: N,
 	R,
@@ -541,32 +542,34 @@ const j$1 = {
 	F: Z
 }, B = t$5.litHtmlPolyfillSupport;
 B?.(S, k), (t$5.litHtmlVersions ??= []).push("3.3.2");
-const D = (t, i, s) => {
-	const e = s?.renderBefore ?? i;
-	let h = e._$litPart$;
-	if (void 0 === h) {
-		const t = s?.renderBefore ?? null;
-		e._$litPart$ = h = new k(i.insertBefore(c$4(), t), t, void 0, s ?? {});
+const D = (t$7, i$10, s$9) => {
+	const e$14 = s$9?.renderBefore ?? i$10;
+	let h$7 = e$14._$litPart$;
+	if (void 0 === h$7) {
+		const t$8 = s$9?.renderBefore ?? null;
+		e$14._$litPart$ = h$7 = new k(i$10.insertBefore(c$4(), t$8), t$8, void 0, s$9 ?? {});
 	}
-	return h._$AI(t), h;
+	return h$7._$AI(t$7), h$7;
 };
 
+//#endregion
+//#region node_modules/.pnpm/lit-element@4.2.2/node_modules/lit-element/lit-element.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */ const s$6 = globalThis;
-var i$6 = class extends y$1 {
+var i$1 = class extends y {
 	constructor() {
 		super(...arguments), this.renderOptions = { host: this }, this._$Do = void 0;
 	}
 	createRenderRoot() {
-		const t = super.createRenderRoot();
-		return this.renderOptions.renderBefore ??= t.firstChild, t;
+		const t$7 = super.createRenderRoot();
+		return this.renderOptions.renderBefore ??= t$7.firstChild, t$7;
 	}
-	update(t) {
-		const r = this.render();
-		this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(t), this._$Do = D(r, this.renderRoot, this.renderOptions);
+	update(t$7) {
+		const r$11 = this.render();
+		this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(t$7), this._$Do = D(r$11, this.renderRoot, this.renderOptions);
 	}
 	connectedCallback() {
 		super.connectedCallback(), this._$Do?.setConnected(!0);
@@ -578,184 +581,189 @@ var i$6 = class extends y$1 {
 		return E;
 	}
 };
-i$6._$litElement$ = !0, i$6["finalized"] = !0, s$6.litElementHydrateSupport?.({ LitElement: i$6 });
-const o$11 = s$6.litElementPolyfillSupport;
-o$11?.({ LitElement: i$6 });
-const n$9 = {
-	_$AK: (t, e, r) => {
-		t._$AK(e, r);
+i$1._$litElement$ = !0, i$1["finalized"] = !0, s$6.litElementHydrateSupport?.({ LitElement: i$1 });
+const o$10 = s$6.litElementPolyfillSupport;
+o$10?.({ LitElement: i$1 });
+const n$7 = {
+	_$AK: (t$7, e$14, r$11) => {
+		t$7._$AK(e$14, r$11);
 	},
-	_$AL: (t) => t._$AL
+	_$AL: (t$7) => t$7._$AL
 };
 (s$6.litElementVersions ??= []).push("4.2.2");
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/is-server.js
 /**
 * @license
 * Copyright 2022 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-const o$10 = !1;
+const o$9 = !1;
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/directive.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-const t$4 = {
+const t$1 = {
 	ATTRIBUTE: 1,
 	CHILD: 2,
 	PROPERTY: 3,
 	BOOLEAN_ATTRIBUTE: 4,
 	EVENT: 5,
 	ELEMENT: 6
-}, e$10 = (t) => (...e) => ({
-	_$litDirective$: t,
-	values: e
+}, e$1 = (t$7) => (...e$14) => ({
+	_$litDirective$: t$7,
+	values: e$14
 });
-var i$5 = class {
-	constructor(t) {}
+var i$3 = class {
+	constructor(t$7) {}
 	get _$AU() {
 		return this._$AM._$AU;
 	}
-	_$AT(t, e, i) {
-		this._$Ct = t, this._$AM = e, this._$Ci = i;
+	_$AT(t$7, e$14, i$10) {
+		this._$Ct = t$7, this._$AM = e$14, this._$Ci = i$10;
 	}
-	_$AS(t, e) {
-		return this.update(t, e);
+	_$AS(t$7, e$14) {
+		return this.update(t$7, e$14);
 	}
-	update(t, e) {
-		return this.render(...e);
+	update(t$7, e$14) {
+		return this.render(...e$14);
 	}
 };
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/directive-helpers.js
 /**
 * @license
 * Copyright 2020 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const { I: t$3 } = j$1, i$4 = (o) => o, n$8 = (o) => null === o || "object" != typeof o && "function" != typeof o, e$9 = {
+*/ const { I: t$4 } = j, i$7 = (o$14) => o$14, n$6 = (o$14) => null === o$14 || "object" != typeof o$14 && "function" != typeof o$14, e$10 = {
 	HTML: 1,
 	SVG: 2,
 	MATHML: 3
-}, l$2 = (o, t) => void 0 === t ? void 0 !== o?._$litType$ : o?._$litType$ === t, d = (o) => null != o?._$litType$?.h, c$3 = (o) => void 0 !== o?._$litDirective$, f$1 = (o) => o?._$litDirective$, r$8 = (o) => void 0 === o.strings, s$5 = () => document.createComment(""), v = (o, n, e) => {
-	const l = o._$AA.parentNode, d = void 0 === n ? o._$AB : n._$AA;
-	if (void 0 === e) {
-		const i = l.insertBefore(s$5(), d), n = l.insertBefore(s$5(), d);
-		e = new t$3(i, n, o, o.options);
+}, l$2 = (o$14, t$7) => void 0 === t$7 ? void 0 !== o$14?._$litType$ : o$14?._$litType$ === t$7, d = (o$14) => null != o$14?._$litType$?.h, c$3 = (o$14) => void 0 !== o$14?._$litDirective$, f$2 = (o$14) => o$14?._$litDirective$, r$4 = (o$14) => void 0 === o$14.strings, s$5 = () => document.createComment(""), v = (o$14, n$11, e$14) => {
+	const l$5 = o$14._$AA.parentNode, d$3 = void 0 === n$11 ? o$14._$AB : n$11._$AA;
+	if (void 0 === e$14) {
+		const i$10 = l$5.insertBefore(s$5(), d$3), n$12 = l$5.insertBefore(s$5(), d$3);
+		e$14 = new t$4(i$10, n$12, o$14, o$14.options);
 	} else {
-		const t = e._$AB.nextSibling, n = e._$AM, c = n !== o;
-		if (c) {
-			let t;
-			e._$AQ?.(o), e._$AM = o, void 0 !== e._$AP && (t = o._$AU) !== n._$AU && e._$AP(t);
+		const t$7 = e$14._$AB.nextSibling, n$12 = e$14._$AM, c$7 = n$12 !== o$14;
+		if (c$7) {
+			let t$8;
+			e$14._$AQ?.(o$14), e$14._$AM = o$14, void 0 !== e$14._$AP && (t$8 = o$14._$AU) !== n$12._$AU && e$14._$AP(t$8);
 		}
-		if (t !== d || c) {
-			let o = e._$AA;
-			for (; o !== t;) {
-				const t = i$4(o).nextSibling;
-				i$4(l).insertBefore(o, d), o = t;
+		if (t$7 !== d$3 || c$7) {
+			let o$15 = e$14._$AA;
+			for (; o$15 !== t$7;) {
+				const t$8 = i$7(o$15).nextSibling;
+				i$7(l$5).insertBefore(o$15, d$3), o$15 = t$8;
 			}
 		}
 	}
-	return e;
-}, u$1 = (o, t, i = o) => (o._$AI(t, i), o), m$1 = {}, p = (o, t = m$1) => o._$AH = t, M = (o) => o._$AH, h$4 = (o) => {
-	o._$AR(), o._$AA.remove();
-}, j = (o) => {
-	o._$AR();
+	return e$14;
+}, u$1 = (o$14, t$7, i$10 = o$14) => (o$14._$AI(t$7, i$10), o$14), m$1 = {}, p = (o$14, t$7 = m$1) => o$14._$AH = t$7, M = (o$14) => o$14._$AH, h$4 = (o$14) => {
+	o$14._$AR(), o$14._$AA.remove();
+}, j$1 = (o$14) => {
+	o$14._$AR();
 };
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/directives/repeat.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-const u = (e, s, t) => {
-	const r = new Map();
-	for (let l = s; l <= t; l++) r.set(e[l], l);
-	return r;
-}, c$2 = e$10(class extends i$5 {
-	constructor(e) {
-		if (super(e), e.type !== t$4.CHILD) throw Error("repeat() can only be used in text expressions");
+const u$2 = (e$14, s$9, t$7) => {
+	const r$11 = new Map();
+	for (let l$5 = s$9; l$5 <= t$7; l$5++) r$11.set(e$14[l$5], l$5);
+	return r$11;
+}, c = e$1(class extends i$3 {
+	constructor(e$14) {
+		if (super(e$14), e$14.type !== t$1.CHILD) throw Error("repeat() can only be used in text expressions");
 	}
-	dt(e, s, t) {
-		let r;
-		void 0 === t ? t = s : void 0 !== s && (r = s);
-		const l = [], o = [];
-		let i = 0;
-		for (const s of e) l[i] = r ? r(s, i) : i, o[i] = t(s, i), i++;
+	dt(e$14, s$9, t$7) {
+		let r$11;
+		void 0 === t$7 ? t$7 = s$9 : void 0 !== s$9 && (r$11 = s$9);
+		const l$5 = [], o$14 = [];
+		let i$10 = 0;
+		for (const s$10 of e$14) l$5[i$10] = r$11 ? r$11(s$10, i$10) : i$10, o$14[i$10] = t$7(s$10, i$10), i$10++;
 		return {
-			values: o,
-			keys: l
+			values: o$14,
+			keys: l$5
 		};
 	}
-	render(e, s, t) {
-		return this.dt(e, s, t).values;
+	render(e$14, s$9, t$7) {
+		return this.dt(e$14, s$9, t$7).values;
 	}
-	update(s, [t, r, c]) {
-		const d = M(s), { values: p$3, keys: a } = this.dt(t, r, c);
-		if (!Array.isArray(d)) return this.ut = a, p$3;
-		const h = this.ut ??= [], v$2 = [];
-		let m, y, x = 0, j = d.length - 1, k = 0, w = p$3.length - 1;
-		for (; x <= j && k <= w;) if (null === d[x]) x++;
-		else if (null === d[j]) j--;
-		else if (h[x] === a[k]) v$2[k] = u$1(d[x], p$3[k]), x++, k++;
-		else if (h[j] === a[w]) v$2[w] = u$1(d[j], p$3[w]), j--, w--;
-		else if (h[x] === a[w]) v$2[w] = u$1(d[x], p$3[w]), v(s, v$2[w + 1], d[x]), x++, w--;
-		else if (h[j] === a[k]) v$2[k] = u$1(d[j], p$3[k]), v(s, d[x], d[j]), j--, k++;
-		else if (void 0 === m && (m = u(a, k, w), y = u(h, x, j)), m.has(h[x])) if (m.has(h[j])) {
-			const e = y.get(a[k]), t = void 0 !== e ? d[e] : null;
-			if (null === t) {
-				const e = v(s, d[x]);
-				u$1(e, p$3[k]), v$2[k] = e;
-			} else v$2[k] = u$1(t, p$3[k]), v(s, d[x], t), d[e] = null;
-			k++;
-		} else h$4(d[j]), j--;
-		else h$4(d[x]), x++;
-		for (; k <= w;) {
-			const e = v(s, v$2[w + 1]);
-			u$1(e, p$3[k]), v$2[k++] = e;
+	update(s$9, [t$7, r$11, c$7]) {
+		const d$3 = M(s$9), { values: p$3, keys: a$2 } = this.dt(t$7, r$11, c$7);
+		if (!Array.isArray(d$3)) return this.ut = a$2, p$3;
+		const h$7 = this.ut ??= [], v$2 = [];
+		let m$3, y$2, x$1 = 0, j$2 = d$3.length - 1, k$1 = 0, w$1 = p$3.length - 1;
+		for (; x$1 <= j$2 && k$1 <= w$1;) if (null === d$3[x$1]) x$1++;
+else if (null === d$3[j$2]) j$2--;
+else if (h$7[x$1] === a$2[k$1]) v$2[k$1] = u$1(d$3[x$1], p$3[k$1]), x$1++, k$1++;
+else if (h$7[j$2] === a$2[w$1]) v$2[w$1] = u$1(d$3[j$2], p$3[w$1]), j$2--, w$1--;
+else if (h$7[x$1] === a$2[w$1]) v$2[w$1] = u$1(d$3[x$1], p$3[w$1]), v(s$9, v$2[w$1 + 1], d$3[x$1]), x$1++, w$1--;
+else if (h$7[j$2] === a$2[k$1]) v$2[k$1] = u$1(d$3[j$2], p$3[k$1]), v(s$9, d$3[x$1], d$3[j$2]), j$2--, k$1++;
+else if (void 0 === m$3 && (m$3 = u$2(a$2, k$1, w$1), y$2 = u$2(h$7, x$1, j$2)), m$3.has(h$7[x$1])) if (m$3.has(h$7[j$2])) {
+			const e$14 = y$2.get(a$2[k$1]), t$8 = void 0 !== e$14 ? d$3[e$14] : null;
+			if (null === t$8) {
+				const e$15 = v(s$9, d$3[x$1]);
+				u$1(e$15, p$3[k$1]), v$2[k$1] = e$15;
+			} else v$2[k$1] = u$1(t$8, p$3[k$1]), v(s$9, d$3[x$1], t$8), d$3[e$14] = null;
+			k$1++;
+		} else h$4(d$3[j$2]), j$2--;
+else h$4(d$3[x$1]), x$1++;
+		for (; k$1 <= w$1;) {
+			const e$14 = v(s$9, v$2[w$1 + 1]);
+			u$1(e$14, p$3[k$1]), v$2[k$1++] = e$14;
 		}
-		for (; x <= j;) {
-			const e = d[x++];
-			null !== e && h$4(e);
+		for (; x$1 <= j$2;) {
+			const e$14 = d$3[x$1++];
+			null !== e$14 && h$4(e$14);
 		}
-		return this.ut = a, p(s, v$2), E;
+		return this.ut = a$2, p(s$9, v$2), E;
 	}
 });
 
-/**
-* @license
-* Copyright 2021 Google LLC
-* SPDX-License-Identifier: BSD-3-Clause
-*/
-var s$4 = class extends Event {
-	constructor(s, t, e, o) {
+//#endregion
+//#region node_modules/.pnpm/@lit+context@1.1.6/node_modules/@lit/context/lib/context-request-event.js
+var s$2 = class extends Event {
+	constructor(s$9, t$7, e$14, o$14) {
 		super("context-request", {
 			bubbles: !0,
 			composed: !0
-		}), this.context = s, this.contextTarget = t, this.callback = e, this.subscribe = o ?? !1;
+		}), this.context = s$9, this.contextTarget = t$7, this.callback = e$14, this.subscribe = o$14 ?? !1;
 	}
 };
 
+//#endregion
+//#region node_modules/.pnpm/@lit+context@1.1.6/node_modules/@lit/context/lib/create-context.js
 /**
 * @license
 * Copyright 2021 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-function n$7(n) {
-	return n;
+function n$3(n$11) {
+	return n$11;
 }
 
-/**
-* @license
-* Copyright 2021 Google LLC
-* SPDX-License-Identifier: BSD-3-Clause
-*/ var s$3 = class {
-	constructor(t, s, i, h) {
-		if (this.subscribe = !1, this.provided = !1, this.value = void 0, this.t = (t, s) => {
-			this.unsubscribe && (this.unsubscribe !== s && (this.provided = !1, this.unsubscribe()), this.subscribe || this.unsubscribe()), this.value = t, this.host.requestUpdate(), this.provided && !this.subscribe || (this.provided = !0, this.callback && this.callback(t, s)), this.unsubscribe = s;
-		}, this.host = t, void 0 !== s.context) {
-			const t = s;
-			this.context = t.context, this.callback = t.callback, this.subscribe = t.subscribe ?? !1;
-		} else this.context = s, this.callback = i, this.subscribe = h ?? !1;
+//#endregion
+//#region node_modules/.pnpm/@lit+context@1.1.6/node_modules/@lit/context/lib/controllers/context-consumer.js
+var s$3 = class {
+	constructor(t$7, s$9, i$10, h$7) {
+		if (this.subscribe = !1, this.provided = !1, this.value = void 0, this.t = (t$8, s$10) => {
+			this.unsubscribe && (this.unsubscribe !== s$10 && (this.provided = !1, this.unsubscribe()), this.subscribe || this.unsubscribe()), this.value = t$8, this.host.requestUpdate(), this.provided && !this.subscribe || (this.provided = !0, this.callback && this.callback(t$8, s$10)), this.unsubscribe = s$10;
+		}, this.host = t$7, void 0 !== s$9.context) {
+			const t$8 = s$9;
+			this.context = t$8.context, this.callback = t$8.callback, this.subscribe = t$8.subscribe ?? !1;
+		} else this.context = s$9, this.callback = i$10, this.subscribe = h$7 ?? !1;
 		this.host.addController(this);
 	}
 	hostConnected() {
@@ -765,198 +773,197 @@ function n$7(n) {
 		this.unsubscribe && (this.unsubscribe(), this.unsubscribe = void 0);
 	}
 	dispatchRequest() {
-		this.host.dispatchEvent(new s$4(this.context, this.host, this.t, this.subscribe));
+		this.host.dispatchEvent(new s$2(this.context, this.host, this.t, this.subscribe));
 	}
 };
 
-/**
-* @license
-* Copyright 2021 Google LLC
-* SPDX-License-Identifier: BSD-3-Clause
-*/
-var s$2 = class {
+//#endregion
+//#region node_modules/.pnpm/@lit+context@1.1.6/node_modules/@lit/context/lib/value-notifier.js
+var s$4 = class {
 	get value() {
 		return this.o;
 	}
-	set value(s) {
-		this.setValue(s);
+	set value(s$9) {
+		this.setValue(s$9);
 	}
-	setValue(s, t = !1) {
-		const i = t || !Object.is(s, this.o);
-		this.o = s, i && this.updateObservers();
+	setValue(s$9, t$7 = !1) {
+		const i$10 = t$7 || !Object.is(s$9, this.o);
+		this.o = s$9, i$10 && this.updateObservers();
 	}
-	constructor(s) {
+	constructor(s$9) {
 		this.subscriptions = new Map(), this.updateObservers = () => {
-			for (const [s, { disposer: t }] of this.subscriptions) s(this.o, t);
-		}, void 0 !== s && (this.value = s);
+			for (const [s$10, { disposer: t$7 }] of this.subscriptions) s$10(this.o, t$7);
+		}, void 0 !== s$9 && (this.value = s$9);
 	}
-	addCallback(s, t, i) {
-		if (!i) return void s(this.value);
-		this.subscriptions.has(s) || this.subscriptions.set(s, {
+	addCallback(s$9, t$7, i$10) {
+		if (!i$10) return void s$9(this.value);
+		this.subscriptions.has(s$9) || this.subscriptions.set(s$9, {
 			disposer: () => {
-				this.subscriptions.delete(s);
+				this.subscriptions.delete(s$9);
 			},
-			consumerHost: t
+			consumerHost: t$7
 		});
-		const { disposer: h } = this.subscriptions.get(s);
-		s(this.value, h);
+		const { disposer: h$7 } = this.subscriptions.get(s$9);
+		s$9(this.value, h$7);
 	}
 	clearCallbacks() {
 		this.subscriptions.clear();
 	}
 };
 
-/**
-* @license
-* Copyright 2021 Google LLC
-* SPDX-License-Identifier: BSD-3-Clause
-*/ var e$8 = class extends Event {
-	constructor(t, s) {
+//#endregion
+//#region node_modules/.pnpm/@lit+context@1.1.6/node_modules/@lit/context/lib/controllers/context-provider.js
+var e$9 = class extends Event {
+	constructor(t$7, s$9) {
 		super("context-provider", {
 			bubbles: !0,
 			composed: !0
-		}), this.context = t, this.contextTarget = s;
+		}), this.context = t$7, this.contextTarget = s$9;
 	}
 };
-var i$3 = class extends s$2 {
-	constructor(s, e, i) {
-		super(void 0 !== e.context ? e.initialValue : i), this.onContextRequest = (t) => {
-			if (t.context !== this.context) return;
-			const s = t.contextTarget ?? t.composedPath()[0];
-			s !== this.host && (t.stopPropagation(), this.addCallback(t.callback, s, t.subscribe));
-		}, this.onProviderRequest = (s) => {
-			if (s.context !== this.context) return;
-			if ((s.contextTarget ?? s.composedPath()[0]) === this.host) return;
-			const e = new Set();
-			for (const [s, { consumerHost: i }] of this.subscriptions) e.has(s) || (e.add(s), i.dispatchEvent(new s$4(this.context, i, s, !0)));
-			s.stopPropagation();
-		}, this.host = s, void 0 !== e.context ? this.context = e.context : this.context = e, this.attachListeners(), this.host.addController?.(this);
+var i$2 = class extends s$4 {
+	constructor(s$9, e$14, i$10) {
+		super(void 0 !== e$14.context ? e$14.initialValue : i$10), this.onContextRequest = (t$7) => {
+			if (t$7.context !== this.context) return;
+			const s$10 = t$7.contextTarget ?? t$7.composedPath()[0];
+			s$10 !== this.host && (t$7.stopPropagation(), this.addCallback(t$7.callback, s$10, t$7.subscribe));
+		}, this.onProviderRequest = (s$10) => {
+			if (s$10.context !== this.context) return;
+			if ((s$10.contextTarget ?? s$10.composedPath()[0]) === this.host) return;
+			const e$15 = new Set();
+			for (const [s$11, { consumerHost: i$11 }] of this.subscriptions) e$15.has(s$11) || (e$15.add(s$11), i$11.dispatchEvent(new s$2(this.context, i$11, s$11, !0)));
+			s$10.stopPropagation();
+		}, this.host = s$9, void 0 !== e$14.context ? this.context = e$14.context : this.context = e$14, this.attachListeners(), this.host.addController?.(this);
 	}
 	attachListeners() {
 		this.host.addEventListener("context-request", this.onContextRequest), this.host.addEventListener("context-provider", this.onProviderRequest);
 	}
 	hostConnected() {
-		this.host.dispatchEvent(new e$8(this.context, this.host));
+		this.host.dispatchEvent(new e$9(this.context, this.host));
 	}
 };
 
-/**
-* @license
-* Copyright 2021 Google LLC
-* SPDX-License-Identifier: BSD-3-Clause
-*/ var t$2 = class {
+//#endregion
+//#region node_modules/.pnpm/@lit+context@1.1.6/node_modules/@lit/context/lib/context-root.js
+var t$3 = class {
 	constructor() {
-		this.pendingContextRequests = new Map(), this.onContextProvider = (t) => {
-			const s = this.pendingContextRequests.get(t.context);
-			if (void 0 === s) return;
-			this.pendingContextRequests.delete(t.context);
-			const { requests: o } = s;
-			for (const { elementRef: s, callbackRef: n } of o) {
-				const o = s.deref(), c = n.deref();
-				void 0 === o || void 0 === c || o.dispatchEvent(new s$4(t.context, o, c, !0));
+		this.pendingContextRequests = new Map(), this.onContextProvider = (t$7) => {
+			const s$9 = this.pendingContextRequests.get(t$7.context);
+			if (void 0 === s$9) return;
+			this.pendingContextRequests.delete(t$7.context);
+			const { requests: o$14 } = s$9;
+			for (const { elementRef: s$10, callbackRef: n$11 } of o$14) {
+				const o$15 = s$10.deref(), c$7 = n$11.deref();
+				void 0 === o$15 || void 0 === c$7 || o$15.dispatchEvent(new s$2(t$7.context, o$15, c$7, !0));
 			}
-		}, this.onContextRequest = (e) => {
-			if (!0 !== e.subscribe) return;
-			const t = e.contextTarget ?? e.composedPath()[0], s = e.callback;
-			let o = this.pendingContextRequests.get(e.context);
-			void 0 === o && this.pendingContextRequests.set(e.context, o = {
+		}, this.onContextRequest = (e$14) => {
+			if (!0 !== e$14.subscribe) return;
+			const t$7 = e$14.contextTarget ?? e$14.composedPath()[0], s$9 = e$14.callback;
+			let o$14 = this.pendingContextRequests.get(e$14.context);
+			void 0 === o$14 && this.pendingContextRequests.set(e$14.context, o$14 = {
 				callbacks: new WeakMap(),
 				requests: []
 			});
-			let n = o.callbacks.get(t);
-			void 0 === n && o.callbacks.set(t, n = new WeakSet()), n.has(s) || (n.add(s), o.requests.push({
-				elementRef: new WeakRef(t),
-				callbackRef: new WeakRef(s)
+			let n$11 = o$14.callbacks.get(t$7);
+			void 0 === n$11 && o$14.callbacks.set(t$7, n$11 = new WeakSet()), n$11.has(s$9) || (n$11.add(s$9), o$14.requests.push({
+				elementRef: new WeakRef(t$7),
+				callbackRef: new WeakRef(s$9)
 			}));
 		};
 	}
-	attach(e) {
-		e.addEventListener("context-request", this.onContextRequest), e.addEventListener("context-provider", this.onContextProvider);
+	attach(e$14) {
+		e$14.addEventListener("context-request", this.onContextRequest), e$14.addEventListener("context-provider", this.onContextProvider);
 	}
-	detach(e) {
-		e.removeEventListener("context-request", this.onContextRequest), e.removeEventListener("context-provider", this.onContextProvider);
+	detach(e$14) {
+		e$14.removeEventListener("context-request", this.onContextRequest), e$14.removeEventListener("context-provider", this.onContextProvider);
 	}
 };
 
+//#endregion
+//#region node_modules/.pnpm/@lit+context@1.1.6/node_modules/@lit/context/lib/decorators/provide.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ function e$7({ context: e }) {
-	return (n, i) => {
-		const r = new WeakMap();
-		if ("object" == typeof i) return {
+*/ function e$8({ context: e$14 }) {
+	return (n$11, i$10) => {
+		const r$11 = new WeakMap();
+		if ("object" == typeof i$10) return {
 			get() {
-				return n.get.call(this);
+				return n$11.get.call(this);
 			},
-			set(t) {
-				return r.get(this).setValue(t), n.set.call(this, t);
+			set(t$7) {
+				return r$11.get(this).setValue(t$7), n$11.set.call(this, t$7);
 			},
-			init(n) {
-				return r.set(this, new i$3(this, {
-					context: e,
-					initialValue: n
-				})), n;
+			init(n$12) {
+				return r$11.set(this, new i$2(this, {
+					context: e$14,
+					initialValue: n$12
+				})), n$12;
 			}
 		};
 		{
-			n.constructor.addInitializer(((n) => {
-				r.set(n, new i$3(n, { context: e }));
-			}));
-			const o = Object.getOwnPropertyDescriptor(n, i);
-			let s;
-			if (void 0 === o) {
-				const t = new WeakMap();
-				s = {
+			n$11.constructor.addInitializer((n$12) => {
+				r$11.set(n$12, new i$2(n$12, { context: e$14 }));
+			});
+			const o$14 = Object.getOwnPropertyDescriptor(n$11, i$10);
+			let s$9;
+			if (void 0 === o$14) {
+				const t$7 = new WeakMap();
+				s$9 = {
 					get() {
-						return t.get(this);
+						return t$7.get(this);
 					},
-					set(e) {
-						r.get(this).setValue(e), t.set(this, e);
+					set(e$15) {
+						r$11.get(this).setValue(e$15), t$7.set(this, e$15);
 					},
 					configurable: !0,
 					enumerable: !0
 				};
 			} else {
-				const t = o.set;
-				s = {
-					...o,
-					set(e) {
-						r.get(this).setValue(e), t?.call(this, e);
+				const t$7 = o$14.set;
+				s$9 = {
+					...o$14,
+					set(e$15) {
+						r$11.get(this).setValue(e$15), t$7?.call(this, e$15);
 					}
 				};
 			}
-			return void Object.defineProperty(n, i, s);
+			return void Object.defineProperty(n$11, i$10, s$9);
 		}
 	};
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit+context@1.1.6/node_modules/@lit/context/lib/decorators/consume.js
 /**
 * @license
 * Copyright 2022 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ function c$1({ context: c, subscribe: e }) {
-	return (o, n) => {
-		"object" == typeof n ? n.addInitializer((function() {
+*/ function c$1({ context: c$7, subscribe: e$14 }) {
+	return (o$14, n$11) => {
+		"object" == typeof n$11 ? n$11.addInitializer(function() {
 			new s$3(this, {
-				context: c,
-				callback: (t) => {
-					o.set.call(this, t);
+				context: c$7,
+				callback: (t$7) => {
+					o$14.set.call(this, t$7);
 				},
-				subscribe: e
+				subscribe: e$14
 			});
-		})) : o.constructor.addInitializer(((o) => {
-			new s$3(o, {
-				context: c,
-				callback: (t) => {
-					o[n] = t;
+		}) : o$14.constructor.addInitializer((o$15) => {
+			new s$3(o$15, {
+				context: c$7,
+				callback: (t$7) => {
+					o$15[n$11] = t$7;
 				},
-				subscribe: e
+				subscribe: e$14
 			});
-		}));
+		});
 	};
 }
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/events/events.js
 const eventInit = {
 	bubbles: true,
 	cancelable: true,
@@ -975,6 +982,8 @@ var StateEvent = class StateEvent extends CustomEvent {
 	}
 };
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/behavior.js
 const opacityBehavior = `
   &:not([disabled]) {
     cursor: pointer;
@@ -987,7 +996,7 @@ const opacityBehavior = `
     }
   }`;
 const behavior = `
-  ${new Array(21).fill(0).map((_, idx) => {
+  ${new Array(21).fill(0).map((_$1, idx) => {
 	return `.behavior-ho-${idx * 5} {
           --opacity: ${idx / 20};
           ${opacityBehavior}
@@ -1011,10 +1020,14 @@ const behavior = `
   }
 `;
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/shared.js
 const grid = 4;
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/border.js
 const border = `
-  ${new Array(25).fill(0).map((_, idx) => {
+  ${new Array(25).fill(0).map((_$1, idx) => {
 	return `
         .border-bw-${idx} { border-width: ${idx}px; }
         .border-btw-${idx} { border-top-width: ${idx}px; }
@@ -1035,6 +1048,8 @@ const border = `
   }
 `;
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/types/colors.js
 const shades = [
 	0,
 	5,
@@ -1056,12 +1071,14 @@ const shades = [
 	100
 ];
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/utils.js
 function merge(...classes) {
 	const styles = {};
 	for (const clazz of classes) {
 		for (const [key, val] of Object.entries(clazz)) {
 			const prefix = key.split("-").with(-1, "").join("-");
-			const existingKeys = Object.keys(styles).filter((key) => key.startsWith(prefix));
+			const existingKeys = Object.keys(styles).filter((key$1) => key$1.startsWith(prefix));
 			for (const existingKey of existingKeys) {
 				delete styles[existingKey];
 			}
@@ -1080,10 +1097,10 @@ function appendToAll(target, exclusions, ...classes) {
 					continue;
 				}
 				let found = false;
-				for (let t = 0; t < classesToAdd.length; t++) {
-					if (classesToAdd[t].startsWith(prefix)) {
+				for (let t$7 = 0; t$7 < classesToAdd.length; t$7++) {
+					if (classesToAdd[t$7].startsWith(prefix)) {
 						found = true;
-						classesToAdd[t] = key;
+						classesToAdd[t$7] = key;
 					}
 				}
 				if (!found) {
@@ -1111,6 +1128,8 @@ function toProp(key) {
 	return `--${key[0]}-${key.slice(1)}`;
 }
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/colors.js
 const color = (src) => `
     ${src.map((key) => {
 	const inverseKey = getInverseKey(key);
@@ -1120,9 +1139,9 @@ const color = (src) => `
     ${src.map((key) => {
 	const inverseKey = getInverseKey(key);
 	const vals = [`.color-bgc-${key} { background-color: light-dark(var(${toProp(key)}), var(${toProp(inverseKey)})); }`, `.color-bbgc-${key}::backdrop { background-color: light-dark(var(${toProp(key)}), var(${toProp(inverseKey)})); }`];
-	for (let o = .1; o < 1; o += .1) {
-		vals.push(`.color-bbgc-${key}_${(o * 100).toFixed(0)}::backdrop {
-            background-color: light-dark(oklch(from var(${toProp(key)}) l c h / calc(alpha * ${o.toFixed(1)})), oklch(from var(${toProp(inverseKey)}) l c h / calc(alpha * ${o.toFixed(1)})) );
+	for (let o$14 = .1; o$14 < 1; o$14 += .1) {
+		vals.push(`.color-bbgc-${key}_${(o$14 * 100).toFixed(0)}::backdrop {
+            background-color: light-dark(oklch(from var(${toProp(key)}) l c h / calc(alpha * ${o$14.toFixed(1)})), oklch(from var(${toProp(inverseKey)}) l c h / calc(alpha * ${o$14.toFixed(1)})) );
           }
         `);
 	}
@@ -1144,7 +1163,7 @@ const getInverseKey = (key) => {
 	return `${prefix}${inverseShade}`;
 };
 const keyFactory = (prefix) => {
-	return shades.map((v) => `${prefix}${v}`);
+	return shades.map((v$2) => `${prefix}${v$2}`);
 };
 const colors = [
 	color(keyFactory("p")),
@@ -1164,15 +1183,8 @@ const colors = [
   `
 ];
 
-/**
-* CSS classes for Google Symbols.
-*
-* Usage:
-*
-* ```html
-* <span class="g-icon">pen_spark</span>
-* ```
-*/
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/icons.js
 const icons = `
   .g-icon {
     font-family: "Material Symbols Outlined", "Google Symbols";
@@ -1209,14 +1221,16 @@ const icons = `
   }
 `;
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/layout.js
 const layout = `
   :host {
-    ${new Array(16).fill(0).map((_, idx) => {
+    ${new Array(16).fill(0).map((_$1, idx) => {
 	return `--g-${idx + 1}: ${(idx + 1) * grid}px;`;
 }).join("\n")}
   }
 
-  ${new Array(49).fill(0).map((_, index) => {
+  ${new Array(49).fill(0).map((_$1, index) => {
 	const idx = index - 24;
 	const lbl = idx < 0 ? `n${Math.abs(idx)}` : idx.toString();
 	return `
@@ -1238,12 +1252,12 @@ const layout = `
         .layout-l-${lbl} { left: ${idx * grid}px; }`;
 }).join("\n")}
 
-  ${new Array(25).fill(0).map((_, idx) => {
+  ${new Array(25).fill(0).map((_$1, idx) => {
 	return `
         .layout-g-${idx} { gap: ${idx * grid}px; }`;
 }).join("\n")}
 
-  ${new Array(8).fill(0).map((_, idx) => {
+  ${new Array(8).fill(0).map((_$1, idx) => {
 	return `
         .layout-grd-col${idx + 1} { grid-template-columns: ${"1fr ".repeat(idx + 1).trim()}; }`;
 }).join("\n")}
@@ -1356,24 +1370,24 @@ const layout = `
 
   /** Widths **/
 
-  ${new Array(10).fill(0).map((_, idx) => {
+  ${new Array(10).fill(0).map((_$1, idx) => {
 	const weight = (idx + 1) * 10;
 	return `.layout-w-${weight} { width: ${weight}%; max-width: ${weight}%; }`;
 }).join("\n")}
 
-  ${new Array(16).fill(0).map((_, idx) => {
+  ${new Array(16).fill(0).map((_$1, idx) => {
 	const weight = idx * grid;
 	return `.layout-wp-${idx} { width: ${weight}px; }`;
 }).join("\n")}
 
   /** Heights **/
 
-  ${new Array(10).fill(0).map((_, idx) => {
+  ${new Array(10).fill(0).map((_$1, idx) => {
 	const height = (idx + 1) * 10;
 	return `.layout-h-${height} { height: ${height}%; }`;
 }).join("\n")}
 
-  ${new Array(16).fill(0).map((_, idx) => {
+  ${new Array(16).fill(0).map((_$1, idx) => {
 	const height = idx * grid;
 	return `.layout-hp-${idx} { height: ${height}px; }`;
 }).join("\n")}
@@ -1399,12 +1413,16 @@ const layout = `
   }
 `;
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/opacity.js
 const opacity = `
-  ${new Array(21).fill(0).map((_, idx) => {
+  ${new Array(21).fill(0).map((_$1, idx) => {
 	return `.opacity-el-${idx * 5} { opacity: ${idx / 20}; }`;
 }).join("\n")}
 `;
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/type.js
 const type$1 = `
   :host {
     --default-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1537,12 +1555,14 @@ const type$1 = `
 
   /** Weights **/
 
-  ${new Array(9).fill(0).map((_, idx) => {
+  ${new Array(9).fill(0).map((_$1, idx) => {
 	const weight = (idx + 1) * 100;
 	return `.typography-w-${weight} { font-weight: ${weight}; }`;
 }).join("\n")}
 `;
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/styles/index.js
 const structuralStyles$1 = [
 	behavior,
 	border,
@@ -1553,7 +1573,10 @@ const structuralStyles$1 = [
 	type$1
 ].flat(Infinity).join("\n");
 
-var guards_exports = /* @__PURE__ */ __exportAll({
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/data/guards.js
+var guards_exports = {};
+__export(guards_exports, {
 	isComponentArrayReference: () => isComponentArrayReference,
 	isObject: () => isObject$1,
 	isPath: () => isPath,
@@ -1671,10 +1694,8 @@ function isResolvedVideo(props) {
 	return isObject$1(props) && "url" in props && isStringValue(props.url);
 }
 
-/**
-* Processes and consolidates A2UIProtocolMessage objects into a structured,
-* hierarchical model of UI surfaces.
-*/
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/data/model-processor.js
 var A2uiMessageProcessor = class A2uiMessageProcessor {
 	static {
 		this.DEFAULT_SURFACE_ID = "@default";
@@ -1767,8 +1788,8 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 		if (trimmedValue.startsWith("{") && trimmedValue.endsWith("}") || trimmedValue.startsWith("[") && trimmedValue.endsWith("]")) {
 			try {
 				return JSON.parse(value);
-			} catch (e) {
-				console.warn(`Failed to parse potential JSON string: "${value.substring(0, 50)}..."`, e);
+			} catch (e$14) {
+				console.warn(`Failed to parse potential JSON string: "${value.substring(0, 50)}..."`, e$14);
 				return value;
 			}
 		}
@@ -1780,7 +1801,7 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 	* appear to be stringified JSON.
 	*/
 	#convertKeyValueArrayToMap(arr) {
-		const map = new this.#mapCtor();
+		const map$1 = new this.#mapCtor();
 		for (const item of arr) {
 			if (!isObject$1(item) || !("key" in item)) continue;
 			const key = item.key;
@@ -1792,9 +1813,9 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 			} else if (typeof value === "string") {
 				value = this.#parseIfJsonString(value);
 			}
-			this.#setDataByPath(map, key, value);
+			this.#setDataByPath(map$1, key, value);
 		}
-		return map;
+		return map$1;
 	}
 	#setDataByPath(root, path, value) {
 		if (Array.isArray(value) && (value.length === 0 || isObject$1(value[0]) && "key" in value[0])) {
@@ -1815,15 +1836,15 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 				value = this.#convertKeyValueArrayToMap(value);
 			}
 		}
-		const segments = this.#normalizePath(path).split("/").filter((s) => s);
+		const segments = this.#normalizePath(path).split("/").filter((s$9) => s$9);
 		if (segments.length === 0) {
 			if (value instanceof Map || isObject$1(value)) {
 				if (!(value instanceof Map) && isObject$1(value)) {
 					value = new this.#mapCtor(Object.entries(value));
 				}
 				root.clear();
-				for (const [key, v] of value.entries()) {
-					root.set(key, v);
+				for (const [key, v$2] of value.entries()) {
+					root.set(key, v$2);
 				}
 			} else {
 				console.error("Cannot set root of DataModel to a non-Map value.");
@@ -1831,8 +1852,8 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 			return;
 		}
 		let current = root;
-		for (let i = 0; i < segments.length - 1; i++) {
-			const segment = segments[i];
+		for (let i$10 = 0; i$10 < segments.length - 1; i$10++) {
+			const segment = segments[i$10];
 			let target;
 			if (current instanceof Map) {
 				target = current.get(segment);
@@ -1866,10 +1887,10 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 	#normalizePath(path) {
 		const dotPath = path.replace(/\[(\d+)\]/g, ".$1");
 		const segments = dotPath.split(".");
-		return "/" + segments.filter((s) => s.length > 0).join("/");
+		return "/" + segments.filter((s$9) => s$9.length > 0).join("/");
 	}
 	#getDataByPath(root, path) {
-		const segments = this.#normalizePath(path).split("/").filter((s) => s);
+		const segments = this.#normalizePath(path).split("/").filter((s$9) => s$9);
 		let current = root;
 		for (const segment of segments) {
 			if (current === undefined || current === null) return null;
@@ -1939,7 +1960,7 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 	}
 	/** Finds a value key in a map. */
 	#findValueKey(value) {
-		return Object.keys(value).find((k) => k.startsWith("value"));
+		return Object.keys(value).find((k$1) => k$1.startsWith("value"));
 	}
 	/**
 	* Builds out the nodes recursively.
@@ -2159,7 +2180,7 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 				const data = this.#getDataByPath(surface.dataModel, fullDataPath);
 				const template = value.template;
 				if (Array.isArray(data)) {
-					return data.map((_, index) => {
+					return data.map((_$1, index) => {
 						const parentIndices = dataContextPath.split("/").filter((segment) => /^\d+$/.test(segment));
 						const newIndices = [...parentIndices, index];
 						const newSuffix = `:${newIndices.join(":")}`;
@@ -2198,6 +2219,8 @@ var A2uiMessageProcessor = class A2uiMessageProcessor {
 	}
 };
 
+//#endregion
+//#region node_modules/.pnpm/signal-polyfill@0.2.2/node_modules/signal-polyfill/dist/index.js
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, {
 	enumerable: true,
@@ -2231,8 +2254,8 @@ var __privateMethod = (obj, member, method) => {
 * Use of this source code is governed by an MIT-style license that can be
 * found in the LICENSE file at https://angular.io/license
 */
-function defaultEquals(a, b) {
-	return Object.is(a, b);
+function defaultEquals(a$2, b$2) {
+	return Object.is(a$2, b$2);
 }
 /**
 * @license
@@ -2331,10 +2354,10 @@ function producerUpdatesAllowed() {
 	return (activeConsumer == null ? void 0 : activeConsumer.consumerAllowSignalWrites) !== false;
 }
 function consumerMarkDirty(node) {
-	var _a;
+	var _a$1;
 	node.dirty = true;
 	producerNotifyConsumers(node);
-	(_a = node.consumerMarkedDirty) == null ? void 0 : _a.call(node.wrapper ?? node);
+	(_a$1 = node.consumerMarkedDirty) == null ? void 0 : _a$1.call(node.wrapper ?? node);
 }
 function consumerBeforeComputation(node) {
 	node && (node.nextProducerIndex = 0);
@@ -2346,8 +2369,8 @@ function consumerAfterComputation(node, prevConsumer) {
 		return;
 	}
 	if (consumerIsLive(node)) {
-		for (let i = node.nextProducerIndex; i < node.producerNode.length; i++) {
-			producerRemoveLiveConsumerAtIndex(node.producerNode[i], node.producerIndexOfThis[i]);
+		for (let i$10 = node.nextProducerIndex; i$10 < node.producerNode.length; i$10++) {
+			producerRemoveLiveConsumerAtIndex(node.producerNode[i$10], node.producerIndexOfThis[i$10]);
 		}
 	}
 	while (node.producerNode.length > node.nextProducerIndex) {
@@ -2358,9 +2381,9 @@ function consumerAfterComputation(node, prevConsumer) {
 }
 function consumerPollProducersForChange(node) {
 	assertConsumerNode(node);
-	for (let i = 0; i < node.producerNode.length; i++) {
-		const producer = node.producerNode[i];
-		const seenVersion = node.producerLastReadVersion[i];
+	for (let i$10 = 0; i$10 < node.producerNode.length; i$10++) {
+		const producer = node.producerNode[i$10];
+		const seenVersion = node.producerLastReadVersion[i$10];
 		if (seenVersion !== producer.version) {
 			return true;
 		}
@@ -2372,29 +2395,29 @@ function consumerPollProducersForChange(node) {
 	return false;
 }
 function producerAddLiveConsumer(node, consumer, indexOfThis) {
-	var _a;
+	var _a$1;
 	assertProducerNode(node);
 	assertConsumerNode(node);
 	if (node.liveConsumerNode.length === 0) {
-		(_a = node.watched) == null ? void 0 : _a.call(node.wrapper);
-		for (let i = 0; i < node.producerNode.length; i++) {
-			node.producerIndexOfThis[i] = producerAddLiveConsumer(node.producerNode[i], node, i);
+		(_a$1 = node.watched) == null ? void 0 : _a$1.call(node.wrapper);
+		for (let i$10 = 0; i$10 < node.producerNode.length; i$10++) {
+			node.producerIndexOfThis[i$10] = producerAddLiveConsumer(node.producerNode[i$10], node, i$10);
 		}
 	}
 	node.liveConsumerIndexOfThis.push(indexOfThis);
 	return node.liveConsumerNode.push(consumer) - 1;
 }
 function producerRemoveLiveConsumerAtIndex(node, idx) {
-	var _a;
+	var _a$1;
 	assertProducerNode(node);
 	assertConsumerNode(node);
 	if (typeof ngDevMode !== "undefined" && ngDevMode && idx >= node.liveConsumerNode.length) {
 		throw new Error(`Assertion error: active consumer index ${idx} is out of bounds of ${node.liveConsumerNode.length} consumers)`);
 	}
 	if (node.liveConsumerNode.length === 1) {
-		(_a = node.unwatched) == null ? void 0 : _a.call(node.wrapper);
-		for (let i = 0; i < node.producerNode.length; i++) {
-			producerRemoveLiveConsumerAtIndex(node.producerNode[i], node.producerIndexOfThis[i]);
+		(_a$1 = node.unwatched) == null ? void 0 : _a$1.call(node.wrapper);
+		for (let i$10 = 0; i$10 < node.producerNode.length; i$10++) {
+			producerRemoveLiveConsumerAtIndex(node.producerNode[i$10], node.producerIndexOfThis[i$10]);
 		}
 	}
 	const lastIdx = node.liveConsumerNode.length - 1;
@@ -2410,8 +2433,8 @@ function producerRemoveLiveConsumerAtIndex(node, idx) {
 	}
 }
 function consumerIsLive(node) {
-	var _a;
-	return node.consumerIsAlwaysLive || (((_a = node == null ? void 0 : node.liveConsumerNode) == null ? void 0 : _a.length) ?? 0) > 0;
+	var _a$1;
+	return node.consumerIsAlwaysLive || (((_a$1 = node == null ? void 0 : node.liveConsumerNode) == null ? void 0 : _a$1.length) ?? 0) > 0;
 }
 function assertConsumerNode(node) {
 	node.producerNode ?? (node.producerNode = []);
@@ -2560,11 +2583,11 @@ function signalValueChanged(node) {
 const NODE = Symbol("node");
 var Signal;
 ((Signal2) => {
-	var _a, _brand, brand_fn, _b, _brand2, brand_fn2;
+	var _a$1, _brand, brand_fn, _b, _brand2, brand_fn2;
 	class State {
 		constructor(initialValue, options = {}) {
 			__privateAdd(this, _brand);
-			__publicField(this, _a);
+			__publicField(this, _a$1);
 			const ref = createSignal(initialValue);
 			const node = ref[SIGNAL];
 			this[NODE] = node;
@@ -2591,10 +2614,10 @@ var Signal;
 			signalSetFn(ref, newValue);
 		}
 	}
-	_a = NODE;
+	_a$1 = NODE;
 	_brand = new WeakSet();
 	brand_fn = function() {};
-	Signal2.isState = (s) => typeof s === "object" && __privateIn(_brand, s);
+	Signal2.isState = (s$9) => typeof s$9 === "object" && __privateIn(_brand, s$9);
 	Signal2.State = State;
 	class Computed {
 		constructor(computation, options) {
@@ -2622,7 +2645,7 @@ var Signal;
 	_b = NODE;
 	_brand2 = new WeakSet();
 	brand_fn2 = function() {};
-	Signal2.isComputed = (c) => typeof c === "object" && __privateIn(_brand2, c);
+	Signal2.isComputed = (c$7) => typeof c$7 === "object" && __privateIn(_brand2, c$7);
 	Signal2.Computed = Computed;
 	((subtle2) => {
 		var _a2, _brand3, brand_fn3, _assertSignals, assertSignals_fn;
@@ -2643,7 +2666,7 @@ var Signal;
 			if (!(0, Signal2.isComputed)(sink) && !(0, Signal2.isWatcher)(sink)) {
 				throw new TypeError("Called introspectSources without a Computed or Watcher argument");
 			}
-			return ((_a3 = sink[NODE].producerNode) == null ? void 0 : _a3.map((n) => n.wrapper)) ?? [];
+			return ((_a3 = sink[NODE].producerNode) == null ? void 0 : _a3.map((n$11) => n$11.wrapper)) ?? [];
 		}
 		subtle2.introspectSources = introspectSources;
 		function introspectSinks(signal) {
@@ -2651,7 +2674,7 @@ var Signal;
 			if (!(0, Signal2.isComputed)(signal) && !(0, Signal2.isState)(signal)) {
 				throw new TypeError("Called introspectSinks without a Signal argument");
 			}
-			return ((_a3 = signal[NODE].liveConsumerNode) == null ? void 0 : _a3.map((n) => n.wrapper)) ?? [];
+			return ((_a3 = signal[NODE].liveConsumerNode) == null ? void 0 : _a3.map((n$11) => n$11.wrapper)) ?? [];
 		}
 		subtle2.introspectSinks = introspectSinks;
 		function hasSinks(signal) {
@@ -2705,20 +2728,20 @@ var Signal;
 				__privateMethod(this, _assertSignals, assertSignals_fn).call(this, signals);
 				const node = this[NODE];
 				assertConsumerNode(node);
-				for (let i = node.producerNode.length - 1; i >= 0; i--) {
-					if (signals.includes(node.producerNode[i].wrapper)) {
-						producerRemoveLiveConsumerAtIndex(node.producerNode[i], node.producerIndexOfThis[i]);
+				for (let i$10 = node.producerNode.length - 1; i$10 >= 0; i$10--) {
+					if (signals.includes(node.producerNode[i$10].wrapper)) {
+						producerRemoveLiveConsumerAtIndex(node.producerNode[i$10], node.producerIndexOfThis[i$10]);
 						const lastIdx = node.producerNode.length - 1;
-						node.producerNode[i] = node.producerNode[lastIdx];
-						node.producerIndexOfThis[i] = node.producerIndexOfThis[lastIdx];
+						node.producerNode[i$10] = node.producerNode[lastIdx];
+						node.producerIndexOfThis[i$10] = node.producerIndexOfThis[lastIdx];
 						node.producerNode.length--;
 						node.producerIndexOfThis.length--;
 						node.nextProducerIndex--;
-						if (i < node.producerNode.length) {
-							const idxConsumer = node.producerIndexOfThis[i];
-							const producer = node.producerNode[i];
+						if (i$10 < node.producerNode.length) {
+							const idxConsumer = node.producerIndexOfThis[i$10];
+							const producer = node.producerNode[i$10];
 							assertProducerNode(producer);
-							producer.liveConsumerIndexOfThis[idxConsumer] = i;
+							producer.liveConsumerIndexOfThis[idxConsumer] = i$10;
 						}
 					}
 				}
@@ -2728,7 +2751,7 @@ var Signal;
 					throw new TypeError("Called getPending without Watcher receiver");
 				}
 				const node = this[NODE];
-				return node.producerNode.filter((n) => n.dirty).map((n) => n.wrapper);
+				return node.producerNode.filter((n$11) => n$11.dirty).map((n$11) => n$11.wrapper);
 			}
 		}
 		_a2 = NODE;
@@ -2742,7 +2765,7 @@ var Signal;
 				}
 			}
 		};
-		Signal2.isWatcher = (w) => __privateIn(_brand3, w);
+		Signal2.isWatcher = (w$1) => __privateIn(_brand3, w$1);
 		subtle2.Watcher = Watcher;
 		function currentComputed() {
 			var _a3;
@@ -2754,6 +2777,8 @@ var Signal;
 	})(Signal2.subtle || (Signal2.subtle = {}));
 })(Signal || (Signal = {}));
 
+//#endregion
+//#region node_modules/.pnpm/signal-utils@0.21.1_signal-polyfill@0.2.2/node_modules/signal-utils/dist/-private/util.ts.js
 /**
 * equality check here is always false so that we can dirty the storage
 * via setting to _anything_
@@ -2779,6 +2804,8 @@ function fnCacheFor(context) {
 	return fnCache;
 }
 
+//#endregion
+//#region node_modules/.pnpm/signal-utils@0.21.1_signal-polyfill@0.2.2/node_modules/signal-utils/dist/array.ts.js
 const ARRAY_GETTER_METHODS = new Set([
 	Symbol.iterator,
 	"concat",
@@ -2906,10 +2933,12 @@ var SignalArray = class SignalArray {
 	}
 };
 Object.setPrototypeOf(SignalArray.prototype, Array.prototype);
-function signalArray(x) {
-	return new SignalArray(x);
+function signalArray(x$1) {
+	return new SignalArray(x$1);
 }
 
+//#endregion
+//#region node_modules/.pnpm/signal-utils@0.21.1_signal-polyfill@0.2.2/node_modules/signal-utils/dist/map.ts.js
 var SignalMap = class {
 	collection = createStorage();
 	storages = new Map();
@@ -2979,17 +3008,15 @@ var SignalMap = class {
 		return this.vals.delete(key);
 	}
 	clear() {
-		this.storages.forEach((s) => s.set(null));
+		this.storages.forEach((s$9) => s$9.set(null));
 		this.collection.set(null);
 		this.vals.clear();
 	}
 };
 Object.setPrototypeOf(SignalMap.prototype, Map.prototype);
 
-/**
-* Implementation based of tracked-built-ins' TrackedObject
-* https://github.com/tracked-tools/tracked-built-ins/blob/master/addon/src/-private/object.js
-*/
+//#endregion
+//#region node_modules/.pnpm/signal-utils@0.21.1_signal-polyfill@0.2.2/node_modules/signal-utils/dist/object.ts.js
 var SignalObjectImpl = class SignalObjectImpl {
 	static fromEntries(entries) {
 		return new SignalObjectImpl(Object.fromEntries(entries));
@@ -3073,6 +3100,8 @@ function signalObject(obj) {
 	return new SignalObject(obj);
 }
 
+//#endregion
+//#region node_modules/.pnpm/signal-utils@0.21.1_signal-polyfill@0.2.2/node_modules/signal-utils/dist/set.ts.js
 var SignalSet = class {
 	collection = createStorage();
 	storages = new Map();
@@ -3138,13 +3167,15 @@ var SignalSet = class {
 		return this.vals.delete(value);
 	}
 	clear() {
-		this.storages.forEach((s) => s.set(null));
+		this.storages.forEach((s$9) => s$9.set(null));
 		this.collection.set(null);
 		this.vals.clear();
 	}
 };
 Object.setPrototypeOf(SignalSet.prototype, Set.prototype);
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/data/signal-model-processor.js
 function create() {
 	return new A2uiMessageProcessor({
 		arrayCtor: SignalArray,
@@ -3154,733 +3185,742 @@ function create() {
 	});
 }
 
-var server_to_client_with_standard_catalog_default = {
-	title: "A2UI Message Schema",
-	description: "Describes a JSON payload for an A2UI (Agent to UI) message, which is used to dynamically construct and update user interfaces. A message MUST contain exactly ONE of the action properties: 'beginRendering', 'surfaceUpdate', 'dataModelUpdate', or 'deleteSurface'.",
-	type: "object",
-	additionalProperties: false,
-	properties: {
-		"beginRendering": {
-			"type": "object",
-			"description": "Signals the client to begin rendering a surface with a root component and specific styles.",
-			"additionalProperties": false,
-			"properties": {
-				"surfaceId": {
-					"type": "string",
-					"description": "The unique identifier for the UI surface to be rendered."
-				},
-				"root": {
-					"type": "string",
-					"description": "The ID of the root component to render."
-				},
-				"styles": {
-					"type": "object",
-					"description": "Styling information for the UI.",
-					"additionalProperties": false,
-					"properties": {
-						"font": {
-							"type": "string",
-							"description": "The primary font for the UI."
-						},
-						"primaryColor": {
-							"type": "string",
-							"description": "The primary UI color as a hexadecimal code (e.g., '#00BFFF').",
-							"pattern": "^#[0-9a-fA-F]{6}$"
-						}
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/schemas/server_to_client_with_standard_catalog.json
+var title = "A2UI Message Schema";
+var description = "Describes a JSON payload for an A2UI (Agent to UI) message, which is used to dynamically construct and update user interfaces. A message MUST contain exactly ONE of the action properties: 'beginRendering', 'surfaceUpdate', 'dataModelUpdate', or 'deleteSurface'.";
+var type = "object";
+var additionalProperties = false;
+var properties = {
+	"beginRendering": {
+		"type": "object",
+		"description": "Signals the client to begin rendering a surface with a root component and specific styles.",
+		"additionalProperties": false,
+		"properties": {
+			"surfaceId": {
+				"type": "string",
+				"description": "The unique identifier for the UI surface to be rendered."
+			},
+			"root": {
+				"type": "string",
+				"description": "The ID of the root component to render."
+			},
+			"styles": {
+				"type": "object",
+				"description": "Styling information for the UI.",
+				"additionalProperties": false,
+				"properties": {
+					"font": {
+						"type": "string",
+						"description": "The primary font for the UI."
+					},
+					"primaryColor": {
+						"type": "string",
+						"description": "The primary UI color as a hexadecimal code (e.g., '#00BFFF').",
+						"pattern": "^#[0-9a-fA-F]{6}$"
 					}
 				}
-			},
-			"required": ["root", "surfaceId"]
+			}
 		},
-		"surfaceUpdate": {
-			"type": "object",
-			"description": "Updates a surface with a new set of components.",
-			"additionalProperties": false,
-			"properties": {
-				"surfaceId": {
-					"type": "string",
-					"description": "The unique identifier for the UI surface to be updated. If you are adding a new surface this *must* be a new, unique identified that has never been used for any existing surfaces shown."
-				},
-				"components": {
-					"type": "array",
-					"description": "A list containing all UI components for the surface.",
-					"minItems": 1,
-					"items": {
-						"type": "object",
-						"description": "Represents a *single* component in a UI widget tree. This component could be one of many supported types.",
-						"additionalProperties": false,
-						"properties": {
-							"id": {
-								"type": "string",
-								"description": "The unique identifier for this component."
-							},
-							"weight": {
-								"type": "number",
-								"description": "The relative weight of this component within a Row or Column. This corresponds to the CSS 'flex-grow' property. Note: this may ONLY be set when the component is a direct descendant of a Row or Column."
-							},
-							"component": {
-								"type": "object",
-								"description": "A wrapper object that MUST contain exactly one key, which is the name of the component type (e.g., 'Heading'). The value is an object containing the properties for that specific component.",
-								"additionalProperties": false,
-								"properties": {
-									"Text": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"text": {
-												"type": "object",
-												"description": "The text content to display. This can be a literal string or a reference to a value in the data model ('path', e.g., '/doc/title'). While simple Markdown formatting is supported (i.e. without HTML, images, or links), utilizing dedicated UI components is generally preferred for a richer and more structured presentation.",
-												"additionalProperties": false,
-												"properties": {
-													"literalString": { "type": "string" },
-													"path": { "type": "string" }
-												}
-											},
-											"usageHint": {
-												"type": "string",
-												"description": "A hint for the base text style. One of:\n- `h1`: Largest heading.\n- `h2`: Second largest heading.\n- `h3`: Third largest heading.\n- `h4`: Fourth largest heading.\n- `h5`: Fifth largest heading.\n- `caption`: Small text for captions.\n- `body`: Standard body text.",
-												"enum": [
-													"h1",
-													"h2",
-													"h3",
-													"h4",
-													"h5",
-													"caption",
-													"body"
-												]
-											}
-										},
-										"required": ["text"]
-									},
-									"Image": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"url": {
-												"type": "object",
-												"description": "The URL of the image to display. This can be a literal string ('literal') or a reference to a value in the data model ('path', e.g. '/thumbnail/url').",
-												"additionalProperties": false,
-												"properties": {
-													"literalString": { "type": "string" },
-													"path": { "type": "string" }
-												}
-											},
-											"fit": {
-												"type": "string",
-												"description": "Specifies how the image should be resized to fit its container. This corresponds to the CSS 'object-fit' property.",
-												"enum": [
-													"contain",
-													"cover",
-													"fill",
-													"none",
-													"scale-down"
-												]
-											},
-											"usageHint": {
-												"type": "string",
-												"description": "A hint for the image size and style. One of:\n- `icon`: Small square icon.\n- `avatar`: Circular avatar image.\n- `smallFeature`: Small feature image.\n- `mediumFeature`: Medium feature image.\n- `largeFeature`: Large feature image.\n- `header`: Full-width, full bleed, header image.",
-												"enum": [
-													"icon",
-													"avatar",
-													"smallFeature",
-													"mediumFeature",
-													"largeFeature",
-													"header"
-												]
-											}
-										},
-										"required": ["url"]
-									},
-									"Icon": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": { "name": {
+		"required": ["root", "surfaceId"]
+	},
+	"surfaceUpdate": {
+		"type": "object",
+		"description": "Updates a surface with a new set of components.",
+		"additionalProperties": false,
+		"properties": {
+			"surfaceId": {
+				"type": "string",
+				"description": "The unique identifier for the UI surface to be updated. If you are adding a new surface this *must* be a new, unique identified that has never been used for any existing surfaces shown."
+			},
+			"components": {
+				"type": "array",
+				"description": "A list containing all UI components for the surface.",
+				"minItems": 1,
+				"items": {
+					"type": "object",
+					"description": "Represents a *single* component in a UI widget tree. This component could be one of many supported types.",
+					"additionalProperties": false,
+					"properties": {
+						"id": {
+							"type": "string",
+							"description": "The unique identifier for this component."
+						},
+						"weight": {
+							"type": "number",
+							"description": "The relative weight of this component within a Row or Column. This corresponds to the CSS 'flex-grow' property. Note: this may ONLY be set when the component is a direct descendant of a Row or Column."
+						},
+						"component": {
+							"type": "object",
+							"description": "A wrapper object that MUST contain exactly one key, which is the name of the component type (e.g., 'Heading'). The value is an object containing the properties for that specific component.",
+							"additionalProperties": false,
+							"properties": {
+								"Text": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"text": {
 											"type": "object",
-											"description": "The name of the icon to display. This can be a literal string or a reference to a value in the data model ('path', e.g. '/form/submit').",
-											"additionalProperties": false,
-											"properties": {
-												"literalString": {
-													"type": "string",
-													"enum": [
-														"accountCircle",
-														"add",
-														"arrowBack",
-														"arrowForward",
-														"attachFile",
-														"calendarToday",
-														"call",
-														"camera",
-														"check",
-														"close",
-														"delete",
-														"download",
-														"edit",
-														"event",
-														"error",
-														"favorite",
-														"favoriteOff",
-														"folder",
-														"help",
-														"home",
-														"info",
-														"locationOn",
-														"lock",
-														"lockOpen",
-														"mail",
-														"menu",
-														"moreVert",
-														"moreHoriz",
-														"notificationsOff",
-														"notifications",
-														"payment",
-														"person",
-														"phone",
-														"photo",
-														"print",
-														"refresh",
-														"search",
-														"send",
-														"settings",
-														"share",
-														"shoppingCart",
-														"star",
-														"starHalf",
-														"starOff",
-														"upload",
-														"visibility",
-														"visibilityOff",
-														"warning"
-													]
-												},
-												"path": { "type": "string" }
-											}
-										} },
-										"required": ["name"]
-									},
-									"Video": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": { "url": {
-											"type": "object",
-											"description": "The URL of the video to display. This can be a literal string or a reference to a value in the data model ('path', e.g. '/video/url').",
+											"description": "The text content to display. This can be a literal string or a reference to a value in the data model ('path', e.g., '/doc/title'). While simple Markdown formatting is supported (i.e. without HTML, images, or links), utilizing dedicated UI components is generally preferred for a richer and more structured presentation.",
 											"additionalProperties": false,
 											"properties": {
 												"literalString": { "type": "string" },
 												"path": { "type": "string" }
 											}
-										} },
-										"required": ["url"]
-									},
-									"AudioPlayer": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"url": {
-												"type": "object",
-												"description": "The URL of the audio to be played. This can be a literal string ('literal') or a reference to a value in the data model ('path', e.g. '/song/url').",
-												"additionalProperties": false,
-												"properties": {
-													"literalString": { "type": "string" },
-													"path": { "type": "string" }
-												}
-											},
-											"description": {
-												"type": "object",
-												"description": "A description of the audio, such as a title or summary. This can be a literal string or a reference to a value in the data model ('path', e.g. '/song/title').",
-												"additionalProperties": false,
-												"properties": {
-													"literalString": { "type": "string" },
-													"path": { "type": "string" }
-												}
-											}
 										},
-										"required": ["url"]
-									},
-									"Row": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"children": {
-												"type": "object",
-												"description": "Defines the children. Use 'explicitList' for a fixed set of children, or 'template' to generate children from a data list.",
-												"additionalProperties": false,
-												"properties": {
-													"explicitList": {
-														"type": "array",
-														"items": { "type": "string" }
-													},
-													"template": {
-														"type": "object",
-														"description": "A template for generating a dynamic list of children from a data model list. `componentId` is the component to use as a template, and `dataBinding` is the path to the map of components in the data model. Values in the map will define the list of children.",
-														"additionalProperties": false,
-														"properties": {
-															"componentId": { "type": "string" },
-															"dataBinding": { "type": "string" }
-														},
-														"required": ["componentId", "dataBinding"]
-													}
-												}
-											},
-											"distribution": {
-												"type": "string",
-												"description": "Defines the arrangement of children along the main axis (horizontally). This corresponds to the CSS 'justify-content' property.",
-												"enum": [
-													"center",
-													"end",
-													"spaceAround",
-													"spaceBetween",
-													"spaceEvenly",
-													"start"
-												]
-											},
-											"alignment": {
-												"type": "string",
-												"description": "Defines the alignment of children along the cross axis (vertically). This corresponds to the CSS 'align-items' property.",
-												"enum": [
-													"start",
-													"center",
-													"end",
-													"stretch"
-												]
-											}
-										},
-										"required": ["children"]
-									},
-									"Column": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"children": {
-												"type": "object",
-												"description": "Defines the children. Use 'explicitList' for a fixed set of children, or 'template' to generate children from a data list.",
-												"additionalProperties": false,
-												"properties": {
-													"explicitList": {
-														"type": "array",
-														"items": { "type": "string" }
-													},
-													"template": {
-														"type": "object",
-														"description": "A template for generating a dynamic list of children from a data model list. `componentId` is the component to use as a template, and `dataBinding` is the path to the map of components in the data model. Values in the map will define the list of children.",
-														"additionalProperties": false,
-														"properties": {
-															"componentId": { "type": "string" },
-															"dataBinding": { "type": "string" }
-														},
-														"required": ["componentId", "dataBinding"]
-													}
-												}
-											},
-											"distribution": {
-												"type": "string",
-												"description": "Defines the arrangement of children along the main axis (vertically). This corresponds to the CSS 'justify-content' property.",
-												"enum": [
-													"start",
-													"center",
-													"end",
-													"spaceBetween",
-													"spaceAround",
-													"spaceEvenly"
-												]
-											},
-											"alignment": {
-												"type": "string",
-												"description": "Defines the alignment of children along the cross axis (horizontally). This corresponds to the CSS 'align-items' property.",
-												"enum": [
-													"center",
-													"end",
-													"start",
-													"stretch"
-												]
-											}
-										},
-										"required": ["children"]
-									},
-									"List": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"children": {
-												"type": "object",
-												"description": "Defines the children. Use 'explicitList' for a fixed set of children, or 'template' to generate children from a data list.",
-												"additionalProperties": false,
-												"properties": {
-													"explicitList": {
-														"type": "array",
-														"items": { "type": "string" }
-													},
-													"template": {
-														"type": "object",
-														"description": "A template for generating a dynamic list of children from a data model list. `componentId` is the component to use as a template, and `dataBinding` is the path to the map of components in the data model. Values in the map will define the list of children.",
-														"additionalProperties": false,
-														"properties": {
-															"componentId": { "type": "string" },
-															"dataBinding": { "type": "string" }
-														},
-														"required": ["componentId", "dataBinding"]
-													}
-												}
-											},
-											"direction": {
-												"type": "string",
-												"description": "The direction in which the list items are laid out.",
-												"enum": ["vertical", "horizontal"]
-											},
-											"alignment": {
-												"type": "string",
-												"description": "Defines the alignment of children along the cross axis.",
-												"enum": [
-													"start",
-													"center",
-													"end",
-													"stretch"
-												]
-											}
-										},
-										"required": ["children"]
-									},
-									"Card": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": { "child": {
+										"usageHint": {
 											"type": "string",
-											"description": "The ID of the component to be rendered inside the card."
-										} },
-										"required": ["child"]
+											"description": "A hint for the base text style. One of:\n- `h1`: Largest heading.\n- `h2`: Second largest heading.\n- `h3`: Third largest heading.\n- `h4`: Fourth largest heading.\n- `h5`: Fifth largest heading.\n- `caption`: Small text for captions.\n- `body`: Standard body text.",
+											"enum": [
+												"h1",
+												"h2",
+												"h3",
+												"h4",
+												"h5",
+												"caption",
+												"body"
+											]
+										}
 									},
-									"Tabs": {
+									"required": ["text"]
+								},
+								"Image": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"url": {
+											"type": "object",
+											"description": "The URL of the image to display. This can be a literal string ('literal') or a reference to a value in the data model ('path', e.g. '/thumbnail/url').",
+											"additionalProperties": false,
+											"properties": {
+												"literalString": { "type": "string" },
+												"path": { "type": "string" }
+											}
+										},
+										"fit": {
+											"type": "string",
+											"description": "Specifies how the image should be resized to fit its container. This corresponds to the CSS 'object-fit' property.",
+											"enum": [
+												"contain",
+												"cover",
+												"fill",
+												"none",
+												"scale-down"
+											]
+										},
+										"usageHint": {
+											"type": "string",
+											"description": "A hint for the image size and style. One of:\n- `icon`: Small square icon.\n- `avatar`: Circular avatar image.\n- `smallFeature`: Small feature image.\n- `mediumFeature`: Medium feature image.\n- `largeFeature`: Large feature image.\n- `header`: Full-width, full bleed, header image.",
+											"enum": [
+												"icon",
+												"avatar",
+												"smallFeature",
+												"mediumFeature",
+												"largeFeature",
+												"header"
+											]
+										}
+									},
+									"required": ["url"]
+								},
+								"Icon": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": { "name": {
 										"type": "object",
+										"description": "The name of the icon to display. This can be a literal string or a reference to a value in the data model ('path', e.g. '/form/submit').",
 										"additionalProperties": false,
-										"properties": { "tabItems": {
+										"properties": {
+											"literalString": {
+												"type": "string",
+												"enum": [
+													"accountCircle",
+													"add",
+													"arrowBack",
+													"arrowForward",
+													"attachFile",
+													"calendarToday",
+													"call",
+													"camera",
+													"check",
+													"close",
+													"delete",
+													"download",
+													"edit",
+													"event",
+													"error",
+													"favorite",
+													"favoriteOff",
+													"folder",
+													"help",
+													"home",
+													"info",
+													"locationOn",
+													"lock",
+													"lockOpen",
+													"mail",
+													"menu",
+													"moreVert",
+													"moreHoriz",
+													"notificationsOff",
+													"notifications",
+													"payment",
+													"person",
+													"phone",
+													"photo",
+													"print",
+													"refresh",
+													"search",
+													"send",
+													"settings",
+													"share",
+													"shoppingCart",
+													"star",
+													"starHalf",
+													"starOff",
+													"upload",
+													"visibility",
+													"visibilityOff",
+													"warning"
+												]
+											},
+											"path": { "type": "string" }
+										}
+									} },
+									"required": ["name"]
+								},
+								"Video": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": { "url": {
+										"type": "object",
+										"description": "The URL of the video to display. This can be a literal string or a reference to a value in the data model ('path', e.g. '/video/url').",
+										"additionalProperties": false,
+										"properties": {
+											"literalString": { "type": "string" },
+											"path": { "type": "string" }
+										}
+									} },
+									"required": ["url"]
+								},
+								"AudioPlayer": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"url": {
+											"type": "object",
+											"description": "The URL of the audio to be played. This can be a literal string ('literal') or a reference to a value in the data model ('path', e.g. '/song/url').",
+											"additionalProperties": false,
+											"properties": {
+												"literalString": { "type": "string" },
+												"path": { "type": "string" }
+											}
+										},
+										"description": {
+											"type": "object",
+											"description": "A description of the audio, such as a title or summary. This can be a literal string or a reference to a value in the data model ('path', e.g. '/song/title').",
+											"additionalProperties": false,
+											"properties": {
+												"literalString": { "type": "string" },
+												"path": { "type": "string" }
+											}
+										}
+									},
+									"required": ["url"]
+								},
+								"Row": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"children": {
+											"type": "object",
+											"description": "Defines the children. Use 'explicitList' for a fixed set of children, or 'template' to generate children from a data list.",
+											"additionalProperties": false,
+											"properties": {
+												"explicitList": {
+													"type": "array",
+													"items": { "type": "string" }
+												},
+												"template": {
+													"type": "object",
+													"description": "A template for generating a dynamic list of children from a data model list. `componentId` is the component to use as a template, and `dataBinding` is the path to the map of components in the data model. Values in the map will define the list of children.",
+													"additionalProperties": false,
+													"properties": {
+														"componentId": { "type": "string" },
+														"dataBinding": { "type": "string" }
+													},
+													"required": ["componentId", "dataBinding"]
+												}
+											}
+										},
+										"distribution": {
+											"type": "string",
+											"description": "Defines the arrangement of children along the main axis (horizontally). This corresponds to the CSS 'justify-content' property.",
+											"enum": [
+												"center",
+												"end",
+												"spaceAround",
+												"spaceBetween",
+												"spaceEvenly",
+												"start"
+											]
+										},
+										"alignment": {
+											"type": "string",
+											"description": "Defines the alignment of children along the cross axis (vertically). This corresponds to the CSS 'align-items' property.",
+											"enum": [
+												"start",
+												"center",
+												"end",
+												"stretch"
+											]
+										}
+									},
+									"required": ["children"]
+								},
+								"Column": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"children": {
+											"type": "object",
+											"description": "Defines the children. Use 'explicitList' for a fixed set of children, or 'template' to generate children from a data list.",
+											"additionalProperties": false,
+											"properties": {
+												"explicitList": {
+													"type": "array",
+													"items": { "type": "string" }
+												},
+												"template": {
+													"type": "object",
+													"description": "A template for generating a dynamic list of children from a data model list. `componentId` is the component to use as a template, and `dataBinding` is the path to the map of components in the data model. Values in the map will define the list of children.",
+													"additionalProperties": false,
+													"properties": {
+														"componentId": { "type": "string" },
+														"dataBinding": { "type": "string" }
+													},
+													"required": ["componentId", "dataBinding"]
+												}
+											}
+										},
+										"distribution": {
+											"type": "string",
+											"description": "Defines the arrangement of children along the main axis (vertically). This corresponds to the CSS 'justify-content' property.",
+											"enum": [
+												"start",
+												"center",
+												"end",
+												"spaceBetween",
+												"spaceAround",
+												"spaceEvenly"
+											]
+										},
+										"alignment": {
+											"type": "string",
+											"description": "Defines the alignment of children along the cross axis (horizontally). This corresponds to the CSS 'align-items' property.",
+											"enum": [
+												"center",
+												"end",
+												"start",
+												"stretch"
+											]
+										}
+									},
+									"required": ["children"]
+								},
+								"List": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"children": {
+											"type": "object",
+											"description": "Defines the children. Use 'explicitList' for a fixed set of children, or 'template' to generate children from a data list.",
+											"additionalProperties": false,
+											"properties": {
+												"explicitList": {
+													"type": "array",
+													"items": { "type": "string" }
+												},
+												"template": {
+													"type": "object",
+													"description": "A template for generating a dynamic list of children from a data model list. `componentId` is the component to use as a template, and `dataBinding` is the path to the map of components in the data model. Values in the map will define the list of children.",
+													"additionalProperties": false,
+													"properties": {
+														"componentId": { "type": "string" },
+														"dataBinding": { "type": "string" }
+													},
+													"required": ["componentId", "dataBinding"]
+												}
+											}
+										},
+										"direction": {
+											"type": "string",
+											"description": "The direction in which the list items are laid out.",
+											"enum": ["vertical", "horizontal"]
+										},
+										"alignment": {
+											"type": "string",
+											"description": "Defines the alignment of children along the cross axis.",
+											"enum": [
+												"start",
+												"center",
+												"end",
+												"stretch"
+											]
+										}
+									},
+									"required": ["children"]
+								},
+								"Card": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": { "child": {
+										"type": "string",
+										"description": "The ID of the component to be rendered inside the card."
+									} },
+									"required": ["child"]
+								},
+								"Tabs": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": { "tabItems": {
+										"type": "array",
+										"description": "An array of objects, where each object defines a tab with a title and a child component.",
+										"items": {
+											"type": "object",
+											"additionalProperties": false,
+											"properties": {
+												"title": {
+													"type": "object",
+													"description": "The tab title. Defines the value as either a literal value or a path to data model value (e.g. '/options/title').",
+													"additionalProperties": false,
+													"properties": {
+														"literalString": { "type": "string" },
+														"path": { "type": "string" }
+													}
+												},
+												"child": { "type": "string" }
+											},
+											"required": ["title", "child"]
+										}
+									} },
+									"required": ["tabItems"]
+								},
+								"Divider": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": { "axis": {
+										"type": "string",
+										"description": "The orientation of the divider.",
+										"enum": ["horizontal", "vertical"]
+									} }
+								},
+								"Modal": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"entryPointChild": {
+											"type": "string",
+											"description": "The ID of the component that opens the modal when interacted with (e.g., a button)."
+										},
+										"contentChild": {
+											"type": "string",
+											"description": "The ID of the component to be displayed inside the modal."
+										}
+									},
+									"required": ["entryPointChild", "contentChild"]
+								},
+								"Button": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"child": {
+											"type": "string",
+											"description": "The ID of the component to display in the button, typically a Text component."
+										},
+										"primary": {
+											"type": "boolean",
+											"description": "Indicates if this button should be styled as the primary action."
+										},
+										"action": {
+											"type": "object",
+											"description": "The client-side action to be dispatched when the button is clicked. It includes the action's name and an optional context payload.",
+											"additionalProperties": false,
+											"properties": {
+												"name": { "type": "string" },
+												"context": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"additionalProperties": false,
+														"properties": {
+															"key": { "type": "string" },
+															"value": {
+																"type": "object",
+																"description": "Defines the value to be included in the context as either a literal value or a path to a data model value (e.g. '/user/name').",
+																"additionalProperties": false,
+																"properties": {
+																	"path": { "type": "string" },
+																	"literalString": { "type": "string" },
+																	"literalNumber": { "type": "number" },
+																	"literalBoolean": { "type": "boolean" }
+																}
+															}
+														},
+														"required": ["key", "value"]
+													}
+												}
+											},
+											"required": ["name"]
+										}
+									},
+									"required": ["child", "action"]
+								},
+								"CheckBox": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"label": {
+											"type": "object",
+											"description": "The text to display next to the checkbox. Defines the value as either a literal value or a path to data model ('path', e.g. '/option/label').",
+											"additionalProperties": false,
+											"properties": {
+												"literalString": { "type": "string" },
+												"path": { "type": "string" }
+											}
+										},
+										"value": {
+											"type": "object",
+											"description": "The current state of the checkbox (true for checked, false for unchecked). This can be a literal boolean ('literalBoolean') or a reference to a value in the data model ('path', e.g. '/filter/open').",
+											"additionalProperties": false,
+											"properties": {
+												"literalBoolean": { "type": "boolean" },
+												"path": { "type": "string" }
+											}
+										}
+									},
+									"required": ["label", "value"]
+								},
+								"TextField": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"label": {
+											"type": "object",
+											"description": "The text label for the input field. This can be a literal string or a reference to a value in the data model ('path, e.g. '/user/name').",
+											"additionalProperties": false,
+											"properties": {
+												"literalString": { "type": "string" },
+												"path": { "type": "string" }
+											}
+										},
+										"text": {
+											"type": "object",
+											"description": "The value of the text field. This can be a literal string or a reference to a value in the data model ('path', e.g. '/user/name').",
+											"additionalProperties": false,
+											"properties": {
+												"literalString": { "type": "string" },
+												"path": { "type": "string" }
+											}
+										},
+										"textFieldType": {
+											"type": "string",
+											"description": "The type of input field to display.",
+											"enum": [
+												"date",
+												"longText",
+												"number",
+												"shortText",
+												"obscured"
+											]
+										},
+										"validationRegexp": {
+											"type": "string",
+											"description": "A regular expression used for client-side validation of the input."
+										}
+									},
+									"required": ["label"]
+								},
+								"DateTimeInput": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"value": {
+											"type": "object",
+											"description": "The selected date and/or time value. This can be a literal string ('literalString') or a reference to a value in the data model ('path', e.g. '/user/dob').",
+											"additionalProperties": false,
+											"properties": {
+												"literalString": { "type": "string" },
+												"path": { "type": "string" }
+											}
+										},
+										"enableDate": {
+											"type": "boolean",
+											"description": "If true, allows the user to select a date."
+										},
+										"enableTime": {
+											"type": "boolean",
+											"description": "If true, allows the user to select a time."
+										},
+										"outputFormat": {
+											"type": "string",
+											"description": "The desired format for the output string after a date or time is selected."
+										}
+									},
+									"required": ["value"]
+								},
+								"MultipleChoice": {
+									"type": "object",
+									"additionalProperties": false,
+									"properties": {
+										"selections": {
+											"type": "object",
+											"description": "The currently selected values for the component. This can be a literal array of strings or a path to an array in the data model('path', e.g. '/hotel/options').",
+											"additionalProperties": false,
+											"properties": {
+												"literalArray": {
+													"type": "array",
+													"items": { "type": "string" }
+												},
+												"path": { "type": "string" }
+											}
+										},
+										"options": {
 											"type": "array",
-											"description": "An array of objects, where each object defines a tab with a title and a child component.",
+											"description": "An array of available options for the user to choose from.",
 											"items": {
 												"type": "object",
 												"additionalProperties": false,
 												"properties": {
-													"title": {
+													"label": {
 														"type": "object",
-														"description": "The tab title. Defines the value as either a literal value or a path to data model value (e.g. '/options/title').",
+														"description": "The text to display for this option. This can be a literal string or a reference to a value in the data model (e.g. '/option/label').",
 														"additionalProperties": false,
 														"properties": {
 															"literalString": { "type": "string" },
 															"path": { "type": "string" }
 														}
 													},
-													"child": { "type": "string" }
-												},
-												"required": ["title", "child"]
-											}
-										} },
-										"required": ["tabItems"]
-									},
-									"Divider": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": { "axis": {
-											"type": "string",
-											"description": "The orientation of the divider.",
-											"enum": ["horizontal", "vertical"]
-										} }
-									},
-									"Modal": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"entryPointChild": {
-												"type": "string",
-												"description": "The ID of the component that opens the modal when interacted with (e.g., a button)."
-											},
-											"contentChild": {
-												"type": "string",
-												"description": "The ID of the component to be displayed inside the modal."
-											}
-										},
-										"required": ["entryPointChild", "contentChild"]
-									},
-									"Button": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"child": {
-												"type": "string",
-												"description": "The ID of the component to display in the button, typically a Text component."
-											},
-											"primary": {
-												"type": "boolean",
-												"description": "Indicates if this button should be styled as the primary action."
-											},
-											"action": {
-												"type": "object",
-												"description": "The client-side action to be dispatched when the button is clicked. It includes the action's name and an optional context payload.",
-												"additionalProperties": false,
-												"properties": {
-													"name": { "type": "string" },
-													"context": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"additionalProperties": false,
-															"properties": {
-																"key": { "type": "string" },
-																"value": {
-																	"type": "object",
-																	"description": "Defines the value to be included in the context as either a literal value or a path to a data model value (e.g. '/user/name').",
-																	"additionalProperties": false,
-																	"properties": {
-																		"path": { "type": "string" },
-																		"literalString": { "type": "string" },
-																		"literalNumber": { "type": "number" },
-																		"literalBoolean": { "type": "boolean" }
-																	}
-																}
-															},
-															"required": ["key", "value"]
-														}
+													"value": {
+														"type": "string",
+														"description": "The value to be associated with this option when selected."
 													}
 												},
-												"required": ["name"]
+												"required": ["label", "value"]
 											}
 										},
-										"required": ["child", "action"]
+										"maxAllowedSelections": {
+											"type": "integer",
+											"description": "The maximum number of options that the user is allowed to select."
+										}
 									},
-									"CheckBox": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"label": {
-												"type": "object",
-												"description": "The text to display next to the checkbox. Defines the value as either a literal value or a path to data model ('path', e.g. '/option/label').",
-												"additionalProperties": false,
-												"properties": {
-													"literalString": { "type": "string" },
-													"path": { "type": "string" }
-												}
-											},
-											"value": {
-												"type": "object",
-												"description": "The current state of the checkbox (true for checked, false for unchecked). This can be a literal boolean ('literalBoolean') or a reference to a value in the data model ('path', e.g. '/filter/open').",
-												"additionalProperties": false,
-												"properties": {
-													"literalBoolean": { "type": "boolean" },
-													"path": { "type": "string" }
-												}
-											}
-										},
-										"required": ["label", "value"]
-									},
-									"TextField": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"label": {
-												"type": "object",
-												"description": "The text label for the input field. This can be a literal string or a reference to a value in the data model ('path, e.g. '/user/name').",
-												"additionalProperties": false,
-												"properties": {
-													"literalString": { "type": "string" },
-													"path": { "type": "string" }
-												}
-											},
-											"text": {
-												"type": "object",
-												"description": "The value of the text field. This can be a literal string or a reference to a value in the data model ('path', e.g. '/user/name').",
-												"additionalProperties": false,
-												"properties": {
-													"literalString": { "type": "string" },
-													"path": { "type": "string" }
-												}
-											},
-											"textFieldType": {
-												"type": "string",
-												"description": "The type of input field to display.",
-												"enum": [
-													"date",
-													"longText",
-													"number",
-													"shortText",
-													"obscured"
-												]
-											},
-											"validationRegexp": {
-												"type": "string",
-												"description": "A regular expression used for client-side validation of the input."
-											}
-										},
-										"required": ["label"]
-									},
-									"DateTimeInput": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"value": {
-												"type": "object",
-												"description": "The selected date and/or time value. This can be a literal string ('literalString') or a reference to a value in the data model ('path', e.g. '/user/dob').",
-												"additionalProperties": false,
-												"properties": {
-													"literalString": { "type": "string" },
-													"path": { "type": "string" }
-												}
-											},
-											"enableDate": {
-												"type": "boolean",
-												"description": "If true, allows the user to select a date."
-											},
-											"enableTime": {
-												"type": "boolean",
-												"description": "If true, allows the user to select a time."
-											},
-											"outputFormat": {
-												"type": "string",
-												"description": "The desired format for the output string after a date or time is selected."
-											}
-										},
-										"required": ["value"]
-									},
-									"MultipleChoice": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"selections": {
-												"type": "object",
-												"description": "The currently selected values for the component. This can be a literal array of strings or a path to an array in the data model('path', e.g. '/hotel/options').",
-												"additionalProperties": false,
-												"properties": {
-													"literalArray": {
-														"type": "array",
-														"items": { "type": "string" }
-													},
-													"path": { "type": "string" }
-												}
-											},
-											"options": {
-												"type": "array",
-												"description": "An array of available options for the user to choose from.",
-												"items": {
-													"type": "object",
-													"additionalProperties": false,
-													"properties": {
-														"label": {
-															"type": "object",
-															"description": "The text to display for this option. This can be a literal string or a reference to a value in the data model (e.g. '/option/label').",
-															"additionalProperties": false,
-															"properties": {
-																"literalString": { "type": "string" },
-																"path": { "type": "string" }
-															}
-														},
-														"value": {
-															"type": "string",
-															"description": "The value to be associated with this option when selected."
-														}
-													},
-													"required": ["label", "value"]
-												}
-											},
-											"maxAllowedSelections": {
-												"type": "integer",
-												"description": "The maximum number of options that the user is allowed to select."
-											}
-										},
-										"required": ["selections", "options"]
-									},
-									"Slider": {
-										"type": "object",
-										"additionalProperties": false,
-										"properties": {
-											"value": {
-												"type": "object",
-												"description": "The current value of the slider. This can be a literal number ('literalNumber') or a reference to a value in the data model ('path', e.g. '/restaurant/cost').",
-												"additionalProperties": false,
-												"properties": {
-													"literalNumber": { "type": "number" },
-													"path": { "type": "string" }
-												}
-											},
-											"minValue": {
-												"type": "number",
-												"description": "The minimum value of the slider."
-											},
-											"maxValue": {
-												"type": "number",
-												"description": "The maximum value of the slider."
-											}
-										},
-										"required": ["value"]
-									}
-								}
-							}
-						},
-						"required": ["id", "component"]
-					}
-				}
-			},
-			"required": ["surfaceId", "components"]
-		},
-		"dataModelUpdate": {
-			"type": "object",
-			"description": "Updates the data model for a surface.",
-			"additionalProperties": false,
-			"properties": {
-				"surfaceId": {
-					"type": "string",
-					"description": "The unique identifier for the UI surface this data model update applies to."
-				},
-				"path": {
-					"type": "string",
-					"description": "An optional path to a location within the data model (e.g., '/user/name'). If omitted, or set to '/', the entire data model will be replaced."
-				},
-				"contents": {
-					"type": "array",
-					"description": "An array of data entries. Each entry must contain a 'key' and exactly one corresponding typed 'value*' property.",
-					"items": {
-						"type": "object",
-						"description": "A single data entry. Exactly one 'value*' property should be provided alongside the key.",
-						"additionalProperties": false,
-						"properties": {
-							"key": {
-								"type": "string",
-								"description": "The key for this data entry."
-							},
-							"valueString": { "type": "string" },
-							"valueNumber": { "type": "number" },
-							"valueBoolean": { "type": "boolean" },
-							"valueMap": {
-								"description": "Represents a map as an adjacency list.",
-								"type": "array",
-								"items": {
+									"required": ["selections", "options"]
+								},
+								"Slider": {
 									"type": "object",
-									"description": "One entry in the map. Exactly one 'value*' property should be provided alongside the key.",
 									"additionalProperties": false,
 									"properties": {
-										"key": { "type": "string" },
-										"valueString": { "type": "string" },
-										"valueNumber": { "type": "number" },
-										"valueBoolean": { "type": "boolean" }
+										"value": {
+											"type": "object",
+											"description": "The current value of the slider. This can be a literal number ('literalNumber') or a reference to a value in the data model ('path', e.g. '/restaurant/cost').",
+											"additionalProperties": false,
+											"properties": {
+												"literalNumber": { "type": "number" },
+												"path": { "type": "string" }
+											}
+										},
+										"minValue": {
+											"type": "number",
+											"description": "The minimum value of the slider."
+										},
+										"maxValue": {
+											"type": "number",
+											"description": "The maximum value of the slider."
+										}
 									},
-									"required": ["key"]
+									"required": ["value"]
 								}
 							}
-						},
-						"required": ["key"]
-					}
+						}
+					},
+					"required": ["id", "component"]
 				}
-			},
-			"required": ["contents", "surfaceId"]
+			}
 		},
-		"deleteSurface": {
-			"type": "object",
-			"description": "Signals the client to delete the surface identified by 'surfaceId'.",
-			"additionalProperties": false,
-			"properties": { "surfaceId": {
+		"required": ["surfaceId", "components"]
+	},
+	"dataModelUpdate": {
+		"type": "object",
+		"description": "Updates the data model for a surface.",
+		"additionalProperties": false,
+		"properties": {
+			"surfaceId": {
 				"type": "string",
-				"description": "The unique identifier for the UI surface to be deleted."
-			} },
-			"required": ["surfaceId"]
-		}
+				"description": "The unique identifier for the UI surface this data model update applies to."
+			},
+			"path": {
+				"type": "string",
+				"description": "An optional path to a location within the data model (e.g., '/user/name'). If omitted, or set to '/', the entire data model will be replaced."
+			},
+			"contents": {
+				"type": "array",
+				"description": "An array of data entries. Each entry must contain a 'key' and exactly one corresponding typed 'value*' property.",
+				"items": {
+					"type": "object",
+					"description": "A single data entry. Exactly one 'value*' property should be provided alongside the key.",
+					"additionalProperties": false,
+					"properties": {
+						"key": {
+							"type": "string",
+							"description": "The key for this data entry."
+						},
+						"valueString": { "type": "string" },
+						"valueNumber": { "type": "number" },
+						"valueBoolean": { "type": "boolean" },
+						"valueMap": {
+							"description": "Represents a map as an adjacency list.",
+							"type": "array",
+							"items": {
+								"type": "object",
+								"description": "One entry in the map. Exactly one 'value*' property should be provided alongside the key.",
+								"additionalProperties": false,
+								"properties": {
+									"key": { "type": "string" },
+									"valueString": { "type": "string" },
+									"valueNumber": { "type": "number" },
+									"valueBoolean": { "type": "boolean" }
+								},
+								"required": ["key"]
+							}
+						}
+					},
+					"required": ["key"]
+				}
+			}
+		},
+		"required": ["contents", "surfaceId"]
+	},
+	"deleteSurface": {
+		"type": "object",
+		"description": "Signals the client to delete the surface identified by 'surfaceId'.",
+		"additionalProperties": false,
+		"properties": { "surfaceId": {
+			"type": "string",
+			"description": "The unique identifier for the UI surface to be deleted."
+		} },
+		"required": ["surfaceId"]
 	}
 };
+var server_to_client_with_standard_catalog_default = {
+	title,
+	description,
+	type,
+	additionalProperties,
+	properties
+};
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/core.js
 const Data = {
 	createSignalA2uiMessageProcessor: create,
 	A2uiMessageProcessor,
@@ -3888,235 +3928,233 @@ const Data = {
 };
 const Schemas = { A2UIClientEventMessage: server_to_client_with_standard_catalog_default };
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/custom-element.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-const t$1 = (t) => (e, o) => {
-	void 0 !== o ? o.addInitializer(() => {
-		customElements.define(t, e);
-	}) : customElements.define(t, e);
+const t = (t$7) => (e$14, o$14) => {
+	void 0 !== o$14 ? o$14.addInitializer(() => {
+		customElements.define(t$7, e$14);
+	}) : customElements.define(t$7, e$14);
 };
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/property.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const o$9 = {
+*/ const o$8 = {
 	attribute: !0,
 	type: String,
-	converter: u$3,
+	converter: u,
 	reflect: !1,
-	hasChanged: f$3
-}, r$7 = (t = o$9, e, r) => {
-	const { kind: n, metadata: i } = r;
-	let s = globalThis.litPropertyMetadata.get(i);
-	if (void 0 === s && globalThis.litPropertyMetadata.set(i, s = new Map()), "setter" === n && ((t = Object.create(t)).wrapped = !0), s.set(r.name, t), "accessor" === n) {
-		const { name: o } = r;
+	hasChanged: f$1
+}, r$8 = (t$7 = o$8, e$14, r$11) => {
+	const { kind: n$11, metadata: i$10 } = r$11;
+	let s$9 = globalThis.litPropertyMetadata.get(i$10);
+	if (void 0 === s$9 && globalThis.litPropertyMetadata.set(i$10, s$9 = new Map()), "setter" === n$11 && ((t$7 = Object.create(t$7)).wrapped = !0), s$9.set(r$11.name, t$7), "accessor" === n$11) {
+		const { name: o$14 } = r$11;
 		return {
-			set(r) {
-				const n = e.get.call(this);
-				e.set.call(this, r), this.requestUpdate(o, n, t, !0, r);
+			set(r$12) {
+				const n$12 = e$14.get.call(this);
+				e$14.set.call(this, r$12), this.requestUpdate(o$14, n$12, t$7, !0, r$12);
 			},
-			init(e) {
-				return void 0 !== e && this.C(o, void 0, t, e), e;
+			init(e$15) {
+				return void 0 !== e$15 && this.C(o$14, void 0, t$7, e$15), e$15;
 			}
 		};
 	}
-	if ("setter" === n) {
-		const { name: o } = r;
-		return function(r) {
-			const n = this[o];
-			e.call(this, r), this.requestUpdate(o, n, t, !0, r);
+	if ("setter" === n$11) {
+		const { name: o$14 } = r$11;
+		return function(r$12) {
+			const n$12 = this[o$14];
+			e$14.call(this, r$12), this.requestUpdate(o$14, n$12, t$7, !0, r$12);
 		};
 	}
-	throw Error("Unsupported decorator location: " + n);
+	throw Error("Unsupported decorator location: " + n$11);
 };
-function n$6(t) {
-	return (e, o) => "object" == typeof o ? r$7(t, e, o) : ((t, e, o) => {
-		const r = e.hasOwnProperty(o);
-		return e.constructor.createProperty(o, t), r ? Object.getOwnPropertyDescriptor(e, o) : void 0;
-	})(t, e, o);
+function n(t$7) {
+	return (e$14, o$14) => "object" == typeof o$14 ? r$8(t$7, e$14, o$14) : ((t$8, e$15, o$15) => {
+		const r$11 = e$15.hasOwnProperty(o$15);
+		return e$15.constructor.createProperty(o$15, t$8), r$11 ? Object.getOwnPropertyDescriptor(e$15, o$15) : void 0;
+	})(t$7, e$14, o$14);
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/state.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ function r$6(r) {
-	return n$6({
-		...r,
+*/ function r$1(r$11) {
+	return n({
+		...r$11,
 		state: !0,
 		attribute: !1
 	});
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/event-options.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-function t(t) {
-	return (n, o) => {
-		const c = "function" == typeof n ? n : n[o];
-		Object.assign(c, t);
+function t$2(t$7) {
+	return (n$11, o$14) => {
+		const c$7 = "function" == typeof n$11 ? n$11 : n$11[o$14];
+		Object.assign(c$7, t$7);
 	};
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/base.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-const e$6 = (e, t, c) => (c.configurable = !0, c.enumerable = !0, Reflect.decorate && "object" != typeof t && Object.defineProperty(e, t, c), c);
+const e$6 = (e$14, t$7, c$7) => (c$7.configurable = !0, c$7.enumerable = !0, Reflect.decorate && "object" != typeof t$7 && Object.defineProperty(e$14, t$7, c$7), c$7);
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/query.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ function e$5(e, r) {
-	return (n, s, i) => {
-		const o = (t) => t.renderRoot?.querySelector(e) ?? null;
-		if (r) {
-			const { get: e, set: r } = "object" == typeof s ? n : i ?? (() => {
-				const t = Symbol();
+*/ function e$3(e$14, r$11) {
+	return (n$11, s$9, i$10) => {
+		const o$14 = (t$7) => t$7.renderRoot?.querySelector(e$14) ?? null;
+		if (r$11) {
+			const { get: e$15, set: r$12 } = "object" == typeof s$9 ? n$11 : i$10 ?? (() => {
+				const t$7 = Symbol();
 				return {
 					get() {
-						return this[t];
+						return this[t$7];
 					},
-					set(e) {
-						this[t] = e;
+					set(e$16) {
+						this[t$7] = e$16;
 					}
 				};
 			})();
-			return e$6(n, s, { get() {
-				let t = e.call(this);
-				return void 0 === t && (t = o(this), (null !== t || this.hasUpdated) && r.call(this, t)), t;
+			return e$6(n$11, s$9, { get() {
+				let t$7 = e$15.call(this);
+				return void 0 === t$7 && (t$7 = o$14(this), (null !== t$7 || this.hasUpdated) && r$12.call(this, t$7)), t$7;
 			} });
 		}
-		return e$6(n, s, { get() {
-			return o(this);
+		return e$6(n$11, s$9, { get() {
+			return o$14(this);
 		} });
 	};
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/query-all.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-let e$4;
-function r$5(r) {
-	return (n, o) => e$6(n, o, { get() {
-		return (this.renderRoot ?? (e$4 ??= document.createDocumentFragment())).querySelectorAll(r);
+let e$7;
+function r$7(r$11) {
+	return (n$11, o$14) => e$6(n$11, o$14, { get() {
+		return (this.renderRoot ?? (e$7 ??= document.createDocumentFragment())).querySelectorAll(r$11);
 	} });
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/query-async.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-function r$4(r) {
-	return (n, e) => e$6(n, e, { async get() {
-		return await this.updateComplete, this.renderRoot?.querySelector(r) ?? null;
+function r$6(r$11) {
+	return (n$11, e$14) => e$6(n$11, e$14, { async get() {
+		return await this.updateComplete, this.renderRoot?.querySelector(r$11) ?? null;
 	} });
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/query-assigned-elements.js
 /**
 * @license
 * Copyright 2021 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ function o$8(o) {
-	return (e, n) => {
-		const { slot: r, selector: s } = o ?? {}, c = "slot" + (r ? `[name=${r}]` : ":not([name])");
-		return e$6(e, n, { get() {
-			const t = this.renderRoot?.querySelector(c), e = t?.assignedElements(o) ?? [];
-			return void 0 === s ? e : e.filter((t) => t.matches(s));
+*/ function o$7(o$14) {
+	return (e$14, n$11) => {
+		const { slot: r$11, selector: s$9 } = o$14 ?? {}, c$7 = "slot" + (r$11 ? `[name=${r$11}]` : ":not([name])");
+		return e$6(e$14, n$11, { get() {
+			const t$7 = this.renderRoot?.querySelector(c$7), e$15 = t$7?.assignedElements(o$14) ?? [];
+			return void 0 === s$9 ? e$15 : e$15.filter((t$8) => t$8.matches(s$9));
 		} });
 	};
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit+reactive-element@2.1.2/node_modules/@lit/reactive-element/decorators/query-assigned-nodes.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ function n$5(n) {
-	return (o, r) => {
-		const { slot: e } = n ?? {}, s = "slot" + (e ? `[name=${e}]` : ":not([name])");
-		return e$6(o, r, { get() {
-			const t = this.renderRoot?.querySelector(s);
-			return t?.assignedNodes(n) ?? [];
+*/ function n$5(n$11) {
+	return (o$14, r$11) => {
+		const { slot: e$14 } = n$11 ?? {}, s$9 = "slot" + (e$14 ? `[name=${e$14}]` : ":not([name])");
+		return e$6(o$14, r$11, { get() {
+			const t$7 = this.renderRoot?.querySelector(s$9);
+			return t$7?.assignedNodes(n$11) ?? [];
 		} });
 	};
 }
 
+//#endregion
+//#region node_modules/.pnpm/@lit-labs+signals@0.1.3/node_modules/@lit-labs/signals/lib/signal-watcher.js
 /**
 * @license
 * Copyright 2023 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ let i$2 = !1;
-const s$1 = new Signal.subtle.Watcher(() => {
-	i$2 || (i$2 = !0, queueMicrotask(() => {
-		i$2 = !1;
-		for (const t of s$1.getPending()) t.get();
-		s$1.watch();
-	}));
-}), h$3 = Symbol("SignalWatcherBrand"), e$3 = new FinalizationRegistry((i) => {
-	i.unwatch(...Signal.subtle.introspectSources(i));
-}), n$4 = new WeakMap();
-function o$7(i) {
-	return !0 === i[h$3] ? (console.warn("SignalWatcher should not be applied to the same class more than once."), i) : class extends i {
+*/ const i$6 = Symbol("SignalWatcherBrand"), s$1 = new FinalizationRegistry(({ watcher: t$7, signal: i$10 }) => {
+	t$7.unwatch(i$10);
+}), h$3 = new WeakMap();
+function e$5(e$14) {
+	return !0 === e$14[i$6] ? (console.warn("SignalWatcher should not be applied to the same class more than once."), e$14) : class extends e$14 {
 		constructor() {
-			super(...arguments), this._$St = new Map(), this._$So = new Signal.State(0), this._$Si = !1;
+			super(...arguments), this._$St = new Signal.State(0), this._$Si = !1, this._$So = !0, this._$Sh = new Set();
 		}
 		_$Sl() {
-			var t, i;
-			const s = [], h = [];
-			this._$St.forEach((t, i) => {
-				((null == t ? void 0 : t.beforeUpdate) ? s : h).push(i);
+			if (void 0 !== this._$Su) return;
+			this._$Sv = new Signal.Computed(() => {
+				this._$St.get(), super.performUpdate();
 			});
-			const e = null === (t = this.h) || void 0 === t ? void 0 : t.getPending().filter((t) => t !== this._$Su && !this._$St.has(t));
-			s.forEach((t) => t.get()), null === (i = this._$Su) || void 0 === i || i.get(), e.forEach((t) => t.get()), h.forEach((t) => t.get());
-		}
-		_$Sv() {
-			this.isUpdatePending || queueMicrotask(() => {
-				this.isUpdatePending || this._$Sl();
+			const i$10 = this._$Su = new Signal.subtle.Watcher(function() {
+				const t$7 = h$3.get(this);
+				void 0 !== t$7 && (!1 === t$7._$Si && t$7.requestUpdate(), this.watch());
 			});
-		}
-		_$S_() {
-			if (void 0 !== this.h) return;
-			this._$Su = new Signal.Computed(() => {
-				this._$So.get(), super.performUpdate();
-			});
-			const i = this.h = new Signal.subtle.Watcher(function() {
-				const t = n$4.get(this);
-				void 0 !== t && (!1 === t._$Si && (new Set(this.getPending()).has(t._$Su) ? t.requestUpdate() : t._$Sv()), this.watch());
-			});
-			n$4.set(i, this), e$3.register(this, i), i.watch(this._$Su), i.watch(...Array.from(this._$St).map(([t]) => t));
+			h$3.set(i$10, this), s$1.register(this, {
+				watcher: i$10,
+				signal: this._$Sv
+			}), i$10.watch(this._$Sv);
 		}
 		_$Sp() {
-			if (void 0 === this.h) return;
-			let i = !1;
-			this.h.unwatch(...Signal.subtle.introspectSources(this.h).filter((t) => {
-				var s;
-				const h = !0 !== (null === (s = this._$St.get(t)) || void 0 === s ? void 0 : s.manualDispose);
-				return h && this._$St.delete(t), i || (i = !h), h;
-			})), i || (this._$Su = void 0, this.h = void 0, this._$St.clear());
-		}
-		updateEffect(i, s) {
-			var h;
-			this._$S_();
-			const e = new Signal.Computed(() => {
-				i();
-			});
-			return this.h.watch(e), this._$St.set(e, s), null !== (h = null == s ? void 0 : s.beforeUpdate) && void 0 !== h && h ? Signal.subtle.untrack(() => e.get()) : this.updateComplete.then(() => Signal.subtle.untrack(() => e.get())), () => {
-				this._$St.delete(e), this.h.unwatch(e), !1 === this.isConnected && this._$Sp();
-			};
+			void 0 !== this._$Su && (this._$Su.unwatch(this._$Sv), this._$Sv = void 0, this._$Su = void 0);
 		}
 		performUpdate() {
-			this.isUpdatePending && (this._$S_(), this._$Si = !0, this._$So.set(this._$So.get() + 1), this._$Si = !1, this._$Sl());
+			this.isUpdatePending && (this._$Sl(), this._$Si = !0, this._$St.set(this._$St.get() + 1), this._$Si = !1, this._$Sv.get());
+		}
+		update(t$7) {
+			try {
+				this._$So ? (this._$So = !1, super.update(t$7)) : this._$Sh.forEach((t$8) => t$8.commit());
+			} finally {
+				this.isUpdatePending = !1, this._$Sh.clear();
+			}
+		}
+		requestUpdate(t$7, i$10, s$9) {
+			this._$So = !0, super.requestUpdate(t$7, i$10, s$9);
 		}
 		connectedCallback() {
 			super.connectedCallback(), this.requestUpdate();
@@ -4126,133 +4164,148 @@ function o$7(i) {
 				!1 === this.isConnected && this._$Sp();
 			});
 		}
+		_(t$7) {
+			this._$Sh.add(t$7);
+			const i$10 = this._$So;
+			this.requestUpdate(), this._$So = i$10;
+		}
+		m(t$7) {
+			this._$Sh.delete(t$7);
+		}
 	};
 }
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/async-directive.js
 /**
 * @license
 * Copyright 2017 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const s = (i, t) => {
-	const e = i._$AN;
-	if (void 0 === e) return !1;
-	for (const i of e) i._$AO?.(t, !1), s(i, t);
+*/ const s = (i$10, t$7) => {
+	const e$14 = i$10._$AN;
+	if (void 0 === e$14) return !1;
+	for (const i$11 of e$14) i$11._$AO?.(t$7, !1), s(i$11, t$7);
 	return !0;
-}, o$6 = (i) => {
-	let t, e;
+}, o$6 = (i$10) => {
+	let t$7, e$14;
 	do {
-		if (void 0 === (t = i._$AM)) break;
-		e = t._$AN, e.delete(i), i = t;
-	} while (0 === e?.size);
-}, r$3 = (i) => {
-	for (let t; t = i._$AM; i = t) {
-		let e = t._$AN;
-		if (void 0 === e) t._$AN = e = new Set();
-		else if (e.has(i)) break;
-		e.add(i), c(t);
+		if (void 0 === (t$7 = i$10._$AM)) break;
+		e$14 = t$7._$AN, e$14.delete(i$10), i$10 = t$7;
+	} while (0 === e$14?.size);
+}, r$5 = (i$10) => {
+	for (let t$7; t$7 = i$10._$AM; i$10 = t$7) {
+		let e$14 = t$7._$AN;
+		if (void 0 === e$14) t$7._$AN = e$14 = new Set();
+else if (e$14.has(i$10)) break;
+		e$14.add(i$10), c$2(t$7);
 	}
 };
-function h$2(i) {
-	void 0 !== this._$AN ? (o$6(this), this._$AM = i, r$3(this)) : this._$AM = i;
+function h$2(i$10) {
+	void 0 !== this._$AN ? (o$6(this), this._$AM = i$10, r$5(this)) : this._$AM = i$10;
 }
-function n$3(i, t = !1, e = 0) {
-	const r = this._$AH, h = this._$AN;
-	if (void 0 !== h && 0 !== h.size) if (t) if (Array.isArray(r)) for (let i = e; i < r.length; i++) s(r[i], !1), o$6(r[i]);
-	else null != r && (s(r, !1), o$6(r));
-	else s(this, i);
+function n$4(i$10, t$7 = !1, e$14 = 0) {
+	const r$11 = this._$AH, h$7 = this._$AN;
+	if (void 0 !== h$7 && 0 !== h$7.size) if (t$7) if (Array.isArray(r$11)) for (let i$11 = e$14; i$11 < r$11.length; i$11++) s(r$11[i$11], !1), o$6(r$11[i$11]);
+else null != r$11 && (s(r$11, !1), o$6(r$11));
+else s(this, i$10);
 }
-const c = (i) => {
-	i.type == t$4.CHILD && (i._$AP ??= n$3, i._$AQ ??= h$2);
+const c$2 = (i$10) => {
+	i$10.type == t$1.CHILD && (i$10._$AP ??= n$4, i$10._$AQ ??= h$2);
 };
-var f = class extends i$5 {
+var f = class extends i$3 {
 	constructor() {
 		super(...arguments), this._$AN = void 0;
 	}
-	_$AT(i, t, e) {
-		super._$AT(i, t, e), r$3(this), this.isConnected = i._$AU;
+	_$AT(i$10, t$7, e$14) {
+		super._$AT(i$10, t$7, e$14), r$5(this), this.isConnected = i$10._$AU;
 	}
-	_$AO(i, t = !0) {
-		i !== this.isConnected && (this.isConnected = i, i ? this.reconnected?.() : this.disconnected?.()), t && (s(this, i), o$6(this));
+	_$AO(i$10, t$7 = !0) {
+		i$10 !== this.isConnected && (this.isConnected = i$10, i$10 ? this.reconnected?.() : this.disconnected?.()), t$7 && (s(this, i$10), o$6(this));
 	}
-	setValue(t) {
-		if (r$8(this._$Ct)) this._$Ct._$AI(t, this);
-		else {
-			const i = [...this._$Ct._$AH];
-			i[this._$Ci] = t, this._$Ct._$AI(i, this, 0);
+	setValue(t$7) {
+		if (r$4(this._$Ct)) this._$Ct._$AI(t$7, this);
+else {
+			const i$10 = [...this._$Ct._$AH];
+			i$10[this._$Ci] = t$7, this._$Ct._$AI(i$10, this, 0);
 		}
 	}
 	disconnected() {}
 	reconnected() {}
 };
 
-/**
-* @license
-* Copyright 2023 Google LLC
-* SPDX-License-Identifier: BSD-3-Clause
-*/
-let o$5 = !1;
-const n$2 = new Signal.subtle.Watcher(async () => {
-	o$5 || (o$5 = !0, queueMicrotask(() => {
-		o$5 = !1;
-		for (const i of n$2.getPending()) i.get();
-		n$2.watch();
-	}));
-});
-var r$2 = class extends f {
-	_$S_() {
-		var i, t;
-		void 0 === this._$Sm && (this._$Sj = new Signal.Computed(() => {
-			var i;
-			const t = null === (i = this._$SW) || void 0 === i ? void 0 : i.get();
-			return this.setValue(t), t;
-		}), this._$Sm = null !== (t = null === (i = this._$Sk) || void 0 === i ? void 0 : i.h) && void 0 !== t ? t : n$2, this._$Sm.watch(this._$Sj), Signal.subtle.untrack(() => {
-			var i;
-			return null === (i = this._$Sj) || void 0 === i ? void 0 : i.get();
-		}));
+//#endregion
+//#region node_modules/.pnpm/@lit-labs+signals@0.1.3/node_modules/@lit-labs/signals/lib/watch.js
+var h$1 = class extends f {
+	_$Sl() {
+		if (void 0 !== this._$Su) return;
+		this._$SW = new Signal.Computed(() => {
+			var i$11;
+			return null === (i$11 = this._$Sj) || void 0 === i$11 ? void 0 : i$11.get();
+		});
+		const i$10 = this._$Su = new Signal.subtle.Watcher(() => {
+			var t$7;
+			null === (t$7 = this._$SO) || void 0 === t$7 || t$7._(this), i$10.watch();
+		});
+		i$10.watch(this._$SW);
 	}
 	_$Sp() {
-		void 0 !== this._$Sm && (this._$Sm.unwatch(this._$SW), this._$Sm = void 0);
+		var i$10;
+		void 0 !== this._$Su && (this._$Su.unwatch(this._$SW), this._$SW = void 0, this._$Su = void 0, null === (i$10 = this._$SO) || void 0 === i$10 || i$10.m(this));
 	}
-	render(i) {
-		return Signal.subtle.untrack(() => i.get());
+	commit() {
+		this.setValue(Signal.subtle.untrack(() => {
+			var i$10;
+			return null === (i$10 = this._$SW) || void 0 === i$10 ? void 0 : i$10.get();
+		}));
 	}
-	update(i, [t]) {
-		var o, n;
-		return null !== (o = this._$Sk) && void 0 !== o || (this._$Sk = null === (n = i.options) || void 0 === n ? void 0 : n.host), t !== this._$SW && void 0 !== this._$SW && this._$Sp(), this._$SW = t, this._$S_(), Signal.subtle.untrack(() => this._$SW.get());
+	render(i$10) {
+		return Signal.subtle.untrack(() => i$10.get());
+	}
+	update(i$10, [t$7]) {
+		var h$7, o$14;
+		return null !== (h$7 = this._$SO) && void 0 !== h$7 || (this._$SO = null === (o$14 = i$10.options) || void 0 === o$14 ? void 0 : o$14.host), t$7 !== this._$Sj && void 0 !== this._$Sj && this._$Sp(), this._$Sj = t$7, this._$Sl(), Signal.subtle.untrack(() => this._$SW.get());
 	}
 	disconnected() {
 		this._$Sp();
 	}
 	reconnected() {
-		this._$S_();
+		this._$Sl();
 	}
 };
-const h$1 = e$10(r$2);
+const o$4 = e$1(h$1);
 
+//#endregion
+//#region node_modules/.pnpm/@lit-labs+signals@0.1.3/node_modules/@lit-labs/signals/lib/html-tag.js
 /**
 * @license
 * Copyright 2023 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const m = (o) => (t, ...m) => o(t, ...m.map((o) => o instanceof Signal.State || o instanceof Signal.Computed ? h$1(o) : o)), l$1 = m(b), r$1 = m(w);
+*/ const m = (o$14) => (t$7, ...m$3) => o$14(t$7, ...m$3.map((o$15) => o$15 instanceof Signal.State || o$15 instanceof Signal.Computed ? o$4(o$15) : o$15)), l = m(b), r$2 = m(w);
 
+//#endregion
+//#region node_modules/.pnpm/@lit-labs+signals@0.1.3/node_modules/@lit-labs/signals/index.js
 /**
 * @license
 * Copyright 2023 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const l = Signal.State, o$4 = Signal.Computed, r = (l, o) => new Signal.State(l, o), i$1 = (l, o) => new Signal.Computed(l, o);
+*/ const l$1 = Signal.State, o$5 = Signal.Computed, r$3 = (l$5, o$14) => new Signal.State(l$5, o$14), i$5 = (l$5, o$14) => new Signal.Computed(l$5, o$14);
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/directives/map.js
 /**
 * @license
 * Copyright 2021 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
 */
-function* o$3(o, f) {
-	if (void 0 !== o) {
-		let i = 0;
-		for (const t of o) yield f(t, i++);
+function* o$3(o$14, f$4) {
+	if (void 0 !== o$14) {
+		let i$10 = 0;
+		for (const t$7 of o$14) yield f$4(t$7, i$10++);
 	}
 }
 
+//#endregion
+//#region node_modules/.pnpm/signal-utils@0.21.1_signal-polyfill@0.2.2/node_modules/signal-utils/dist/subtle/microtask-effect.ts.js
 let pending = false;
 let watcher = new Signal.subtle.Watcher(() => {
 	if (!pending) {
@@ -4274,18 +4327,24 @@ function flushPending() {
 * This will produce a memory leak.
 */
 function effect(cb) {
-	let c = new Signal.Computed(() => cb());
-	watcher.watch(c);
-	c.get();
+	let c$7 = new Signal.Computed(() => cb());
+	watcher.watch(c$7);
+	c$7.get();
 	return () => {
-		watcher.unwatch(c);
+		watcher.unwatch(c$7);
 	};
 }
 
-const themeContext = n$7("A2UITheme");
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/context/theme.js
+const themeContext = n$3("A2UITheme");
 
-const structuralStyles = r$11(structuralStyles$1);
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/styles.js
+const structuralStyles = r(structuralStyles$1);
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/component-registry.js
 var ComponentRegistry = class {
 	constructor() {
 		this.registry = new Map();
@@ -4313,54 +4372,56 @@ var ComponentRegistry = class {
 };
 const componentRegistry = new ComponentRegistry();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/root.js
 var __runInitializers$19 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 var __esDecorate$19 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
 	done = true;
 };
 let Root = (() => {
-	let _classDecorators = [t$1("a2ui-root")];
+	let _classDecorators = [t("a2ui-root")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
-	let _classSuper = o$7(i$6);
+	let _classSuper = e$5(i$1);
 	let _instanceExtraInitializers = [];
 	let _surfaceId_decorators;
 	let _surfaceId_initializers = [];
@@ -4384,20 +4445,20 @@ let Root = (() => {
 	let _enableCustomElements_initializers = [];
 	let _enableCustomElements_extraInitializers = [];
 	let _set_weight_decorators;
-	var Root = class extends _classSuper {
+	var Root$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_surfaceId_decorators = [n$6()];
-			_component_decorators = [n$6()];
+			_surfaceId_decorators = [n()];
+			_component_decorators = [n()];
 			_theme_decorators = [c$1({ context: themeContext })];
-			_childComponents_decorators = [n$6({ attribute: false })];
-			_processor_decorators = [n$6({ attribute: false })];
-			_dataContextPath_decorators = [n$6()];
-			_enableCustomElements_decorators = [n$6()];
-			_set_weight_decorators = [n$6()];
+			_childComponents_decorators = [n({ attribute: false })];
+			_processor_decorators = [n({ attribute: false })];
+			_dataContextPath_decorators = [n()];
+			_enableCustomElements_decorators = [n()];
+			_set_weight_decorators = [n()];
 			__esDecorate$19(this, null, _surfaceId_decorators, {
 				kind: "accessor",
 				name: "surfaceId",
@@ -4514,7 +4575,7 @@ let Root = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Root = _classThis = _classDescriptor.value;
+			Root$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -4580,7 +4641,7 @@ let Root = (() => {
 		}
 		#weight = (__runInitializers$19(this, _enableCustomElements_extraInitializers), 1);
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       :host {
         display: flex;
         flex-direction: column;
@@ -4976,96 +5037,102 @@ let Root = (() => {
 			__runInitializers$19(_classThis, _classExtraInitializers);
 		}
 	};
-	return Root = _classThis;
+	return Root$1 = _classThis;
 })();
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/directives/class-map.js
 /**
 * @license
 * Copyright 2018 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const e$2 = e$10(class extends i$5 {
-	constructor(t) {
-		if (super(t), t.type !== t$4.ATTRIBUTE || "class" !== t.name || t.strings?.length > 2) throw Error("`classMap()` can only be used in the `class` attribute and must be the only part in the attribute.");
+*/ const e = e$1(class extends i$3 {
+	constructor(t$7) {
+		if (super(t$7), t$7.type !== t$1.ATTRIBUTE || "class" !== t$7.name || t$7.strings?.length > 2) throw Error("`classMap()` can only be used in the `class` attribute and must be the only part in the attribute.");
 	}
-	render(t) {
-		return " " + Object.keys(t).filter((s) => t[s]).join(" ") + " ";
+	render(t$7) {
+		return " " + Object.keys(t$7).filter((s$9) => t$7[s$9]).join(" ") + " ";
 	}
-	update(s, [i]) {
+	update(s$9, [i$10]) {
 		if (void 0 === this.st) {
-			this.st = new Set(), void 0 !== s.strings && (this.nt = new Set(s.strings.join(" ").split(/\s/).filter((t) => "" !== t)));
-			for (const t in i) i[t] && !this.nt?.has(t) && this.st.add(t);
-			return this.render(i);
+			this.st = new Set(), void 0 !== s$9.strings && (this.nt = new Set(s$9.strings.join(" ").split(/\s/).filter((t$7) => "" !== t$7)));
+			for (const t$7 in i$10) i$10[t$7] && !this.nt?.has(t$7) && this.st.add(t$7);
+			return this.render(i$10);
 		}
-		const r = s.element.classList;
-		for (const t of this.st) t in i || (r.remove(t), this.st.delete(t));
-		for (const t in i) {
-			const s = !!i[t];
-			s === this.st.has(t) || this.nt?.has(t) || (s ? (r.add(t), this.st.add(t)) : (r.remove(t), this.st.delete(t)));
+		const r$11 = s$9.element.classList;
+		for (const t$7 of this.st) t$7 in i$10 || (r$11.remove(t$7), this.st.delete(t$7));
+		for (const t$7 in i$10) {
+			const s$10 = !!i$10[t$7];
+			s$10 === this.st.has(t$7) || this.nt?.has(t$7) || (s$10 ? (r$11.add(t$7), this.st.add(t$7)) : (r$11.remove(t$7), this.st.delete(t$7)));
 		}
 		return E;
 	}
 });
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/directives/style-map.js
 /**
 * @license
 * Copyright 2018 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const n$1 = "important", i = " !" + n$1, o$2 = e$10(class extends i$5 {
-	constructor(t) {
-		if (super(t), t.type !== t$4.ATTRIBUTE || "style" !== t.name || t.strings?.length > 2) throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.");
+*/ const n$2 = "important", i$4 = " !" + n$2, o = e$1(class extends i$3 {
+	constructor(t$7) {
+		if (super(t$7), t$7.type !== t$1.ATTRIBUTE || "style" !== t$7.name || t$7.strings?.length > 2) throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.");
 	}
-	render(t) {
-		return Object.keys(t).reduce((e, r) => {
-			const s = t[r];
-			return null == s ? e : e + `${r = r.includes("-") ? r : r.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g, "-$&").toLowerCase()}:${s};`;
+	render(t$7) {
+		return Object.keys(t$7).reduce((e$14, r$11) => {
+			const s$9 = t$7[r$11];
+			return null == s$9 ? e$14 : e$14 + `${r$11 = r$11.includes("-") ? r$11 : r$11.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g, "-$&").toLowerCase()}:${s$9};`;
 		}, "");
 	}
-	update(e, [r]) {
-		const { style: s } = e.element;
-		if (void 0 === this.ft) return this.ft = new Set(Object.keys(r)), this.render(r);
-		for (const t of this.ft) null == r[t] && (this.ft.delete(t), t.includes("-") ? s.removeProperty(t) : s[t] = null);
-		for (const t in r) {
-			const e = r[t];
-			if (null != e) {
-				this.ft.add(t);
-				const r = "string" == typeof e && e.endsWith(i);
-				t.includes("-") || r ? s.setProperty(t, r ? e.slice(0, -11) : e, r ? n$1 : "") : s[t] = e;
+	update(e$14, [r$11]) {
+		const { style: s$9 } = e$14.element;
+		if (void 0 === this.ft) return this.ft = new Set(Object.keys(r$11)), this.render(r$11);
+		for (const t$7 of this.ft) null == r$11[t$7] && (this.ft.delete(t$7), t$7.includes("-") ? s$9.removeProperty(t$7) : s$9[t$7] = null);
+		for (const t$7 in r$11) {
+			const e$15 = r$11[t$7];
+			if (null != e$15) {
+				this.ft.add(t$7);
+				const r$12 = "string" == typeof e$15 && e$15.endsWith(i$4);
+				t$7.includes("-") || r$12 ? s$9.setProperty(t$7, r$12 ? e$15.slice(0, -11) : e$15, r$12 ? n$2 : "") : s$9[t$7] = e$15;
 			}
 		}
 		return E;
 	}
 });
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/audio.js
 var __esDecorate$18 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -5073,13 +5140,13 @@ var __esDecorate$18 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$18 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Audio = (() => {
-	let _classDecorators = [t$1("a2ui-audioplayer")];
+	let _classDecorators = [t("a2ui-audioplayer")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -5087,13 +5154,13 @@ let Audio = (() => {
 	let _url_decorators;
 	let _url_initializers = [];
 	let _url_extraInitializers = [];
-	var Audio = class extends _classSuper {
+	var Audio$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_url_decorators = [n$6()];
+			_url_decorators = [n()];
 			__esDecorate$18(this, null, _url_decorators, {
 				kind: "accessor",
 				name: "url",
@@ -5113,7 +5180,7 @@ let Audio = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Audio = _classThis = _classDescriptor.value;
+			Audio$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -5129,7 +5196,7 @@ let Audio = (() => {
 			this.#url_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -5174,8 +5241,8 @@ let Audio = (() => {
 		}
 		render() {
 			return b`<section
-      class=${e$2(this.theme.components.AudioPlayer)}
-      style=${this.theme.additionalStyles?.AudioPlayer ? o$2(this.theme.additionalStyles?.AudioPlayer) : A}
+      class=${e(this.theme.components.AudioPlayer)}
+      style=${this.theme.additionalStyles?.AudioPlayer ? o(this.theme.additionalStyles?.AudioPlayer) : A}
     >
       ${this.#renderAudio()}
     </section>`;
@@ -5188,39 +5255,41 @@ let Audio = (() => {
 			__runInitializers$18(_classThis, _classExtraInitializers);
 		}
 	};
-	return Audio = _classThis;
+	return Audio$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/button.js
 var __esDecorate$17 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -5228,13 +5297,13 @@ var __esDecorate$17 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$17 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Button = (() => {
-	let _classDecorators = [t$1("a2ui-button")];
+	let _classDecorators = [t("a2ui-button")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -5242,13 +5311,13 @@ let Button = (() => {
 	let _action_decorators;
 	let _action_initializers = [];
 	let _action_extraInitializers = [];
-	var Button = class extends _classSuper {
+	var Button$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_action_decorators = [n$6()];
+			_action_decorators = [n()];
 			__esDecorate$17(this, null, _action_decorators, {
 				kind: "accessor",
 				name: "action",
@@ -5268,7 +5337,7 @@ let Button = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Button = _classThis = _classDescriptor.value;
+			Button$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -5284,7 +5353,7 @@ let Button = (() => {
 			this.#action_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       :host {
         display: block;
         flex: var(--weight);
@@ -5294,8 +5363,8 @@ let Button = (() => {
 		}
 		render() {
 			return b`<button
-      class=${e$2(this.theme.components.Button)}
-      style=${this.theme.additionalStyles?.Button ? o$2(this.theme.additionalStyles?.Button) : A}
+      class=${e(this.theme.components.Button)}
+      style=${this.theme.additionalStyles?.Button ? o(this.theme.additionalStyles?.Button) : A}
       @click=${() => {
 				if (!this.action) {
 					return;
@@ -5321,39 +5390,41 @@ let Button = (() => {
 			__runInitializers$17(_classThis, _classExtraInitializers);
 		}
 	};
-	return Button = _classThis;
+	return Button$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/card.js
 var __esDecorate$16 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -5361,18 +5432,18 @@ var __esDecorate$16 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$16 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Card = (() => {
-	let _classDecorators = [t$1("a2ui-card")];
+	let _classDecorators = [t("a2ui-card")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
 	let _classSuper = Root;
-	var Card = class extends _classSuper {
+	var Card$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
@@ -5383,7 +5454,7 @@ let Card = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Card = _classThis = _classDescriptor.value;
+			Card$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -5392,7 +5463,7 @@ let Card = (() => {
 			});
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -5419,8 +5490,8 @@ let Card = (() => {
 		}
 		render() {
 			return b` <section
-      class=${e$2(this.theme.components.Card)}
-      style=${this.theme.additionalStyles?.Card ? o$2(this.theme.additionalStyles?.Card) : A}
+      class=${e(this.theme.components.Card)}
+      style=${this.theme.additionalStyles?.Card ? o(this.theme.additionalStyles?.Card) : A}
     >
       <slot></slot>
     </section>`;
@@ -5429,39 +5500,41 @@ let Card = (() => {
 			__runInitializers$16(_classThis, _classExtraInitializers);
 		}
 	};
-	return Card = _classThis;
+	return Card$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/checkbox.js
 var __esDecorate$15 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -5469,13 +5542,13 @@ var __esDecorate$15 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$15 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Checkbox = (() => {
-	let _classDecorators = [t$1("a2ui-checkbox")];
+	let _classDecorators = [t("a2ui-checkbox")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -5486,14 +5559,14 @@ let Checkbox = (() => {
 	let _label_decorators;
 	let _label_initializers = [];
 	let _label_extraInitializers = [];
-	var Checkbox = class extends _classSuper {
+	var Checkbox$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_value_decorators = [n$6()];
-			_label_decorators = [n$6()];
+			_value_decorators = [n()];
+			_label_decorators = [n()];
 			__esDecorate$15(this, null, _value_decorators, {
 				kind: "accessor",
 				name: "value",
@@ -5527,7 +5600,7 @@ let Checkbox = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Checkbox = _classThis = _classDescriptor.value;
+			Checkbox$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -5550,7 +5623,7 @@ let Checkbox = (() => {
 			this.#label_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -5587,11 +5660,11 @@ let Checkbox = (() => {
 		}
 		#renderField(value) {
 			return b` <section
-      class=${e$2(this.theme.components.CheckBox.container)}
-      style=${this.theme.additionalStyles?.CheckBox ? o$2(this.theme.additionalStyles?.CheckBox) : A}
+      class=${e(this.theme.components.CheckBox.container)}
+      style=${this.theme.additionalStyles?.CheckBox ? o(this.theme.additionalStyles?.CheckBox) : A}
     >
       <input
-        class=${e$2(this.theme.components.CheckBox.element)}
+        class=${e(this.theme.components.CheckBox.element)}
         autocomplete="off"
         @input=${(evt) => {
 				if (!(evt.target instanceof HTMLInputElement)) {
@@ -5603,7 +5676,7 @@ let Checkbox = (() => {
         type="checkbox"
         .value=${value}
       />
-      <label class=${e$2(this.theme.components.CheckBox.label)} for="data"
+      <label class=${e(this.theme.components.CheckBox.label)} for="data"
         >${this.label?.literalString}</label
       >
     </section>`;
@@ -5638,39 +5711,41 @@ let Checkbox = (() => {
 			__runInitializers$15(_classThis, _classExtraInitializers);
 		}
 	};
-	return Checkbox = _classThis;
+	return Checkbox$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/column.js
 var __esDecorate$14 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -5678,13 +5753,13 @@ var __esDecorate$14 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$14 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Column = (() => {
-	let _classDecorators = [t$1("a2ui-column")];
+	let _classDecorators = [t("a2ui-column")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -5695,17 +5770,17 @@ let Column = (() => {
 	let _distribution_decorators;
 	let _distribution_initializers = [];
 	let _distribution_extraInitializers = [];
-	var Column = class extends _classSuper {
+	var Column$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_alignment_decorators = [n$6({
+			_alignment_decorators = [n({
 				reflect: true,
 				type: String
 			})];
-			_distribution_decorators = [n$6({
+			_distribution_decorators = [n({
 				reflect: true,
 				type: String
 			})];
@@ -5742,7 +5817,7 @@ let Column = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Column = _classThis = _classDescriptor.value;
+			Column$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -5765,7 +5840,7 @@ let Column = (() => {
 			this.#distribution_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -5825,8 +5900,8 @@ let Column = (() => {
 		}
 		render() {
 			return b`<section
-      class=${e$2(this.theme.components.Column)}
-      style=${this.theme.additionalStyles?.Column ? o$2(this.theme.additionalStyles?.Column) : A}
+      class=${e(this.theme.components.Column)}
+      style=${this.theme.additionalStyles?.Column ? o(this.theme.additionalStyles?.Column) : A}
     >
       <slot></slot>
     </section>`;
@@ -5839,39 +5914,41 @@ let Column = (() => {
 			__runInitializers$14(_classThis, _classExtraInitializers);
 		}
 	};
-	return Column = _classThis;
+	return Column$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/datetime-input.js
 var __esDecorate$13 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -5879,13 +5956,13 @@ var __esDecorate$13 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$13 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let DateTimeInput = (() => {
-	let _classDecorators = [t$1("a2ui-datetimeinput")];
+	let _classDecorators = [t("a2ui-datetimeinput")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -5902,19 +5979,19 @@ let DateTimeInput = (() => {
 	let _enableTime_decorators;
 	let _enableTime_initializers = [];
 	let _enableTime_extraInitializers = [];
-	var DateTimeInput = class extends _classSuper {
+	var DateTimeInput$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_value_decorators = [n$6()];
-			_label_decorators = [n$6()];
-			_enableDate_decorators = [n$6({
+			_value_decorators = [n()];
+			_label_decorators = [n()];
+			_enableDate_decorators = [n({
 				reflect: false,
 				type: Boolean
 			})];
-			_enableTime_decorators = [n$6({
+			_enableTime_decorators = [n({
 				reflect: false,
 				type: Boolean
 			})];
@@ -5979,7 +6056,7 @@ let DateTimeInput = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			DateTimeInput = _classThis = _classDescriptor.value;
+			DateTimeInput$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -6016,7 +6093,7 @@ let DateTimeInput = (() => {
 			this.#enableTime_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -6051,17 +6128,17 @@ let DateTimeInput = (() => {
 		}
 		#renderField(value) {
 			return b`<section
-      class=${e$2(this.theme.components.DateTimeInput.container)}
+      class=${e(this.theme.components.DateTimeInput.container)}
     >
       <label
         for="data"
-        class=${e$2(this.theme.components.DateTimeInput.label)}
+        class=${e(this.theme.components.DateTimeInput.label)}
         >${this.#getPlaceholderText()}</label
       >
       <input
         autocomplete="off"
-        class=${e$2(this.theme.components.DateTimeInput.element)}
-        style=${this.theme.additionalStyles?.DateTimeInput ? o$2(this.theme.additionalStyles?.DateTimeInput) : A}
+        class=${e(this.theme.components.DateTimeInput.element)}
+        style=${this.theme.additionalStyles?.DateTimeInput ? o(this.theme.additionalStyles?.DateTimeInput) : A}
         @input=${(evt) => {
 				if (!(evt.target instanceof HTMLInputElement)) {
 					return;
@@ -6143,39 +6220,41 @@ let DateTimeInput = (() => {
 			__runInitializers$13(_classThis, _classExtraInitializers);
 		}
 	};
-	return DateTimeInput = _classThis;
+	return DateTimeInput$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/divider.js
 var __esDecorate$12 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -6183,18 +6262,18 @@ var __esDecorate$12 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$12 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Divider = (() => {
-	let _classDecorators = [t$1("a2ui-divider")];
+	let _classDecorators = [t("a2ui-divider")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
 	let _classSuper = Root;
-	var Divider = class extends _classSuper {
+	var Divider$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
@@ -6205,7 +6284,7 @@ let Divider = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Divider = _classThis = _classDescriptor.value;
+			Divider$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -6214,7 +6293,7 @@ let Divider = (() => {
 			});
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       :host {
         display: block;
         min-height: 0;
@@ -6230,47 +6309,49 @@ let Divider = (() => {
 		}
 		render() {
 			return b`<hr
-      class=${e$2(this.theme.components.Divider)}
-      style=${this.theme.additionalStyles?.Divider ? o$2(this.theme.additionalStyles?.Divider) : A}
+      class=${e(this.theme.components.Divider)}
+      style=${this.theme.additionalStyles?.Divider ? o(this.theme.additionalStyles?.Divider) : A}
     />`;
 		}
 		static {
 			__runInitializers$12(_classThis, _classExtraInitializers);
 		}
 	};
-	return Divider = _classThis;
+	return Divider$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/icon.js
 var __esDecorate$11 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -6278,13 +6359,13 @@ var __esDecorate$11 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$11 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Icon = (() => {
-	let _classDecorators = [t$1("a2ui-icon")];
+	let _classDecorators = [t("a2ui-icon")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -6292,13 +6373,13 @@ let Icon = (() => {
 	let _name_decorators;
 	let _name_initializers = [];
 	let _name_extraInitializers = [];
-	var Icon = class extends _classSuper {
+	var Icon$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_name_decorators = [n$6()];
+			_name_decorators = [n()];
 			__esDecorate$11(this, null, _name_decorators, {
 				kind: "accessor",
 				name: "name",
@@ -6318,7 +6399,7 @@ let Icon = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Icon = _classThis = _classDescriptor.value;
+			Icon$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -6334,7 +6415,7 @@ let Icon = (() => {
 			this.#name_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -6380,8 +6461,8 @@ let Icon = (() => {
 		}
 		render() {
 			return b`<section
-      class=${e$2(this.theme.components.Icon)}
-      style=${this.theme.additionalStyles?.Icon ? o$2(this.theme.additionalStyles?.Icon) : A}
+      class=${e(this.theme.components.Icon)}
+      style=${this.theme.additionalStyles?.Icon ? o(this.theme.additionalStyles?.Icon) : A}
     >
       ${this.#renderIcon()}
     </section>`;
@@ -6394,39 +6475,41 @@ let Icon = (() => {
 			__runInitializers$11(_classThis, _classExtraInitializers);
 		}
 	};
-	return Icon = _classThis;
+	return Icon$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/image.js
 var __esDecorate$10 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -6434,13 +6517,13 @@ var __esDecorate$10 = void 0 && (void 0).__esDecorate || function(ctor, descript
 };
 var __runInitializers$10 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Image = (() => {
-	let _classDecorators = [t$1("a2ui-image")];
+	let _classDecorators = [t("a2ui-image")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -6454,15 +6537,15 @@ let Image = (() => {
 	let _fit_decorators;
 	let _fit_initializers = [];
 	let _fit_extraInitializers = [];
-	var Image = class extends _classSuper {
+	var Image$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_url_decorators = [n$6()];
-			_usageHint_decorators = [n$6()];
-			_fit_decorators = [n$6()];
+			_url_decorators = [n()];
+			_usageHint_decorators = [n()];
+			_fit_decorators = [n()];
 			__esDecorate$10(this, null, _url_decorators, {
 				kind: "accessor",
 				name: "url",
@@ -6510,7 +6593,7 @@ let Image = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Image = _classThis = _classDescriptor.value;
+			Image$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -6540,7 +6623,7 @@ let Image = (() => {
 			this.#fit_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -6593,8 +6676,8 @@ let Image = (() => {
 		render() {
 			const classes = merge(this.theme.components.Image.all, this.usageHint ? this.theme.components.Image[this.usageHint] : {});
 			return b`<section
-      class=${e$2(classes)}
-      style=${o$2({
+      class=${e(classes)}
+      style=${o({
 				...this.theme.additionalStyles?.Image ?? {},
 				"--object-fit": this.fit ?? "fill"
 			})}
@@ -6610,39 +6693,41 @@ let Image = (() => {
 			__runInitializers$10(_classThis, _classExtraInitializers);
 		}
 	};
-	return Image = _classThis;
+	return Image$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/list.js
 var __esDecorate$9 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -6650,13 +6735,13 @@ var __esDecorate$9 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$9 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let List = (() => {
-	let _classDecorators = [t$1("a2ui-list")];
+	let _classDecorators = [t("a2ui-list")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -6664,13 +6749,13 @@ let List = (() => {
 	let _direction_decorators;
 	let _direction_initializers = [];
 	let _direction_extraInitializers = [];
-	var List = class extends _classSuper {
+	var List$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_direction_decorators = [n$6({
+			_direction_decorators = [n({
 				reflect: true,
 				type: String
 			})];
@@ -6693,7 +6778,7 @@ let List = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			List = _classThis = _classDescriptor.value;
+			List$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -6709,7 +6794,7 @@ let List = (() => {
 			this.#direction_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -6741,8 +6826,8 @@ let List = (() => {
 		}
 		render() {
 			return b`<section
-      class=${e$2(this.theme.components.List)}
-      style=${this.theme.additionalStyles?.List ? o$2(this.theme.additionalStyles?.List) : A}
+      class=${e(this.theme.components.List)}
+      style=${this.theme.additionalStyles?.List ? o(this.theme.additionalStyles?.List) : A}
     >
       <slot></slot>
     </section>`;
@@ -6755,9 +6840,11 @@ let List = (() => {
 			__runInitializers$9(_classThis, _classExtraInitializers);
 		}
 	};
-	return List = _classThis;
+	return List$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/utils/utils.js
 function extractStringValue(val, component, processor, surfaceId) {
 	if (val !== null && typeof val === "object") {
 		if ("literalString" in val) {
@@ -6803,36 +6890,38 @@ function extractNumberValue(val, component, processor, surfaceId) {
 	return 0;
 }
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/multiple-choice.js
 var __esDecorate$8 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -6840,13 +6929,13 @@ var __esDecorate$8 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$8 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let MultipleChoice = (() => {
-	let _classDecorators = [t$1("a2ui-multiplechoice")];
+	let _classDecorators = [t("a2ui-multiplechoice")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -6860,15 +6949,15 @@ let MultipleChoice = (() => {
 	let _selections_decorators;
 	let _selections_initializers = [];
 	let _selections_extraInitializers = [];
-	var MultipleChoice = class extends _classSuper {
+	var MultipleChoice$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_description_decorators = [n$6()];
-			_options_decorators = [n$6()];
-			_selections_decorators = [n$6()];
+			_description_decorators = [n()];
+			_options_decorators = [n()];
+			_selections_decorators = [n()];
 			__esDecorate$8(this, null, _description_decorators, {
 				kind: "accessor",
 				name: "description",
@@ -6916,7 +7005,7 @@ let MultipleChoice = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			MultipleChoice = _classThis = _classDescriptor.value;
+			MultipleChoice$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -6946,7 +7035,7 @@ let MultipleChoice = (() => {
 			this.#selections_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -6995,13 +7084,13 @@ let MultipleChoice = (() => {
 			this.#setBoundValue(selectionValue);
 		}
 		render() {
-			return b`<section class=${e$2(this.theme.components.MultipleChoice.container)}>
-      <label class=${e$2(this.theme.components.MultipleChoice.label)} for="data">${this.description ?? "Select an item"}</div>
+			return b`<section class=${e(this.theme.components.MultipleChoice.container)}>
+      <label class=${e(this.theme.components.MultipleChoice.label)} for="data">${this.description ?? "Select an item"}</div>
       <select
         name="data"
         id="data"
-        class=${e$2(this.theme.components.MultipleChoice.element)}
-        style=${this.theme.additionalStyles?.MultipleChoice ? o$2(this.theme.additionalStyles?.MultipleChoice) : A}
+        class=${e(this.theme.components.MultipleChoice.element)}
+        style=${this.theme.additionalStyles?.MultipleChoice ? o(this.theme.additionalStyles?.MultipleChoice) : A}
         @change=${(evt) => {
 				if (!(evt.target instanceof HTMLSelectElement)) {
 					return;
@@ -7024,32 +7113,34 @@ let MultipleChoice = (() => {
 			__runInitializers$8(_classThis, _classExtraInitializers);
 		}
 	};
-	return MultipleChoice = _classThis;
+	return MultipleChoice$1 = _classThis;
 })();
 
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/directives/ref.js
 /**
 * @license
 * Copyright 2020 Google LLC
 * SPDX-License-Identifier: BSD-3-Clause
-*/ const e$1 = () => new h();
+*/ const e$4 = () => new h();
 var h = class {};
-const o$1 = new WeakMap(), n = e$10(class extends f {
-	render(i) {
+const o$2 = new WeakMap(), n$1 = e$1(class extends f {
+	render(i$10) {
 		return A;
 	}
-	update(i, [s]) {
-		const e = s !== this.G;
-		return e && void 0 !== this.G && this.rt(void 0), (e || this.lt !== this.ct) && (this.G = s, this.ht = i.options?.host, this.rt(this.ct = i.element)), A;
+	update(i$10, [s$9]) {
+		const e$14 = s$9 !== this.G;
+		return e$14 && void 0 !== this.G && this.rt(void 0), (e$14 || this.lt !== this.ct) && (this.G = s$9, this.ht = i$10.options?.host, this.rt(this.ct = i$10.element)), A;
 	}
-	rt(t) {
-		if (this.isConnected || (t = void 0), "function" == typeof this.G) {
-			const i = this.ht ?? globalThis;
-			let s = o$1.get(i);
-			void 0 === s && (s = new WeakMap(), o$1.set(i, s)), void 0 !== s.get(this.G) && this.G.call(this.ht, void 0), s.set(this.G, t), void 0 !== t && this.G.call(this.ht, t);
-		} else this.G.value = t;
+	rt(t$7) {
+		if (this.isConnected || (t$7 = void 0), "function" == typeof this.G) {
+			const i$10 = this.ht ?? globalThis;
+			let s$9 = o$2.get(i$10);
+			void 0 === s$9 && (s$9 = new WeakMap(), o$2.set(i$10, s$9)), void 0 !== s$9.get(this.G) && this.G.call(this.ht, void 0), s$9.set(this.G, t$7), void 0 !== t$7 && this.G.call(this.ht, t$7);
+		} else this.G.value = t$7;
 	}
 	get lt() {
-		return "function" == typeof this.G ? o$1.get(this.ht ?? globalThis)?.get(this.G) : this.G?.value;
+		return "function" == typeof this.G ? o$2.get(this.ht ?? globalThis)?.get(this.G) : this.G?.value;
 	}
 	disconnected() {
 		this.lt === this.ct && this.rt(void 0);
@@ -7059,36 +7150,38 @@ const o$1 = new WeakMap(), n = e$10(class extends f {
 	}
 });
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/modal.js
 var __esDecorate$7 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -7096,20 +7189,20 @@ var __esDecorate$7 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$7 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
-var __setFunctionName = void 0 && (void 0).__setFunctionName || function(f, name, prefix) {
+var __setFunctionName = void 0 && (void 0).__setFunctionName || function(f$4, name, prefix) {
 	if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-	return Object.defineProperty(f, "name", {
+	return Object.defineProperty(f$4, "name", {
 		configurable: true,
 		value: prefix ? "".concat(prefix, " ", name) : name
 	});
 };
 let Modal = (() => {
-	let _classDecorators = [t$1("a2ui-modal")];
+	let _classDecorators = [t("a2ui-modal")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -7122,14 +7215,14 @@ let Modal = (() => {
 	let _private_modalRef_initializers = [];
 	let _private_modalRef_extraInitializers = [];
 	let _private_modalRef_descriptor;
-	var Modal = class extends _classSuper {
+	var Modal$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_private_showModal_decorators = [r$6()];
-			_private_modalRef_decorators = [e$5("dialog")];
+			_private_showModal_decorators = [r$1()];
+			_private_modalRef_decorators = [e$3("dialog")];
 			__esDecorate$7(this, _private_showModal_descriptor = {
 				get: __setFunctionName(function() {
 					return this.#showModal_accessor_storage;
@@ -7177,7 +7270,7 @@ let Modal = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Modal = _classThis = _classDescriptor.value;
+			Modal$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -7186,7 +7279,7 @@ let Modal = (() => {
 			});
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -7250,7 +7343,7 @@ let Modal = (() => {
       </section>`;
 			}
 			return b`<dialog
-      class=${e$2(this.theme.components.Modal.backdrop)}
+      class=${e(this.theme.components.Modal.backdrop)}
       @click=${(evt) => {
 				const [top] = evt.composedPath();
 				if (!(top instanceof HTMLDialogElement)) {
@@ -7258,7 +7351,7 @@ let Modal = (() => {
 				}
 				this.#closeModal();
 			}}
-      ${n((el) => {
+      ${n$1((el) => {
 				const showModalIfNeeded = () => {
 					const validElement = el && el instanceof HTMLDialogElement;
 					if (!validElement || el.open) {
@@ -7270,8 +7363,8 @@ let Modal = (() => {
 			})}
     >
       <section
-        class=${e$2(this.theme.components.Modal.element)}
-        style=${this.theme.additionalStyles?.Modal ? o$2(this.theme.additionalStyles?.Modal) : A}
+        class=${e(this.theme.components.Modal.element)}
+        style=${this.theme.additionalStyles?.Modal ? o(this.theme.additionalStyles?.Modal) : A}
       >
         <div id="controls">
           <button
@@ -7294,39 +7387,41 @@ let Modal = (() => {
 			__runInitializers$7(_classThis, _classExtraInitializers);
 		}
 	};
-	return Modal = _classThis;
+	return Modal$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/row.js
 var __esDecorate$6 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -7334,13 +7429,13 @@ var __esDecorate$6 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$6 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Row = (() => {
-	let _classDecorators = [t$1("a2ui-row")];
+	let _classDecorators = [t("a2ui-row")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -7351,17 +7446,17 @@ let Row = (() => {
 	let _distribution_decorators;
 	let _distribution_initializers = [];
 	let _distribution_extraInitializers = [];
-	var Row = class extends _classSuper {
+	var Row$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_alignment_decorators = [n$6({
+			_alignment_decorators = [n({
 				reflect: true,
 				type: String
 			})];
-			_distribution_decorators = [n$6({
+			_distribution_decorators = [n({
 				reflect: true,
 				type: String
 			})];
@@ -7398,7 +7493,7 @@ let Row = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Row = _classThis = _classDescriptor.value;
+			Row$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -7421,7 +7516,7 @@ let Row = (() => {
 			this.#distribution_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -7481,8 +7576,8 @@ let Row = (() => {
 		}
 		render() {
 			return b`<section
-      class=${e$2(this.theme.components.Row)}
-      style=${this.theme.additionalStyles?.Row ? o$2(this.theme.additionalStyles?.Row) : A}
+      class=${e(this.theme.components.Row)}
+      style=${this.theme.additionalStyles?.Row ? o(this.theme.additionalStyles?.Row) : A}
     >
       <slot></slot>
     </section>`;
@@ -7495,39 +7590,41 @@ let Row = (() => {
 			__runInitializers$6(_classThis, _classExtraInitializers);
 		}
 	};
-	return Row = _classThis;
+	return Row$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/slider.js
 var __esDecorate$5 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -7535,13 +7632,13 @@ var __esDecorate$5 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$5 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Slider = (() => {
-	let _classDecorators = [t$1("a2ui-slider")];
+	let _classDecorators = [t("a2ui-slider")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -7561,17 +7658,17 @@ let Slider = (() => {
 	let _inputType_decorators;
 	let _inputType_initializers = [];
 	let _inputType_extraInitializers = [];
-	var Slider = class extends _classSuper {
+	var Slider$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_value_decorators = [n$6()];
-			_minValue_decorators = [n$6()];
-			_maxValue_decorators = [n$6()];
-			_label_decorators = [n$6()];
-			_inputType_decorators = [n$6()];
+			_value_decorators = [n()];
+			_minValue_decorators = [n()];
+			_maxValue_decorators = [n()];
+			_label_decorators = [n()];
+			_inputType_decorators = [n()];
 			__esDecorate$5(this, null, _value_decorators, {
 				kind: "accessor",
 				name: "value",
@@ -7647,7 +7744,7 @@ let Slider = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Slider = _classThis = _classDescriptor.value;
+			Slider$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -7691,7 +7788,7 @@ let Slider = (() => {
 			this.#inputType_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -7724,15 +7821,15 @@ let Slider = (() => {
 		}
 		#renderField(value) {
 			return b`<section
-      class=${e$2(this.theme.components.Slider.container)}
+      class=${e(this.theme.components.Slider.container)}
     >
-      <label class=${e$2(this.theme.components.Slider.label)} for="data">
+      <label class=${e(this.theme.components.Slider.label)} for="data">
         ${this.label?.literalString ?? ""}
       </label>
       <input
         autocomplete="off"
-        class=${e$2(this.theme.components.Slider.element)}
-        style=${this.theme.additionalStyles?.Slider ? o$2(this.theme.additionalStyles?.Slider) : A}
+        class=${e(this.theme.components.Slider.element)}
+        style=${this.theme.additionalStyles?.Slider ? o(this.theme.additionalStyles?.Slider) : A}
         @input=${(evt) => {
 				if (!(evt.target instanceof HTMLInputElement)) {
 					return;
@@ -7746,7 +7843,7 @@ let Slider = (() => {
         min=${this.minValue ?? "0"}
         max=${this.maxValue ?? "0"}
       />
-      <span class=${e$2(this.theme.components.Slider.label)}
+      <span class=${e(this.theme.components.Slider.label)}
         >${this.value ? extractNumberValue(this.value, this.component, this.processor, this.surfaceId) : "0"}</span
       >
     </section>`;
@@ -7781,39 +7878,41 @@ let Slider = (() => {
 			__runInitializers$5(_classThis, _classExtraInitializers);
 		}
 	};
-	return Slider = _classThis;
+	return Slider$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/surface.js
 var __esDecorate$4 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -7821,13 +7920,13 @@ var __esDecorate$4 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$4 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Surface = (() => {
-	let _classDecorators = [t$1("a2ui-surface")];
+	let _classDecorators = [t("a2ui-surface")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -7841,15 +7940,15 @@ let Surface = (() => {
 	let _processor_decorators;
 	let _processor_initializers = [];
 	let _processor_extraInitializers = [];
-	var Surface = class extends _classSuper {
+	var Surface$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_surfaceId_decorators = [n$6()];
-			_surface_decorators = [n$6()];
-			_processor_decorators = [n$6()];
+			_surfaceId_decorators = [n()];
+			_surface_decorators = [n()];
+			_processor_decorators = [n()];
 			__esDecorate$4(this, null, _surfaceId_decorators, {
 				kind: "accessor",
 				name: "surfaceId",
@@ -7897,7 +7996,7 @@ let Surface = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Surface = _classThis = _classDescriptor.value;
+			Surface$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -7927,7 +8026,7 @@ let Surface = (() => {
 			this.#processor_accessor_storage = value;
 		}
 		static {
-			this.styles = [i$9`
+			this.styles = [i`
       :host {
         display: flex;
         min-height: 0;
@@ -7994,7 +8093,7 @@ let Surface = (() => {
 				}
 			}
 			return b`<a2ui-root
-      style=${o$2(styles)}
+      style=${o(styles)}
       .surfaceId=${this.surfaceId}
       .processor=${this.processor}
       .childComponents=${this.surface?.componentTree ? [this.surface.componentTree] : null}
@@ -8014,39 +8113,41 @@ let Surface = (() => {
 			__runInitializers$4(_classThis, _classExtraInitializers);
 		}
 	};
-	return Surface = _classThis;
+	return Surface$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/tabs.js
 var __esDecorate$3 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -8054,13 +8155,13 @@ var __esDecorate$3 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$3 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Tabs = (() => {
-	let _classDecorators = [t$1("a2ui-tabs")];
+	let _classDecorators = [t("a2ui-tabs")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -8071,14 +8172,14 @@ let Tabs = (() => {
 	let _selected_decorators;
 	let _selected_initializers = [];
 	let _selected_extraInitializers = [];
-	var Tabs = class extends _classSuper {
+	var Tabs$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_titles_decorators = [n$6()];
-			_selected_decorators = [n$6()];
+			_titles_decorators = [n()];
+			_selected_decorators = [n()];
 			__esDecorate$3(this, null, _titles_decorators, {
 				kind: "accessor",
 				name: "titles",
@@ -8112,7 +8213,7 @@ let Tabs = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Tabs = _classThis = _classDescriptor.value;
+			Tabs$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -8135,7 +8236,7 @@ let Tabs = (() => {
 			this.#selected_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       :host {
         display: block;
         flex: var(--weight);
@@ -8161,19 +8262,19 @@ let Tabs = (() => {
 			}
 			return b`<div
       id="buttons"
-      class=${e$2(this.theme.components.Tabs.element)}
+      class=${e(this.theme.components.Tabs.element)}
     >
-      ${c$2(this.titles, (title, idx) => {
+      ${c(this.titles, (title$1, idx) => {
 				let titleString = "";
-				if ("literalString" in title && title.literalString) {
-					titleString = title.literalString;
-				} else if ("literal" in title && title.literal !== undefined) {
-					titleString = title.literal;
-				} else if (title && "path" in title && title.path) {
+				if ("literalString" in title$1 && title$1.literalString) {
+					titleString = title$1.literalString;
+				} else if ("literal" in title$1 && title$1.literal !== undefined) {
+					titleString = title$1.literal;
+				} else if (title$1 && "path" in title$1 && title$1.path) {
 					if (!this.processor || !this.component) {
 						return b`(no model)`;
 					}
-					const textValue = this.processor.getData(this.component, title.path, this.surfaceId ?? A2uiMessageProcessor.DEFAULT_SURFACE_ID);
+					const textValue = this.processor.getData(this.component, title$1.path, this.surfaceId ?? A2uiMessageProcessor.DEFAULT_SURFACE_ID);
 					if (typeof textValue !== "string") {
 						return b`(invalid)`;
 					}
@@ -8187,7 +8288,7 @@ let Tabs = (() => {
 				}
 				return b`<button
           ?disabled=${this.selected === idx}
-          class=${e$2(classes)}
+          class=${e(classes)}
           @click=${() => {
 					this.selected = idx;
 				}}
@@ -8202,8 +8303,8 @@ let Tabs = (() => {
 		}
 		render() {
 			return b`<section
-      class=${e$2(this.theme.components.Tabs.container)}
-      style=${this.theme.additionalStyles?.Tabs ? o$2(this.theme.additionalStyles?.Tabs) : A}
+      class=${e(this.theme.components.Tabs.container)}
+      style=${this.theme.additionalStyles?.Tabs ? o(this.theme.additionalStyles?.Tabs) : A}
     >
       ${[this.#renderTabs(), this.#renderSlot()]}
     </section>`;
@@ -8216,39 +8317,41 @@ let Tabs = (() => {
 			__runInitializers$3(_classThis, _classExtraInitializers);
 		}
 	};
-	return Tabs = _classThis;
+	return Tabs$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/text-field.js
 var __esDecorate$2 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -8256,13 +8359,13 @@ var __esDecorate$2 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$2 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let TextField = (() => {
-	let _classDecorators = [t$1("a2ui-textfield")];
+	let _classDecorators = [t("a2ui-textfield")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -8276,15 +8379,15 @@ let TextField = (() => {
 	let _inputType_decorators;
 	let _inputType_initializers = [];
 	let _inputType_extraInitializers = [];
-	var TextField = class extends _classSuper {
+	var TextField$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_text_decorators = [n$6()];
-			_label_decorators = [n$6()];
-			_inputType_decorators = [n$6()];
+			_text_decorators = [n()];
+			_label_decorators = [n()];
+			_inputType_decorators = [n()];
 			__esDecorate$2(this, null, _text_decorators, {
 				kind: "accessor",
 				name: "text",
@@ -8332,7 +8435,7 @@ let TextField = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			TextField = _classThis = _classDescriptor.value;
+			TextField$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -8362,7 +8465,7 @@ let TextField = (() => {
 			this.#inputType_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -8397,17 +8500,17 @@ let TextField = (() => {
 		}
 		#renderField(value, label) {
 			return b` <section
-      class=${e$2(this.theme.components.TextField.container)}
+      class=${e(this.theme.components.TextField.container)}
     >
       ${label && label !== "" ? b`<label
-            class=${e$2(this.theme.components.TextField.label)}
+            class=${e(this.theme.components.TextField.label)}
             for="data"
             >${label}</label
           >` : A}
       <input
         autocomplete="off"
-        class=${e$2(this.theme.components.TextField.element)}
-        style=${this.theme.additionalStyles?.TextField ? o$2(this.theme.additionalStyles?.TextField) : A}
+        class=${e(this.theme.components.TextField.element)}
+        style=${this.theme.additionalStyles?.TextField ? o(this.theme.additionalStyles?.TextField) : A}
         @input=${(evt) => {
 				if (!(evt.target instanceof HTMLInputElement)) {
 					return;
@@ -8435,34 +8538,34 @@ let TextField = (() => {
 			__runInitializers$2(_classThis, _classExtraInitializers);
 		}
 	};
-	return TextField = _classThis;
+	return TextField$1 = _classThis;
 })();
 
-/**
-* @license
-* Copyright 2017 Google LLC
-* SPDX-License-Identifier: BSD-3-Clause
-*/ var e = class extends i$5 {
-	constructor(i) {
-		if (super(i), this.it = A, i.type !== t$4.CHILD) throw Error(this.constructor.directiveName + "() can only be used in child bindings");
+//#endregion
+//#region node_modules/.pnpm/lit-html@3.3.2/node_modules/lit-html/directives/unsafe-html.js
+var e$2 = class extends i$3 {
+	constructor(i$10) {
+		if (super(i$10), this.it = A, i$10.type !== t$1.CHILD) throw Error(this.constructor.directiveName + "() can only be used in child bindings");
 	}
-	render(r) {
-		if (r === A || null == r) return this._t = void 0, this.it = r;
-		if (r === E) return r;
-		if ("string" != typeof r) throw Error(this.constructor.directiveName + "() called with a non-string value");
-		if (r === this.it) return this._t;
-		this.it = r;
-		const s = [r];
-		return s.raw = s, this._t = {
+	render(r$11) {
+		if (r$11 === A || null == r$11) return this._t = void 0, this.it = r$11;
+		if (r$11 === E) return r$11;
+		if ("string" != typeof r$11) throw Error(this.constructor.directiveName + "() called with a non-string value");
+		if (r$11 === this.it) return this._t;
+		this.it = r$11;
+		const s$9 = [r$11];
+		return s$9.raw = s$9, this._t = {
 			_$litType$: this.constructor.resultType,
-			strings: s,
+			strings: s$9,
 			values: []
 		};
 	}
 };
-e.directiveName = "unsafeHTML", e.resultType = 1;
-const o = e$10(e);
+e$2.directiveName = "unsafeHTML", e$2.resultType = 1;
+const o$1 = e$1(e$2);
 
+//#endregion
+//#region node_modules/.pnpm/mdurl@2.0.0/node_modules/mdurl/lib/decode.mjs
 const decodeCache = {};
 function getDecodeCache(exclude) {
 	let cache = decodeCache[exclude];
@@ -8470,12 +8573,12 @@ function getDecodeCache(exclude) {
 		return cache;
 	}
 	cache = decodeCache[exclude] = [];
-	for (let i = 0; i < 128; i++) {
-		const ch = String.fromCharCode(i);
+	for (let i$10 = 0; i$10 < 128; i$10++) {
+		const ch = String.fromCharCode(i$10);
 		cache.push(ch);
 	}
-	for (let i = 0; i < exclude.length; i++) {
-		const ch = exclude.charCodeAt(i);
+	for (let i$10 = 0; i$10 < exclude.length; i$10++) {
+		const ch = exclude.charCodeAt(i$10);
 		cache[ch] = "%" + ("0" + ch.toString(16).toUpperCase()).slice(-2);
 	}
 	return cache;
@@ -8487,14 +8590,14 @@ function decode$2(string, exclude) {
 	const cache = getDecodeCache(exclude);
 	return string.replace(/(%[a-f0-9]{2})+/gi, function(seq) {
 		let result = "";
-		for (let i = 0, l = seq.length; i < l; i += 3) {
-			const b1 = parseInt(seq.slice(i + 1, i + 3), 16);
+		for (let i$10 = 0, l$5 = seq.length; i$10 < l$5; i$10 += 3) {
+			const b1 = parseInt(seq.slice(i$10 + 1, i$10 + 3), 16);
 			if (b1 < 128) {
 				result += cache[b1];
 				continue;
 			}
-			if ((b1 & 224) === 192 && i + 3 < l) {
-				const b2 = parseInt(seq.slice(i + 4, i + 6), 16);
+			if ((b1 & 224) === 192 && i$10 + 3 < l$5) {
+				const b2 = parseInt(seq.slice(i$10 + 4, i$10 + 6), 16);
 				if ((b2 & 192) === 128) {
 					const chr = b1 << 6 & 1984 | b2 & 63;
 					if (chr < 128) {
@@ -8502,13 +8605,13 @@ function decode$2(string, exclude) {
 					} else {
 						result += String.fromCharCode(chr);
 					}
-					i += 3;
+					i$10 += 3;
 					continue;
 				}
 			}
-			if ((b1 & 240) === 224 && i + 6 < l) {
-				const b2 = parseInt(seq.slice(i + 4, i + 6), 16);
-				const b3 = parseInt(seq.slice(i + 7, i + 9), 16);
+			if ((b1 & 240) === 224 && i$10 + 6 < l$5) {
+				const b2 = parseInt(seq.slice(i$10 + 4, i$10 + 6), 16);
+				const b3 = parseInt(seq.slice(i$10 + 7, i$10 + 9), 16);
 				if ((b2 & 192) === 128 && (b3 & 192) === 128) {
 					const chr = b1 << 12 & 61440 | b2 << 6 & 4032 | b3 & 63;
 					if (chr < 2048 || chr >= 55296 && chr <= 57343) {
@@ -8516,14 +8619,14 @@ function decode$2(string, exclude) {
 					} else {
 						result += String.fromCharCode(chr);
 					}
-					i += 6;
+					i$10 += 6;
 					continue;
 				}
 			}
-			if ((b1 & 248) === 240 && i + 9 < l) {
-				const b2 = parseInt(seq.slice(i + 4, i + 6), 16);
-				const b3 = parseInt(seq.slice(i + 7, i + 9), 16);
-				const b4 = parseInt(seq.slice(i + 10, i + 12), 16);
+			if ((b1 & 248) === 240 && i$10 + 9 < l$5) {
+				const b2 = parseInt(seq.slice(i$10 + 4, i$10 + 6), 16);
+				const b3 = parseInt(seq.slice(i$10 + 7, i$10 + 9), 16);
+				const b4 = parseInt(seq.slice(i$10 + 10, i$10 + 12), 16);
 				if ((b2 & 192) === 128 && (b3 & 192) === 128 && (b4 & 192) === 128) {
 					let chr = b1 << 18 & 1835008 | b2 << 12 & 258048 | b3 << 6 & 4032 | b4 & 63;
 					if (chr < 65536 || chr > 1114111) {
@@ -8532,7 +8635,7 @@ function decode$2(string, exclude) {
 						chr -= 65536;
 						result += String.fromCharCode(55296 + (chr >> 10), 56320 + (chr & 1023));
 					}
-					i += 9;
+					i$10 += 9;
 					continue;
 				}
 			}
@@ -8545,6 +8648,8 @@ decode$2.defaultChars = ";/?:@&=+$,#";
 decode$2.componentChars = "";
 var decode_default = decode$2;
 
+//#endregion
+//#region node_modules/.pnpm/mdurl@2.0.0/node_modules/mdurl/lib/encode.mjs
 const encodeCache = {};
 function getEncodeCache(exclude) {
 	let cache = encodeCache[exclude];
@@ -8552,16 +8657,16 @@ function getEncodeCache(exclude) {
 		return cache;
 	}
 	cache = encodeCache[exclude] = [];
-	for (let i = 0; i < 128; i++) {
-		const ch = String.fromCharCode(i);
+	for (let i$10 = 0; i$10 < 128; i$10++) {
+		const ch = String.fromCharCode(i$10);
 		if (/^[0-9a-z]$/i.test(ch)) {
 			cache.push(ch);
 		} else {
-			cache.push("%" + ("0" + i.toString(16).toUpperCase()).slice(-2));
+			cache.push("%" + ("0" + i$10.toString(16).toUpperCase()).slice(-2));
 		}
 	}
-	for (let i = 0; i < exclude.length; i++) {
-		cache[exclude.charCodeAt(i)] = exclude[i];
+	for (let i$10 = 0; i$10 < exclude.length; i$10++) {
+		cache[exclude.charCodeAt(i$10)] = exclude[i$10];
 	}
 	return cache;
 }
@@ -8575,32 +8680,32 @@ function encode$2(string, exclude, keepEscaped) {
 	}
 	const cache = getEncodeCache(exclude);
 	let result = "";
-	for (let i = 0, l = string.length; i < l; i++) {
-		const code = string.charCodeAt(i);
-		if (keepEscaped && code === 37 && i + 2 < l) {
-			if (/^[0-9a-f]{2}$/i.test(string.slice(i + 1, i + 3))) {
-				result += string.slice(i, i + 3);
-				i += 2;
+	for (let i$10 = 0, l$5 = string.length; i$10 < l$5; i$10++) {
+		const code$1 = string.charCodeAt(i$10);
+		if (keepEscaped && code$1 === 37 && i$10 + 2 < l$5) {
+			if (/^[0-9a-f]{2}$/i.test(string.slice(i$10 + 1, i$10 + 3))) {
+				result += string.slice(i$10, i$10 + 3);
+				i$10 += 2;
 				continue;
 			}
 		}
-		if (code < 128) {
-			result += cache[code];
+		if (code$1 < 128) {
+			result += cache[code$1];
 			continue;
 		}
-		if (code >= 55296 && code <= 57343) {
-			if (code >= 55296 && code <= 56319 && i + 1 < l) {
-				const nextCode = string.charCodeAt(i + 1);
+		if (code$1 >= 55296 && code$1 <= 57343) {
+			if (code$1 >= 55296 && code$1 <= 56319 && i$10 + 1 < l$5) {
+				const nextCode = string.charCodeAt(i$10 + 1);
 				if (nextCode >= 56320 && nextCode <= 57343) {
-					result += encodeURIComponent(string[i] + string[i + 1]);
-					i++;
+					result += encodeURIComponent(string[i$10] + string[i$10 + 1]);
+					i$10++;
 					continue;
 				}
 			}
 			result += "%EF%BF%BD";
 			continue;
 		}
-		result += encodeURIComponent(string[i]);
+		result += encodeURIComponent(string[i$10]);
 	}
 	return result;
 }
@@ -8608,6 +8713,8 @@ encode$2.defaultChars = ";/?:@&=+$,-_.!~*'()#";
 encode$2.componentChars = "-_.!~*'()";
 var encode_default = encode$2;
 
+//#endregion
+//#region node_modules/.pnpm/mdurl@2.0.0/node_modules/mdurl/lib/format.mjs
 function format(url) {
 	let result = "";
 	result += url.protocol || "";
@@ -8626,6 +8733,8 @@ function format(url) {
 }
 ;
 
+//#endregion
+//#region node_modules/.pnpm/mdurl@2.0.0/node_modules/mdurl/lib/parse.mjs
 function Url() {
 	this.protocol = null;
 	this.slashes = null;
@@ -8691,9 +8800,9 @@ const slashedProtocol = {
 };
 function urlParse(url, slashesDenoteHost) {
 	if (url && url instanceof Url) return url;
-	const u = new Url();
-	u.parse(url, slashesDenoteHost);
-	return u;
+	const u$4 = new Url();
+	u$4.parse(url, slashesDenoteHost);
+	return u$4;
 }
 Url.prototype.parse = function(url, slashesDenoteHost) {
 	let lowerProto, hec, slashes;
@@ -8725,8 +8834,8 @@ Url.prototype.parse = function(url, slashesDenoteHost) {
 	}
 	if (!hostlessProtocol[proto] && (slashes || proto && !slashedProtocol[proto])) {
 		let hostEnd = -1;
-		for (let i = 0; i < hostEndingChars.length; i++) {
-			hec = rest.indexOf(hostEndingChars[i]);
+		for (let i$10 = 0; i$10 < hostEndingChars.length; i$10++) {
+			hec = rest.indexOf(hostEndingChars[i$10]);
 			if (hec !== -1 && (hostEnd === -1 || hec < hostEnd)) {
 				hostEnd = hec;
 			}
@@ -8743,8 +8852,8 @@ Url.prototype.parse = function(url, slashesDenoteHost) {
 			this.auth = auth;
 		}
 		hostEnd = -1;
-		for (let i = 0; i < nonHostChars.length; i++) {
-			hec = rest.indexOf(nonHostChars[i]);
+		for (let i$10 = 0; i$10 < nonHostChars.length; i$10++) {
+			hec = rest.indexOf(nonHostChars[i$10]);
 			if (hec !== -1 && (hostEnd === -1 || hec < hostEnd)) {
 				hostEnd = hec;
 			}
@@ -8762,23 +8871,23 @@ Url.prototype.parse = function(url, slashesDenoteHost) {
 		const ipv6Hostname = this.hostname[0] === "[" && this.hostname[this.hostname.length - 1] === "]";
 		if (!ipv6Hostname) {
 			const hostparts = this.hostname.split(/\./);
-			for (let i = 0, l = hostparts.length; i < l; i++) {
-				const part = hostparts[i];
+			for (let i$10 = 0, l$5 = hostparts.length; i$10 < l$5; i$10++) {
+				const part = hostparts[i$10];
 				if (!part) {
 					continue;
 				}
 				if (!part.match(hostnamePartPattern)) {
 					let newpart = "";
-					for (let j = 0, k = part.length; j < k; j++) {
-						if (part.charCodeAt(j) > 127) {
+					for (let j$2 = 0, k$1 = part.length; j$2 < k$1; j$2++) {
+						if (part.charCodeAt(j$2) > 127) {
 							newpart += "x";
 						} else {
-							newpart += part[j];
+							newpart += part[j$2];
 						}
 					}
 					if (!newpart.match(hostnamePartPattern)) {
-						const validParts = hostparts.slice(0, i);
-						const notHost = hostparts.slice(i + 1);
+						const validParts = hostparts.slice(0, i$10);
+						const notHost = hostparts.slice(i$10 + 1);
 						const bit = part.match(hostnamePartStart);
 						if (bit) {
 							validParts.push(bit[1]);
@@ -8833,38 +8942,68 @@ Url.prototype.parseHost = function(host) {
 };
 var parse_default = urlParse;
 
-var mdurl_exports = /* @__PURE__ */ __exportAll({
+//#endregion
+//#region node_modules/.pnpm/mdurl@2.0.0/node_modules/mdurl/index.mjs
+var mdurl_exports = {};
+__export(mdurl_exports, {
 	decode: () => decode_default,
 	encode: () => encode_default,
 	format: () => format,
 	parse: () => parse_default
 });
 
-var regex_default$5 = /[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+//#endregion
+//#region node_modules/.pnpm/uc.micro@2.1.0/node_modules/uc.micro/properties/Any/regex.mjs
+var regex_default = /[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
 
-var regex_default$4 = /[\0-\x1F\x7F-\x9F]/;
+//#endregion
+//#region node_modules/.pnpm/uc.micro@2.1.0/node_modules/uc.micro/categories/Cc/regex.mjs
+var regex_default$1 = /[\0-\x1F\x7F-\x9F]/;
 
-var regex_default$3 = /[\xAD\u0600-\u0605\u061C\u06DD\u070F\u0890\u0891\u08E2\u180E\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u206F\uFEFF\uFFF9-\uFFFB]|\uD804[\uDCBD\uDCCD]|\uD80D[\uDC30-\uDC3F]|\uD82F[\uDCA0-\uDCA3]|\uD834[\uDD73-\uDD7A]|\uDB40[\uDC01\uDC20-\uDC7F]/;
+//#endregion
+//#region node_modules/.pnpm/uc.micro@2.1.0/node_modules/uc.micro/categories/Cf/regex.mjs
+var regex_default$4 = /[\xAD\u0600-\u0605\u061C\u06DD\u070F\u0890\u0891\u08E2\u180E\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u206F\uFEFF\uFFF9-\uFFFB]|\uD804[\uDCBD\uDCCD]|\uD80D[\uDC30-\uDC3F]|\uD82F[\uDCA0-\uDCA3]|\uD834[\uDD73-\uDD7A]|\uDB40[\uDC01\uDC20-\uDC7F]/;
 
-var regex_default$2 = /[!-#%-\*,-\/:;\?@\[-\]_\{\}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061D-\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u09FD\u0A76\u0AF0\u0C77\u0C84\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1B7D\u1B7E\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E4F\u2E52-\u2E5D\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD803[\uDEAD\uDF55-\uDF59\uDF86-\uDF89]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC8\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDC4B-\uDC4F\uDC5A\uDC5B\uDC5D\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDE60-\uDE6C\uDEB9\uDF3C-\uDF3E]|\uD806[\uDC3B\uDD44-\uDD46\uDDE2\uDE3F-\uDE46\uDE9A-\uDE9C\uDE9E-\uDEA2\uDF00-\uDF09]|\uD807[\uDC41-\uDC45\uDC70\uDC71\uDEF7\uDEF8\uDF43-\uDF4F\uDFFF]|\uD809[\uDC70-\uDC74]|\uD80B[\uDFF1\uDFF2]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD81B[\uDE97-\uDE9A\uDFE2]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]|\uD83A[\uDD5E\uDD5F]/;
+//#endregion
+//#region node_modules/.pnpm/uc.micro@2.1.0/node_modules/uc.micro/categories/P/regex.mjs
+var regex_default$3 = /[!-#%-\*,-\/:;\?@\[-\]_\{\}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061D-\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u09FD\u0A76\u0AF0\u0C77\u0C84\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1B7D\u1B7E\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E4F\u2E52-\u2E5D\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD803[\uDEAD\uDF55-\uDF59\uDF86-\uDF89]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC8\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDC4B-\uDC4F\uDC5A\uDC5B\uDC5D\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDE60-\uDE6C\uDEB9\uDF3C-\uDF3E]|\uD806[\uDC3B\uDD44-\uDD46\uDDE2\uDE3F-\uDE46\uDE9A-\uDE9C\uDE9E-\uDEA2\uDF00-\uDF09]|\uD807[\uDC41-\uDC45\uDC70\uDC71\uDEF7\uDEF8\uDF43-\uDF4F\uDFFF]|\uD809[\uDC70-\uDC74]|\uD80B[\uDFF1\uDFF2]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD81B[\uDE97-\uDE9A\uDFE2]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]|\uD83A[\uDD5E\uDD5F]/;
 
-var regex_default$1 = /[\$\+<->\^`\|~\xA2-\xA6\xA8\xA9\xAC\xAE-\xB1\xB4\xB8\xD7\xF7\u02C2-\u02C5\u02D2-\u02DF\u02E5-\u02EB\u02ED\u02EF-\u02FF\u0375\u0384\u0385\u03F6\u0482\u058D-\u058F\u0606-\u0608\u060B\u060E\u060F\u06DE\u06E9\u06FD\u06FE\u07F6\u07FE\u07FF\u0888\u09F2\u09F3\u09FA\u09FB\u0AF1\u0B70\u0BF3-\u0BFA\u0C7F\u0D4F\u0D79\u0E3F\u0F01-\u0F03\u0F13\u0F15-\u0F17\u0F1A-\u0F1F\u0F34\u0F36\u0F38\u0FBE-\u0FC5\u0FC7-\u0FCC\u0FCE\u0FCF\u0FD5-\u0FD8\u109E\u109F\u1390-\u1399\u166D\u17DB\u1940\u19DE-\u19FF\u1B61-\u1B6A\u1B74-\u1B7C\u1FBD\u1FBF-\u1FC1\u1FCD-\u1FCF\u1FDD-\u1FDF\u1FED-\u1FEF\u1FFD\u1FFE\u2044\u2052\u207A-\u207C\u208A-\u208C\u20A0-\u20C0\u2100\u2101\u2103-\u2106\u2108\u2109\u2114\u2116-\u2118\u211E-\u2123\u2125\u2127\u2129\u212E\u213A\u213B\u2140-\u2144\u214A-\u214D\u214F\u218A\u218B\u2190-\u2307\u230C-\u2328\u232B-\u2426\u2440-\u244A\u249C-\u24E9\u2500-\u2767\u2794-\u27C4\u27C7-\u27E5\u27F0-\u2982\u2999-\u29D7\u29DC-\u29FB\u29FE-\u2B73\u2B76-\u2B95\u2B97-\u2BFF\u2CE5-\u2CEA\u2E50\u2E51\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u2FF0-\u2FFF\u3004\u3012\u3013\u3020\u3036\u3037\u303E\u303F\u309B\u309C\u3190\u3191\u3196-\u319F\u31C0-\u31E3\u31EF\u3200-\u321E\u322A-\u3247\u3250\u3260-\u327F\u328A-\u32B0\u32C0-\u33FF\u4DC0-\u4DFF\uA490-\uA4C6\uA700-\uA716\uA720\uA721\uA789\uA78A\uA828-\uA82B\uA836-\uA839\uAA77-\uAA79\uAB5B\uAB6A\uAB6B\uFB29\uFBB2-\uFBC2\uFD40-\uFD4F\uFDCF\uFDFC-\uFDFF\uFE62\uFE64-\uFE66\uFE69\uFF04\uFF0B\uFF1C-\uFF1E\uFF3E\uFF40\uFF5C\uFF5E\uFFE0-\uFFE6\uFFE8-\uFFEE\uFFFC\uFFFD]|\uD800[\uDD37-\uDD3F\uDD79-\uDD89\uDD8C-\uDD8E\uDD90-\uDD9C\uDDA0\uDDD0-\uDDFC]|\uD802[\uDC77\uDC78\uDEC8]|\uD805\uDF3F|\uD807[\uDFD5-\uDFF1]|\uD81A[\uDF3C-\uDF3F\uDF45]|\uD82F\uDC9C|\uD833[\uDF50-\uDFC3]|\uD834[\uDC00-\uDCF5\uDD00-\uDD26\uDD29-\uDD64\uDD6A-\uDD6C\uDD83\uDD84\uDD8C-\uDDA9\uDDAE-\uDDEA\uDE00-\uDE41\uDE45\uDF00-\uDF56]|\uD835[\uDEC1\uDEDB\uDEFB\uDF15\uDF35\uDF4F\uDF6F\uDF89\uDFA9\uDFC3]|\uD836[\uDC00-\uDDFF\uDE37-\uDE3A\uDE6D-\uDE74\uDE76-\uDE83\uDE85\uDE86]|\uD838[\uDD4F\uDEFF]|\uD83B[\uDCAC\uDCB0\uDD2E\uDEF0\uDEF1]|\uD83C[\uDC00-\uDC2B\uDC30-\uDC93\uDCA0-\uDCAE\uDCB1-\uDCBF\uDCC1-\uDCCF\uDCD1-\uDCF5\uDD0D-\uDDAD\uDDE6-\uDE02\uDE10-\uDE3B\uDE40-\uDE48\uDE50\uDE51\uDE60-\uDE65\uDF00-\uDFFF]|\uD83D[\uDC00-\uDED7\uDEDC-\uDEEC\uDEF0-\uDEFC\uDF00-\uDF76\uDF7B-\uDFD9\uDFE0-\uDFEB\uDFF0]|\uD83E[\uDC00-\uDC0B\uDC10-\uDC47\uDC50-\uDC59\uDC60-\uDC87\uDC90-\uDCAD\uDCB0\uDCB1\uDD00-\uDE53\uDE60-\uDE6D\uDE70-\uDE7C\uDE80-\uDE88\uDE90-\uDEBD\uDEBF-\uDEC5\uDECE-\uDEDB\uDEE0-\uDEE8\uDEF0-\uDEF8\uDF00-\uDF92\uDF94-\uDFCA]/;
+//#endregion
+//#region node_modules/.pnpm/uc.micro@2.1.0/node_modules/uc.micro/categories/S/regex.mjs
+var regex_default$5 = /[\$\+<->\^`\|~\xA2-\xA6\xA8\xA9\xAC\xAE-\xB1\xB4\xB8\xD7\xF7\u02C2-\u02C5\u02D2-\u02DF\u02E5-\u02EB\u02ED\u02EF-\u02FF\u0375\u0384\u0385\u03F6\u0482\u058D-\u058F\u0606-\u0608\u060B\u060E\u060F\u06DE\u06E9\u06FD\u06FE\u07F6\u07FE\u07FF\u0888\u09F2\u09F3\u09FA\u09FB\u0AF1\u0B70\u0BF3-\u0BFA\u0C7F\u0D4F\u0D79\u0E3F\u0F01-\u0F03\u0F13\u0F15-\u0F17\u0F1A-\u0F1F\u0F34\u0F36\u0F38\u0FBE-\u0FC5\u0FC7-\u0FCC\u0FCE\u0FCF\u0FD5-\u0FD8\u109E\u109F\u1390-\u1399\u166D\u17DB\u1940\u19DE-\u19FF\u1B61-\u1B6A\u1B74-\u1B7C\u1FBD\u1FBF-\u1FC1\u1FCD-\u1FCF\u1FDD-\u1FDF\u1FED-\u1FEF\u1FFD\u1FFE\u2044\u2052\u207A-\u207C\u208A-\u208C\u20A0-\u20C0\u2100\u2101\u2103-\u2106\u2108\u2109\u2114\u2116-\u2118\u211E-\u2123\u2125\u2127\u2129\u212E\u213A\u213B\u2140-\u2144\u214A-\u214D\u214F\u218A\u218B\u2190-\u2307\u230C-\u2328\u232B-\u2426\u2440-\u244A\u249C-\u24E9\u2500-\u2767\u2794-\u27C4\u27C7-\u27E5\u27F0-\u2982\u2999-\u29D7\u29DC-\u29FB\u29FE-\u2B73\u2B76-\u2B95\u2B97-\u2BFF\u2CE5-\u2CEA\u2E50\u2E51\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u2FF0-\u2FFF\u3004\u3012\u3013\u3020\u3036\u3037\u303E\u303F\u309B\u309C\u3190\u3191\u3196-\u319F\u31C0-\u31E3\u31EF\u3200-\u321E\u322A-\u3247\u3250\u3260-\u327F\u328A-\u32B0\u32C0-\u33FF\u4DC0-\u4DFF\uA490-\uA4C6\uA700-\uA716\uA720\uA721\uA789\uA78A\uA828-\uA82B\uA836-\uA839\uAA77-\uAA79\uAB5B\uAB6A\uAB6B\uFB29\uFBB2-\uFBC2\uFD40-\uFD4F\uFDCF\uFDFC-\uFDFF\uFE62\uFE64-\uFE66\uFE69\uFF04\uFF0B\uFF1C-\uFF1E\uFF3E\uFF40\uFF5C\uFF5E\uFFE0-\uFFE6\uFFE8-\uFFEE\uFFFC\uFFFD]|\uD800[\uDD37-\uDD3F\uDD79-\uDD89\uDD8C-\uDD8E\uDD90-\uDD9C\uDDA0\uDDD0-\uDDFC]|\uD802[\uDC77\uDC78\uDEC8]|\uD805\uDF3F|\uD807[\uDFD5-\uDFF1]|\uD81A[\uDF3C-\uDF3F\uDF45]|\uD82F\uDC9C|\uD833[\uDF50-\uDFC3]|\uD834[\uDC00-\uDCF5\uDD00-\uDD26\uDD29-\uDD64\uDD6A-\uDD6C\uDD83\uDD84\uDD8C-\uDDA9\uDDAE-\uDDEA\uDE00-\uDE41\uDE45\uDF00-\uDF56]|\uD835[\uDEC1\uDEDB\uDEFB\uDF15\uDF35\uDF4F\uDF6F\uDF89\uDFA9\uDFC3]|\uD836[\uDC00-\uDDFF\uDE37-\uDE3A\uDE6D-\uDE74\uDE76-\uDE83\uDE85\uDE86]|\uD838[\uDD4F\uDEFF]|\uD83B[\uDCAC\uDCB0\uDD2E\uDEF0\uDEF1]|\uD83C[\uDC00-\uDC2B\uDC30-\uDC93\uDCA0-\uDCAE\uDCB1-\uDCBF\uDCC1-\uDCCF\uDCD1-\uDCF5\uDD0D-\uDDAD\uDDE6-\uDE02\uDE10-\uDE3B\uDE40-\uDE48\uDE50\uDE51\uDE60-\uDE65\uDF00-\uDFFF]|\uD83D[\uDC00-\uDED7\uDEDC-\uDEEC\uDEF0-\uDEFC\uDF00-\uDF76\uDF7B-\uDFD9\uDFE0-\uDFEB\uDFF0]|\uD83E[\uDC00-\uDC0B\uDC10-\uDC47\uDC50-\uDC59\uDC60-\uDC87\uDC90-\uDCAD\uDCB0\uDCB1\uDD00-\uDE53\uDE60-\uDE6D\uDE70-\uDE7C\uDE80-\uDE88\uDE90-\uDEBD\uDEBF-\uDEC5\uDECE-\uDEDB\uDEE0-\uDEE8\uDEF0-\uDEF8\uDF00-\uDF92\uDF94-\uDFCA]/;
 
-var regex_default = /[ \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000]/;
+//#endregion
+//#region node_modules/.pnpm/uc.micro@2.1.0/node_modules/uc.micro/categories/Z/regex.mjs
+var regex_default$2 = /[ \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000]/;
 
-var uc_exports = /* @__PURE__ */ __exportAll({
-	Any: () => regex_default$5,
-	Cc: () => regex_default$4,
-	Cf: () => regex_default$3,
-	P: () => regex_default$2,
-	S: () => regex_default$1,
-	Z: () => regex_default
+//#endregion
+//#region node_modules/.pnpm/uc.micro@2.1.0/node_modules/uc.micro/index.mjs
+var uc_exports = {};
+__export(uc_exports, {
+	Any: () => regex_default,
+	Cc: () => regex_default$1,
+	Cf: () => regex_default$4,
+	P: () => regex_default$3,
+	S: () => regex_default$5,
+	Z: () => regex_default$2
 });
 
-var decode_data_html_default = new Uint16Array("ᵁ<Õıʊҝջאٵ۞ޢߖࠏ੊ઑඡ๭༉༦჊ረዡᐕᒝᓃᓟᔥ\0\0\0\0\0\0ᕫᛍᦍᰒᷝ὾⁠↰⊍⏀⏻⑂⠤⤒ⴈ⹈⿎〖㊺㘹㞬㣾㨨㩱㫠㬮ࠀEMabcfglmnoprstu\\bfms¦³¹ÈÏlig耻Æ䃆P耻&䀦cute耻Á䃁reve;䄂Āiyx}rc耻Â䃂;䐐r;쀀𝔄rave耻À䃀pha;䎑acr;䄀d;橓Āgp¡on;䄄f;쀀𝔸plyFunction;恡ing耻Å䃅Ācs¾Ãr;쀀𝒜ign;扔ilde耻Ã䃃ml耻Ä䃄ЀaceforsuåûþėĜĢħĪĀcrêòkslash;或Ŷöø;櫧ed;挆y;䐑ƀcrtąċĔause;戵noullis;愬a;䎒r;쀀𝔅pf;쀀𝔹eve;䋘còēmpeq;扎܀HOacdefhilorsuōőŖƀƞƢƵƷƺǜȕɳɸɾcy;䐧PY耻©䂩ƀcpyŝŢźute;䄆Ā;iŧŨ拒talDifferentialD;慅leys;愭ȀaeioƉƎƔƘron;䄌dil耻Ç䃇rc;䄈nint;戰ot;䄊ĀdnƧƭilla;䂸terDot;䂷òſi;䎧rcleȀDMPTǇǋǑǖot;抙inus;抖lus;投imes;抗oĀcsǢǸkwiseContourIntegral;戲eCurlyĀDQȃȏoubleQuote;思uote;怙ȀlnpuȞȨɇɕonĀ;eȥȦ户;橴ƀgitȯȶȺruent;扡nt;戯ourIntegral;戮ĀfrɌɎ;愂oduct;成nterClockwiseContourIntegral;戳oss;樯cr;쀀𝒞pĀ;Cʄʅ拓ap;才րDJSZacefiosʠʬʰʴʸˋ˗ˡ˦̳ҍĀ;oŹʥtrahd;椑cy;䐂cy;䐅cy;䐏ƀgrsʿ˄ˇger;怡r;憡hv;櫤Āayː˕ron;䄎;䐔lĀ;t˝˞戇a;䎔r;쀀𝔇Āaf˫̧Ācm˰̢riticalȀADGT̖̜̀̆cute;䂴oŴ̋̍;䋙bleAcute;䋝rave;䁠ilde;䋜ond;拄ferentialD;慆Ѱ̽\0\0\0͔͂\0Ѕf;쀀𝔻ƀ;DE͈͉͍䂨ot;惜qual;扐blèCDLRUVͣͲ΂ϏϢϸontourIntegraìȹoɴ͹\0\0ͻ»͉nArrow;懓Āeo·ΤftƀARTΐΖΡrrow;懐ightArrow;懔eåˊngĀLRΫτeftĀARγιrrow;柸ightArrow;柺ightArrow;柹ightĀATϘϞrrow;懒ee;抨pɁϩ\0\0ϯrrow;懑ownArrow;懕erticalBar;戥ǹABLRTaВЪаўѿͼrrowƀ;BUНОТ憓ar;椓pArrow;懵reve;䌑eft˒к\0ц\0ѐightVector;楐eeVector;楞ectorĀ;Bљњ憽ar;楖ightǔѧ\0ѱeeVector;楟ectorĀ;BѺѻ懁ar;楗eeĀ;A҆҇护rrow;憧ĀctҒҗr;쀀𝒟rok;䄐ࠀNTacdfglmopqstuxҽӀӄӋӞӢӧӮӵԡԯԶՒ՝ՠեG;䅊H耻Ð䃐cute耻É䃉ƀaiyӒӗӜron;䄚rc耻Ê䃊;䐭ot;䄖r;쀀𝔈rave耻È䃈ement;戈ĀapӺӾcr;䄒tyɓԆ\0\0ԒmallSquare;旻erySmallSquare;斫ĀgpԦԪon;䄘f;쀀𝔼silon;䎕uĀaiԼՉlĀ;TՂՃ橵ilde;扂librium;懌Āci՗՚r;愰m;橳a;䎗ml耻Ë䃋Āipժկsts;戃onentialE;慇ʀcfiosօֈ֍ֲ׌y;䐤r;쀀𝔉lledɓ֗\0\0֣mallSquare;旼erySmallSquare;斪Ͱֺ\0ֿ\0\0ׄf;쀀𝔽All;戀riertrf;愱cò׋؀JTabcdfgorstר׬ׯ׺؀ؒؖ؛؝أ٬ٲcy;䐃耻>䀾mmaĀ;d׷׸䎓;䏜reve;䄞ƀeiy؇،ؐdil;䄢rc;䄜;䐓ot;䄠r;쀀𝔊;拙pf;쀀𝔾eater̀EFGLSTصلَٖٛ٦qualĀ;Lؾؿ扥ess;招ullEqual;执reater;檢ess;扷lantEqual;橾ilde;扳cr;쀀𝒢;扫ЀAacfiosuڅڋږڛڞڪھۊRDcy;䐪Āctڐڔek;䋇;䁞irc;䄤r;愌lbertSpace;愋ǰگ\0ڲf;愍izontalLine;攀Āctۃۅòکrok;䄦mpńېۘownHumðįqual;扏܀EJOacdfgmnostuۺ۾܃܇܎ܚܞܡܨ݄ݸދޏޕcy;䐕lig;䄲cy;䐁cute耻Í䃍Āiyܓܘrc耻Î䃎;䐘ot;䄰r;愑rave耻Ì䃌ƀ;apܠܯܿĀcgܴܷr;䄪inaryI;慈lieóϝǴ݉\0ݢĀ;eݍݎ戬Āgrݓݘral;戫section;拂isibleĀCTݬݲomma;恣imes;恢ƀgptݿރވon;䄮f;쀀𝕀a;䎙cr;愐ilde;䄨ǫޚ\0ޞcy;䐆l耻Ï䃏ʀcfosuެ޷޼߂ߐĀiyޱ޵rc;䄴;䐙r;쀀𝔍pf;쀀𝕁ǣ߇\0ߌr;쀀𝒥rcy;䐈kcy;䐄΀HJacfosߤߨ߽߬߱ࠂࠈcy;䐥cy;䐌ppa;䎚Āey߶߻dil;䄶;䐚r;쀀𝔎pf;쀀𝕂cr;쀀𝒦րJTaceflmostࠥࠩࠬࡐࡣ঳সে্਷ੇcy;䐉耻<䀼ʀcmnpr࠷࠼ࡁࡄࡍute;䄹bda;䎛g;柪lacetrf;愒r;憞ƀaeyࡗ࡜ࡡron;䄽dil;䄻;䐛Āfsࡨ॰tԀACDFRTUVarࡾࢩࢱࣦ࣠ࣼयज़ΐ४Ānrࢃ࢏gleBracket;柨rowƀ;BR࢙࢚࢞憐ar;懤ightArrow;懆eiling;挈oǵࢷ\0ࣃbleBracket;柦nǔࣈ\0࣒eeVector;楡ectorĀ;Bࣛࣜ懃ar;楙loor;挊ightĀAV࣯ࣵrrow;憔ector;楎Āerँगeƀ;AVउऊऐ抣rrow;憤ector;楚iangleƀ;BEतथऩ抲ar;槏qual;抴pƀDTVषूौownVector;楑eeVector;楠ectorĀ;Bॖॗ憿ar;楘ectorĀ;B॥०憼ar;楒ightáΜs̀EFGLSTॾঋকঝঢভqualGreater;拚ullEqual;扦reater;扶ess;檡lantEqual;橽ilde;扲r;쀀𝔏Ā;eঽা拘ftarrow;懚idot;䄿ƀnpw৔ਖਛgȀLRlr৞৷ਂਐeftĀAR০৬rrow;柵ightArrow;柷ightArrow;柶eftĀarγਊightáοightáϊf;쀀𝕃erĀLRਢਬeftArrow;憙ightArrow;憘ƀchtਾੀੂòࡌ;憰rok;䅁;扪Ѐacefiosuਗ਼੝੠੷੼અઋ઎p;椅y;䐜Ādl੥੯iumSpace;恟lintrf;愳r;쀀𝔐nusPlus;戓pf;쀀𝕄cò੶;䎜ҀJacefostuણધભીଔଙඑ඗ඞcy;䐊cute;䅃ƀaey઴હાron;䅇dil;䅅;䐝ƀgswે૰଎ativeƀMTV૓૟૨ediumSpace;怋hiĀcn૦૘ë૙eryThiî૙tedĀGL૸ଆreaterGreateòٳessLesóੈLine;䀊r;쀀𝔑ȀBnptଢନଷ଺reak;恠BreakingSpace;䂠f;愕ڀ;CDEGHLNPRSTV୕ୖ୪୼஡௫ఄ౞಄ದ೘ൡඅ櫬Āou୛୤ngruent;扢pCap;扭oubleVerticalBar;戦ƀlqxஃஊ஛ement;戉ualĀ;Tஒஓ扠ilde;쀀≂̸ists;戄reater΀;EFGLSTஶஷ஽௉௓௘௥扯qual;扱ullEqual;쀀≧̸reater;쀀≫̸ess;批lantEqual;쀀⩾̸ilde;扵umpń௲௽ownHump;쀀≎̸qual;쀀≏̸eĀfsఊధtTriangleƀ;BEచఛడ拪ar;쀀⧏̸qual;括s̀;EGLSTవశ఼ౄోౘ扮qual;扰reater;扸ess;쀀≪̸lantEqual;쀀⩽̸ilde;扴estedĀGL౨౹reaterGreater;쀀⪢̸essLess;쀀⪡̸recedesƀ;ESಒಓಛ技qual;쀀⪯̸lantEqual;拠ĀeiಫಹverseElement;戌ghtTriangleƀ;BEೋೌ೒拫ar;쀀⧐̸qual;拭ĀquೝഌuareSuĀbp೨೹setĀ;E೰ೳ쀀⊏̸qual;拢ersetĀ;Eഃആ쀀⊐̸qual;拣ƀbcpഓതൎsetĀ;Eഛഞ쀀⊂⃒qual;抈ceedsȀ;ESTലള഻െ抁qual;쀀⪰̸lantEqual;拡ilde;쀀≿̸ersetĀ;E൘൛쀀⊃⃒qual;抉ildeȀ;EFT൮൯൵ൿ扁qual;扄ullEqual;扇ilde;扉erticalBar;戤cr;쀀𝒩ilde耻Ñ䃑;䎝܀Eacdfgmoprstuvලෂ෉෕ෛ෠෧෼ขภยา฿ไlig;䅒cute耻Ó䃓Āiy෎ීrc耻Ô䃔;䐞blac;䅐r;쀀𝔒rave耻Ò䃒ƀaei෮ෲ෶cr;䅌ga;䎩cron;䎟pf;쀀𝕆enCurlyĀDQฎบoubleQuote;怜uote;怘;橔Āclวฬr;쀀𝒪ash耻Ø䃘iŬื฼de耻Õ䃕es;樷ml耻Ö䃖erĀBP๋๠Āar๐๓r;怾acĀek๚๜;揞et;掴arenthesis;揜Ҁacfhilors๿ງຊຏຒດຝະ໼rtialD;戂y;䐟r;쀀𝔓i;䎦;䎠usMinus;䂱Āipຢອncareplanåڝf;愙Ȁ;eio຺ູ໠໤檻cedesȀ;EST່້໏໚扺qual;檯lantEqual;扼ilde;找me;怳Ādp໩໮uct;戏ortionĀ;aȥ໹l;戝Āci༁༆r;쀀𝒫;䎨ȀUfos༑༖༛༟OT耻\"䀢r;쀀𝔔pf;愚cr;쀀𝒬؀BEacefhiorsu༾གྷཇའཱིྦྷྪྭ႖ႩႴႾarr;椐G耻®䂮ƀcnrཎནབute;䅔g;柫rĀ;tཛྷཝ憠l;椖ƀaeyཧཬཱron;䅘dil;䅖;䐠Ā;vླྀཹ愜erseĀEUྂྙĀlq྇ྎement;戋uilibrium;懋pEquilibrium;楯r»ཹo;䎡ghtЀACDFTUVa࿁࿫࿳ဢဨၛႇϘĀnr࿆࿒gleBracket;柩rowƀ;BL࿜࿝࿡憒ar;懥eftArrow;懄eiling;按oǵ࿹\0စbleBracket;柧nǔည\0နeeVector;楝ectorĀ;Bဝသ懂ar;楕loor;挋Āerိ၃eƀ;AVဵံြ抢rrow;憦ector;楛iangleƀ;BEၐၑၕ抳ar;槐qual;抵pƀDTVၣၮၸownVector;楏eeVector;楜ectorĀ;Bႂႃ憾ar;楔ectorĀ;B႑႒懀ar;楓Āpuႛ႞f;愝ndImplies;楰ightarrow;懛ĀchႹႼr;愛;憱leDelayed;槴ڀHOacfhimoqstuფჱჷჽᄙᄞᅑᅖᅡᅧᆵᆻᆿĀCcჩხHcy;䐩y;䐨FTcy;䐬cute;䅚ʀ;aeiyᄈᄉᄎᄓᄗ檼ron;䅠dil;䅞rc;䅜;䐡r;쀀𝔖ortȀDLRUᄪᄴᄾᅉownArrow»ОeftArrow»࢚ightArrow»࿝pArrow;憑gma;䎣allCircle;战pf;쀀𝕊ɲᅭ\0\0ᅰt;戚areȀ;ISUᅻᅼᆉᆯ斡ntersection;抓uĀbpᆏᆞsetĀ;Eᆗᆘ抏qual;抑ersetĀ;Eᆨᆩ抐qual;抒nion;抔cr;쀀𝒮ar;拆ȀbcmpᇈᇛሉላĀ;sᇍᇎ拐etĀ;Eᇍᇕqual;抆ĀchᇠህeedsȀ;ESTᇭᇮᇴᇿ扻qual;檰lantEqual;扽ilde;承Tháྌ;我ƀ;esሒሓሣ拑rsetĀ;Eሜም抃qual;抇et»ሓրHRSacfhiorsሾቄ቉ቕ቞ቱቶኟዂወዑORN耻Þ䃞ADE;愢ĀHc቎ቒcy;䐋y;䐦Ābuቚቜ;䀉;䎤ƀaeyብቪቯron;䅤dil;䅢;䐢r;쀀𝔗Āeiቻ኉ǲኀ\0ኇefore;戴a;䎘Ācn኎ኘkSpace;쀀  Space;怉ldeȀ;EFTካኬኲኼ戼qual;扃ullEqual;扅ilde;扈pf;쀀𝕋ipleDot;惛Āctዖዛr;쀀𝒯rok;䅦ૡዷጎጚጦ\0ጬጱ\0\0\0\0\0ጸጽ፷ᎅ\0᏿ᐄᐊᐐĀcrዻጁute耻Ú䃚rĀ;oጇገ憟cir;楉rǣጓ\0጖y;䐎ve;䅬Āiyጞጣrc耻Û䃛;䐣blac;䅰r;쀀𝔘rave耻Ù䃙acr;䅪Ādiፁ፩erĀBPፈ፝Āarፍፐr;䁟acĀekፗፙ;揟et;掵arenthesis;揝onĀ;P፰፱拃lus;抎Āgp፻፿on;䅲f;쀀𝕌ЀADETadps᎕ᎮᎸᏄϨᏒᏗᏳrrowƀ;BDᅐᎠᎤar;椒ownArrow;懅ownArrow;憕quilibrium;楮eeĀ;AᏋᏌ报rrow;憥ownáϳerĀLRᏞᏨeftArrow;憖ightArrow;憗iĀ;lᏹᏺ䏒on;䎥ing;䅮cr;쀀𝒰ilde;䅨ml耻Ü䃜ҀDbcdefosvᐧᐬᐰᐳᐾᒅᒊᒐᒖash;披ar;櫫y;䐒ashĀ;lᐻᐼ抩;櫦Āerᑃᑅ;拁ƀbtyᑌᑐᑺar;怖Ā;iᑏᑕcalȀBLSTᑡᑥᑪᑴar;戣ine;䁼eparator;杘ilde;所ThinSpace;怊r;쀀𝔙pf;쀀𝕍cr;쀀𝒱dash;抪ʀcefosᒧᒬᒱᒶᒼirc;䅴dge;拀r;쀀𝔚pf;쀀𝕎cr;쀀𝒲Ȁfiosᓋᓐᓒᓘr;쀀𝔛;䎞pf;쀀𝕏cr;쀀𝒳ҀAIUacfosuᓱᓵᓹᓽᔄᔏᔔᔚᔠcy;䐯cy;䐇cy;䐮cute耻Ý䃝Āiyᔉᔍrc;䅶;䐫r;쀀𝔜pf;쀀𝕐cr;쀀𝒴ml;䅸ЀHacdefosᔵᔹᔿᕋᕏᕝᕠᕤcy;䐖cute;䅹Āayᕄᕉron;䅽;䐗ot;䅻ǲᕔ\0ᕛoWidtè૙a;䎖r;愨pf;愤cr;쀀𝒵௡ᖃᖊᖐ\0ᖰᖶᖿ\0\0\0\0ᗆᗛᗫᙟ᙭\0ᚕ᚛ᚲᚹ\0ᚾcute耻á䃡reve;䄃̀;Ediuyᖜᖝᖡᖣᖨᖭ戾;쀀∾̳;房rc耻â䃢te肻´̆;䐰lig耻æ䃦Ā;r²ᖺ;쀀𝔞rave耻à䃠ĀepᗊᗖĀfpᗏᗔsym;愵èᗓha;䎱ĀapᗟcĀclᗤᗧr;䄁g;樿ɤᗰ\0\0ᘊʀ;adsvᗺᗻᗿᘁᘇ戧nd;橕;橜lope;橘;橚΀;elmrszᘘᘙᘛᘞᘿᙏᙙ戠;榤e»ᘙsdĀ;aᘥᘦ戡ѡᘰᘲᘴᘶᘸᘺᘼᘾ;榨;榩;榪;榫;榬;榭;榮;榯tĀ;vᙅᙆ戟bĀ;dᙌᙍ抾;榝Āptᙔᙗh;戢»¹arr;捼Āgpᙣᙧon;䄅f;쀀𝕒΀;Eaeiop዁ᙻᙽᚂᚄᚇᚊ;橰cir;橯;扊d;手s;䀧roxĀ;e዁ᚒñᚃing耻å䃥ƀctyᚡᚦᚨr;쀀𝒶;䀪mpĀ;e዁ᚯñʈilde耻ã䃣ml耻ä䃤Āciᛂᛈoninôɲnt;樑ࠀNabcdefiklnoprsu᛭ᛱᜰ᜼ᝃᝈ᝸᝽០៦ᠹᡐᜍ᤽᥈ᥰot;櫭Ācrᛶ᜞kȀcepsᜀᜅᜍᜓong;扌psilon;䏶rime;怵imĀ;e᜚᜛戽q;拍Ŷᜢᜦee;抽edĀ;gᜬᜭ挅e»ᜭrkĀ;t፜᜷brk;掶Āoyᜁᝁ;䐱quo;怞ʀcmprtᝓ᝛ᝡᝤᝨausĀ;eĊĉptyv;榰séᜌnoõēƀahwᝯ᝱ᝳ;䎲;愶een;扬r;쀀𝔟g΀costuvwឍឝឳេ៕៛៞ƀaiuបពរðݠrc;旯p»፱ƀdptឤឨឭot;樀lus;樁imes;樂ɱឹ\0\0ើcup;樆ar;昅riangleĀdu៍្own;施p;斳plus;樄eåᑄåᒭarow;植ƀako៭ᠦᠵĀcn៲ᠣkƀlst៺֫᠂ozenge;槫riangleȀ;dlr᠒᠓᠘᠝斴own;斾eft;旂ight;斸k;搣Ʊᠫ\0ᠳƲᠯ\0ᠱ;斒;斑4;斓ck;斈ĀeoᠾᡍĀ;qᡃᡆ쀀=⃥uiv;쀀≡⃥t;挐Ȁptwxᡙᡞᡧᡬf;쀀𝕓Ā;tᏋᡣom»Ꮜtie;拈؀DHUVbdhmptuvᢅᢖᢪᢻᣗᣛᣬ᣿ᤅᤊᤐᤡȀLRlrᢎᢐᢒᢔ;敗;敔;敖;敓ʀ;DUduᢡᢢᢤᢦᢨ敐;敦;敩;敤;敧ȀLRlrᢳᢵᢷᢹ;敝;敚;敜;教΀;HLRhlrᣊᣋᣍᣏᣑᣓᣕ救;敬;散;敠;敫;敢;敟ox;槉ȀLRlrᣤᣦᣨᣪ;敕;敒;攐;攌ʀ;DUduڽ᣷᣹᣻᣽;敥;敨;攬;攴inus;抟lus;択imes;抠ȀLRlrᤙᤛᤝ᤟;敛;敘;攘;攔΀;HLRhlrᤰᤱᤳᤵᤷ᤻᤹攂;敪;敡;敞;攼;攤;攜Āevģ᥂bar耻¦䂦Ȁceioᥑᥖᥚᥠr;쀀𝒷mi;恏mĀ;e᜚᜜lƀ;bhᥨᥩᥫ䁜;槅sub;柈Ŭᥴ᥾lĀ;e᥹᥺怢t»᥺pƀ;Eeįᦅᦇ;檮Ā;qۜۛೡᦧ\0᧨ᨑᨕᨲ\0ᨷᩐ\0\0᪴\0\0᫁\0\0ᬡᬮ᭍᭒\0᯽\0ᰌƀcpr᦭ᦲ᧝ute;䄇̀;abcdsᦿᧀᧄ᧊᧕᧙戩nd;橄rcup;橉Āau᧏᧒p;橋p;橇ot;橀;쀀∩︀Āeo᧢᧥t;恁îړȀaeiu᧰᧻ᨁᨅǰ᧵\0᧸s;橍on;䄍dil耻ç䃧rc;䄉psĀ;sᨌᨍ橌m;橐ot;䄋ƀdmnᨛᨠᨦil肻¸ƭptyv;榲t脀¢;eᨭᨮ䂢räƲr;쀀𝔠ƀceiᨽᩀᩍy;䑇ckĀ;mᩇᩈ朓ark»ᩈ;䏇r΀;Ecefms᩟᩠ᩢᩫ᪤᪪᪮旋;槃ƀ;elᩩᩪᩭ䋆q;扗eɡᩴ\0\0᪈rrowĀlr᩼᪁eft;憺ight;憻ʀRSacd᪒᪔᪖᪚᪟»ཇ;擈st;抛irc;抚ash;抝nint;樐id;櫯cir;槂ubsĀ;u᪻᪼晣it»᪼ˬ᫇᫔᫺\0ᬊonĀ;eᫍᫎ䀺Ā;qÇÆɭ᫙\0\0᫢aĀ;t᫞᫟䀬;䁀ƀ;fl᫨᫩᫫戁îᅠeĀmx᫱᫶ent»᫩eóɍǧ᫾\0ᬇĀ;dኻᬂot;橭nôɆƀfryᬐᬔᬗ;쀀𝕔oäɔ脀©;sŕᬝr;愗Āaoᬥᬩrr;憵ss;朗Ācuᬲᬷr;쀀𝒸Ābpᬼ᭄Ā;eᭁᭂ櫏;櫑Ā;eᭉᭊ櫐;櫒dot;拯΀delprvw᭠᭬᭷ᮂᮬᯔ᯹arrĀlr᭨᭪;椸;椵ɰ᭲\0\0᭵r;拞c;拟arrĀ;p᭿ᮀ憶;椽̀;bcdosᮏᮐᮖᮡᮥᮨ截rcap;橈Āauᮛᮞp;橆p;橊ot;抍r;橅;쀀∪︀Ȁalrv᮵ᮿᯞᯣrrĀ;mᮼᮽ憷;椼yƀevwᯇᯔᯘqɰᯎ\0\0ᯒreã᭳uã᭵ee;拎edge;拏en耻¤䂤earrowĀlrᯮ᯳eft»ᮀight»ᮽeäᯝĀciᰁᰇoninôǷnt;戱lcty;挭ঀAHabcdefhijlorstuwz᰸᰻᰿ᱝᱩᱵᲊᲞᲬᲷ᳻᳿ᴍᵻᶑᶫᶻ᷆᷍rò΁ar;楥Ȁglrs᱈ᱍ᱒᱔ger;怠eth;愸òᄳhĀ;vᱚᱛ怐»ऊūᱡᱧarow;椏aã̕Āayᱮᱳron;䄏;䐴ƀ;ao̲ᱼᲄĀgrʿᲁr;懊tseq;橷ƀglmᲑᲔᲘ耻°䂰ta;䎴ptyv;榱ĀirᲣᲨsht;楿;쀀𝔡arĀlrᲳᲵ»ࣜ»သʀaegsv᳂͸᳖᳜᳠mƀ;oș᳊᳔ndĀ;ș᳑uit;晦amma;䏝in;拲ƀ;io᳧᳨᳸䃷de脀÷;o᳧ᳰntimes;拇nø᳷cy;䑒cɯᴆ\0\0ᴊrn;挞op;挍ʀlptuwᴘᴝᴢᵉᵕlar;䀤f;쀀𝕕ʀ;emps̋ᴭᴷᴽᵂqĀ;d͒ᴳot;扑inus;戸lus;戔quare;抡blebarwedgåúnƀadhᄮᵝᵧownarrowóᲃarpoonĀlrᵲᵶefôᲴighôᲶŢᵿᶅkaro÷གɯᶊ\0\0ᶎrn;挟op;挌ƀcotᶘᶣᶦĀryᶝᶡ;쀀𝒹;䑕l;槶rok;䄑Ādrᶰᶴot;拱iĀ;fᶺ᠖斿Āah᷀᷃ròЩaòྦangle;榦Āci᷒ᷕy;䑟grarr;柿ऀDacdefglmnopqrstuxḁḉḙḸոḼṉṡṾấắẽỡἪἷὄ὎὚ĀDoḆᴴoôᲉĀcsḎḔute耻é䃩ter;橮ȀaioyḢḧḱḶron;䄛rĀ;cḭḮ扖耻ê䃪lon;払;䑍ot;䄗ĀDrṁṅot;扒;쀀𝔢ƀ;rsṐṑṗ檚ave耻è䃨Ā;dṜṝ檖ot;檘Ȁ;ilsṪṫṲṴ檙nters;揧;愓Ā;dṹṺ檕ot;檗ƀapsẅẉẗcr;䄓tyƀ;svẒẓẕ戅et»ẓpĀ1;ẝẤĳạả;怄;怅怃ĀgsẪẬ;䅋p;怂ĀgpẴẸon;䄙f;쀀𝕖ƀalsỄỎỒrĀ;sỊị拕l;槣us;橱iƀ;lvỚớở䎵on»ớ;䏵ȀcsuvỪỳἋἣĀioữḱrc»Ḯɩỹ\0\0ỻíՈantĀglἂἆtr»ṝess»Ṻƀaeiἒ἖Ἒls;䀽st;扟vĀ;DȵἠD;橸parsl;槥ĀDaἯἳot;打rr;楱ƀcdiἾὁỸr;愯oô͒ĀahὉὋ;䎷耻ð䃰Āmrὓὗl耻ë䃫o;悬ƀcipὡὤὧl;䀡sôծĀeoὬὴctatioîՙnentialåչৡᾒ\0ᾞ\0ᾡᾧ\0\0ῆῌ\0ΐ\0ῦῪ \0 ⁚llingdotseñṄy;䑄male;晀ƀilrᾭᾳ῁lig;耀ﬃɩᾹ\0\0᾽g;耀ﬀig;耀ﬄ;쀀𝔣lig;耀ﬁlig;쀀fjƀaltῙ῜ῡt;晭ig;耀ﬂns;斱of;䆒ǰ΅\0ῳf;쀀𝕗ĀakֿῷĀ;vῼ´拔;櫙artint;樍Āao‌⁕Ācs‑⁒α‚‰‸⁅⁈\0⁐β•‥‧‪‬\0‮耻½䂽;慓耻¼䂼;慕;慙;慛Ƴ‴\0‶;慔;慖ʴ‾⁁\0\0⁃耻¾䂾;慗;慜5;慘ƶ⁌\0⁎;慚;慝8;慞l;恄wn;挢cr;쀀𝒻ࢀEabcdefgijlnorstv₂₉₟₥₰₴⃰⃵⃺⃿℃ℒℸ̗ℾ⅒↞Ā;lٍ₇;檌ƀcmpₐₕ₝ute;䇵maĀ;dₜ᳚䎳;檆reve;䄟Āiy₪₮rc;䄝;䐳ot;䄡Ȁ;lqsؾق₽⃉ƀ;qsؾٌ⃄lanô٥Ȁ;cdl٥⃒⃥⃕c;檩otĀ;o⃜⃝檀Ā;l⃢⃣檂;檄Ā;e⃪⃭쀀⋛︀s;檔r;쀀𝔤Ā;gٳ؛mel;愷cy;䑓Ȁ;Eajٚℌℎℐ;檒;檥;檤ȀEaesℛℝ℩ℴ;扩pĀ;p℣ℤ檊rox»ℤĀ;q℮ℯ檈Ā;q℮ℛim;拧pf;쀀𝕘Āci⅃ⅆr;愊mƀ;el٫ⅎ⅐;檎;檐茀>;cdlqr׮ⅠⅪⅮⅳⅹĀciⅥⅧ;檧r;橺ot;拗Par;榕uest;橼ʀadelsↄⅪ←ٖ↛ǰ↉\0↎proø₞r;楸qĀlqؿ↖lesó₈ií٫Āen↣↭rtneqq;쀀≩︀Å↪ԀAabcefkosy⇄⇇⇱⇵⇺∘∝∯≨≽ròΠȀilmr⇐⇔⇗⇛rsðᒄf»․ilôکĀdr⇠⇤cy;䑊ƀ;cwࣴ⇫⇯ir;楈;憭ar;意irc;䄥ƀalr∁∎∓rtsĀ;u∉∊晥it»∊lip;怦con;抹r;쀀𝔥sĀew∣∩arow;椥arow;椦ʀamopr∺∾≃≞≣rr;懿tht;戻kĀlr≉≓eftarrow;憩ightarrow;憪f;쀀𝕙bar;怕ƀclt≯≴≸r;쀀𝒽asè⇴rok;䄧Ābp⊂⊇ull;恃hen»ᱛૡ⊣\0⊪\0⊸⋅⋎\0⋕⋳\0\0⋸⌢⍧⍢⍿\0⎆⎪⎴cute耻í䃭ƀ;iyݱ⊰⊵rc耻î䃮;䐸Ācx⊼⊿y;䐵cl耻¡䂡ĀfrΟ⋉;쀀𝔦rave耻ì䃬Ȁ;inoܾ⋝⋩⋮Āin⋢⋦nt;樌t;戭fin;槜ta;愩lig;䄳ƀaop⋾⌚⌝ƀcgt⌅⌈⌗r;䄫ƀelpܟ⌏⌓inåގarôܠh;䄱f;抷ed;䆵ʀ;cfotӴ⌬⌱⌽⍁are;愅inĀ;t⌸⌹戞ie;槝doô⌙ʀ;celpݗ⍌⍐⍛⍡al;抺Āgr⍕⍙eróᕣã⍍arhk;樗rod;樼Ȁcgpt⍯⍲⍶⍻y;䑑on;䄯f;쀀𝕚a;䎹uest耻¿䂿Āci⎊⎏r;쀀𝒾nʀ;EdsvӴ⎛⎝⎡ӳ;拹ot;拵Ā;v⎦⎧拴;拳Ā;iݷ⎮lde;䄩ǫ⎸\0⎼cy;䑖l耻ï䃯̀cfmosu⏌⏗⏜⏡⏧⏵Āiy⏑⏕rc;䄵;䐹r;쀀𝔧ath;䈷pf;쀀𝕛ǣ⏬\0⏱r;쀀𝒿rcy;䑘kcy;䑔Ѐacfghjos␋␖␢␧␭␱␵␻ppaĀ;v␓␔䎺;䏰Āey␛␠dil;䄷;䐺r;쀀𝔨reen;䄸cy;䑅cy;䑜pf;쀀𝕜cr;쀀𝓀஀ABEHabcdefghjlmnoprstuv⑰⒁⒆⒍⒑┎┽╚▀♎♞♥♹♽⚚⚲⛘❝❨➋⟀⠁⠒ƀart⑷⑺⑼rò৆òΕail;椛arr;椎Ā;gঔ⒋;檋ar;楢ॣ⒥\0⒪\0⒱\0\0\0\0\0⒵Ⓔ\0ⓆⓈⓍ\0⓹ute;䄺mptyv;榴raîࡌbda;䎻gƀ;dlࢎⓁⓃ;榑åࢎ;檅uo耻«䂫rЀ;bfhlpst࢙ⓞⓦⓩ⓫⓮⓱⓵Ā;f࢝ⓣs;椟s;椝ë≒p;憫l;椹im;楳l;憢ƀ;ae⓿─┄檫il;椙Ā;s┉┊檭;쀀⪭︀ƀabr┕┙┝rr;椌rk;杲Āak┢┬cĀek┨┪;䁻;䁛Āes┱┳;榋lĀdu┹┻;榏;榍Ȁaeuy╆╋╖╘ron;䄾Ādi═╔il;䄼ìࢰâ┩;䐻Ȁcqrs╣╦╭╽a;椶uoĀ;rนᝆĀdu╲╷har;楧shar;楋h;憲ʀ;fgqs▋▌উ◳◿扤tʀahlrt▘▤▷◂◨rrowĀ;t࢙□aé⓶arpoonĀdu▯▴own»њp»०eftarrows;懇ightƀahs◍◖◞rrowĀ;sࣴࢧarpoonó྘quigarro÷⇰hreetimes;拋ƀ;qs▋ও◺lanôবʀ;cdgsব☊☍☝☨c;檨otĀ;o☔☕橿Ā;r☚☛檁;檃Ā;e☢☥쀀⋚︀s;檓ʀadegs☳☹☽♉♋pproøⓆot;拖qĀgq♃♅ôউgtò⒌ôছiíলƀilr♕࣡♚sht;楼;쀀𝔩Ā;Eজ♣;檑š♩♶rĀdu▲♮Ā;l॥♳;楪lk;斄cy;䑙ʀ;achtੈ⚈⚋⚑⚖rò◁orneòᴈard;楫ri;旺Āio⚟⚤dot;䅀ustĀ;a⚬⚭掰che»⚭ȀEaes⚻⚽⛉⛔;扨pĀ;p⛃⛄檉rox»⛄Ā;q⛎⛏檇Ā;q⛎⚻im;拦Ѐabnoptwz⛩⛴⛷✚✯❁❇❐Ānr⛮⛱g;柬r;懽rëࣁgƀlmr⛿✍✔eftĀar০✇ightá৲apsto;柼ightá৽parrowĀlr✥✩efô⓭ight;憬ƀafl✶✹✽r;榅;쀀𝕝us;樭imes;樴š❋❏st;戗áፎƀ;ef❗❘᠀旊nge»❘arĀ;l❤❥䀨t;榓ʀachmt❳❶❼➅➇ròࢨorneòᶌarĀ;d྘➃;業;怎ri;抿̀achiqt➘➝ੀ➢➮➻quo;怹r;쀀𝓁mƀ;egল➪➬;檍;檏Ābu┪➳oĀ;rฟ➹;怚rok;䅂萀<;cdhilqrࠫ⟒☹⟜⟠⟥⟪⟰Āci⟗⟙;檦r;橹reå◲mes;拉arr;楶uest;橻ĀPi⟵⟹ar;榖ƀ;ef⠀भ᠛旃rĀdu⠇⠍shar;楊har;楦Āen⠗⠡rtneqq;쀀≨︀Å⠞܀Dacdefhilnopsu⡀⡅⢂⢎⢓⢠⢥⢨⣚⣢⣤ઃ⣳⤂Dot;戺Ȁclpr⡎⡒⡣⡽r耻¯䂯Āet⡗⡙;時Ā;e⡞⡟朠se»⡟Ā;sျ⡨toȀ;dluျ⡳⡷⡻owîҌefôएðᏑker;斮Āoy⢇⢌mma;権;䐼ash;怔asuredangle»ᘦr;쀀𝔪o;愧ƀcdn⢯⢴⣉ro耻µ䂵Ȁ;acdᑤ⢽⣀⣄sôᚧir;櫰ot肻·Ƶusƀ;bd⣒ᤃ⣓戒Ā;uᴼ⣘;横ţ⣞⣡p;櫛ò−ðઁĀdp⣩⣮els;抧f;쀀𝕞Āct⣸⣽r;쀀𝓂pos»ᖝƀ;lm⤉⤊⤍䎼timap;抸ఀGLRVabcdefghijlmoprstuvw⥂⥓⥾⦉⦘⧚⧩⨕⨚⩘⩝⪃⪕⪤⪨⬄⬇⭄⭿⮮ⰴⱧⱼ⳩Āgt⥇⥋;쀀⋙̸Ā;v⥐௏쀀≫⃒ƀelt⥚⥲⥶ftĀar⥡⥧rrow;懍ightarrow;懎;쀀⋘̸Ā;v⥻ే쀀≪⃒ightarrow;懏ĀDd⦎⦓ash;抯ash;抮ʀbcnpt⦣⦧⦬⦱⧌la»˞ute;䅄g;쀀∠⃒ʀ;Eiop඄⦼⧀⧅⧈;쀀⩰̸d;쀀≋̸s;䅉roø඄urĀ;a⧓⧔普lĀ;s⧓ସǳ⧟\0⧣p肻\xA0ଷmpĀ;e௹ఀʀaeouy⧴⧾⨃⨐⨓ǰ⧹\0⧻;橃on;䅈dil;䅆ngĀ;dൾ⨊ot;쀀⩭̸p;橂;䐽ash;怓΀;Aadqsxஒ⨩⨭⨻⩁⩅⩐rr;懗rĀhr⨳⨶k;椤Ā;oᏲᏰot;쀀≐̸uiöୣĀei⩊⩎ar;椨í஘istĀ;s஠டr;쀀𝔫ȀEest௅⩦⩹⩼ƀ;qs஼⩭௡ƀ;qs஼௅⩴lanô௢ií௪Ā;rஶ⪁»ஷƀAap⪊⪍⪑rò⥱rr;憮ar;櫲ƀ;svྍ⪜ྌĀ;d⪡⪢拼;拺cy;䑚΀AEadest⪷⪺⪾⫂⫅⫶⫹rò⥦;쀀≦̸rr;憚r;急Ȁ;fqs఻⫎⫣⫯tĀar⫔⫙rro÷⫁ightarro÷⪐ƀ;qs఻⪺⫪lanôౕĀ;sౕ⫴»శiíౝĀ;rవ⫾iĀ;eచథiäඐĀpt⬌⬑f;쀀𝕟膀¬;in⬙⬚⬶䂬nȀ;Edvஉ⬤⬨⬮;쀀⋹̸ot;쀀⋵̸ǡஉ⬳⬵;拷;拶iĀ;vಸ⬼ǡಸ⭁⭃;拾;拽ƀaor⭋⭣⭩rȀ;ast୻⭕⭚⭟lleì୻l;쀀⫽⃥;쀀∂̸lint;樔ƀ;ceಒ⭰⭳uåಥĀ;cಘ⭸Ā;eಒ⭽ñಘȀAait⮈⮋⮝⮧rò⦈rrƀ;cw⮔⮕⮙憛;쀀⤳̸;쀀↝̸ghtarrow»⮕riĀ;eೋೖ΀chimpqu⮽⯍⯙⬄୸⯤⯯Ȁ;cerല⯆ഷ⯉uå൅;쀀𝓃ortɭ⬅\0\0⯖ará⭖mĀ;e൮⯟Ā;q൴൳suĀbp⯫⯭å೸åഋƀbcp⯶ⰑⰙȀ;Ees⯿ⰀഢⰄ抄;쀀⫅̸etĀ;eഛⰋqĀ;qണⰀcĀ;eലⰗñസȀ;EesⰢⰣൟⰧ抅;쀀⫆̸etĀ;e൘ⰮqĀ;qൠⰣȀgilrⰽⰿⱅⱇìௗlde耻ñ䃱çృiangleĀlrⱒⱜeftĀ;eచⱚñదightĀ;eೋⱥñ೗Ā;mⱬⱭ䎽ƀ;esⱴⱵⱹ䀣ro;愖p;怇ҀDHadgilrsⲏⲔⲙⲞⲣⲰⲶⳓⳣash;抭arr;椄p;쀀≍⃒ash;抬ĀetⲨⲬ;쀀≥⃒;쀀>⃒nfin;槞ƀAetⲽⳁⳅrr;椂;쀀≤⃒Ā;rⳊⳍ쀀<⃒ie;쀀⊴⃒ĀAtⳘⳜrr;椃rie;쀀⊵⃒im;쀀∼⃒ƀAan⳰⳴ⴂrr;懖rĀhr⳺⳽k;椣Ā;oᏧᏥear;椧ቓ᪕\0\0\0\0\0\0\0\0\0\0\0\0\0ⴭ\0ⴸⵈⵠⵥ⵲ⶄᬇ\0\0ⶍⶫ\0ⷈⷎ\0ⷜ⸙⸫⸾⹃Ācsⴱ᪗ute耻ó䃳ĀiyⴼⵅrĀ;c᪞ⵂ耻ô䃴;䐾ʀabios᪠ⵒⵗǈⵚlac;䅑v;樸old;榼lig;䅓Ācr⵩⵭ir;榿;쀀𝔬ͯ⵹\0\0⵼\0ⶂn;䋛ave耻ò䃲;槁Ābmⶈ෴ar;榵Ȁacitⶕ⶘ⶥⶨrò᪀Āir⶝ⶠr;榾oss;榻nå๒;槀ƀaeiⶱⶵⶹcr;䅍ga;䏉ƀcdnⷀⷅǍron;䎿;榶pf;쀀𝕠ƀaelⷔ⷗ǒr;榷rp;榹΀;adiosvⷪⷫⷮ⸈⸍⸐⸖戨rò᪆Ȁ;efmⷷⷸ⸂⸅橝rĀ;oⷾⷿ愴f»ⷿ耻ª䂪耻º䂺gof;抶r;橖lope;橗;橛ƀclo⸟⸡⸧ò⸁ash耻ø䃸l;折iŬⸯ⸴de耻õ䃵esĀ;aǛ⸺s;樶ml耻ö䃶bar;挽ૡ⹞\0⹽\0⺀⺝\0⺢⺹\0\0⻋ຜ\0⼓\0\0⼫⾼\0⿈rȀ;astЃ⹧⹲຅脀¶;l⹭⹮䂶leìЃɩ⹸\0\0⹻m;櫳;櫽y;䐿rʀcimpt⺋⺏⺓ᡥ⺗nt;䀥od;䀮il;怰enk;怱r;쀀𝔭ƀimo⺨⺰⺴Ā;v⺭⺮䏆;䏕maô੶ne;明ƀ;tv⺿⻀⻈䏀chfork»´;䏖Āau⻏⻟nĀck⻕⻝kĀ;h⇴⻛;愎ö⇴sҀ;abcdemst⻳⻴ᤈ⻹⻽⼄⼆⼊⼎䀫cir;樣ir;樢Āouᵀ⼂;樥;橲n肻±ຝim;樦wo;樧ƀipu⼙⼠⼥ntint;樕f;쀀𝕡nd耻£䂣Ԁ;Eaceinosu່⼿⽁⽄⽇⾁⾉⾒⽾⾶;檳p;檷uå໙Ā;c໎⽌̀;acens່⽙⽟⽦⽨⽾pproø⽃urlyeñ໙ñ໎ƀaes⽯⽶⽺pprox;檹qq;檵im;拨iíໟmeĀ;s⾈ຮ怲ƀEas⽸⾐⽺ð⽵ƀdfp໬⾙⾯ƀals⾠⾥⾪lar;挮ine;挒urf;挓Ā;t໻⾴ï໻rel;抰Āci⿀⿅r;쀀𝓅;䏈ncsp;怈̀fiopsu⿚⋢⿟⿥⿫⿱r;쀀𝔮pf;쀀𝕢rime;恗cr;쀀𝓆ƀaeo⿸〉〓tĀei⿾々rnionóڰnt;樖stĀ;e【】䀿ñἙô༔઀ABHabcdefhilmnoprstux぀けさすムㄎㄫㅇㅢㅲㆎ㈆㈕㈤㈩㉘㉮㉲㊐㊰㊷ƀartぇおがròႳòϝail;検aròᱥar;楤΀cdenqrtとふへみわゔヌĀeuねぱ;쀀∽̱te;䅕iãᅮmptyv;榳gȀ;del࿑らるろ;榒;榥å࿑uo耻»䂻rր;abcfhlpstw࿜ガクシスゼゾダッデナp;極Ā;f࿠ゴs;椠;椳s;椞ë≝ð✮l;楅im;楴l;憣;憝Āaiパフil;椚oĀ;nホボ戶aló༞ƀabrョリヮrò៥rk;杳ĀakンヽcĀekヹ・;䁽;䁝Āes㄂㄄;榌lĀduㄊㄌ;榎;榐Ȁaeuyㄗㄜㄧㄩron;䅙Ādiㄡㄥil;䅗ì࿲âヺ;䑀Ȁclqsㄴㄷㄽㅄa;椷dhar;楩uoĀ;rȎȍh;憳ƀacgㅎㅟངlȀ;ipsླྀㅘㅛႜnåႻarôྩt;断ƀilrㅩဣㅮsht;楽;쀀𝔯ĀaoㅷㆆrĀduㅽㅿ»ѻĀ;l႑ㆄ;楬Ā;vㆋㆌ䏁;䏱ƀgns㆕ㇹㇼht̀ahlrstㆤㆰ㇂㇘㇤㇮rrowĀ;t࿜ㆭaéトarpoonĀduㆻㆿowîㅾp»႒eftĀah㇊㇐rrowó࿪arpoonóՑightarrows;應quigarro÷ニhreetimes;拌g;䋚ingdotseñἲƀahm㈍㈐㈓rò࿪aòՑ;怏oustĀ;a㈞㈟掱che»㈟mid;櫮Ȁabpt㈲㈽㉀㉒Ānr㈷㈺g;柭r;懾rëဃƀafl㉇㉊㉎r;榆;쀀𝕣us;樮imes;樵Āap㉝㉧rĀ;g㉣㉤䀩t;榔olint;樒arò㇣Ȁachq㉻㊀Ⴜ㊅quo;怺r;쀀𝓇Ābu・㊊oĀ;rȔȓƀhir㊗㊛㊠reåㇸmes;拊iȀ;efl㊪ၙᠡ㊫方tri;槎luhar;楨;愞ൡ㋕㋛㋟㌬㌸㍱\0㍺㎤\0\0㏬㏰\0㐨㑈㑚㒭㒱㓊㓱\0㘖\0\0㘳cute;䅛quï➺Ԁ;Eaceinpsyᇭ㋳㋵㋿㌂㌋㌏㌟㌦㌩;檴ǰ㋺\0㋼;檸on;䅡uåᇾĀ;dᇳ㌇il;䅟rc;䅝ƀEas㌖㌘㌛;檶p;檺im;择olint;樓iíሄ;䑁otƀ;be㌴ᵇ㌵担;橦΀Aacmstx㍆㍊㍗㍛㍞㍣㍭rr;懘rĀhr㍐㍒ë∨Ā;oਸ਼਴t耻§䂧i;䀻war;椩mĀin㍩ðnuóñt;朶rĀ;o㍶⁕쀀𝔰Ȁacoy㎂㎆㎑㎠rp;景Āhy㎋㎏cy;䑉;䑈rtɭ㎙\0\0㎜iäᑤaraì⹯耻­䂭Āgm㎨㎴maƀ;fv㎱㎲㎲䏃;䏂Ѐ;deglnprካ㏅㏉㏎㏖㏞㏡㏦ot;橪Ā;q኱ኰĀ;E㏓㏔檞;檠Ā;E㏛㏜檝;檟e;扆lus;樤arr;楲aròᄽȀaeit㏸㐈㐏㐗Āls㏽㐄lsetmé㍪hp;樳parsl;槤Ādlᑣ㐔e;挣Ā;e㐜㐝檪Ā;s㐢㐣檬;쀀⪬︀ƀflp㐮㐳㑂tcy;䑌Ā;b㐸㐹䀯Ā;a㐾㐿槄r;挿f;쀀𝕤aĀdr㑍ЂesĀ;u㑔㑕晠it»㑕ƀcsu㑠㑹㒟Āau㑥㑯pĀ;sᆈ㑫;쀀⊓︀pĀ;sᆴ㑵;쀀⊔︀uĀbp㑿㒏ƀ;esᆗᆜ㒆etĀ;eᆗ㒍ñᆝƀ;esᆨᆭ㒖etĀ;eᆨ㒝ñᆮƀ;afᅻ㒦ְrť㒫ֱ»ᅼaròᅈȀcemt㒹㒾㓂㓅r;쀀𝓈tmîñiì㐕aræᆾĀar㓎㓕rĀ;f㓔ឿ昆Āan㓚㓭ightĀep㓣㓪psiloîỠhé⺯s»⡒ʀbcmnp㓻㕞ሉ㖋㖎Ҁ;Edemnprs㔎㔏㔑㔕㔞㔣㔬㔱㔶抂;櫅ot;檽Ā;dᇚ㔚ot;櫃ult;櫁ĀEe㔨㔪;櫋;把lus;檿arr;楹ƀeiu㔽㕒㕕tƀ;en㔎㕅㕋qĀ;qᇚ㔏eqĀ;q㔫㔨m;櫇Ābp㕚㕜;櫕;櫓c̀;acensᇭ㕬㕲㕹㕻㌦pproø㋺urlyeñᇾñᇳƀaes㖂㖈㌛pproø㌚qñ㌗g;晪ڀ123;Edehlmnps㖩㖬㖯ሜ㖲㖴㗀㗉㗕㗚㗟㗨㗭耻¹䂹耻²䂲耻³䂳;櫆Āos㖹㖼t;檾ub;櫘Ā;dሢ㗅ot;櫄sĀou㗏㗒l;柉b;櫗arr;楻ult;櫂ĀEe㗤㗦;櫌;抋lus;櫀ƀeiu㗴㘉㘌tƀ;enሜ㗼㘂qĀ;qሢ㖲eqĀ;q㗧㗤m;櫈Ābp㘑㘓;櫔;櫖ƀAan㘜㘠㘭rr;懙rĀhr㘦㘨ë∮Ā;oਫ਩war;椪lig耻ß䃟௡㙑㙝㙠ዎ㙳㙹\0㙾㛂\0\0\0\0\0㛛㜃\0㜉㝬\0\0\0㞇ɲ㙖\0\0㙛get;挖;䏄rë๟ƀaey㙦㙫㙰ron;䅥dil;䅣;䑂lrec;挕r;쀀𝔱Ȁeiko㚆㚝㚵㚼ǲ㚋\0㚑eĀ4fኄኁaƀ;sv㚘㚙㚛䎸ym;䏑Ācn㚢㚲kĀas㚨㚮pproø዁im»ኬsðኞĀas㚺㚮ð዁rn耻þ䃾Ǭ̟㛆⋧es膀×;bd㛏㛐㛘䃗Ā;aᤏ㛕r;樱;樰ƀeps㛡㛣㜀á⩍Ȁ;bcf҆㛬㛰㛴ot;挶ir;櫱Ā;o㛹㛼쀀𝕥rk;櫚á㍢rime;怴ƀaip㜏㜒㝤dåቈ΀adempst㜡㝍㝀㝑㝗㝜㝟ngleʀ;dlqr㜰㜱㜶㝀㝂斵own»ᶻeftĀ;e⠀㜾ñम;扜ightĀ;e㊪㝋ñၚot;旬inus;樺lus;樹b;槍ime;樻ezium;揢ƀcht㝲㝽㞁Āry㝷㝻;쀀𝓉;䑆cy;䑛rok;䅧Āio㞋㞎xô᝷headĀlr㞗㞠eftarro÷ࡏightarrow»ཝऀAHabcdfghlmoprstuw㟐㟓㟗㟤㟰㟼㠎㠜㠣㠴㡑㡝㡫㢩㣌㣒㣪㣶ròϭar;楣Ācr㟜㟢ute耻ú䃺òᅐrǣ㟪\0㟭y;䑞ve;䅭Āiy㟵㟺rc耻û䃻;䑃ƀabh㠃㠆㠋ròᎭlac;䅱aòᏃĀir㠓㠘sht;楾;쀀𝔲rave耻ù䃹š㠧㠱rĀlr㠬㠮»ॗ»ႃlk;斀Āct㠹㡍ɯ㠿\0\0㡊rnĀ;e㡅㡆挜r»㡆op;挏ri;旸Āal㡖㡚cr;䅫肻¨͉Āgp㡢㡦on;䅳f;쀀𝕦̀adhlsuᅋ㡸㡽፲㢑㢠ownáᎳarpoonĀlr㢈㢌efô㠭ighô㠯iƀ;hl㢙㢚㢜䏅»ᏺon»㢚parrows;懈ƀcit㢰㣄㣈ɯ㢶\0\0㣁rnĀ;e㢼㢽挝r»㢽op;挎ng;䅯ri;旹cr;쀀𝓊ƀdir㣙㣝㣢ot;拰lde;䅩iĀ;f㜰㣨»᠓Āam㣯㣲rò㢨l耻ü䃼angle;榧ހABDacdeflnoprsz㤜㤟㤩㤭㦵㦸㦽㧟㧤㧨㧳㧹㧽㨁㨠ròϷarĀ;v㤦㤧櫨;櫩asèϡĀnr㤲㤷grt;榜΀eknprst㓣㥆㥋㥒㥝㥤㦖appá␕othinçẖƀhir㓫⻈㥙opô⾵Ā;hᎷ㥢ïㆍĀiu㥩㥭gmá㎳Ābp㥲㦄setneqĀ;q㥽㦀쀀⊊︀;쀀⫋︀setneqĀ;q㦏㦒쀀⊋︀;쀀⫌︀Āhr㦛㦟etá㚜iangleĀlr㦪㦯eft»थight»ၑy;䐲ash»ံƀelr㧄㧒㧗ƀ;beⷪ㧋㧏ar;抻q;扚lip;拮Ābt㧜ᑨaòᑩr;쀀𝔳tré㦮suĀbp㧯㧱»ജ»൙pf;쀀𝕧roð໻tré㦴Ācu㨆㨋r;쀀𝓋Ābp㨐㨘nĀEe㦀㨖»㥾nĀEe㦒㨞»㦐igzag;榚΀cefoprs㨶㨻㩖㩛㩔㩡㩪irc;䅵Ādi㩀㩑Ābg㩅㩉ar;機eĀ;qᗺ㩏;扙erp;愘r;쀀𝔴pf;쀀𝕨Ā;eᑹ㩦atèᑹcr;쀀𝓌ૣណ㪇\0㪋\0㪐㪛\0\0㪝㪨㪫㪯\0\0㫃㫎\0㫘ៜ៟tré៑r;쀀𝔵ĀAa㪔㪗ròσrò৶;䎾ĀAa㪡㪤ròθrò৫að✓is;拻ƀdptឤ㪵㪾Āfl㪺ឩ;쀀𝕩imåឲĀAa㫇㫊ròώròਁĀcq㫒ីr;쀀𝓍Āpt៖㫜ré។Ѐacefiosu㫰㫽㬈㬌㬑㬕㬛㬡cĀuy㫶㫻te耻ý䃽;䑏Āiy㬂㬆rc;䅷;䑋n耻¥䂥r;쀀𝔶cy;䑗pf;쀀𝕪cr;쀀𝓎Ācm㬦㬩y;䑎l耻ÿ䃿Ԁacdefhiosw㭂㭈㭔㭘㭤㭩㭭㭴㭺㮀cute;䅺Āay㭍㭒ron;䅾;䐷ot;䅼Āet㭝㭡træᕟa;䎶r;쀀𝔷cy;䐶grarr;懝pf;쀀𝕫cr;쀀𝓏Ājn㮅㮇;怍j;怌".split("").map((c) => c.charCodeAt(0)));
+//#endregion
+//#region node_modules/.pnpm/entities@4.5.0/node_modules/entities/lib/esm/generated/decode-data-html.js
+var decode_data_html_default = new Uint16Array(
+	// prettier-ignore
+	"ᵁ<Õıʊҝջאٵ۞ޢߖࠏ੊ઑඡ๭༉༦჊ረዡᐕᒝᓃᓟᔥ\0\0\0\0\0\0ᕫᛍᦍᰒᷝ὾⁠↰⊍⏀⏻⑂⠤⤒ⴈ⹈⿎〖㊺㘹㞬㣾㨨㩱㫠㬮ࠀEMabcfglmnoprstu\\bfms¦³¹ÈÏlig耻Æ䃆P耻&䀦cute耻Á䃁reve;䄂Āiyx}rc耻Â䃂;䐐r;쀀𝔄rave耻À䃀pha;䎑acr;䄀d;橓Āgp¡on;䄄f;쀀𝔸plyFunction;恡ing耻Å䃅Ācs¾Ãr;쀀𝒜ign;扔ilde耻Ã䃃ml耻Ä䃄ЀaceforsuåûþėĜĢħĪĀcrêòkslash;或Ŷöø;櫧ed;挆y;䐑ƀcrtąċĔause;戵noullis;愬a;䎒r;쀀𝔅pf;쀀𝔹eve;䋘còēmpeq;扎܀HOacdefhilorsuōőŖƀƞƢƵƷƺǜȕɳɸɾcy;䐧PY耻©䂩ƀcpyŝŢźute;䄆Ā;iŧŨ拒talDifferentialD;慅leys;愭ȀaeioƉƎƔƘron;䄌dil耻Ç䃇rc;䄈nint;戰ot;䄊ĀdnƧƭilla;䂸terDot;䂷òſi;䎧rcleȀDMPTǇǋǑǖot;抙inus;抖lus;投imes;抗oĀcsǢǸkwiseContourIntegral;戲eCurlyĀDQȃȏoubleQuote;思uote;怙ȀlnpuȞȨɇɕonĀ;eȥȦ户;橴ƀgitȯȶȺruent;扡nt;戯ourIntegral;戮ĀfrɌɎ;愂oduct;成nterClockwiseContourIntegral;戳oss;樯cr;쀀𝒞pĀ;Cʄʅ拓ap;才րDJSZacefiosʠʬʰʴʸˋ˗ˡ˦̳ҍĀ;oŹʥtrahd;椑cy;䐂cy;䐅cy;䐏ƀgrsʿ˄ˇger;怡r;憡hv;櫤Āayː˕ron;䄎;䐔lĀ;t˝˞戇a;䎔r;쀀𝔇Āaf˫̧Ācm˰̢riticalȀADGT̖̜̀̆cute;䂴oŴ̋̍;䋙bleAcute;䋝rave;䁠ilde;䋜ond;拄ferentialD;慆Ѱ̽\0\0\0͔͂\0Ѕf;쀀𝔻ƀ;DE͈͉͍䂨ot;惜qual;扐blèCDLRUVͣͲ΂ϏϢϸontourIntegraìȹoɴ͹\0\0ͻ»͉nArrow;懓Āeo·ΤftƀARTΐΖΡrrow;懐ightArrow;懔eåˊngĀLRΫτeftĀARγιrrow;柸ightArrow;柺ightArrow;柹ightĀATϘϞrrow;懒ee;抨pɁϩ\0\0ϯrrow;懑ownArrow;懕erticalBar;戥ǹABLRTaВЪаўѿͼrrowƀ;BUНОТ憓ar;椓pArrow;懵reve;䌑eft˒к\0ц\0ѐightVector;楐eeVector;楞ectorĀ;Bљњ憽ar;楖ightǔѧ\0ѱeeVector;楟ectorĀ;BѺѻ懁ar;楗eeĀ;A҆҇护rrow;憧ĀctҒҗr;쀀𝒟rok;䄐ࠀNTacdfglmopqstuxҽӀӄӋӞӢӧӮӵԡԯԶՒ՝ՠեG;䅊H耻Ð䃐cute耻É䃉ƀaiyӒӗӜron;䄚rc耻Ê䃊;䐭ot;䄖r;쀀𝔈rave耻È䃈ement;戈ĀapӺӾcr;䄒tyɓԆ\0\0ԒmallSquare;旻erySmallSquare;斫ĀgpԦԪon;䄘f;쀀𝔼silon;䎕uĀaiԼՉlĀ;TՂՃ橵ilde;扂librium;懌Āci՗՚r;愰m;橳a;䎗ml耻Ë䃋Āipժկsts;戃onentialE;慇ʀcfiosօֈ֍ֲ׌y;䐤r;쀀𝔉lledɓ֗\0\0֣mallSquare;旼erySmallSquare;斪Ͱֺ\0ֿ\0\0ׄf;쀀𝔽All;戀riertrf;愱cò׋؀JTabcdfgorstר׬ׯ׺؀ؒؖ؛؝أ٬ٲcy;䐃耻>䀾mmaĀ;d׷׸䎓;䏜reve;䄞ƀeiy؇،ؐdil;䄢rc;䄜;䐓ot;䄠r;쀀𝔊;拙pf;쀀𝔾eater̀EFGLSTصلَٖٛ٦qualĀ;Lؾؿ扥ess;招ullEqual;执reater;檢ess;扷lantEqual;橾ilde;扳cr;쀀𝒢;扫ЀAacfiosuڅڋږڛڞڪھۊRDcy;䐪Āctڐڔek;䋇;䁞irc;䄤r;愌lbertSpace;愋ǰگ\0ڲf;愍izontalLine;攀Āctۃۅòکrok;䄦mpńېۘownHumðįqual;扏܀EJOacdfgmnostuۺ۾܃܇܎ܚܞܡܨ݄ݸދޏޕcy;䐕lig;䄲cy;䐁cute耻Í䃍Āiyܓܘrc耻Î䃎;䐘ot;䄰r;愑rave耻Ì䃌ƀ;apܠܯܿĀcgܴܷr;䄪inaryI;慈lieóϝǴ݉\0ݢĀ;eݍݎ戬Āgrݓݘral;戫section;拂isibleĀCTݬݲomma;恣imes;恢ƀgptݿރވon;䄮f;쀀𝕀a;䎙cr;愐ilde;䄨ǫޚ\0ޞcy;䐆l耻Ï䃏ʀcfosuެ޷޼߂ߐĀiyޱ޵rc;䄴;䐙r;쀀𝔍pf;쀀𝕁ǣ߇\0ߌr;쀀𝒥rcy;䐈kcy;䐄΀HJacfosߤߨ߽߬߱ࠂࠈcy;䐥cy;䐌ppa;䎚Āey߶߻dil;䄶;䐚r;쀀𝔎pf;쀀𝕂cr;쀀𝒦րJTaceflmostࠥࠩࠬࡐࡣ঳সে্਷ੇcy;䐉耻<䀼ʀcmnpr࠷࠼ࡁࡄࡍute;䄹bda;䎛g;柪lacetrf;愒r;憞ƀaeyࡗ࡜ࡡron;䄽dil;䄻;䐛Āfsࡨ॰tԀACDFRTUVarࡾࢩࢱࣦ࣠ࣼयज़ΐ४Ānrࢃ࢏gleBracket;柨rowƀ;BR࢙࢚࢞憐ar;懤ightArrow;懆eiling;挈oǵࢷ\0ࣃbleBracket;柦nǔࣈ\0࣒eeVector;楡ectorĀ;Bࣛࣜ懃ar;楙loor;挊ightĀAV࣯ࣵrrow;憔ector;楎Āerँगeƀ;AVउऊऐ抣rrow;憤ector;楚iangleƀ;BEतथऩ抲ar;槏qual;抴pƀDTVषूौownVector;楑eeVector;楠ectorĀ;Bॖॗ憿ar;楘ectorĀ;B॥०憼ar;楒ightáΜs̀EFGLSTॾঋকঝঢভqualGreater;拚ullEqual;扦reater;扶ess;檡lantEqual;橽ilde;扲r;쀀𝔏Ā;eঽা拘ftarrow;懚idot;䄿ƀnpw৔ਖਛgȀLRlr৞৷ਂਐeftĀAR০৬rrow;柵ightArrow;柷ightArrow;柶eftĀarγਊightáοightáϊf;쀀𝕃erĀLRਢਬeftArrow;憙ightArrow;憘ƀchtਾੀੂòࡌ;憰rok;䅁;扪Ѐacefiosuਗ਼੝੠੷੼અઋ઎p;椅y;䐜Ādl੥੯iumSpace;恟lintrf;愳r;쀀𝔐nusPlus;戓pf;쀀𝕄cò੶;䎜ҀJacefostuણધભીଔଙඑ඗ඞcy;䐊cute;䅃ƀaey઴હાron;䅇dil;䅅;䐝ƀgswે૰଎ativeƀMTV૓૟૨ediumSpace;怋hiĀcn૦૘ë૙eryThiî૙tedĀGL૸ଆreaterGreateòٳessLesóੈLine;䀊r;쀀𝔑ȀBnptଢନଷ଺reak;恠BreakingSpace;䂠f;愕ڀ;CDEGHLNPRSTV୕ୖ୪୼஡௫ఄ౞಄ದ೘ൡඅ櫬Āou୛୤ngruent;扢pCap;扭oubleVerticalBar;戦ƀlqxஃஊ஛ement;戉ualĀ;Tஒஓ扠ilde;쀀≂̸ists;戄reater΀;EFGLSTஶஷ஽௉௓௘௥扯qual;扱ullEqual;쀀≧̸reater;쀀≫̸ess;批lantEqual;쀀⩾̸ilde;扵umpń௲௽ownHump;쀀≎̸qual;쀀≏̸eĀfsఊధtTriangleƀ;BEచఛడ拪ar;쀀⧏̸qual;括s̀;EGLSTవశ఼ౄోౘ扮qual;扰reater;扸ess;쀀≪̸lantEqual;쀀⩽̸ilde;扴estedĀGL౨౹reaterGreater;쀀⪢̸essLess;쀀⪡̸recedesƀ;ESಒಓಛ技qual;쀀⪯̸lantEqual;拠ĀeiಫಹverseElement;戌ghtTriangleƀ;BEೋೌ೒拫ar;쀀⧐̸qual;拭ĀquೝഌuareSuĀbp೨೹setĀ;E೰ೳ쀀⊏̸qual;拢ersetĀ;Eഃആ쀀⊐̸qual;拣ƀbcpഓതൎsetĀ;Eഛഞ쀀⊂⃒qual;抈ceedsȀ;ESTലള഻െ抁qual;쀀⪰̸lantEqual;拡ilde;쀀≿̸ersetĀ;E൘൛쀀⊃⃒qual;抉ildeȀ;EFT൮൯൵ൿ扁qual;扄ullEqual;扇ilde;扉erticalBar;戤cr;쀀𝒩ilde耻Ñ䃑;䎝܀Eacdfgmoprstuvලෂ෉෕ෛ෠෧෼ขภยา฿ไlig;䅒cute耻Ó䃓Āiy෎ීrc耻Ô䃔;䐞blac;䅐r;쀀𝔒rave耻Ò䃒ƀaei෮ෲ෶cr;䅌ga;䎩cron;䎟pf;쀀𝕆enCurlyĀDQฎบoubleQuote;怜uote;怘;橔Āclวฬr;쀀𝒪ash耻Ø䃘iŬื฼de耻Õ䃕es;樷ml耻Ö䃖erĀBP๋๠Āar๐๓r;怾acĀek๚๜;揞et;掴arenthesis;揜Ҁacfhilors๿ງຊຏຒດຝະ໼rtialD;戂y;䐟r;쀀𝔓i;䎦;䎠usMinus;䂱Āipຢອncareplanåڝf;愙Ȁ;eio຺ູ໠໤檻cedesȀ;EST່້໏໚扺qual;檯lantEqual;扼ilde;找me;怳Ādp໩໮uct;戏ortionĀ;aȥ໹l;戝Āci༁༆r;쀀𝒫;䎨ȀUfos༑༖༛༟OT耻\"䀢r;쀀𝔔pf;愚cr;쀀𝒬؀BEacefhiorsu༾གྷཇའཱིྦྷྪྭ႖ႩႴႾarr;椐G耻®䂮ƀcnrཎནབute;䅔g;柫rĀ;tཛྷཝ憠l;椖ƀaeyཧཬཱron;䅘dil;䅖;䐠Ā;vླྀཹ愜erseĀEUྂྙĀlq྇ྎement;戋uilibrium;懋pEquilibrium;楯r»ཹo;䎡ghtЀACDFTUVa࿁࿫࿳ဢဨၛႇϘĀnr࿆࿒gleBracket;柩rowƀ;BL࿜࿝࿡憒ar;懥eftArrow;懄eiling;按oǵ࿹\0စbleBracket;柧nǔည\0နeeVector;楝ectorĀ;Bဝသ懂ar;楕loor;挋Āerိ၃eƀ;AVဵံြ抢rrow;憦ector;楛iangleƀ;BEၐၑၕ抳ar;槐qual;抵pƀDTVၣၮၸownVector;楏eeVector;楜ectorĀ;Bႂႃ憾ar;楔ectorĀ;B႑႒懀ar;楓Āpuႛ႞f;愝ndImplies;楰ightarrow;懛ĀchႹႼr;愛;憱leDelayed;槴ڀHOacfhimoqstuფჱჷჽᄙᄞᅑᅖᅡᅧᆵᆻᆿĀCcჩხHcy;䐩y;䐨FTcy;䐬cute;䅚ʀ;aeiyᄈᄉᄎᄓᄗ檼ron;䅠dil;䅞rc;䅜;䐡r;쀀𝔖ortȀDLRUᄪᄴᄾᅉownArrow»ОeftArrow»࢚ightArrow»࿝pArrow;憑gma;䎣allCircle;战pf;쀀𝕊ɲᅭ\0\0ᅰt;戚areȀ;ISUᅻᅼᆉᆯ斡ntersection;抓uĀbpᆏᆞsetĀ;Eᆗᆘ抏qual;抑ersetĀ;Eᆨᆩ抐qual;抒nion;抔cr;쀀𝒮ar;拆ȀbcmpᇈᇛሉላĀ;sᇍᇎ拐etĀ;Eᇍᇕqual;抆ĀchᇠህeedsȀ;ESTᇭᇮᇴᇿ扻qual;檰lantEqual;扽ilde;承Tháྌ;我ƀ;esሒሓሣ拑rsetĀ;Eሜም抃qual;抇et»ሓրHRSacfhiorsሾቄ቉ቕ቞ቱቶኟዂወዑORN耻Þ䃞ADE;愢ĀHc቎ቒcy;䐋y;䐦Ābuቚቜ;䀉;䎤ƀaeyብቪቯron;䅤dil;䅢;䐢r;쀀𝔗Āeiቻ኉ǲኀ\0ኇefore;戴a;䎘Ācn኎ኘkSpace;쀀  Space;怉ldeȀ;EFTካኬኲኼ戼qual;扃ullEqual;扅ilde;扈pf;쀀𝕋ipleDot;惛Āctዖዛr;쀀𝒯rok;䅦ૡዷጎጚጦ\0ጬጱ\0\0\0\0\0ጸጽ፷ᎅ\0᏿ᐄᐊᐐĀcrዻጁute耻Ú䃚rĀ;oጇገ憟cir;楉rǣጓ\0጖y;䐎ve;䅬Āiyጞጣrc耻Û䃛;䐣blac;䅰r;쀀𝔘rave耻Ù䃙acr;䅪Ādiፁ፩erĀBPፈ፝Āarፍፐr;䁟acĀekፗፙ;揟et;掵arenthesis;揝onĀ;P፰፱拃lus;抎Āgp፻፿on;䅲f;쀀𝕌ЀADETadps᎕ᎮᎸᏄϨᏒᏗᏳrrowƀ;BDᅐᎠᎤar;椒ownArrow;懅ownArrow;憕quilibrium;楮eeĀ;AᏋᏌ报rrow;憥ownáϳerĀLRᏞᏨeftArrow;憖ightArrow;憗iĀ;lᏹᏺ䏒on;䎥ing;䅮cr;쀀𝒰ilde;䅨ml耻Ü䃜ҀDbcdefosvᐧᐬᐰᐳᐾᒅᒊᒐᒖash;披ar;櫫y;䐒ashĀ;lᐻᐼ抩;櫦Āerᑃᑅ;拁ƀbtyᑌᑐᑺar;怖Ā;iᑏᑕcalȀBLSTᑡᑥᑪᑴar;戣ine;䁼eparator;杘ilde;所ThinSpace;怊r;쀀𝔙pf;쀀𝕍cr;쀀𝒱dash;抪ʀcefosᒧᒬᒱᒶᒼirc;䅴dge;拀r;쀀𝔚pf;쀀𝕎cr;쀀𝒲Ȁfiosᓋᓐᓒᓘr;쀀𝔛;䎞pf;쀀𝕏cr;쀀𝒳ҀAIUacfosuᓱᓵᓹᓽᔄᔏᔔᔚᔠcy;䐯cy;䐇cy;䐮cute耻Ý䃝Āiyᔉᔍrc;䅶;䐫r;쀀𝔜pf;쀀𝕐cr;쀀𝒴ml;䅸ЀHacdefosᔵᔹᔿᕋᕏᕝᕠᕤcy;䐖cute;䅹Āayᕄᕉron;䅽;䐗ot;䅻ǲᕔ\0ᕛoWidtè૙a;䎖r;愨pf;愤cr;쀀𝒵௡ᖃᖊᖐ\0ᖰᖶᖿ\0\0\0\0ᗆᗛᗫᙟ᙭\0ᚕ᚛ᚲᚹ\0ᚾcute耻á䃡reve;䄃̀;Ediuyᖜᖝᖡᖣᖨᖭ戾;쀀∾̳;房rc耻â䃢te肻´̆;䐰lig耻æ䃦Ā;r²ᖺ;쀀𝔞rave耻à䃠ĀepᗊᗖĀfpᗏᗔsym;愵èᗓha;䎱ĀapᗟcĀclᗤᗧr;䄁g;樿ɤᗰ\0\0ᘊʀ;adsvᗺᗻᗿᘁᘇ戧nd;橕;橜lope;橘;橚΀;elmrszᘘᘙᘛᘞᘿᙏᙙ戠;榤e»ᘙsdĀ;aᘥᘦ戡ѡᘰᘲᘴᘶᘸᘺᘼᘾ;榨;榩;榪;榫;榬;榭;榮;榯tĀ;vᙅᙆ戟bĀ;dᙌᙍ抾;榝Āptᙔᙗh;戢»¹arr;捼Āgpᙣᙧon;䄅f;쀀𝕒΀;Eaeiop዁ᙻᙽᚂᚄᚇᚊ;橰cir;橯;扊d;手s;䀧roxĀ;e዁ᚒñᚃing耻å䃥ƀctyᚡᚦᚨr;쀀𝒶;䀪mpĀ;e዁ᚯñʈilde耻ã䃣ml耻ä䃤Āciᛂᛈoninôɲnt;樑ࠀNabcdefiklnoprsu᛭ᛱᜰ᜼ᝃᝈ᝸᝽០៦ᠹᡐᜍ᤽᥈ᥰot;櫭Ācrᛶ᜞kȀcepsᜀᜅᜍᜓong;扌psilon;䏶rime;怵imĀ;e᜚᜛戽q;拍Ŷᜢᜦee;抽edĀ;gᜬᜭ挅e»ᜭrkĀ;t፜᜷brk;掶Āoyᜁᝁ;䐱quo;怞ʀcmprtᝓ᝛ᝡᝤᝨausĀ;eĊĉptyv;榰séᜌnoõēƀahwᝯ᝱ᝳ;䎲;愶een;扬r;쀀𝔟g΀costuvwឍឝឳេ៕៛៞ƀaiuបពរðݠrc;旯p»፱ƀdptឤឨឭot;樀lus;樁imes;樂ɱឹ\0\0ើcup;樆ar;昅riangleĀdu៍្own;施p;斳plus;樄eåᑄåᒭarow;植ƀako៭ᠦᠵĀcn៲ᠣkƀlst៺֫᠂ozenge;槫riangleȀ;dlr᠒᠓᠘᠝斴own;斾eft;旂ight;斸k;搣Ʊᠫ\0ᠳƲᠯ\0ᠱ;斒;斑4;斓ck;斈ĀeoᠾᡍĀ;qᡃᡆ쀀=⃥uiv;쀀≡⃥t;挐Ȁptwxᡙᡞᡧᡬf;쀀𝕓Ā;tᏋᡣom»Ꮜtie;拈؀DHUVbdhmptuvᢅᢖᢪᢻᣗᣛᣬ᣿ᤅᤊᤐᤡȀLRlrᢎᢐᢒᢔ;敗;敔;敖;敓ʀ;DUduᢡᢢᢤᢦᢨ敐;敦;敩;敤;敧ȀLRlrᢳᢵᢷᢹ;敝;敚;敜;教΀;HLRhlrᣊᣋᣍᣏᣑᣓᣕ救;敬;散;敠;敫;敢;敟ox;槉ȀLRlrᣤᣦᣨᣪ;敕;敒;攐;攌ʀ;DUduڽ᣷᣹᣻᣽;敥;敨;攬;攴inus;抟lus;択imes;抠ȀLRlrᤙᤛᤝ᤟;敛;敘;攘;攔΀;HLRhlrᤰᤱᤳᤵᤷ᤻᤹攂;敪;敡;敞;攼;攤;攜Āevģ᥂bar耻¦䂦Ȁceioᥑᥖᥚᥠr;쀀𝒷mi;恏mĀ;e᜚᜜lƀ;bhᥨᥩᥫ䁜;槅sub;柈Ŭᥴ᥾lĀ;e᥹᥺怢t»᥺pƀ;Eeįᦅᦇ;檮Ā;qۜۛೡᦧ\0᧨ᨑᨕᨲ\0ᨷᩐ\0\0᪴\0\0᫁\0\0ᬡᬮ᭍᭒\0᯽\0ᰌƀcpr᦭ᦲ᧝ute;䄇̀;abcdsᦿᧀᧄ᧊᧕᧙戩nd;橄rcup;橉Āau᧏᧒p;橋p;橇ot;橀;쀀∩︀Āeo᧢᧥t;恁îړȀaeiu᧰᧻ᨁᨅǰ᧵\0᧸s;橍on;䄍dil耻ç䃧rc;䄉psĀ;sᨌᨍ橌m;橐ot;䄋ƀdmnᨛᨠᨦil肻¸ƭptyv;榲t脀¢;eᨭᨮ䂢räƲr;쀀𝔠ƀceiᨽᩀᩍy;䑇ckĀ;mᩇᩈ朓ark»ᩈ;䏇r΀;Ecefms᩟᩠ᩢᩫ᪤᪪᪮旋;槃ƀ;elᩩᩪᩭ䋆q;扗eɡᩴ\0\0᪈rrowĀlr᩼᪁eft;憺ight;憻ʀRSacd᪒᪔᪖᪚᪟»ཇ;擈st;抛irc;抚ash;抝nint;樐id;櫯cir;槂ubsĀ;u᪻᪼晣it»᪼ˬ᫇᫔᫺\0ᬊonĀ;eᫍᫎ䀺Ā;qÇÆɭ᫙\0\0᫢aĀ;t᫞᫟䀬;䁀ƀ;fl᫨᫩᫫戁îᅠeĀmx᫱᫶ent»᫩eóɍǧ᫾\0ᬇĀ;dኻᬂot;橭nôɆƀfryᬐᬔᬗ;쀀𝕔oäɔ脀©;sŕᬝr;愗Āaoᬥᬩrr;憵ss;朗Ācuᬲᬷr;쀀𝒸Ābpᬼ᭄Ā;eᭁᭂ櫏;櫑Ā;eᭉᭊ櫐;櫒dot;拯΀delprvw᭠᭬᭷ᮂᮬᯔ᯹arrĀlr᭨᭪;椸;椵ɰ᭲\0\0᭵r;拞c;拟arrĀ;p᭿ᮀ憶;椽̀;bcdosᮏᮐᮖᮡᮥᮨ截rcap;橈Āauᮛᮞp;橆p;橊ot;抍r;橅;쀀∪︀Ȁalrv᮵ᮿᯞᯣrrĀ;mᮼᮽ憷;椼yƀevwᯇᯔᯘqɰᯎ\0\0ᯒreã᭳uã᭵ee;拎edge;拏en耻¤䂤earrowĀlrᯮ᯳eft»ᮀight»ᮽeäᯝĀciᰁᰇoninôǷnt;戱lcty;挭ঀAHabcdefhijlorstuwz᰸᰻᰿ᱝᱩᱵᲊᲞᲬᲷ᳻᳿ᴍᵻᶑᶫᶻ᷆᷍rò΁ar;楥Ȁglrs᱈ᱍ᱒᱔ger;怠eth;愸òᄳhĀ;vᱚᱛ怐»ऊūᱡᱧarow;椏aã̕Āayᱮᱳron;䄏;䐴ƀ;ao̲ᱼᲄĀgrʿᲁr;懊tseq;橷ƀglmᲑᲔᲘ耻°䂰ta;䎴ptyv;榱ĀirᲣᲨsht;楿;쀀𝔡arĀlrᲳᲵ»ࣜ»သʀaegsv᳂͸᳖᳜᳠mƀ;oș᳊᳔ndĀ;ș᳑uit;晦amma;䏝in;拲ƀ;io᳧᳨᳸䃷de脀÷;o᳧ᳰntimes;拇nø᳷cy;䑒cɯᴆ\0\0ᴊrn;挞op;挍ʀlptuwᴘᴝᴢᵉᵕlar;䀤f;쀀𝕕ʀ;emps̋ᴭᴷᴽᵂqĀ;d͒ᴳot;扑inus;戸lus;戔quare;抡blebarwedgåúnƀadhᄮᵝᵧownarrowóᲃarpoonĀlrᵲᵶefôᲴighôᲶŢᵿᶅkaro÷གɯᶊ\0\0ᶎrn;挟op;挌ƀcotᶘᶣᶦĀryᶝᶡ;쀀𝒹;䑕l;槶rok;䄑Ādrᶰᶴot;拱iĀ;fᶺ᠖斿Āah᷀᷃ròЩaòྦangle;榦Āci᷒ᷕy;䑟grarr;柿ऀDacdefglmnopqrstuxḁḉḙḸոḼṉṡṾấắẽỡἪἷὄ὎὚ĀDoḆᴴoôᲉĀcsḎḔute耻é䃩ter;橮ȀaioyḢḧḱḶron;䄛rĀ;cḭḮ扖耻ê䃪lon;払;䑍ot;䄗ĀDrṁṅot;扒;쀀𝔢ƀ;rsṐṑṗ檚ave耻è䃨Ā;dṜṝ檖ot;檘Ȁ;ilsṪṫṲṴ檙nters;揧;愓Ā;dṹṺ檕ot;檗ƀapsẅẉẗcr;䄓tyƀ;svẒẓẕ戅et»ẓpĀ1;ẝẤĳạả;怄;怅怃ĀgsẪẬ;䅋p;怂ĀgpẴẸon;䄙f;쀀𝕖ƀalsỄỎỒrĀ;sỊị拕l;槣us;橱iƀ;lvỚớở䎵on»ớ;䏵ȀcsuvỪỳἋἣĀioữḱrc»Ḯɩỹ\0\0ỻíՈantĀglἂἆtr»ṝess»Ṻƀaeiἒ἖Ἒls;䀽st;扟vĀ;DȵἠD;橸parsl;槥ĀDaἯἳot;打rr;楱ƀcdiἾὁỸr;愯oô͒ĀahὉὋ;䎷耻ð䃰Āmrὓὗl耻ë䃫o;悬ƀcipὡὤὧl;䀡sôծĀeoὬὴctatioîՙnentialåչৡᾒ\0ᾞ\0ᾡᾧ\0\0ῆῌ\0ΐ\0ῦῪ \0 ⁚llingdotseñṄy;䑄male;晀ƀilrᾭᾳ῁lig;耀ﬃɩᾹ\0\0᾽g;耀ﬀig;耀ﬄ;쀀𝔣lig;耀ﬁlig;쀀fjƀaltῙ῜ῡt;晭ig;耀ﬂns;斱of;䆒ǰ΅\0ῳf;쀀𝕗ĀakֿῷĀ;vῼ´拔;櫙artint;樍Āao‌⁕Ācs‑⁒α‚‰‸⁅⁈\0⁐β•‥‧‪‬\0‮耻½䂽;慓耻¼䂼;慕;慙;慛Ƴ‴\0‶;慔;慖ʴ‾⁁\0\0⁃耻¾䂾;慗;慜5;慘ƶ⁌\0⁎;慚;慝8;慞l;恄wn;挢cr;쀀𝒻ࢀEabcdefgijlnorstv₂₉₟₥₰₴⃰⃵⃺⃿℃ℒℸ̗ℾ⅒↞Ā;lٍ₇;檌ƀcmpₐₕ₝ute;䇵maĀ;dₜ᳚䎳;檆reve;䄟Āiy₪₮rc;䄝;䐳ot;䄡Ȁ;lqsؾق₽⃉ƀ;qsؾٌ⃄lanô٥Ȁ;cdl٥⃒⃥⃕c;檩otĀ;o⃜⃝檀Ā;l⃢⃣檂;檄Ā;e⃪⃭쀀⋛︀s;檔r;쀀𝔤Ā;gٳ؛mel;愷cy;䑓Ȁ;Eajٚℌℎℐ;檒;檥;檤ȀEaesℛℝ℩ℴ;扩pĀ;p℣ℤ檊rox»ℤĀ;q℮ℯ檈Ā;q℮ℛim;拧pf;쀀𝕘Āci⅃ⅆr;愊mƀ;el٫ⅎ⅐;檎;檐茀>;cdlqr׮ⅠⅪⅮⅳⅹĀciⅥⅧ;檧r;橺ot;拗Par;榕uest;橼ʀadelsↄⅪ←ٖ↛ǰ↉\0↎proø₞r;楸qĀlqؿ↖lesó₈ií٫Āen↣↭rtneqq;쀀≩︀Å↪ԀAabcefkosy⇄⇇⇱⇵⇺∘∝∯≨≽ròΠȀilmr⇐⇔⇗⇛rsðᒄf»․ilôکĀdr⇠⇤cy;䑊ƀ;cwࣴ⇫⇯ir;楈;憭ar;意irc;䄥ƀalr∁∎∓rtsĀ;u∉∊晥it»∊lip;怦con;抹r;쀀𝔥sĀew∣∩arow;椥arow;椦ʀamopr∺∾≃≞≣rr;懿tht;戻kĀlr≉≓eftarrow;憩ightarrow;憪f;쀀𝕙bar;怕ƀclt≯≴≸r;쀀𝒽asè⇴rok;䄧Ābp⊂⊇ull;恃hen»ᱛૡ⊣\0⊪\0⊸⋅⋎\0⋕⋳\0\0⋸⌢⍧⍢⍿\0⎆⎪⎴cute耻í䃭ƀ;iyݱ⊰⊵rc耻î䃮;䐸Ācx⊼⊿y;䐵cl耻¡䂡ĀfrΟ⋉;쀀𝔦rave耻ì䃬Ȁ;inoܾ⋝⋩⋮Āin⋢⋦nt;樌t;戭fin;槜ta;愩lig;䄳ƀaop⋾⌚⌝ƀcgt⌅⌈⌗r;䄫ƀelpܟ⌏⌓inåގarôܠh;䄱f;抷ed;䆵ʀ;cfotӴ⌬⌱⌽⍁are;愅inĀ;t⌸⌹戞ie;槝doô⌙ʀ;celpݗ⍌⍐⍛⍡al;抺Āgr⍕⍙eróᕣã⍍arhk;樗rod;樼Ȁcgpt⍯⍲⍶⍻y;䑑on;䄯f;쀀𝕚a;䎹uest耻¿䂿Āci⎊⎏r;쀀𝒾nʀ;EdsvӴ⎛⎝⎡ӳ;拹ot;拵Ā;v⎦⎧拴;拳Ā;iݷ⎮lde;䄩ǫ⎸\0⎼cy;䑖l耻ï䃯̀cfmosu⏌⏗⏜⏡⏧⏵Āiy⏑⏕rc;䄵;䐹r;쀀𝔧ath;䈷pf;쀀𝕛ǣ⏬\0⏱r;쀀𝒿rcy;䑘kcy;䑔Ѐacfghjos␋␖␢␧␭␱␵␻ppaĀ;v␓␔䎺;䏰Āey␛␠dil;䄷;䐺r;쀀𝔨reen;䄸cy;䑅cy;䑜pf;쀀𝕜cr;쀀𝓀஀ABEHabcdefghjlmnoprstuv⑰⒁⒆⒍⒑┎┽╚▀♎♞♥♹♽⚚⚲⛘❝❨➋⟀⠁⠒ƀart⑷⑺⑼rò৆òΕail;椛arr;椎Ā;gঔ⒋;檋ar;楢ॣ⒥\0⒪\0⒱\0\0\0\0\0⒵Ⓔ\0ⓆⓈⓍ\0⓹ute;䄺mptyv;榴raîࡌbda;䎻gƀ;dlࢎⓁⓃ;榑åࢎ;檅uo耻«䂫rЀ;bfhlpst࢙ⓞⓦⓩ⓫⓮⓱⓵Ā;f࢝ⓣs;椟s;椝ë≒p;憫l;椹im;楳l;憢ƀ;ae⓿─┄檫il;椙Ā;s┉┊檭;쀀⪭︀ƀabr┕┙┝rr;椌rk;杲Āak┢┬cĀek┨┪;䁻;䁛Āes┱┳;榋lĀdu┹┻;榏;榍Ȁaeuy╆╋╖╘ron;䄾Ādi═╔il;䄼ìࢰâ┩;䐻Ȁcqrs╣╦╭╽a;椶uoĀ;rนᝆĀdu╲╷har;楧shar;楋h;憲ʀ;fgqs▋▌উ◳◿扤tʀahlrt▘▤▷◂◨rrowĀ;t࢙□aé⓶arpoonĀdu▯▴own»њp»०eftarrows;懇ightƀahs◍◖◞rrowĀ;sࣴࢧarpoonó྘quigarro÷⇰hreetimes;拋ƀ;qs▋ও◺lanôবʀ;cdgsব☊☍☝☨c;檨otĀ;o☔☕橿Ā;r☚☛檁;檃Ā;e☢☥쀀⋚︀s;檓ʀadegs☳☹☽♉♋pproøⓆot;拖qĀgq♃♅ôউgtò⒌ôছiíলƀilr♕࣡♚sht;楼;쀀𝔩Ā;Eজ♣;檑š♩♶rĀdu▲♮Ā;l॥♳;楪lk;斄cy;䑙ʀ;achtੈ⚈⚋⚑⚖rò◁orneòᴈard;楫ri;旺Āio⚟⚤dot;䅀ustĀ;a⚬⚭掰che»⚭ȀEaes⚻⚽⛉⛔;扨pĀ;p⛃⛄檉rox»⛄Ā;q⛎⛏檇Ā;q⛎⚻im;拦Ѐabnoptwz⛩⛴⛷✚✯❁❇❐Ānr⛮⛱g;柬r;懽rëࣁgƀlmr⛿✍✔eftĀar০✇ightá৲apsto;柼ightá৽parrowĀlr✥✩efô⓭ight;憬ƀafl✶✹✽r;榅;쀀𝕝us;樭imes;樴š❋❏st;戗áፎƀ;ef❗❘᠀旊nge»❘arĀ;l❤❥䀨t;榓ʀachmt❳❶❼➅➇ròࢨorneòᶌarĀ;d྘➃;業;怎ri;抿̀achiqt➘➝ੀ➢➮➻quo;怹r;쀀𝓁mƀ;egল➪➬;檍;檏Ābu┪➳oĀ;rฟ➹;怚rok;䅂萀<;cdhilqrࠫ⟒☹⟜⟠⟥⟪⟰Āci⟗⟙;檦r;橹reå◲mes;拉arr;楶uest;橻ĀPi⟵⟹ar;榖ƀ;ef⠀भ᠛旃rĀdu⠇⠍shar;楊har;楦Āen⠗⠡rtneqq;쀀≨︀Å⠞܀Dacdefhilnopsu⡀⡅⢂⢎⢓⢠⢥⢨⣚⣢⣤ઃ⣳⤂Dot;戺Ȁclpr⡎⡒⡣⡽r耻¯䂯Āet⡗⡙;時Ā;e⡞⡟朠se»⡟Ā;sျ⡨toȀ;dluျ⡳⡷⡻owîҌefôएðᏑker;斮Āoy⢇⢌mma;権;䐼ash;怔asuredangle»ᘦr;쀀𝔪o;愧ƀcdn⢯⢴⣉ro耻µ䂵Ȁ;acdᑤ⢽⣀⣄sôᚧir;櫰ot肻·Ƶusƀ;bd⣒ᤃ⣓戒Ā;uᴼ⣘;横ţ⣞⣡p;櫛ò−ðઁĀdp⣩⣮els;抧f;쀀𝕞Āct⣸⣽r;쀀𝓂pos»ᖝƀ;lm⤉⤊⤍䎼timap;抸ఀGLRVabcdefghijlmoprstuvw⥂⥓⥾⦉⦘⧚⧩⨕⨚⩘⩝⪃⪕⪤⪨⬄⬇⭄⭿⮮ⰴⱧⱼ⳩Āgt⥇⥋;쀀⋙̸Ā;v⥐௏쀀≫⃒ƀelt⥚⥲⥶ftĀar⥡⥧rrow;懍ightarrow;懎;쀀⋘̸Ā;v⥻ే쀀≪⃒ightarrow;懏ĀDd⦎⦓ash;抯ash;抮ʀbcnpt⦣⦧⦬⦱⧌la»˞ute;䅄g;쀀∠⃒ʀ;Eiop඄⦼⧀⧅⧈;쀀⩰̸d;쀀≋̸s;䅉roø඄urĀ;a⧓⧔普lĀ;s⧓ସǳ⧟\0⧣p肻\xA0ଷmpĀ;e௹ఀʀaeouy⧴⧾⨃⨐⨓ǰ⧹\0⧻;橃on;䅈dil;䅆ngĀ;dൾ⨊ot;쀀⩭̸p;橂;䐽ash;怓΀;Aadqsxஒ⨩⨭⨻⩁⩅⩐rr;懗rĀhr⨳⨶k;椤Ā;oᏲᏰot;쀀≐̸uiöୣĀei⩊⩎ar;椨í஘istĀ;s஠டr;쀀𝔫ȀEest௅⩦⩹⩼ƀ;qs஼⩭௡ƀ;qs஼௅⩴lanô௢ií௪Ā;rஶ⪁»ஷƀAap⪊⪍⪑rò⥱rr;憮ar;櫲ƀ;svྍ⪜ྌĀ;d⪡⪢拼;拺cy;䑚΀AEadest⪷⪺⪾⫂⫅⫶⫹rò⥦;쀀≦̸rr;憚r;急Ȁ;fqs఻⫎⫣⫯tĀar⫔⫙rro÷⫁ightarro÷⪐ƀ;qs఻⪺⫪lanôౕĀ;sౕ⫴»శiíౝĀ;rవ⫾iĀ;eచథiäඐĀpt⬌⬑f;쀀𝕟膀¬;in⬙⬚⬶䂬nȀ;Edvஉ⬤⬨⬮;쀀⋹̸ot;쀀⋵̸ǡஉ⬳⬵;拷;拶iĀ;vಸ⬼ǡಸ⭁⭃;拾;拽ƀaor⭋⭣⭩rȀ;ast୻⭕⭚⭟lleì୻l;쀀⫽⃥;쀀∂̸lint;樔ƀ;ceಒ⭰⭳uåಥĀ;cಘ⭸Ā;eಒ⭽ñಘȀAait⮈⮋⮝⮧rò⦈rrƀ;cw⮔⮕⮙憛;쀀⤳̸;쀀↝̸ghtarrow»⮕riĀ;eೋೖ΀chimpqu⮽⯍⯙⬄୸⯤⯯Ȁ;cerല⯆ഷ⯉uå൅;쀀𝓃ortɭ⬅\0\0⯖ará⭖mĀ;e൮⯟Ā;q൴൳suĀbp⯫⯭å೸åഋƀbcp⯶ⰑⰙȀ;Ees⯿ⰀഢⰄ抄;쀀⫅̸etĀ;eഛⰋqĀ;qണⰀcĀ;eലⰗñസȀ;EesⰢⰣൟⰧ抅;쀀⫆̸etĀ;e൘ⰮqĀ;qൠⰣȀgilrⰽⰿⱅⱇìௗlde耻ñ䃱çృiangleĀlrⱒⱜeftĀ;eచⱚñదightĀ;eೋⱥñ೗Ā;mⱬⱭ䎽ƀ;esⱴⱵⱹ䀣ro;愖p;怇ҀDHadgilrsⲏⲔⲙⲞⲣⲰⲶⳓⳣash;抭arr;椄p;쀀≍⃒ash;抬ĀetⲨⲬ;쀀≥⃒;쀀>⃒nfin;槞ƀAetⲽⳁⳅrr;椂;쀀≤⃒Ā;rⳊⳍ쀀<⃒ie;쀀⊴⃒ĀAtⳘⳜrr;椃rie;쀀⊵⃒im;쀀∼⃒ƀAan⳰⳴ⴂrr;懖rĀhr⳺⳽k;椣Ā;oᏧᏥear;椧ቓ᪕\0\0\0\0\0\0\0\0\0\0\0\0\0ⴭ\0ⴸⵈⵠⵥ⵲ⶄᬇ\0\0ⶍⶫ\0ⷈⷎ\0ⷜ⸙⸫⸾⹃Ācsⴱ᪗ute耻ó䃳ĀiyⴼⵅrĀ;c᪞ⵂ耻ô䃴;䐾ʀabios᪠ⵒⵗǈⵚlac;䅑v;樸old;榼lig;䅓Ācr⵩⵭ir;榿;쀀𝔬ͯ⵹\0\0⵼\0ⶂn;䋛ave耻ò䃲;槁Ābmⶈ෴ar;榵Ȁacitⶕ⶘ⶥⶨrò᪀Āir⶝ⶠr;榾oss;榻nå๒;槀ƀaeiⶱⶵⶹcr;䅍ga;䏉ƀcdnⷀⷅǍron;䎿;榶pf;쀀𝕠ƀaelⷔ⷗ǒr;榷rp;榹΀;adiosvⷪⷫⷮ⸈⸍⸐⸖戨rò᪆Ȁ;efmⷷⷸ⸂⸅橝rĀ;oⷾⷿ愴f»ⷿ耻ª䂪耻º䂺gof;抶r;橖lope;橗;橛ƀclo⸟⸡⸧ò⸁ash耻ø䃸l;折iŬⸯ⸴de耻õ䃵esĀ;aǛ⸺s;樶ml耻ö䃶bar;挽ૡ⹞\0⹽\0⺀⺝\0⺢⺹\0\0⻋ຜ\0⼓\0\0⼫⾼\0⿈rȀ;astЃ⹧⹲຅脀¶;l⹭⹮䂶leìЃɩ⹸\0\0⹻m;櫳;櫽y;䐿rʀcimpt⺋⺏⺓ᡥ⺗nt;䀥od;䀮il;怰enk;怱r;쀀𝔭ƀimo⺨⺰⺴Ā;v⺭⺮䏆;䏕maô੶ne;明ƀ;tv⺿⻀⻈䏀chfork»´;䏖Āau⻏⻟nĀck⻕⻝kĀ;h⇴⻛;愎ö⇴sҀ;abcdemst⻳⻴ᤈ⻹⻽⼄⼆⼊⼎䀫cir;樣ir;樢Āouᵀ⼂;樥;橲n肻±ຝim;樦wo;樧ƀipu⼙⼠⼥ntint;樕f;쀀𝕡nd耻£䂣Ԁ;Eaceinosu່⼿⽁⽄⽇⾁⾉⾒⽾⾶;檳p;檷uå໙Ā;c໎⽌̀;acens່⽙⽟⽦⽨⽾pproø⽃urlyeñ໙ñ໎ƀaes⽯⽶⽺pprox;檹qq;檵im;拨iíໟmeĀ;s⾈ຮ怲ƀEas⽸⾐⽺ð⽵ƀdfp໬⾙⾯ƀals⾠⾥⾪lar;挮ine;挒urf;挓Ā;t໻⾴ï໻rel;抰Āci⿀⿅r;쀀𝓅;䏈ncsp;怈̀fiopsu⿚⋢⿟⿥⿫⿱r;쀀𝔮pf;쀀𝕢rime;恗cr;쀀𝓆ƀaeo⿸〉〓tĀei⿾々rnionóڰnt;樖stĀ;e【】䀿ñἙô༔઀ABHabcdefhilmnoprstux぀けさすムㄎㄫㅇㅢㅲㆎ㈆㈕㈤㈩㉘㉮㉲㊐㊰㊷ƀartぇおがròႳòϝail;検aròᱥar;楤΀cdenqrtとふへみわゔヌĀeuねぱ;쀀∽̱te;䅕iãᅮmptyv;榳gȀ;del࿑らるろ;榒;榥å࿑uo耻»䂻rր;abcfhlpstw࿜ガクシスゼゾダッデナp;極Ā;f࿠ゴs;椠;椳s;椞ë≝ð✮l;楅im;楴l;憣;憝Āaiパフil;椚oĀ;nホボ戶aló༞ƀabrョリヮrò៥rk;杳ĀakンヽcĀekヹ・;䁽;䁝Āes㄂㄄;榌lĀduㄊㄌ;榎;榐Ȁaeuyㄗㄜㄧㄩron;䅙Ādiㄡㄥil;䅗ì࿲âヺ;䑀Ȁclqsㄴㄷㄽㅄa;椷dhar;楩uoĀ;rȎȍh;憳ƀacgㅎㅟངlȀ;ipsླྀㅘㅛႜnåႻarôྩt;断ƀilrㅩဣㅮsht;楽;쀀𝔯ĀaoㅷㆆrĀduㅽㅿ»ѻĀ;l႑ㆄ;楬Ā;vㆋㆌ䏁;䏱ƀgns㆕ㇹㇼht̀ahlrstㆤㆰ㇂㇘㇤㇮rrowĀ;t࿜ㆭaéトarpoonĀduㆻㆿowîㅾp»႒eftĀah㇊㇐rrowó࿪arpoonóՑightarrows;應quigarro÷ニhreetimes;拌g;䋚ingdotseñἲƀahm㈍㈐㈓rò࿪aòՑ;怏oustĀ;a㈞㈟掱che»㈟mid;櫮Ȁabpt㈲㈽㉀㉒Ānr㈷㈺g;柭r;懾rëဃƀafl㉇㉊㉎r;榆;쀀𝕣us;樮imes;樵Āap㉝㉧rĀ;g㉣㉤䀩t;榔olint;樒arò㇣Ȁachq㉻㊀Ⴜ㊅quo;怺r;쀀𝓇Ābu・㊊oĀ;rȔȓƀhir㊗㊛㊠reåㇸmes;拊iȀ;efl㊪ၙᠡ㊫方tri;槎luhar;楨;愞ൡ㋕㋛㋟㌬㌸㍱\0㍺㎤\0\0㏬㏰\0㐨㑈㑚㒭㒱㓊㓱\0㘖\0\0㘳cute;䅛quï➺Ԁ;Eaceinpsyᇭ㋳㋵㋿㌂㌋㌏㌟㌦㌩;檴ǰ㋺\0㋼;檸on;䅡uåᇾĀ;dᇳ㌇il;䅟rc;䅝ƀEas㌖㌘㌛;檶p;檺im;择olint;樓iíሄ;䑁otƀ;be㌴ᵇ㌵担;橦΀Aacmstx㍆㍊㍗㍛㍞㍣㍭rr;懘rĀhr㍐㍒ë∨Ā;oਸ਼਴t耻§䂧i;䀻war;椩mĀin㍩ðnuóñt;朶rĀ;o㍶⁕쀀𝔰Ȁacoy㎂㎆㎑㎠rp;景Āhy㎋㎏cy;䑉;䑈rtɭ㎙\0\0㎜iäᑤaraì⹯耻­䂭Āgm㎨㎴maƀ;fv㎱㎲㎲䏃;䏂Ѐ;deglnprካ㏅㏉㏎㏖㏞㏡㏦ot;橪Ā;q኱ኰĀ;E㏓㏔檞;檠Ā;E㏛㏜檝;檟e;扆lus;樤arr;楲aròᄽȀaeit㏸㐈㐏㐗Āls㏽㐄lsetmé㍪hp;樳parsl;槤Ādlᑣ㐔e;挣Ā;e㐜㐝檪Ā;s㐢㐣檬;쀀⪬︀ƀflp㐮㐳㑂tcy;䑌Ā;b㐸㐹䀯Ā;a㐾㐿槄r;挿f;쀀𝕤aĀdr㑍ЂesĀ;u㑔㑕晠it»㑕ƀcsu㑠㑹㒟Āau㑥㑯pĀ;sᆈ㑫;쀀⊓︀pĀ;sᆴ㑵;쀀⊔︀uĀbp㑿㒏ƀ;esᆗᆜ㒆etĀ;eᆗ㒍ñᆝƀ;esᆨᆭ㒖etĀ;eᆨ㒝ñᆮƀ;afᅻ㒦ְrť㒫ֱ»ᅼaròᅈȀcemt㒹㒾㓂㓅r;쀀𝓈tmîñiì㐕aræᆾĀar㓎㓕rĀ;f㓔ឿ昆Āan㓚㓭ightĀep㓣㓪psiloîỠhé⺯s»⡒ʀbcmnp㓻㕞ሉ㖋㖎Ҁ;Edemnprs㔎㔏㔑㔕㔞㔣㔬㔱㔶抂;櫅ot;檽Ā;dᇚ㔚ot;櫃ult;櫁ĀEe㔨㔪;櫋;把lus;檿arr;楹ƀeiu㔽㕒㕕tƀ;en㔎㕅㕋qĀ;qᇚ㔏eqĀ;q㔫㔨m;櫇Ābp㕚㕜;櫕;櫓c̀;acensᇭ㕬㕲㕹㕻㌦pproø㋺urlyeñᇾñᇳƀaes㖂㖈㌛pproø㌚qñ㌗g;晪ڀ123;Edehlmnps㖩㖬㖯ሜ㖲㖴㗀㗉㗕㗚㗟㗨㗭耻¹䂹耻²䂲耻³䂳;櫆Āos㖹㖼t;檾ub;櫘Ā;dሢ㗅ot;櫄sĀou㗏㗒l;柉b;櫗arr;楻ult;櫂ĀEe㗤㗦;櫌;抋lus;櫀ƀeiu㗴㘉㘌tƀ;enሜ㗼㘂qĀ;qሢ㖲eqĀ;q㗧㗤m;櫈Ābp㘑㘓;櫔;櫖ƀAan㘜㘠㘭rr;懙rĀhr㘦㘨ë∮Ā;oਫ਩war;椪lig耻ß䃟௡㙑㙝㙠ዎ㙳㙹\0㙾㛂\0\0\0\0\0㛛㜃\0㜉㝬\0\0\0㞇ɲ㙖\0\0㙛get;挖;䏄rë๟ƀaey㙦㙫㙰ron;䅥dil;䅣;䑂lrec;挕r;쀀𝔱Ȁeiko㚆㚝㚵㚼ǲ㚋\0㚑eĀ4fኄኁaƀ;sv㚘㚙㚛䎸ym;䏑Ācn㚢㚲kĀas㚨㚮pproø዁im»ኬsðኞĀas㚺㚮ð዁rn耻þ䃾Ǭ̟㛆⋧es膀×;bd㛏㛐㛘䃗Ā;aᤏ㛕r;樱;樰ƀeps㛡㛣㜀á⩍Ȁ;bcf҆㛬㛰㛴ot;挶ir;櫱Ā;o㛹㛼쀀𝕥rk;櫚á㍢rime;怴ƀaip㜏㜒㝤dåቈ΀adempst㜡㝍㝀㝑㝗㝜㝟ngleʀ;dlqr㜰㜱㜶㝀㝂斵own»ᶻeftĀ;e⠀㜾ñम;扜ightĀ;e㊪㝋ñၚot;旬inus;樺lus;樹b;槍ime;樻ezium;揢ƀcht㝲㝽㞁Āry㝷㝻;쀀𝓉;䑆cy;䑛rok;䅧Āio㞋㞎xô᝷headĀlr㞗㞠eftarro÷ࡏightarrow»ཝऀAHabcdfghlmoprstuw㟐㟓㟗㟤㟰㟼㠎㠜㠣㠴㡑㡝㡫㢩㣌㣒㣪㣶ròϭar;楣Ācr㟜㟢ute耻ú䃺òᅐrǣ㟪\0㟭y;䑞ve;䅭Āiy㟵㟺rc耻û䃻;䑃ƀabh㠃㠆㠋ròᎭlac;䅱aòᏃĀir㠓㠘sht;楾;쀀𝔲rave耻ù䃹š㠧㠱rĀlr㠬㠮»ॗ»ႃlk;斀Āct㠹㡍ɯ㠿\0\0㡊rnĀ;e㡅㡆挜r»㡆op;挏ri;旸Āal㡖㡚cr;䅫肻¨͉Āgp㡢㡦on;䅳f;쀀𝕦̀adhlsuᅋ㡸㡽፲㢑㢠ownáᎳarpoonĀlr㢈㢌efô㠭ighô㠯iƀ;hl㢙㢚㢜䏅»ᏺon»㢚parrows;懈ƀcit㢰㣄㣈ɯ㢶\0\0㣁rnĀ;e㢼㢽挝r»㢽op;挎ng;䅯ri;旹cr;쀀𝓊ƀdir㣙㣝㣢ot;拰lde;䅩iĀ;f㜰㣨»᠓Āam㣯㣲rò㢨l耻ü䃼angle;榧ހABDacdeflnoprsz㤜㤟㤩㤭㦵㦸㦽㧟㧤㧨㧳㧹㧽㨁㨠ròϷarĀ;v㤦㤧櫨;櫩asèϡĀnr㤲㤷grt;榜΀eknprst㓣㥆㥋㥒㥝㥤㦖appá␕othinçẖƀhir㓫⻈㥙opô⾵Ā;hᎷ㥢ïㆍĀiu㥩㥭gmá㎳Ābp㥲㦄setneqĀ;q㥽㦀쀀⊊︀;쀀⫋︀setneqĀ;q㦏㦒쀀⊋︀;쀀⫌︀Āhr㦛㦟etá㚜iangleĀlr㦪㦯eft»थight»ၑy;䐲ash»ံƀelr㧄㧒㧗ƀ;beⷪ㧋㧏ar;抻q;扚lip;拮Ābt㧜ᑨaòᑩr;쀀𝔳tré㦮suĀbp㧯㧱»ജ»൙pf;쀀𝕧roð໻tré㦴Ācu㨆㨋r;쀀𝓋Ābp㨐㨘nĀEe㦀㨖»㥾nĀEe㦒㨞»㦐igzag;榚΀cefoprs㨶㨻㩖㩛㩔㩡㩪irc;䅵Ādi㩀㩑Ābg㩅㩉ar;機eĀ;qᗺ㩏;扙erp;愘r;쀀𝔴pf;쀀𝕨Ā;eᑹ㩦atèᑹcr;쀀𝓌ૣណ㪇\0㪋\0㪐㪛\0\0㪝㪨㪫㪯\0\0㫃㫎\0㫘ៜ៟tré៑r;쀀𝔵ĀAa㪔㪗ròσrò৶;䎾ĀAa㪡㪤ròθrò৫að✓is;拻ƀdptឤ㪵㪾Āfl㪺ឩ;쀀𝕩imåឲĀAa㫇㫊ròώròਁĀcq㫒ីr;쀀𝓍Āpt៖㫜ré។Ѐacefiosu㫰㫽㬈㬌㬑㬕㬛㬡cĀuy㫶㫻te耻ý䃽;䑏Āiy㬂㬆rc;䅷;䑋n耻¥䂥r;쀀𝔶cy;䑗pf;쀀𝕪cr;쀀𝓎Ācm㬦㬩y;䑎l耻ÿ䃿Ԁacdefhiosw㭂㭈㭔㭘㭤㭩㭭㭴㭺㮀cute;䅺Āay㭍㭒ron;䅾;䐷ot;䅼Āet㭝㭡træᕟa;䎶r;쀀𝔷cy;䐶grarr;懝pf;쀀𝕫cr;쀀𝓏Ājn㮅㮇;怍j;怌".split("").map((c$7) => c$7.charCodeAt(0))
+);
 
-var decode_data_xml_default = new Uint16Array("Ȁaglq	\x1Bɭ\0\0p;䀦os;䀧t;䀾t;䀼uot;䀢".split("").map((c) => c.charCodeAt(0)));
+//#endregion
+//#region node_modules/.pnpm/entities@4.5.0/node_modules/entities/lib/esm/generated/decode-data-xml.js
+var decode_data_xml_default = new Uint16Array(
+	// prettier-ignore
+	"Ȁaglq	\x1Bɭ\0\0p;䀦os;䀧t;䀾t;䀼uot;䀢".split("").map((c$7) => c$7.charCodeAt(0))
+);
 
+//#endregion
+//#region node_modules/.pnpm/entities@4.5.0/node_modules/entities/lib/esm/decode_codepoint.js
 var _a;
 const decodeMap = new Map([
 	[0, 65533],
@@ -8896,9 +9035,6 @@ const decodeMap = new Map([
 	[158, 382],
 	[159, 376]
 ]);
-/**
-* Polyfill for `String.fromCodePoint`. It is used to create a string from a Unicode code point.
-*/
 const fromCodePoint$1 = (_a = String.fromCodePoint) !== null && _a !== void 0 ? _a : function(codePoint) {
 	let output = "";
 	if (codePoint > 65535) {
@@ -8909,60 +9045,50 @@ const fromCodePoint$1 = (_a = String.fromCodePoint) !== null && _a !== void 0 ? 
 	output += String.fromCharCode(codePoint);
 	return output;
 };
-/**
-* Replace the given code point with a replacement character if it is a
-* surrogate or is outside the valid range. Otherwise return the code
-* point unchanged.
-*/
 function replaceCodePoint(codePoint) {
-	var _a;
+	var _a$1;
 	if (codePoint >= 55296 && codePoint <= 57343 || codePoint > 1114111) {
 		return 65533;
 	}
-	return (_a = decodeMap.get(codePoint)) !== null && _a !== void 0 ? _a : codePoint;
+	return (_a$1 = decodeMap.get(codePoint)) !== null && _a$1 !== void 0 ? _a$1 : codePoint;
 }
-/**
-* Replace the code point if relevant, then convert it to a string.
-*
-* @deprecated Use `fromCodePoint(replaceCodePoint(codePoint))` instead.
-* @param codePoint The code point to decode.
-* @returns The decoded code point.
-*/
 function decodeCodePoint(codePoint) {
 	return fromCodePoint$1(replaceCodePoint(codePoint));
 }
 
+//#endregion
+//#region node_modules/.pnpm/entities@4.5.0/node_modules/entities/lib/esm/decode.js
 var CharCodes;
-(function(CharCodes) {
-	CharCodes[CharCodes["NUM"] = 35] = "NUM";
-	CharCodes[CharCodes["SEMI"] = 59] = "SEMI";
-	CharCodes[CharCodes["EQUALS"] = 61] = "EQUALS";
-	CharCodes[CharCodes["ZERO"] = 48] = "ZERO";
-	CharCodes[CharCodes["NINE"] = 57] = "NINE";
-	CharCodes[CharCodes["LOWER_A"] = 97] = "LOWER_A";
-	CharCodes[CharCodes["LOWER_F"] = 102] = "LOWER_F";
-	CharCodes[CharCodes["LOWER_X"] = 120] = "LOWER_X";
-	CharCodes[CharCodes["LOWER_Z"] = 122] = "LOWER_Z";
-	CharCodes[CharCodes["UPPER_A"] = 65] = "UPPER_A";
-	CharCodes[CharCodes["UPPER_F"] = 70] = "UPPER_F";
-	CharCodes[CharCodes["UPPER_Z"] = 90] = "UPPER_Z";
+(function(CharCodes$1) {
+	CharCodes$1[CharCodes$1["NUM"] = 35] = "NUM";
+	CharCodes$1[CharCodes$1["SEMI"] = 59] = "SEMI";
+	CharCodes$1[CharCodes$1["EQUALS"] = 61] = "EQUALS";
+	CharCodes$1[CharCodes$1["ZERO"] = 48] = "ZERO";
+	CharCodes$1[CharCodes$1["NINE"] = 57] = "NINE";
+	CharCodes$1[CharCodes$1["LOWER_A"] = 97] = "LOWER_A";
+	CharCodes$1[CharCodes$1["LOWER_F"] = 102] = "LOWER_F";
+	CharCodes$1[CharCodes$1["LOWER_X"] = 120] = "LOWER_X";
+	CharCodes$1[CharCodes$1["LOWER_Z"] = 122] = "LOWER_Z";
+	CharCodes$1[CharCodes$1["UPPER_A"] = 65] = "UPPER_A";
+	CharCodes$1[CharCodes$1["UPPER_F"] = 70] = "UPPER_F";
+	CharCodes$1[CharCodes$1["UPPER_Z"] = 90] = "UPPER_Z";
 })(CharCodes || (CharCodes = {}));
 /** Bit that needs to be set to convert an upper case ASCII character to lower case */
 const TO_LOWER_BIT = 32;
 var BinTrieFlags;
-(function(BinTrieFlags) {
-	BinTrieFlags[BinTrieFlags["VALUE_LENGTH"] = 49152] = "VALUE_LENGTH";
-	BinTrieFlags[BinTrieFlags["BRANCH_LENGTH"] = 16256] = "BRANCH_LENGTH";
-	BinTrieFlags[BinTrieFlags["JUMP_TABLE"] = 127] = "JUMP_TABLE";
+(function(BinTrieFlags$1) {
+	BinTrieFlags$1[BinTrieFlags$1["VALUE_LENGTH"] = 49152] = "VALUE_LENGTH";
+	BinTrieFlags$1[BinTrieFlags$1["BRANCH_LENGTH"] = 16256] = "BRANCH_LENGTH";
+	BinTrieFlags$1[BinTrieFlags$1["JUMP_TABLE"] = 127] = "JUMP_TABLE";
 })(BinTrieFlags || (BinTrieFlags = {}));
-function isNumber(code) {
-	return code >= CharCodes.ZERO && code <= CharCodes.NINE;
+function isNumber(code$1) {
+	return code$1 >= CharCodes.ZERO && code$1 <= CharCodes.NINE;
 }
-function isHexadecimalCharacter(code) {
-	return code >= CharCodes.UPPER_A && code <= CharCodes.UPPER_F || code >= CharCodes.LOWER_A && code <= CharCodes.LOWER_F;
+function isHexadecimalCharacter(code$1) {
+	return code$1 >= CharCodes.UPPER_A && code$1 <= CharCodes.UPPER_F || code$1 >= CharCodes.LOWER_A && code$1 <= CharCodes.LOWER_F;
 }
-function isAsciiAlphaNumeric(code) {
-	return code >= CharCodes.UPPER_A && code <= CharCodes.UPPER_Z || code >= CharCodes.LOWER_A && code <= CharCodes.LOWER_Z || isNumber(code);
+function isAsciiAlphaNumeric(code$1) {
+	return code$1 >= CharCodes.UPPER_A && code$1 <= CharCodes.UPPER_Z || code$1 >= CharCodes.LOWER_A && code$1 <= CharCodes.LOWER_Z || isNumber(code$1);
 }
 /**
 * Checks if the given character is a valid end character for an entity in an attribute.
@@ -8970,34 +9096,31 @@ function isAsciiAlphaNumeric(code) {
 * Attribute values that aren't terminated properly aren't parsed, and shouldn't lead to a parser error.
 * See the example in https://html.spec.whatwg.org/multipage/parsing.html#named-character-reference-state
 */
-function isEntityInAttributeInvalidEnd(code) {
-	return code === CharCodes.EQUALS || isAsciiAlphaNumeric(code);
+function isEntityInAttributeInvalidEnd(code$1) {
+	return code$1 === CharCodes.EQUALS || isAsciiAlphaNumeric(code$1);
 }
 var EntityDecoderState;
-(function(EntityDecoderState) {
-	EntityDecoderState[EntityDecoderState["EntityStart"] = 0] = "EntityStart";
-	EntityDecoderState[EntityDecoderState["NumericStart"] = 1] = "NumericStart";
-	EntityDecoderState[EntityDecoderState["NumericDecimal"] = 2] = "NumericDecimal";
-	EntityDecoderState[EntityDecoderState["NumericHex"] = 3] = "NumericHex";
-	EntityDecoderState[EntityDecoderState["NamedEntity"] = 4] = "NamedEntity";
+(function(EntityDecoderState$1) {
+	EntityDecoderState$1[EntityDecoderState$1["EntityStart"] = 0] = "EntityStart";
+	EntityDecoderState$1[EntityDecoderState$1["NumericStart"] = 1] = "NumericStart";
+	EntityDecoderState$1[EntityDecoderState$1["NumericDecimal"] = 2] = "NumericDecimal";
+	EntityDecoderState$1[EntityDecoderState$1["NumericHex"] = 3] = "NumericHex";
+	EntityDecoderState$1[EntityDecoderState$1["NamedEntity"] = 4] = "NamedEntity";
 })(EntityDecoderState || (EntityDecoderState = {}));
 var DecodingMode;
-(function(DecodingMode) {
+(function(DecodingMode$1) {
 	/** Entities in text nodes that can end with any character. */
-	DecodingMode[DecodingMode["Legacy"] = 0] = "Legacy";
+	DecodingMode$1[DecodingMode$1["Legacy"] = 0] = "Legacy";
 	/** Only allow entities terminated with a semicolon. */
-	DecodingMode[DecodingMode["Strict"] = 1] = "Strict";
+	DecodingMode$1[DecodingMode$1["Strict"] = 1] = "Strict";
 	/** Entities in attributes have limitations on ending characters. */
-	DecodingMode[DecodingMode["Attribute"] = 2] = "Attribute";
+	DecodingMode$1[DecodingMode$1["Attribute"] = 2] = "Attribute";
 })(DecodingMode || (DecodingMode = {}));
-/**
-* Token decoder with support of writing partial entities.
-*/
 var EntityDecoder = class {
-	constructor(decodeTree, emitCodePoint, errors) {
+	constructor(decodeTree, emitCodePoint, errors$1) {
 		this.decodeTree = decodeTree;
 		this.emitCodePoint = emitCodePoint;
-		this.errors = errors;
+		this.errors = errors$1;
 		/** The current state of the decoder. */
 		this.state = EntityDecoderState.EntityStart;
 		/** Characters that were consumed while parsing an entity. */
@@ -9082,10 +9205,10 @@ var EntityDecoder = class {
 		this.state = EntityDecoderState.NumericDecimal;
 		return this.stateNumericDecimal(str, offset);
 	}
-	addToNumericResult(str, start, end, base) {
+	addToNumericResult(str, start, end, base$1) {
 		if (start !== end) {
 			const digitCount = end - start;
-			this.result = this.result * Math.pow(base, digitCount) + parseInt(str.substr(start, digitCount), base);
+			this.result = this.result * Math.pow(base$1, digitCount) + parseInt(str.substr(start, digitCount), base$1);
 			this.consumed += digitCount;
 		}
 	}
@@ -9149,9 +9272,9 @@ var EntityDecoder = class {
 	* @returns The number of characters that were consumed.
 	*/
 	emitNumericEntity(lastCp, expectedLength) {
-		var _a;
+		var _a$1;
 		if (this.consumed <= expectedLength) {
-			(_a = this.errors) === null || _a === void 0 ? void 0 : _a.absenceOfDigitsInNumericCharacterReference(this.consumed);
+			(_a$1 = this.errors) === null || _a$1 === void 0 ? void 0 : _a$1.absenceOfDigitsInNumericCharacterReference(this.consumed);
 			return 0;
 		}
 		if (lastCp === CharCodes.SEMI) {
@@ -9208,11 +9331,11 @@ var EntityDecoder = class {
 	* @returns The number of characters consumed.
 	*/
 	emitNotTerminatedNamedEntity() {
-		var _a;
+		var _a$1;
 		const { result, decodeTree } = this;
 		const valueLength = (decodeTree[result] & BinTrieFlags.VALUE_LENGTH) >> 14;
 		this.emitNamedEntityData(result, valueLength, this.consumed);
-		(_a = this.errors) === null || _a === void 0 ? void 0 : _a.missingSemicolonAfterCharacterReference();
+		(_a$1 = this.errors) === null || _a$1 === void 0 ? void 0 : _a$1.missingSemicolonAfterCharacterReference();
 		return this.consumed;
 	}
 	/**
@@ -9240,7 +9363,7 @@ var EntityDecoder = class {
 	* @returns The number of characters consumed.
 	*/
 	end() {
-		var _a;
+		var _a$1;
 		switch (this.state) {
 			case EntityDecoderState.NamedEntity: {
 				return this.result !== 0 && (this.decodeMode !== DecodingMode.Attribute || this.result === this.treeIndex) ? this.emitNotTerminatedNamedEntity() : 0;
@@ -9252,7 +9375,7 @@ var EntityDecoder = class {
 				return this.emitNumericEntity(0, 3);
 			}
 			case EntityDecoderState.NumericStart: {
-				(_a = this.errors) === null || _a === void 0 ? void 0 : _a.absenceOfDigitsInNumericCharacterReference(this.consumed);
+				(_a$1 = this.errors) === null || _a$1 === void 0 ? void 0 : _a$1.absenceOfDigitsInNumericCharacterReference(this.consumed);
 				return 0;
 			}
 			case EntityDecoderState.EntityStart: {
@@ -9276,7 +9399,11 @@ function getDecoder(decodeTree) {
 		while ((offset = str.indexOf("&", offset)) >= 0) {
 			ret += str.slice(lastIndex, offset);
 			decoder.startEntity(decodeMode);
-			const len = decoder.write(str, offset + 1);
+			const len = decoder.write(
+				str,
+				// Skip the "&"
+				offset + 1
+);
 			if (len < 0) {
 				lastIndex = offset + decoder.end();
 				break;
@@ -9289,16 +9416,6 @@ function getDecoder(decodeTree) {
 		return result;
 	};
 }
-/**
-* Determines the branch of the current node that is taken given the current
-* character. This function is used to traverse the trie.
-*
-* @param decodeTree The trie.
-* @param current The current node.
-* @param nodeIdx The index right after the current node and its value.
-* @param char The current character.
-* @returns The index of the next node, or -1 if no branch is taken.
-*/
 function determineBranch(decodeTree, current, nodeIdx, char) {
 	const branchCount = (current & BinTrieFlags.BRANCH_LENGTH) >> 7;
 	const jumpOffset = current & BinTrieFlags.JUMP_TABLE;
@@ -9326,1751 +9443,1738 @@ function determineBranch(decodeTree, current, nodeIdx, char) {
 }
 const htmlDecoder = getDecoder(decode_data_html_default);
 const xmlDecoder = getDecoder(decode_data_xml_default);
-/**
-* Decodes an HTML string.
-*
-* @param str The string to decode.
-* @param mode The decoding mode.
-* @returns The decoded string.
-*/
 function decodeHTML(str, mode = DecodingMode.Legacy) {
 	return htmlDecoder(str, mode);
 }
-/**
-* Decodes an HTML string in an attribute.
-*
-* @param str The string to decode.
-* @returns The decoded string.
-*/
 function decodeHTMLAttribute(str) {
 	return htmlDecoder(str, DecodingMode.Attribute);
 }
-/**
-* Decodes an HTML string, requiring all entities to be terminated by a semicolon.
-*
-* @param str The string to decode.
-* @returns The decoded string.
-*/
 function decodeHTMLStrict(str) {
 	return htmlDecoder(str, DecodingMode.Strict);
 }
-/**
-* Decodes an XML string, requiring all entities to be terminated by a semicolon.
-*
-* @param str The string to decode.
-* @returns The decoded string.
-*/
 function decodeXML(str) {
 	return xmlDecoder(str, DecodingMode.Strict);
 }
 
+//#endregion
+//#region node_modules/.pnpm/entities@4.5.0/node_modules/entities/lib/esm/generated/encode-html.js
 function restoreDiff(arr) {
-	for (let i = 1; i < arr.length; i++) {
-		arr[i][0] += arr[i - 1][0] + 1;
+	for (let i$10 = 1; i$10 < arr.length; i$10++) {
+		arr[i$10][0] += arr[i$10 - 1][0] + 1;
 	}
 	return arr;
 }
-var encode_html_default = new Map(/* @__PURE__ */ restoreDiff([
-	[9, "&Tab;"],
-	[0, "&NewLine;"],
-	[22, "&excl;"],
-	[0, "&quot;"],
-	[0, "&num;"],
-	[0, "&dollar;"],
-	[0, "&percnt;"],
-	[0, "&amp;"],
-	[0, "&apos;"],
-	[0, "&lpar;"],
-	[0, "&rpar;"],
-	[0, "&ast;"],
-	[0, "&plus;"],
-	[0, "&comma;"],
-	[1, "&period;"],
-	[0, "&sol;"],
-	[10, "&colon;"],
-	[0, "&semi;"],
-	[0, {
-		v: "&lt;",
-		n: 8402,
-		o: "&nvlt;"
-	}],
-	[0, {
-		v: "&equals;",
-		n: 8421,
-		o: "&bne;"
-	}],
-	[0, {
-		v: "&gt;",
-		n: 8402,
-		o: "&nvgt;"
-	}],
-	[0, "&quest;"],
-	[0, "&commat;"],
-	[26, "&lbrack;"],
-	[0, "&bsol;"],
-	[0, "&rbrack;"],
-	[0, "&Hat;"],
-	[0, "&lowbar;"],
-	[0, "&DiacriticalGrave;"],
-	[5, {
-		n: 106,
-		o: "&fjlig;"
-	}],
-	[20, "&lbrace;"],
-	[0, "&verbar;"],
-	[0, "&rbrace;"],
-	[34, "&nbsp;"],
-	[0, "&iexcl;"],
-	[0, "&cent;"],
-	[0, "&pound;"],
-	[0, "&curren;"],
-	[0, "&yen;"],
-	[0, "&brvbar;"],
-	[0, "&sect;"],
-	[0, "&die;"],
-	[0, "&copy;"],
-	[0, "&ordf;"],
-	[0, "&laquo;"],
-	[0, "&not;"],
-	[0, "&shy;"],
-	[0, "&circledR;"],
-	[0, "&macr;"],
-	[0, "&deg;"],
-	[0, "&PlusMinus;"],
-	[0, "&sup2;"],
-	[0, "&sup3;"],
-	[0, "&acute;"],
-	[0, "&micro;"],
-	[0, "&para;"],
-	[0, "&centerdot;"],
-	[0, "&cedil;"],
-	[0, "&sup1;"],
-	[0, "&ordm;"],
-	[0, "&raquo;"],
-	[0, "&frac14;"],
-	[0, "&frac12;"],
-	[0, "&frac34;"],
-	[0, "&iquest;"],
-	[0, "&Agrave;"],
-	[0, "&Aacute;"],
-	[0, "&Acirc;"],
-	[0, "&Atilde;"],
-	[0, "&Auml;"],
-	[0, "&angst;"],
-	[0, "&AElig;"],
-	[0, "&Ccedil;"],
-	[0, "&Egrave;"],
-	[0, "&Eacute;"],
-	[0, "&Ecirc;"],
-	[0, "&Euml;"],
-	[0, "&Igrave;"],
-	[0, "&Iacute;"],
-	[0, "&Icirc;"],
-	[0, "&Iuml;"],
-	[0, "&ETH;"],
-	[0, "&Ntilde;"],
-	[0, "&Ograve;"],
-	[0, "&Oacute;"],
-	[0, "&Ocirc;"],
-	[0, "&Otilde;"],
-	[0, "&Ouml;"],
-	[0, "&times;"],
-	[0, "&Oslash;"],
-	[0, "&Ugrave;"],
-	[0, "&Uacute;"],
-	[0, "&Ucirc;"],
-	[0, "&Uuml;"],
-	[0, "&Yacute;"],
-	[0, "&THORN;"],
-	[0, "&szlig;"],
-	[0, "&agrave;"],
-	[0, "&aacute;"],
-	[0, "&acirc;"],
-	[0, "&atilde;"],
-	[0, "&auml;"],
-	[0, "&aring;"],
-	[0, "&aelig;"],
-	[0, "&ccedil;"],
-	[0, "&egrave;"],
-	[0, "&eacute;"],
-	[0, "&ecirc;"],
-	[0, "&euml;"],
-	[0, "&igrave;"],
-	[0, "&iacute;"],
-	[0, "&icirc;"],
-	[0, "&iuml;"],
-	[0, "&eth;"],
-	[0, "&ntilde;"],
-	[0, "&ograve;"],
-	[0, "&oacute;"],
-	[0, "&ocirc;"],
-	[0, "&otilde;"],
-	[0, "&ouml;"],
-	[0, "&div;"],
-	[0, "&oslash;"],
-	[0, "&ugrave;"],
-	[0, "&uacute;"],
-	[0, "&ucirc;"],
-	[0, "&uuml;"],
-	[0, "&yacute;"],
-	[0, "&thorn;"],
-	[0, "&yuml;"],
-	[0, "&Amacr;"],
-	[0, "&amacr;"],
-	[0, "&Abreve;"],
-	[0, "&abreve;"],
-	[0, "&Aogon;"],
-	[0, "&aogon;"],
-	[0, "&Cacute;"],
-	[0, "&cacute;"],
-	[0, "&Ccirc;"],
-	[0, "&ccirc;"],
-	[0, "&Cdot;"],
-	[0, "&cdot;"],
-	[0, "&Ccaron;"],
-	[0, "&ccaron;"],
-	[0, "&Dcaron;"],
-	[0, "&dcaron;"],
-	[0, "&Dstrok;"],
-	[0, "&dstrok;"],
-	[0, "&Emacr;"],
-	[0, "&emacr;"],
-	[2, "&Edot;"],
-	[0, "&edot;"],
-	[0, "&Eogon;"],
-	[0, "&eogon;"],
-	[0, "&Ecaron;"],
-	[0, "&ecaron;"],
-	[0, "&Gcirc;"],
-	[0, "&gcirc;"],
-	[0, "&Gbreve;"],
-	[0, "&gbreve;"],
-	[0, "&Gdot;"],
-	[0, "&gdot;"],
-	[0, "&Gcedil;"],
-	[1, "&Hcirc;"],
-	[0, "&hcirc;"],
-	[0, "&Hstrok;"],
-	[0, "&hstrok;"],
-	[0, "&Itilde;"],
-	[0, "&itilde;"],
-	[0, "&Imacr;"],
-	[0, "&imacr;"],
-	[2, "&Iogon;"],
-	[0, "&iogon;"],
-	[0, "&Idot;"],
-	[0, "&imath;"],
-	[0, "&IJlig;"],
-	[0, "&ijlig;"],
-	[0, "&Jcirc;"],
-	[0, "&jcirc;"],
-	[0, "&Kcedil;"],
-	[0, "&kcedil;"],
-	[0, "&kgreen;"],
-	[0, "&Lacute;"],
-	[0, "&lacute;"],
-	[0, "&Lcedil;"],
-	[0, "&lcedil;"],
-	[0, "&Lcaron;"],
-	[0, "&lcaron;"],
-	[0, "&Lmidot;"],
-	[0, "&lmidot;"],
-	[0, "&Lstrok;"],
-	[0, "&lstrok;"],
-	[0, "&Nacute;"],
-	[0, "&nacute;"],
-	[0, "&Ncedil;"],
-	[0, "&ncedil;"],
-	[0, "&Ncaron;"],
-	[0, "&ncaron;"],
-	[0, "&napos;"],
-	[0, "&ENG;"],
-	[0, "&eng;"],
-	[0, "&Omacr;"],
-	[0, "&omacr;"],
-	[2, "&Odblac;"],
-	[0, "&odblac;"],
-	[0, "&OElig;"],
-	[0, "&oelig;"],
-	[0, "&Racute;"],
-	[0, "&racute;"],
-	[0, "&Rcedil;"],
-	[0, "&rcedil;"],
-	[0, "&Rcaron;"],
-	[0, "&rcaron;"],
-	[0, "&Sacute;"],
-	[0, "&sacute;"],
-	[0, "&Scirc;"],
-	[0, "&scirc;"],
-	[0, "&Scedil;"],
-	[0, "&scedil;"],
-	[0, "&Scaron;"],
-	[0, "&scaron;"],
-	[0, "&Tcedil;"],
-	[0, "&tcedil;"],
-	[0, "&Tcaron;"],
-	[0, "&tcaron;"],
-	[0, "&Tstrok;"],
-	[0, "&tstrok;"],
-	[0, "&Utilde;"],
-	[0, "&utilde;"],
-	[0, "&Umacr;"],
-	[0, "&umacr;"],
-	[0, "&Ubreve;"],
-	[0, "&ubreve;"],
-	[0, "&Uring;"],
-	[0, "&uring;"],
-	[0, "&Udblac;"],
-	[0, "&udblac;"],
-	[0, "&Uogon;"],
-	[0, "&uogon;"],
-	[0, "&Wcirc;"],
-	[0, "&wcirc;"],
-	[0, "&Ycirc;"],
-	[0, "&ycirc;"],
-	[0, "&Yuml;"],
-	[0, "&Zacute;"],
-	[0, "&zacute;"],
-	[0, "&Zdot;"],
-	[0, "&zdot;"],
-	[0, "&Zcaron;"],
-	[0, "&zcaron;"],
-	[19, "&fnof;"],
-	[34, "&imped;"],
-	[63, "&gacute;"],
-	[65, "&jmath;"],
-	[142, "&circ;"],
-	[0, "&caron;"],
-	[16, "&breve;"],
-	[0, "&DiacriticalDot;"],
-	[0, "&ring;"],
-	[0, "&ogon;"],
-	[0, "&DiacriticalTilde;"],
-	[0, "&dblac;"],
-	[51, "&DownBreve;"],
-	[127, "&Alpha;"],
-	[0, "&Beta;"],
-	[0, "&Gamma;"],
-	[0, "&Delta;"],
-	[0, "&Epsilon;"],
-	[0, "&Zeta;"],
-	[0, "&Eta;"],
-	[0, "&Theta;"],
-	[0, "&Iota;"],
-	[0, "&Kappa;"],
-	[0, "&Lambda;"],
-	[0, "&Mu;"],
-	[0, "&Nu;"],
-	[0, "&Xi;"],
-	[0, "&Omicron;"],
-	[0, "&Pi;"],
-	[0, "&Rho;"],
-	[1, "&Sigma;"],
-	[0, "&Tau;"],
-	[0, "&Upsilon;"],
-	[0, "&Phi;"],
-	[0, "&Chi;"],
-	[0, "&Psi;"],
-	[0, "&ohm;"],
-	[7, "&alpha;"],
-	[0, "&beta;"],
-	[0, "&gamma;"],
-	[0, "&delta;"],
-	[0, "&epsi;"],
-	[0, "&zeta;"],
-	[0, "&eta;"],
-	[0, "&theta;"],
-	[0, "&iota;"],
-	[0, "&kappa;"],
-	[0, "&lambda;"],
-	[0, "&mu;"],
-	[0, "&nu;"],
-	[0, "&xi;"],
-	[0, "&omicron;"],
-	[0, "&pi;"],
-	[0, "&rho;"],
-	[0, "&sigmaf;"],
-	[0, "&sigma;"],
-	[0, "&tau;"],
-	[0, "&upsi;"],
-	[0, "&phi;"],
-	[0, "&chi;"],
-	[0, "&psi;"],
-	[0, "&omega;"],
-	[7, "&thetasym;"],
-	[0, "&Upsi;"],
-	[2, "&phiv;"],
-	[0, "&piv;"],
-	[5, "&Gammad;"],
-	[0, "&digamma;"],
-	[18, "&kappav;"],
-	[0, "&rhov;"],
-	[3, "&epsiv;"],
-	[0, "&backepsilon;"],
-	[10, "&IOcy;"],
-	[0, "&DJcy;"],
-	[0, "&GJcy;"],
-	[0, "&Jukcy;"],
-	[0, "&DScy;"],
-	[0, "&Iukcy;"],
-	[0, "&YIcy;"],
-	[0, "&Jsercy;"],
-	[0, "&LJcy;"],
-	[0, "&NJcy;"],
-	[0, "&TSHcy;"],
-	[0, "&KJcy;"],
-	[1, "&Ubrcy;"],
-	[0, "&DZcy;"],
-	[0, "&Acy;"],
-	[0, "&Bcy;"],
-	[0, "&Vcy;"],
-	[0, "&Gcy;"],
-	[0, "&Dcy;"],
-	[0, "&IEcy;"],
-	[0, "&ZHcy;"],
-	[0, "&Zcy;"],
-	[0, "&Icy;"],
-	[0, "&Jcy;"],
-	[0, "&Kcy;"],
-	[0, "&Lcy;"],
-	[0, "&Mcy;"],
-	[0, "&Ncy;"],
-	[0, "&Ocy;"],
-	[0, "&Pcy;"],
-	[0, "&Rcy;"],
-	[0, "&Scy;"],
-	[0, "&Tcy;"],
-	[0, "&Ucy;"],
-	[0, "&Fcy;"],
-	[0, "&KHcy;"],
-	[0, "&TScy;"],
-	[0, "&CHcy;"],
-	[0, "&SHcy;"],
-	[0, "&SHCHcy;"],
-	[0, "&HARDcy;"],
-	[0, "&Ycy;"],
-	[0, "&SOFTcy;"],
-	[0, "&Ecy;"],
-	[0, "&YUcy;"],
-	[0, "&YAcy;"],
-	[0, "&acy;"],
-	[0, "&bcy;"],
-	[0, "&vcy;"],
-	[0, "&gcy;"],
-	[0, "&dcy;"],
-	[0, "&iecy;"],
-	[0, "&zhcy;"],
-	[0, "&zcy;"],
-	[0, "&icy;"],
-	[0, "&jcy;"],
-	[0, "&kcy;"],
-	[0, "&lcy;"],
-	[0, "&mcy;"],
-	[0, "&ncy;"],
-	[0, "&ocy;"],
-	[0, "&pcy;"],
-	[0, "&rcy;"],
-	[0, "&scy;"],
-	[0, "&tcy;"],
-	[0, "&ucy;"],
-	[0, "&fcy;"],
-	[0, "&khcy;"],
-	[0, "&tscy;"],
-	[0, "&chcy;"],
-	[0, "&shcy;"],
-	[0, "&shchcy;"],
-	[0, "&hardcy;"],
-	[0, "&ycy;"],
-	[0, "&softcy;"],
-	[0, "&ecy;"],
-	[0, "&yucy;"],
-	[0, "&yacy;"],
-	[1, "&iocy;"],
-	[0, "&djcy;"],
-	[0, "&gjcy;"],
-	[0, "&jukcy;"],
-	[0, "&dscy;"],
-	[0, "&iukcy;"],
-	[0, "&yicy;"],
-	[0, "&jsercy;"],
-	[0, "&ljcy;"],
-	[0, "&njcy;"],
-	[0, "&tshcy;"],
-	[0, "&kjcy;"],
-	[1, "&ubrcy;"],
-	[0, "&dzcy;"],
-	[7074, "&ensp;"],
-	[0, "&emsp;"],
-	[0, "&emsp13;"],
-	[0, "&emsp14;"],
-	[1, "&numsp;"],
-	[0, "&puncsp;"],
-	[0, "&ThinSpace;"],
-	[0, "&hairsp;"],
-	[0, "&NegativeMediumSpace;"],
-	[0, "&zwnj;"],
-	[0, "&zwj;"],
-	[0, "&lrm;"],
-	[0, "&rlm;"],
-	[0, "&dash;"],
-	[2, "&ndash;"],
-	[0, "&mdash;"],
-	[0, "&horbar;"],
-	[0, "&Verbar;"],
-	[1, "&lsquo;"],
-	[0, "&CloseCurlyQuote;"],
-	[0, "&lsquor;"],
-	[1, "&ldquo;"],
-	[0, "&CloseCurlyDoubleQuote;"],
-	[0, "&bdquo;"],
-	[1, "&dagger;"],
-	[0, "&Dagger;"],
-	[0, "&bull;"],
-	[2, "&nldr;"],
-	[0, "&hellip;"],
-	[9, "&permil;"],
-	[0, "&pertenk;"],
-	[0, "&prime;"],
-	[0, "&Prime;"],
-	[0, "&tprime;"],
-	[0, "&backprime;"],
-	[3, "&lsaquo;"],
-	[0, "&rsaquo;"],
-	[3, "&oline;"],
-	[2, "&caret;"],
-	[1, "&hybull;"],
-	[0, "&frasl;"],
-	[10, "&bsemi;"],
-	[7, "&qprime;"],
-	[7, {
-		v: "&MediumSpace;",
-		n: 8202,
-		o: "&ThickSpace;"
-	}],
-	[0, "&NoBreak;"],
-	[0, "&af;"],
-	[0, "&InvisibleTimes;"],
-	[0, "&ic;"],
-	[72, "&euro;"],
-	[46, "&tdot;"],
-	[0, "&DotDot;"],
-	[37, "&complexes;"],
-	[2, "&incare;"],
-	[4, "&gscr;"],
-	[0, "&hamilt;"],
-	[0, "&Hfr;"],
-	[0, "&Hopf;"],
-	[0, "&planckh;"],
-	[0, "&hbar;"],
-	[0, "&imagline;"],
-	[0, "&Ifr;"],
-	[0, "&lagran;"],
-	[0, "&ell;"],
-	[1, "&naturals;"],
-	[0, "&numero;"],
-	[0, "&copysr;"],
-	[0, "&weierp;"],
-	[0, "&Popf;"],
-	[0, "&Qopf;"],
-	[0, "&realine;"],
-	[0, "&real;"],
-	[0, "&reals;"],
-	[0, "&rx;"],
-	[3, "&trade;"],
-	[1, "&integers;"],
-	[2, "&mho;"],
-	[0, "&zeetrf;"],
-	[0, "&iiota;"],
-	[2, "&bernou;"],
-	[0, "&Cayleys;"],
-	[1, "&escr;"],
-	[0, "&Escr;"],
-	[0, "&Fouriertrf;"],
-	[1, "&Mellintrf;"],
-	[0, "&order;"],
-	[0, "&alefsym;"],
-	[0, "&beth;"],
-	[0, "&gimel;"],
-	[0, "&daleth;"],
-	[12, "&CapitalDifferentialD;"],
-	[0, "&dd;"],
-	[0, "&ee;"],
-	[0, "&ii;"],
-	[10, "&frac13;"],
-	[0, "&frac23;"],
-	[0, "&frac15;"],
-	[0, "&frac25;"],
-	[0, "&frac35;"],
-	[0, "&frac45;"],
-	[0, "&frac16;"],
-	[0, "&frac56;"],
-	[0, "&frac18;"],
-	[0, "&frac38;"],
-	[0, "&frac58;"],
-	[0, "&frac78;"],
-	[49, "&larr;"],
-	[0, "&ShortUpArrow;"],
-	[0, "&rarr;"],
-	[0, "&darr;"],
-	[0, "&harr;"],
-	[0, "&updownarrow;"],
-	[0, "&nwarr;"],
-	[0, "&nearr;"],
-	[0, "&LowerRightArrow;"],
-	[0, "&LowerLeftArrow;"],
-	[0, "&nlarr;"],
-	[0, "&nrarr;"],
-	[1, {
-		v: "&rarrw;",
-		n: 824,
-		o: "&nrarrw;"
-	}],
-	[0, "&Larr;"],
-	[0, "&Uarr;"],
-	[0, "&Rarr;"],
-	[0, "&Darr;"],
-	[0, "&larrtl;"],
-	[0, "&rarrtl;"],
-	[0, "&LeftTeeArrow;"],
-	[0, "&mapstoup;"],
-	[0, "&map;"],
-	[0, "&DownTeeArrow;"],
-	[1, "&hookleftarrow;"],
-	[0, "&hookrightarrow;"],
-	[0, "&larrlp;"],
-	[0, "&looparrowright;"],
-	[0, "&harrw;"],
-	[0, "&nharr;"],
-	[1, "&lsh;"],
-	[0, "&rsh;"],
-	[0, "&ldsh;"],
-	[0, "&rdsh;"],
-	[1, "&crarr;"],
-	[0, "&cularr;"],
-	[0, "&curarr;"],
-	[2, "&circlearrowleft;"],
-	[0, "&circlearrowright;"],
-	[0, "&leftharpoonup;"],
-	[0, "&DownLeftVector;"],
-	[0, "&RightUpVector;"],
-	[0, "&LeftUpVector;"],
-	[0, "&rharu;"],
-	[0, "&DownRightVector;"],
-	[0, "&dharr;"],
-	[0, "&dharl;"],
-	[0, "&RightArrowLeftArrow;"],
-	[0, "&udarr;"],
-	[0, "&LeftArrowRightArrow;"],
-	[0, "&leftleftarrows;"],
-	[0, "&upuparrows;"],
-	[0, "&rightrightarrows;"],
-	[0, "&ddarr;"],
-	[0, "&leftrightharpoons;"],
-	[0, "&Equilibrium;"],
-	[0, "&nlArr;"],
-	[0, "&nhArr;"],
-	[0, "&nrArr;"],
-	[0, "&DoubleLeftArrow;"],
-	[0, "&DoubleUpArrow;"],
-	[0, "&DoubleRightArrow;"],
-	[0, "&dArr;"],
-	[0, "&DoubleLeftRightArrow;"],
-	[0, "&DoubleUpDownArrow;"],
-	[0, "&nwArr;"],
-	[0, "&neArr;"],
-	[0, "&seArr;"],
-	[0, "&swArr;"],
-	[0, "&lAarr;"],
-	[0, "&rAarr;"],
-	[1, "&zigrarr;"],
-	[6, "&larrb;"],
-	[0, "&rarrb;"],
-	[15, "&DownArrowUpArrow;"],
-	[7, "&loarr;"],
-	[0, "&roarr;"],
-	[0, "&hoarr;"],
-	[0, "&forall;"],
-	[0, "&comp;"],
-	[0, {
-		v: "&part;",
-		n: 824,
-		o: "&npart;"
-	}],
-	[0, "&exist;"],
-	[0, "&nexist;"],
-	[0, "&empty;"],
-	[1, "&Del;"],
-	[0, "&Element;"],
-	[0, "&NotElement;"],
-	[1, "&ni;"],
-	[0, "&notni;"],
-	[2, "&prod;"],
-	[0, "&coprod;"],
-	[0, "&sum;"],
-	[0, "&minus;"],
-	[0, "&MinusPlus;"],
-	[0, "&dotplus;"],
-	[1, "&Backslash;"],
-	[0, "&lowast;"],
-	[0, "&compfn;"],
-	[1, "&radic;"],
-	[2, "&prop;"],
-	[0, "&infin;"],
-	[0, "&angrt;"],
-	[0, {
-		v: "&ang;",
-		n: 8402,
-		o: "&nang;"
-	}],
-	[0, "&angmsd;"],
-	[0, "&angsph;"],
-	[0, "&mid;"],
-	[0, "&nmid;"],
-	[0, "&DoubleVerticalBar;"],
-	[0, "&NotDoubleVerticalBar;"],
-	[0, "&and;"],
-	[0, "&or;"],
-	[0, {
-		v: "&cap;",
-		n: 65024,
-		o: "&caps;"
-	}],
-	[0, {
-		v: "&cup;",
-		n: 65024,
-		o: "&cups;"
-	}],
-	[0, "&int;"],
-	[0, "&Int;"],
-	[0, "&iiint;"],
-	[0, "&conint;"],
-	[0, "&Conint;"],
-	[0, "&Cconint;"],
-	[0, "&cwint;"],
-	[0, "&ClockwiseContourIntegral;"],
-	[0, "&awconint;"],
-	[0, "&there4;"],
-	[0, "&becaus;"],
-	[0, "&ratio;"],
-	[0, "&Colon;"],
-	[0, "&dotminus;"],
-	[1, "&mDDot;"],
-	[0, "&homtht;"],
-	[0, {
-		v: "&sim;",
-		n: 8402,
-		o: "&nvsim;"
-	}],
-	[0, {
-		v: "&backsim;",
-		n: 817,
-		o: "&race;"
-	}],
-	[0, {
-		v: "&ac;",
-		n: 819,
-		o: "&acE;"
-	}],
-	[0, "&acd;"],
-	[0, "&VerticalTilde;"],
-	[0, "&NotTilde;"],
-	[0, {
-		v: "&eqsim;",
-		n: 824,
-		o: "&nesim;"
-	}],
-	[0, "&sime;"],
-	[0, "&NotTildeEqual;"],
-	[0, "&cong;"],
-	[0, "&simne;"],
-	[0, "&ncong;"],
-	[0, "&ap;"],
-	[0, "&nap;"],
-	[0, "&ape;"],
-	[0, {
-		v: "&apid;",
-		n: 824,
-		o: "&napid;"
-	}],
-	[0, "&backcong;"],
-	[0, {
-		v: "&asympeq;",
-		n: 8402,
-		o: "&nvap;"
-	}],
-	[0, {
-		v: "&bump;",
-		n: 824,
-		o: "&nbump;"
-	}],
-	[0, {
-		v: "&bumpe;",
-		n: 824,
-		o: "&nbumpe;"
-	}],
-	[0, {
-		v: "&doteq;",
-		n: 824,
-		o: "&nedot;"
-	}],
-	[0, "&doteqdot;"],
-	[0, "&efDot;"],
-	[0, "&erDot;"],
-	[0, "&Assign;"],
-	[0, "&ecolon;"],
-	[0, "&ecir;"],
-	[0, "&circeq;"],
-	[1, "&wedgeq;"],
-	[0, "&veeeq;"],
-	[1, "&triangleq;"],
-	[2, "&equest;"],
-	[0, "&ne;"],
-	[0, {
-		v: "&Congruent;",
-		n: 8421,
-		o: "&bnequiv;"
-	}],
-	[0, "&nequiv;"],
-	[1, {
-		v: "&le;",
-		n: 8402,
-		o: "&nvle;"
-	}],
-	[0, {
-		v: "&ge;",
-		n: 8402,
-		o: "&nvge;"
-	}],
-	[0, {
-		v: "&lE;",
-		n: 824,
-		o: "&nlE;"
-	}],
-	[0, {
-		v: "&gE;",
-		n: 824,
-		o: "&ngE;"
-	}],
-	[0, {
-		v: "&lnE;",
-		n: 65024,
-		o: "&lvertneqq;"
-	}],
-	[0, {
-		v: "&gnE;",
-		n: 65024,
-		o: "&gvertneqq;"
-	}],
-	[0, {
-		v: "&ll;",
-		n: new Map(/* @__PURE__ */ restoreDiff([[824, "&nLtv;"], [7577, "&nLt;"]]))
-	}],
-	[0, {
-		v: "&gg;",
-		n: new Map(/* @__PURE__ */ restoreDiff([[824, "&nGtv;"], [7577, "&nGt;"]]))
-	}],
-	[0, "&between;"],
-	[0, "&NotCupCap;"],
-	[0, "&nless;"],
-	[0, "&ngt;"],
-	[0, "&nle;"],
-	[0, "&nge;"],
-	[0, "&lesssim;"],
-	[0, "&GreaterTilde;"],
-	[0, "&nlsim;"],
-	[0, "&ngsim;"],
-	[0, "&LessGreater;"],
-	[0, "&gl;"],
-	[0, "&NotLessGreater;"],
-	[0, "&NotGreaterLess;"],
-	[0, "&pr;"],
-	[0, "&sc;"],
-	[0, "&prcue;"],
-	[0, "&sccue;"],
-	[0, "&PrecedesTilde;"],
-	[0, {
-		v: "&scsim;",
-		n: 824,
-		o: "&NotSucceedsTilde;"
-	}],
-	[0, "&NotPrecedes;"],
-	[0, "&NotSucceeds;"],
-	[0, {
-		v: "&sub;",
-		n: 8402,
-		o: "&NotSubset;"
-	}],
-	[0, {
-		v: "&sup;",
-		n: 8402,
-		o: "&NotSuperset;"
-	}],
-	[0, "&nsub;"],
-	[0, "&nsup;"],
-	[0, "&sube;"],
-	[0, "&supe;"],
-	[0, "&NotSubsetEqual;"],
-	[0, "&NotSupersetEqual;"],
-	[0, {
-		v: "&subne;",
-		n: 65024,
-		o: "&varsubsetneq;"
-	}],
-	[0, {
-		v: "&supne;",
-		n: 65024,
-		o: "&varsupsetneq;"
-	}],
-	[1, "&cupdot;"],
-	[0, "&UnionPlus;"],
-	[0, {
-		v: "&sqsub;",
-		n: 824,
-		o: "&NotSquareSubset;"
-	}],
-	[0, {
-		v: "&sqsup;",
-		n: 824,
-		o: "&NotSquareSuperset;"
-	}],
-	[0, "&sqsube;"],
-	[0, "&sqsupe;"],
-	[0, {
-		v: "&sqcap;",
-		n: 65024,
-		o: "&sqcaps;"
-	}],
-	[0, {
-		v: "&sqcup;",
-		n: 65024,
-		o: "&sqcups;"
-	}],
-	[0, "&CirclePlus;"],
-	[0, "&CircleMinus;"],
-	[0, "&CircleTimes;"],
-	[0, "&osol;"],
-	[0, "&CircleDot;"],
-	[0, "&circledcirc;"],
-	[0, "&circledast;"],
-	[1, "&circleddash;"],
-	[0, "&boxplus;"],
-	[0, "&boxminus;"],
-	[0, "&boxtimes;"],
-	[0, "&dotsquare;"],
-	[0, "&RightTee;"],
-	[0, "&dashv;"],
-	[0, "&DownTee;"],
-	[0, "&bot;"],
-	[1, "&models;"],
-	[0, "&DoubleRightTee;"],
-	[0, "&Vdash;"],
-	[0, "&Vvdash;"],
-	[0, "&VDash;"],
-	[0, "&nvdash;"],
-	[0, "&nvDash;"],
-	[0, "&nVdash;"],
-	[0, "&nVDash;"],
-	[0, "&prurel;"],
-	[1, "&LeftTriangle;"],
-	[0, "&RightTriangle;"],
-	[0, {
-		v: "&LeftTriangleEqual;",
-		n: 8402,
-		o: "&nvltrie;"
-	}],
-	[0, {
-		v: "&RightTriangleEqual;",
-		n: 8402,
-		o: "&nvrtrie;"
-	}],
-	[0, "&origof;"],
-	[0, "&imof;"],
-	[0, "&multimap;"],
-	[0, "&hercon;"],
-	[0, "&intcal;"],
-	[0, "&veebar;"],
-	[1, "&barvee;"],
-	[0, "&angrtvb;"],
-	[0, "&lrtri;"],
-	[0, "&bigwedge;"],
-	[0, "&bigvee;"],
-	[0, "&bigcap;"],
-	[0, "&bigcup;"],
-	[0, "&diam;"],
-	[0, "&sdot;"],
-	[0, "&sstarf;"],
-	[0, "&divideontimes;"],
-	[0, "&bowtie;"],
-	[0, "&ltimes;"],
-	[0, "&rtimes;"],
-	[0, "&leftthreetimes;"],
-	[0, "&rightthreetimes;"],
-	[0, "&backsimeq;"],
-	[0, "&curlyvee;"],
-	[0, "&curlywedge;"],
-	[0, "&Sub;"],
-	[0, "&Sup;"],
-	[0, "&Cap;"],
-	[0, "&Cup;"],
-	[0, "&fork;"],
-	[0, "&epar;"],
-	[0, "&lessdot;"],
-	[0, "&gtdot;"],
-	[0, {
-		v: "&Ll;",
-		n: 824,
-		o: "&nLl;"
-	}],
-	[0, {
-		v: "&Gg;",
-		n: 824,
-		o: "&nGg;"
-	}],
-	[0, {
-		v: "&leg;",
-		n: 65024,
-		o: "&lesg;"
-	}],
-	[0, {
-		v: "&gel;",
-		n: 65024,
-		o: "&gesl;"
-	}],
-	[2, "&cuepr;"],
-	[0, "&cuesc;"],
-	[0, "&NotPrecedesSlantEqual;"],
-	[0, "&NotSucceedsSlantEqual;"],
-	[0, "&NotSquareSubsetEqual;"],
-	[0, "&NotSquareSupersetEqual;"],
-	[2, "&lnsim;"],
-	[0, "&gnsim;"],
-	[0, "&precnsim;"],
-	[0, "&scnsim;"],
-	[0, "&nltri;"],
-	[0, "&NotRightTriangle;"],
-	[0, "&nltrie;"],
-	[0, "&NotRightTriangleEqual;"],
-	[0, "&vellip;"],
-	[0, "&ctdot;"],
-	[0, "&utdot;"],
-	[0, "&dtdot;"],
-	[0, "&disin;"],
-	[0, "&isinsv;"],
-	[0, "&isins;"],
-	[0, {
-		v: "&isindot;",
-		n: 824,
-		o: "&notindot;"
-	}],
-	[0, "&notinvc;"],
-	[0, "&notinvb;"],
-	[1, {
-		v: "&isinE;",
-		n: 824,
-		o: "&notinE;"
-	}],
-	[0, "&nisd;"],
-	[0, "&xnis;"],
-	[0, "&nis;"],
-	[0, "&notnivc;"],
-	[0, "&notnivb;"],
-	[6, "&barwed;"],
-	[0, "&Barwed;"],
-	[1, "&lceil;"],
-	[0, "&rceil;"],
-	[0, "&LeftFloor;"],
-	[0, "&rfloor;"],
-	[0, "&drcrop;"],
-	[0, "&dlcrop;"],
-	[0, "&urcrop;"],
-	[0, "&ulcrop;"],
-	[0, "&bnot;"],
-	[1, "&profline;"],
-	[0, "&profsurf;"],
-	[1, "&telrec;"],
-	[0, "&target;"],
-	[5, "&ulcorn;"],
-	[0, "&urcorn;"],
-	[0, "&dlcorn;"],
-	[0, "&drcorn;"],
-	[2, "&frown;"],
-	[0, "&smile;"],
-	[9, "&cylcty;"],
-	[0, "&profalar;"],
-	[7, "&topbot;"],
-	[6, "&ovbar;"],
-	[1, "&solbar;"],
-	[60, "&angzarr;"],
-	[51, "&lmoustache;"],
-	[0, "&rmoustache;"],
-	[2, "&OverBracket;"],
-	[0, "&bbrk;"],
-	[0, "&bbrktbrk;"],
-	[37, "&OverParenthesis;"],
-	[0, "&UnderParenthesis;"],
-	[0, "&OverBrace;"],
-	[0, "&UnderBrace;"],
-	[2, "&trpezium;"],
-	[4, "&elinters;"],
-	[59, "&blank;"],
-	[164, "&circledS;"],
-	[55, "&boxh;"],
-	[1, "&boxv;"],
-	[9, "&boxdr;"],
-	[3, "&boxdl;"],
-	[3, "&boxur;"],
-	[3, "&boxul;"],
-	[3, "&boxvr;"],
-	[7, "&boxvl;"],
-	[7, "&boxhd;"],
-	[7, "&boxhu;"],
-	[7, "&boxvh;"],
-	[19, "&boxH;"],
-	[0, "&boxV;"],
-	[0, "&boxdR;"],
-	[0, "&boxDr;"],
-	[0, "&boxDR;"],
-	[0, "&boxdL;"],
-	[0, "&boxDl;"],
-	[0, "&boxDL;"],
-	[0, "&boxuR;"],
-	[0, "&boxUr;"],
-	[0, "&boxUR;"],
-	[0, "&boxuL;"],
-	[0, "&boxUl;"],
-	[0, "&boxUL;"],
-	[0, "&boxvR;"],
-	[0, "&boxVr;"],
-	[0, "&boxVR;"],
-	[0, "&boxvL;"],
-	[0, "&boxVl;"],
-	[0, "&boxVL;"],
-	[0, "&boxHd;"],
-	[0, "&boxhD;"],
-	[0, "&boxHD;"],
-	[0, "&boxHu;"],
-	[0, "&boxhU;"],
-	[0, "&boxHU;"],
-	[0, "&boxvH;"],
-	[0, "&boxVh;"],
-	[0, "&boxVH;"],
-	[19, "&uhblk;"],
-	[3, "&lhblk;"],
-	[3, "&block;"],
-	[8, "&blk14;"],
-	[0, "&blk12;"],
-	[0, "&blk34;"],
-	[13, "&square;"],
-	[8, "&blacksquare;"],
-	[0, "&EmptyVerySmallSquare;"],
-	[1, "&rect;"],
-	[0, "&marker;"],
-	[2, "&fltns;"],
-	[1, "&bigtriangleup;"],
-	[0, "&blacktriangle;"],
-	[0, "&triangle;"],
-	[2, "&blacktriangleright;"],
-	[0, "&rtri;"],
-	[3, "&bigtriangledown;"],
-	[0, "&blacktriangledown;"],
-	[0, "&dtri;"],
-	[2, "&blacktriangleleft;"],
-	[0, "&ltri;"],
-	[6, "&loz;"],
-	[0, "&cir;"],
-	[32, "&tridot;"],
-	[2, "&bigcirc;"],
-	[8, "&ultri;"],
-	[0, "&urtri;"],
-	[0, "&lltri;"],
-	[0, "&EmptySmallSquare;"],
-	[0, "&FilledSmallSquare;"],
-	[8, "&bigstar;"],
-	[0, "&star;"],
-	[7, "&phone;"],
-	[49, "&female;"],
-	[1, "&male;"],
-	[29, "&spades;"],
-	[2, "&clubs;"],
-	[1, "&hearts;"],
-	[0, "&diamondsuit;"],
-	[3, "&sung;"],
-	[2, "&flat;"],
-	[0, "&natural;"],
-	[0, "&sharp;"],
-	[163, "&check;"],
-	[3, "&cross;"],
-	[8, "&malt;"],
-	[21, "&sext;"],
-	[33, "&VerticalSeparator;"],
-	[25, "&lbbrk;"],
-	[0, "&rbbrk;"],
-	[84, "&bsolhsub;"],
-	[0, "&suphsol;"],
-	[28, "&LeftDoubleBracket;"],
-	[0, "&RightDoubleBracket;"],
-	[0, "&lang;"],
-	[0, "&rang;"],
-	[0, "&Lang;"],
-	[0, "&Rang;"],
-	[0, "&loang;"],
-	[0, "&roang;"],
-	[7, "&longleftarrow;"],
-	[0, "&longrightarrow;"],
-	[0, "&longleftrightarrow;"],
-	[0, "&DoubleLongLeftArrow;"],
-	[0, "&DoubleLongRightArrow;"],
-	[0, "&DoubleLongLeftRightArrow;"],
-	[1, "&longmapsto;"],
-	[2, "&dzigrarr;"],
-	[258, "&nvlArr;"],
-	[0, "&nvrArr;"],
-	[0, "&nvHarr;"],
-	[0, "&Map;"],
-	[6, "&lbarr;"],
-	[0, "&bkarow;"],
-	[0, "&lBarr;"],
-	[0, "&dbkarow;"],
-	[0, "&drbkarow;"],
-	[0, "&DDotrahd;"],
-	[0, "&UpArrowBar;"],
-	[0, "&DownArrowBar;"],
-	[2, "&Rarrtl;"],
-	[2, "&latail;"],
-	[0, "&ratail;"],
-	[0, "&lAtail;"],
-	[0, "&rAtail;"],
-	[0, "&larrfs;"],
-	[0, "&rarrfs;"],
-	[0, "&larrbfs;"],
-	[0, "&rarrbfs;"],
-	[2, "&nwarhk;"],
-	[0, "&nearhk;"],
-	[0, "&hksearow;"],
-	[0, "&hkswarow;"],
-	[0, "&nwnear;"],
-	[0, "&nesear;"],
-	[0, "&seswar;"],
-	[0, "&swnwar;"],
-	[8, {
-		v: "&rarrc;",
-		n: 824,
-		o: "&nrarrc;"
-	}],
-	[1, "&cudarrr;"],
-	[0, "&ldca;"],
-	[0, "&rdca;"],
-	[0, "&cudarrl;"],
-	[0, "&larrpl;"],
-	[2, "&curarrm;"],
-	[0, "&cularrp;"],
-	[7, "&rarrpl;"],
-	[2, "&harrcir;"],
-	[0, "&Uarrocir;"],
-	[0, "&lurdshar;"],
-	[0, "&ldrushar;"],
-	[2, "&LeftRightVector;"],
-	[0, "&RightUpDownVector;"],
-	[0, "&DownLeftRightVector;"],
-	[0, "&LeftUpDownVector;"],
-	[0, "&LeftVectorBar;"],
-	[0, "&RightVectorBar;"],
-	[0, "&RightUpVectorBar;"],
-	[0, "&RightDownVectorBar;"],
-	[0, "&DownLeftVectorBar;"],
-	[0, "&DownRightVectorBar;"],
-	[0, "&LeftUpVectorBar;"],
-	[0, "&LeftDownVectorBar;"],
-	[0, "&LeftTeeVector;"],
-	[0, "&RightTeeVector;"],
-	[0, "&RightUpTeeVector;"],
-	[0, "&RightDownTeeVector;"],
-	[0, "&DownLeftTeeVector;"],
-	[0, "&DownRightTeeVector;"],
-	[0, "&LeftUpTeeVector;"],
-	[0, "&LeftDownTeeVector;"],
-	[0, "&lHar;"],
-	[0, "&uHar;"],
-	[0, "&rHar;"],
-	[0, "&dHar;"],
-	[0, "&luruhar;"],
-	[0, "&ldrdhar;"],
-	[0, "&ruluhar;"],
-	[0, "&rdldhar;"],
-	[0, "&lharul;"],
-	[0, "&llhard;"],
-	[0, "&rharul;"],
-	[0, "&lrhard;"],
-	[0, "&udhar;"],
-	[0, "&duhar;"],
-	[0, "&RoundImplies;"],
-	[0, "&erarr;"],
-	[0, "&simrarr;"],
-	[0, "&larrsim;"],
-	[0, "&rarrsim;"],
-	[0, "&rarrap;"],
-	[0, "&ltlarr;"],
-	[1, "&gtrarr;"],
-	[0, "&subrarr;"],
-	[1, "&suplarr;"],
-	[0, "&lfisht;"],
-	[0, "&rfisht;"],
-	[0, "&ufisht;"],
-	[0, "&dfisht;"],
-	[5, "&lopar;"],
-	[0, "&ropar;"],
-	[4, "&lbrke;"],
-	[0, "&rbrke;"],
-	[0, "&lbrkslu;"],
-	[0, "&rbrksld;"],
-	[0, "&lbrksld;"],
-	[0, "&rbrkslu;"],
-	[0, "&langd;"],
-	[0, "&rangd;"],
-	[0, "&lparlt;"],
-	[0, "&rpargt;"],
-	[0, "&gtlPar;"],
-	[0, "&ltrPar;"],
-	[3, "&vzigzag;"],
-	[1, "&vangrt;"],
-	[0, "&angrtvbd;"],
-	[6, "&ange;"],
-	[0, "&range;"],
-	[0, "&dwangle;"],
-	[0, "&uwangle;"],
-	[0, "&angmsdaa;"],
-	[0, "&angmsdab;"],
-	[0, "&angmsdac;"],
-	[0, "&angmsdad;"],
-	[0, "&angmsdae;"],
-	[0, "&angmsdaf;"],
-	[0, "&angmsdag;"],
-	[0, "&angmsdah;"],
-	[0, "&bemptyv;"],
-	[0, "&demptyv;"],
-	[0, "&cemptyv;"],
-	[0, "&raemptyv;"],
-	[0, "&laemptyv;"],
-	[0, "&ohbar;"],
-	[0, "&omid;"],
-	[0, "&opar;"],
-	[1, "&operp;"],
-	[1, "&olcross;"],
-	[0, "&odsold;"],
-	[1, "&olcir;"],
-	[0, "&ofcir;"],
-	[0, "&olt;"],
-	[0, "&ogt;"],
-	[0, "&cirscir;"],
-	[0, "&cirE;"],
-	[0, "&solb;"],
-	[0, "&bsolb;"],
-	[3, "&boxbox;"],
-	[3, "&trisb;"],
-	[0, "&rtriltri;"],
-	[0, {
-		v: "&LeftTriangleBar;",
-		n: 824,
-		o: "&NotLeftTriangleBar;"
-	}],
-	[0, {
-		v: "&RightTriangleBar;",
-		n: 824,
-		o: "&NotRightTriangleBar;"
-	}],
-	[11, "&iinfin;"],
-	[0, "&infintie;"],
-	[0, "&nvinfin;"],
-	[4, "&eparsl;"],
-	[0, "&smeparsl;"],
-	[0, "&eqvparsl;"],
-	[5, "&blacklozenge;"],
-	[8, "&RuleDelayed;"],
-	[1, "&dsol;"],
-	[9, "&bigodot;"],
-	[0, "&bigoplus;"],
-	[0, "&bigotimes;"],
-	[1, "&biguplus;"],
-	[1, "&bigsqcup;"],
-	[5, "&iiiint;"],
-	[0, "&fpartint;"],
-	[2, "&cirfnint;"],
-	[0, "&awint;"],
-	[0, "&rppolint;"],
-	[0, "&scpolint;"],
-	[0, "&npolint;"],
-	[0, "&pointint;"],
-	[0, "&quatint;"],
-	[0, "&intlarhk;"],
-	[10, "&pluscir;"],
-	[0, "&plusacir;"],
-	[0, "&simplus;"],
-	[0, "&plusdu;"],
-	[0, "&plussim;"],
-	[0, "&plustwo;"],
-	[1, "&mcomma;"],
-	[0, "&minusdu;"],
-	[2, "&loplus;"],
-	[0, "&roplus;"],
-	[0, "&Cross;"],
-	[0, "&timesd;"],
-	[0, "&timesbar;"],
-	[1, "&smashp;"],
-	[0, "&lotimes;"],
-	[0, "&rotimes;"],
-	[0, "&otimesas;"],
-	[0, "&Otimes;"],
-	[0, "&odiv;"],
-	[0, "&triplus;"],
-	[0, "&triminus;"],
-	[0, "&tritime;"],
-	[0, "&intprod;"],
-	[2, "&amalg;"],
-	[0, "&capdot;"],
-	[1, "&ncup;"],
-	[0, "&ncap;"],
-	[0, "&capand;"],
-	[0, "&cupor;"],
-	[0, "&cupcap;"],
-	[0, "&capcup;"],
-	[0, "&cupbrcap;"],
-	[0, "&capbrcup;"],
-	[0, "&cupcup;"],
-	[0, "&capcap;"],
-	[0, "&ccups;"],
-	[0, "&ccaps;"],
-	[2, "&ccupssm;"],
-	[2, "&And;"],
-	[0, "&Or;"],
-	[0, "&andand;"],
-	[0, "&oror;"],
-	[0, "&orslope;"],
-	[0, "&andslope;"],
-	[1, "&andv;"],
-	[0, "&orv;"],
-	[0, "&andd;"],
-	[0, "&ord;"],
-	[1, "&wedbar;"],
-	[6, "&sdote;"],
-	[3, "&simdot;"],
-	[2, {
-		v: "&congdot;",
-		n: 824,
-		o: "&ncongdot;"
-	}],
-	[0, "&easter;"],
-	[0, "&apacir;"],
-	[0, {
-		v: "&apE;",
-		n: 824,
-		o: "&napE;"
-	}],
-	[0, "&eplus;"],
-	[0, "&pluse;"],
-	[0, "&Esim;"],
-	[0, "&Colone;"],
-	[0, "&Equal;"],
-	[1, "&ddotseq;"],
-	[0, "&equivDD;"],
-	[0, "&ltcir;"],
-	[0, "&gtcir;"],
-	[0, "&ltquest;"],
-	[0, "&gtquest;"],
-	[0, {
-		v: "&leqslant;",
-		n: 824,
-		o: "&nleqslant;"
-	}],
-	[0, {
-		v: "&geqslant;",
-		n: 824,
-		o: "&ngeqslant;"
-	}],
-	[0, "&lesdot;"],
-	[0, "&gesdot;"],
-	[0, "&lesdoto;"],
-	[0, "&gesdoto;"],
-	[0, "&lesdotor;"],
-	[0, "&gesdotol;"],
-	[0, "&lap;"],
-	[0, "&gap;"],
-	[0, "&lne;"],
-	[0, "&gne;"],
-	[0, "&lnap;"],
-	[0, "&gnap;"],
-	[0, "&lEg;"],
-	[0, "&gEl;"],
-	[0, "&lsime;"],
-	[0, "&gsime;"],
-	[0, "&lsimg;"],
-	[0, "&gsiml;"],
-	[0, "&lgE;"],
-	[0, "&glE;"],
-	[0, "&lesges;"],
-	[0, "&gesles;"],
-	[0, "&els;"],
-	[0, "&egs;"],
-	[0, "&elsdot;"],
-	[0, "&egsdot;"],
-	[0, "&el;"],
-	[0, "&eg;"],
-	[2, "&siml;"],
-	[0, "&simg;"],
-	[0, "&simlE;"],
-	[0, "&simgE;"],
-	[0, {
-		v: "&LessLess;",
-		n: 824,
-		o: "&NotNestedLessLess;"
-	}],
-	[0, {
-		v: "&GreaterGreater;",
-		n: 824,
-		o: "&NotNestedGreaterGreater;"
-	}],
-	[1, "&glj;"],
-	[0, "&gla;"],
-	[0, "&ltcc;"],
-	[0, "&gtcc;"],
-	[0, "&lescc;"],
-	[0, "&gescc;"],
-	[0, "&smt;"],
-	[0, "&lat;"],
-	[0, {
-		v: "&smte;",
-		n: 65024,
-		o: "&smtes;"
-	}],
-	[0, {
-		v: "&late;",
-		n: 65024,
-		o: "&lates;"
-	}],
-	[0, "&bumpE;"],
-	[0, {
-		v: "&PrecedesEqual;",
-		n: 824,
-		o: "&NotPrecedesEqual;"
-	}],
-	[0, {
-		v: "&sce;",
-		n: 824,
-		o: "&NotSucceedsEqual;"
-	}],
-	[2, "&prE;"],
-	[0, "&scE;"],
-	[0, "&precneqq;"],
-	[0, "&scnE;"],
-	[0, "&prap;"],
-	[0, "&scap;"],
-	[0, "&precnapprox;"],
-	[0, "&scnap;"],
-	[0, "&Pr;"],
-	[0, "&Sc;"],
-	[0, "&subdot;"],
-	[0, "&supdot;"],
-	[0, "&subplus;"],
-	[0, "&supplus;"],
-	[0, "&submult;"],
-	[0, "&supmult;"],
-	[0, "&subedot;"],
-	[0, "&supedot;"],
-	[0, {
-		v: "&subE;",
-		n: 824,
-		o: "&nsubE;"
-	}],
-	[0, {
-		v: "&supE;",
-		n: 824,
-		o: "&nsupE;"
-	}],
-	[0, "&subsim;"],
-	[0, "&supsim;"],
-	[2, {
-		v: "&subnE;",
-		n: 65024,
-		o: "&varsubsetneqq;"
-	}],
-	[0, {
-		v: "&supnE;",
-		n: 65024,
-		o: "&varsupsetneqq;"
-	}],
-	[2, "&csub;"],
-	[0, "&csup;"],
-	[0, "&csube;"],
-	[0, "&csupe;"],
-	[0, "&subsup;"],
-	[0, "&supsub;"],
-	[0, "&subsub;"],
-	[0, "&supsup;"],
-	[0, "&suphsub;"],
-	[0, "&supdsub;"],
-	[0, "&forkv;"],
-	[0, "&topfork;"],
-	[0, "&mlcp;"],
-	[8, "&Dashv;"],
-	[1, "&Vdashl;"],
-	[0, "&Barv;"],
-	[0, "&vBar;"],
-	[0, "&vBarv;"],
-	[1, "&Vbar;"],
-	[0, "&Not;"],
-	[0, "&bNot;"],
-	[0, "&rnmid;"],
-	[0, "&cirmid;"],
-	[0, "&midcir;"],
-	[0, "&topcir;"],
-	[0, "&nhpar;"],
-	[0, "&parsim;"],
-	[9, {
-		v: "&parsl;",
-		n: 8421,
-		o: "&nparsl;"
-	}],
-	[44343, { n: new Map(/* @__PURE__ */ restoreDiff([
-		[56476, "&Ascr;"],
-		[1, "&Cscr;"],
-		[0, "&Dscr;"],
-		[2, "&Gscr;"],
-		[2, "&Jscr;"],
-		[0, "&Kscr;"],
-		[2, "&Nscr;"],
-		[0, "&Oscr;"],
-		[0, "&Pscr;"],
-		[0, "&Qscr;"],
-		[1, "&Sscr;"],
-		[0, "&Tscr;"],
-		[0, "&Uscr;"],
-		[0, "&Vscr;"],
-		[0, "&Wscr;"],
-		[0, "&Xscr;"],
-		[0, "&Yscr;"],
-		[0, "&Zscr;"],
-		[0, "&ascr;"],
-		[0, "&bscr;"],
-		[0, "&cscr;"],
-		[0, "&dscr;"],
-		[1, "&fscr;"],
-		[1, "&hscr;"],
-		[0, "&iscr;"],
-		[0, "&jscr;"],
-		[0, "&kscr;"],
-		[0, "&lscr;"],
-		[0, "&mscr;"],
-		[0, "&nscr;"],
-		[1, "&pscr;"],
-		[0, "&qscr;"],
-		[0, "&rscr;"],
-		[0, "&sscr;"],
-		[0, "&tscr;"],
-		[0, "&uscr;"],
-		[0, "&vscr;"],
-		[0, "&wscr;"],
-		[0, "&xscr;"],
-		[0, "&yscr;"],
-		[0, "&zscr;"],
-		[52, "&Afr;"],
-		[0, "&Bfr;"],
-		[1, "&Dfr;"],
-		[0, "&Efr;"],
-		[0, "&Ffr;"],
-		[0, "&Gfr;"],
-		[2, "&Jfr;"],
-		[0, "&Kfr;"],
-		[0, "&Lfr;"],
-		[0, "&Mfr;"],
-		[0, "&Nfr;"],
-		[0, "&Ofr;"],
-		[0, "&Pfr;"],
-		[0, "&Qfr;"],
-		[1, "&Sfr;"],
-		[0, "&Tfr;"],
-		[0, "&Ufr;"],
-		[0, "&Vfr;"],
-		[0, "&Wfr;"],
-		[0, "&Xfr;"],
-		[0, "&Yfr;"],
-		[1, "&afr;"],
-		[0, "&bfr;"],
-		[0, "&cfr;"],
-		[0, "&dfr;"],
-		[0, "&efr;"],
-		[0, "&ffr;"],
-		[0, "&gfr;"],
-		[0, "&hfr;"],
-		[0, "&ifr;"],
-		[0, "&jfr;"],
-		[0, "&kfr;"],
-		[0, "&lfr;"],
-		[0, "&mfr;"],
-		[0, "&nfr;"],
-		[0, "&ofr;"],
-		[0, "&pfr;"],
-		[0, "&qfr;"],
-		[0, "&rfr;"],
-		[0, "&sfr;"],
-		[0, "&tfr;"],
-		[0, "&ufr;"],
-		[0, "&vfr;"],
-		[0, "&wfr;"],
-		[0, "&xfr;"],
-		[0, "&yfr;"],
-		[0, "&zfr;"],
-		[0, "&Aopf;"],
-		[0, "&Bopf;"],
-		[1, "&Dopf;"],
-		[0, "&Eopf;"],
-		[0, "&Fopf;"],
-		[0, "&Gopf;"],
-		[1, "&Iopf;"],
-		[0, "&Jopf;"],
-		[0, "&Kopf;"],
-		[0, "&Lopf;"],
-		[0, "&Mopf;"],
-		[1, "&Oopf;"],
-		[3, "&Sopf;"],
-		[0, "&Topf;"],
-		[0, "&Uopf;"],
-		[0, "&Vopf;"],
-		[0, "&Wopf;"],
-		[0, "&Xopf;"],
-		[0, "&Yopf;"],
-		[1, "&aopf;"],
-		[0, "&bopf;"],
-		[0, "&copf;"],
-		[0, "&dopf;"],
-		[0, "&eopf;"],
-		[0, "&fopf;"],
-		[0, "&gopf;"],
-		[0, "&hopf;"],
-		[0, "&iopf;"],
-		[0, "&jopf;"],
-		[0, "&kopf;"],
-		[0, "&lopf;"],
-		[0, "&mopf;"],
-		[0, "&nopf;"],
-		[0, "&oopf;"],
-		[0, "&popf;"],
-		[0, "&qopf;"],
-		[0, "&ropf;"],
-		[0, "&sopf;"],
-		[0, "&topf;"],
-		[0, "&uopf;"],
-		[0, "&vopf;"],
-		[0, "&wopf;"],
-		[0, "&xopf;"],
-		[0, "&yopf;"],
-		[0, "&zopf;"]
-	])) }],
-	[8906, "&fflig;"],
-	[0, "&filig;"],
-	[0, "&fllig;"],
-	[0, "&ffilig;"],
-	[0, "&ffllig;"]
-]));
+var encode_html_default = new Map(
+	/* #__PURE__ */ restoreDiff([
+		[9, "&Tab;"],
+		[0, "&NewLine;"],
+		[22, "&excl;"],
+		[0, "&quot;"],
+		[0, "&num;"],
+		[0, "&dollar;"],
+		[0, "&percnt;"],
+		[0, "&amp;"],
+		[0, "&apos;"],
+		[0, "&lpar;"],
+		[0, "&rpar;"],
+		[0, "&ast;"],
+		[0, "&plus;"],
+		[0, "&comma;"],
+		[1, "&period;"],
+		[0, "&sol;"],
+		[10, "&colon;"],
+		[0, "&semi;"],
+		[0, {
+			v: "&lt;",
+			n: 8402,
+			o: "&nvlt;"
+		}],
+		[0, {
+			v: "&equals;",
+			n: 8421,
+			o: "&bne;"
+		}],
+		[0, {
+			v: "&gt;",
+			n: 8402,
+			o: "&nvgt;"
+		}],
+		[0, "&quest;"],
+		[0, "&commat;"],
+		[26, "&lbrack;"],
+		[0, "&bsol;"],
+		[0, "&rbrack;"],
+		[0, "&Hat;"],
+		[0, "&lowbar;"],
+		[0, "&DiacriticalGrave;"],
+		[5, {
+			n: 106,
+			o: "&fjlig;"
+		}],
+		[20, "&lbrace;"],
+		[0, "&verbar;"],
+		[0, "&rbrace;"],
+		[34, "&nbsp;"],
+		[0, "&iexcl;"],
+		[0, "&cent;"],
+		[0, "&pound;"],
+		[0, "&curren;"],
+		[0, "&yen;"],
+		[0, "&brvbar;"],
+		[0, "&sect;"],
+		[0, "&die;"],
+		[0, "&copy;"],
+		[0, "&ordf;"],
+		[0, "&laquo;"],
+		[0, "&not;"],
+		[0, "&shy;"],
+		[0, "&circledR;"],
+		[0, "&macr;"],
+		[0, "&deg;"],
+		[0, "&PlusMinus;"],
+		[0, "&sup2;"],
+		[0, "&sup3;"],
+		[0, "&acute;"],
+		[0, "&micro;"],
+		[0, "&para;"],
+		[0, "&centerdot;"],
+		[0, "&cedil;"],
+		[0, "&sup1;"],
+		[0, "&ordm;"],
+		[0, "&raquo;"],
+		[0, "&frac14;"],
+		[0, "&frac12;"],
+		[0, "&frac34;"],
+		[0, "&iquest;"],
+		[0, "&Agrave;"],
+		[0, "&Aacute;"],
+		[0, "&Acirc;"],
+		[0, "&Atilde;"],
+		[0, "&Auml;"],
+		[0, "&angst;"],
+		[0, "&AElig;"],
+		[0, "&Ccedil;"],
+		[0, "&Egrave;"],
+		[0, "&Eacute;"],
+		[0, "&Ecirc;"],
+		[0, "&Euml;"],
+		[0, "&Igrave;"],
+		[0, "&Iacute;"],
+		[0, "&Icirc;"],
+		[0, "&Iuml;"],
+		[0, "&ETH;"],
+		[0, "&Ntilde;"],
+		[0, "&Ograve;"],
+		[0, "&Oacute;"],
+		[0, "&Ocirc;"],
+		[0, "&Otilde;"],
+		[0, "&Ouml;"],
+		[0, "&times;"],
+		[0, "&Oslash;"],
+		[0, "&Ugrave;"],
+		[0, "&Uacute;"],
+		[0, "&Ucirc;"],
+		[0, "&Uuml;"],
+		[0, "&Yacute;"],
+		[0, "&THORN;"],
+		[0, "&szlig;"],
+		[0, "&agrave;"],
+		[0, "&aacute;"],
+		[0, "&acirc;"],
+		[0, "&atilde;"],
+		[0, "&auml;"],
+		[0, "&aring;"],
+		[0, "&aelig;"],
+		[0, "&ccedil;"],
+		[0, "&egrave;"],
+		[0, "&eacute;"],
+		[0, "&ecirc;"],
+		[0, "&euml;"],
+		[0, "&igrave;"],
+		[0, "&iacute;"],
+		[0, "&icirc;"],
+		[0, "&iuml;"],
+		[0, "&eth;"],
+		[0, "&ntilde;"],
+		[0, "&ograve;"],
+		[0, "&oacute;"],
+		[0, "&ocirc;"],
+		[0, "&otilde;"],
+		[0, "&ouml;"],
+		[0, "&div;"],
+		[0, "&oslash;"],
+		[0, "&ugrave;"],
+		[0, "&uacute;"],
+		[0, "&ucirc;"],
+		[0, "&uuml;"],
+		[0, "&yacute;"],
+		[0, "&thorn;"],
+		[0, "&yuml;"],
+		[0, "&Amacr;"],
+		[0, "&amacr;"],
+		[0, "&Abreve;"],
+		[0, "&abreve;"],
+		[0, "&Aogon;"],
+		[0, "&aogon;"],
+		[0, "&Cacute;"],
+		[0, "&cacute;"],
+		[0, "&Ccirc;"],
+		[0, "&ccirc;"],
+		[0, "&Cdot;"],
+		[0, "&cdot;"],
+		[0, "&Ccaron;"],
+		[0, "&ccaron;"],
+		[0, "&Dcaron;"],
+		[0, "&dcaron;"],
+		[0, "&Dstrok;"],
+		[0, "&dstrok;"],
+		[0, "&Emacr;"],
+		[0, "&emacr;"],
+		[2, "&Edot;"],
+		[0, "&edot;"],
+		[0, "&Eogon;"],
+		[0, "&eogon;"],
+		[0, "&Ecaron;"],
+		[0, "&ecaron;"],
+		[0, "&Gcirc;"],
+		[0, "&gcirc;"],
+		[0, "&Gbreve;"],
+		[0, "&gbreve;"],
+		[0, "&Gdot;"],
+		[0, "&gdot;"],
+		[0, "&Gcedil;"],
+		[1, "&Hcirc;"],
+		[0, "&hcirc;"],
+		[0, "&Hstrok;"],
+		[0, "&hstrok;"],
+		[0, "&Itilde;"],
+		[0, "&itilde;"],
+		[0, "&Imacr;"],
+		[0, "&imacr;"],
+		[2, "&Iogon;"],
+		[0, "&iogon;"],
+		[0, "&Idot;"],
+		[0, "&imath;"],
+		[0, "&IJlig;"],
+		[0, "&ijlig;"],
+		[0, "&Jcirc;"],
+		[0, "&jcirc;"],
+		[0, "&Kcedil;"],
+		[0, "&kcedil;"],
+		[0, "&kgreen;"],
+		[0, "&Lacute;"],
+		[0, "&lacute;"],
+		[0, "&Lcedil;"],
+		[0, "&lcedil;"],
+		[0, "&Lcaron;"],
+		[0, "&lcaron;"],
+		[0, "&Lmidot;"],
+		[0, "&lmidot;"],
+		[0, "&Lstrok;"],
+		[0, "&lstrok;"],
+		[0, "&Nacute;"],
+		[0, "&nacute;"],
+		[0, "&Ncedil;"],
+		[0, "&ncedil;"],
+		[0, "&Ncaron;"],
+		[0, "&ncaron;"],
+		[0, "&napos;"],
+		[0, "&ENG;"],
+		[0, "&eng;"],
+		[0, "&Omacr;"],
+		[0, "&omacr;"],
+		[2, "&Odblac;"],
+		[0, "&odblac;"],
+		[0, "&OElig;"],
+		[0, "&oelig;"],
+		[0, "&Racute;"],
+		[0, "&racute;"],
+		[0, "&Rcedil;"],
+		[0, "&rcedil;"],
+		[0, "&Rcaron;"],
+		[0, "&rcaron;"],
+		[0, "&Sacute;"],
+		[0, "&sacute;"],
+		[0, "&Scirc;"],
+		[0, "&scirc;"],
+		[0, "&Scedil;"],
+		[0, "&scedil;"],
+		[0, "&Scaron;"],
+		[0, "&scaron;"],
+		[0, "&Tcedil;"],
+		[0, "&tcedil;"],
+		[0, "&Tcaron;"],
+		[0, "&tcaron;"],
+		[0, "&Tstrok;"],
+		[0, "&tstrok;"],
+		[0, "&Utilde;"],
+		[0, "&utilde;"],
+		[0, "&Umacr;"],
+		[0, "&umacr;"],
+		[0, "&Ubreve;"],
+		[0, "&ubreve;"],
+		[0, "&Uring;"],
+		[0, "&uring;"],
+		[0, "&Udblac;"],
+		[0, "&udblac;"],
+		[0, "&Uogon;"],
+		[0, "&uogon;"],
+		[0, "&Wcirc;"],
+		[0, "&wcirc;"],
+		[0, "&Ycirc;"],
+		[0, "&ycirc;"],
+		[0, "&Yuml;"],
+		[0, "&Zacute;"],
+		[0, "&zacute;"],
+		[0, "&Zdot;"],
+		[0, "&zdot;"],
+		[0, "&Zcaron;"],
+		[0, "&zcaron;"],
+		[19, "&fnof;"],
+		[34, "&imped;"],
+		[63, "&gacute;"],
+		[65, "&jmath;"],
+		[142, "&circ;"],
+		[0, "&caron;"],
+		[16, "&breve;"],
+		[0, "&DiacriticalDot;"],
+		[0, "&ring;"],
+		[0, "&ogon;"],
+		[0, "&DiacriticalTilde;"],
+		[0, "&dblac;"],
+		[51, "&DownBreve;"],
+		[127, "&Alpha;"],
+		[0, "&Beta;"],
+		[0, "&Gamma;"],
+		[0, "&Delta;"],
+		[0, "&Epsilon;"],
+		[0, "&Zeta;"],
+		[0, "&Eta;"],
+		[0, "&Theta;"],
+		[0, "&Iota;"],
+		[0, "&Kappa;"],
+		[0, "&Lambda;"],
+		[0, "&Mu;"],
+		[0, "&Nu;"],
+		[0, "&Xi;"],
+		[0, "&Omicron;"],
+		[0, "&Pi;"],
+		[0, "&Rho;"],
+		[1, "&Sigma;"],
+		[0, "&Tau;"],
+		[0, "&Upsilon;"],
+		[0, "&Phi;"],
+		[0, "&Chi;"],
+		[0, "&Psi;"],
+		[0, "&ohm;"],
+		[7, "&alpha;"],
+		[0, "&beta;"],
+		[0, "&gamma;"],
+		[0, "&delta;"],
+		[0, "&epsi;"],
+		[0, "&zeta;"],
+		[0, "&eta;"],
+		[0, "&theta;"],
+		[0, "&iota;"],
+		[0, "&kappa;"],
+		[0, "&lambda;"],
+		[0, "&mu;"],
+		[0, "&nu;"],
+		[0, "&xi;"],
+		[0, "&omicron;"],
+		[0, "&pi;"],
+		[0, "&rho;"],
+		[0, "&sigmaf;"],
+		[0, "&sigma;"],
+		[0, "&tau;"],
+		[0, "&upsi;"],
+		[0, "&phi;"],
+		[0, "&chi;"],
+		[0, "&psi;"],
+		[0, "&omega;"],
+		[7, "&thetasym;"],
+		[0, "&Upsi;"],
+		[2, "&phiv;"],
+		[0, "&piv;"],
+		[5, "&Gammad;"],
+		[0, "&digamma;"],
+		[18, "&kappav;"],
+		[0, "&rhov;"],
+		[3, "&epsiv;"],
+		[0, "&backepsilon;"],
+		[10, "&IOcy;"],
+		[0, "&DJcy;"],
+		[0, "&GJcy;"],
+		[0, "&Jukcy;"],
+		[0, "&DScy;"],
+		[0, "&Iukcy;"],
+		[0, "&YIcy;"],
+		[0, "&Jsercy;"],
+		[0, "&LJcy;"],
+		[0, "&NJcy;"],
+		[0, "&TSHcy;"],
+		[0, "&KJcy;"],
+		[1, "&Ubrcy;"],
+		[0, "&DZcy;"],
+		[0, "&Acy;"],
+		[0, "&Bcy;"],
+		[0, "&Vcy;"],
+		[0, "&Gcy;"],
+		[0, "&Dcy;"],
+		[0, "&IEcy;"],
+		[0, "&ZHcy;"],
+		[0, "&Zcy;"],
+		[0, "&Icy;"],
+		[0, "&Jcy;"],
+		[0, "&Kcy;"],
+		[0, "&Lcy;"],
+		[0, "&Mcy;"],
+		[0, "&Ncy;"],
+		[0, "&Ocy;"],
+		[0, "&Pcy;"],
+		[0, "&Rcy;"],
+		[0, "&Scy;"],
+		[0, "&Tcy;"],
+		[0, "&Ucy;"],
+		[0, "&Fcy;"],
+		[0, "&KHcy;"],
+		[0, "&TScy;"],
+		[0, "&CHcy;"],
+		[0, "&SHcy;"],
+		[0, "&SHCHcy;"],
+		[0, "&HARDcy;"],
+		[0, "&Ycy;"],
+		[0, "&SOFTcy;"],
+		[0, "&Ecy;"],
+		[0, "&YUcy;"],
+		[0, "&YAcy;"],
+		[0, "&acy;"],
+		[0, "&bcy;"],
+		[0, "&vcy;"],
+		[0, "&gcy;"],
+		[0, "&dcy;"],
+		[0, "&iecy;"],
+		[0, "&zhcy;"],
+		[0, "&zcy;"],
+		[0, "&icy;"],
+		[0, "&jcy;"],
+		[0, "&kcy;"],
+		[0, "&lcy;"],
+		[0, "&mcy;"],
+		[0, "&ncy;"],
+		[0, "&ocy;"],
+		[0, "&pcy;"],
+		[0, "&rcy;"],
+		[0, "&scy;"],
+		[0, "&tcy;"],
+		[0, "&ucy;"],
+		[0, "&fcy;"],
+		[0, "&khcy;"],
+		[0, "&tscy;"],
+		[0, "&chcy;"],
+		[0, "&shcy;"],
+		[0, "&shchcy;"],
+		[0, "&hardcy;"],
+		[0, "&ycy;"],
+		[0, "&softcy;"],
+		[0, "&ecy;"],
+		[0, "&yucy;"],
+		[0, "&yacy;"],
+		[1, "&iocy;"],
+		[0, "&djcy;"],
+		[0, "&gjcy;"],
+		[0, "&jukcy;"],
+		[0, "&dscy;"],
+		[0, "&iukcy;"],
+		[0, "&yicy;"],
+		[0, "&jsercy;"],
+		[0, "&ljcy;"],
+		[0, "&njcy;"],
+		[0, "&tshcy;"],
+		[0, "&kjcy;"],
+		[1, "&ubrcy;"],
+		[0, "&dzcy;"],
+		[7074, "&ensp;"],
+		[0, "&emsp;"],
+		[0, "&emsp13;"],
+		[0, "&emsp14;"],
+		[1, "&numsp;"],
+		[0, "&puncsp;"],
+		[0, "&ThinSpace;"],
+		[0, "&hairsp;"],
+		[0, "&NegativeMediumSpace;"],
+		[0, "&zwnj;"],
+		[0, "&zwj;"],
+		[0, "&lrm;"],
+		[0, "&rlm;"],
+		[0, "&dash;"],
+		[2, "&ndash;"],
+		[0, "&mdash;"],
+		[0, "&horbar;"],
+		[0, "&Verbar;"],
+		[1, "&lsquo;"],
+		[0, "&CloseCurlyQuote;"],
+		[0, "&lsquor;"],
+		[1, "&ldquo;"],
+		[0, "&CloseCurlyDoubleQuote;"],
+		[0, "&bdquo;"],
+		[1, "&dagger;"],
+		[0, "&Dagger;"],
+		[0, "&bull;"],
+		[2, "&nldr;"],
+		[0, "&hellip;"],
+		[9, "&permil;"],
+		[0, "&pertenk;"],
+		[0, "&prime;"],
+		[0, "&Prime;"],
+		[0, "&tprime;"],
+		[0, "&backprime;"],
+		[3, "&lsaquo;"],
+		[0, "&rsaquo;"],
+		[3, "&oline;"],
+		[2, "&caret;"],
+		[1, "&hybull;"],
+		[0, "&frasl;"],
+		[10, "&bsemi;"],
+		[7, "&qprime;"],
+		[7, {
+			v: "&MediumSpace;",
+			n: 8202,
+			o: "&ThickSpace;"
+		}],
+		[0, "&NoBreak;"],
+		[0, "&af;"],
+		[0, "&InvisibleTimes;"],
+		[0, "&ic;"],
+		[72, "&euro;"],
+		[46, "&tdot;"],
+		[0, "&DotDot;"],
+		[37, "&complexes;"],
+		[2, "&incare;"],
+		[4, "&gscr;"],
+		[0, "&hamilt;"],
+		[0, "&Hfr;"],
+		[0, "&Hopf;"],
+		[0, "&planckh;"],
+		[0, "&hbar;"],
+		[0, "&imagline;"],
+		[0, "&Ifr;"],
+		[0, "&lagran;"],
+		[0, "&ell;"],
+		[1, "&naturals;"],
+		[0, "&numero;"],
+		[0, "&copysr;"],
+		[0, "&weierp;"],
+		[0, "&Popf;"],
+		[0, "&Qopf;"],
+		[0, "&realine;"],
+		[0, "&real;"],
+		[0, "&reals;"],
+		[0, "&rx;"],
+		[3, "&trade;"],
+		[1, "&integers;"],
+		[2, "&mho;"],
+		[0, "&zeetrf;"],
+		[0, "&iiota;"],
+		[2, "&bernou;"],
+		[0, "&Cayleys;"],
+		[1, "&escr;"],
+		[0, "&Escr;"],
+		[0, "&Fouriertrf;"],
+		[1, "&Mellintrf;"],
+		[0, "&order;"],
+		[0, "&alefsym;"],
+		[0, "&beth;"],
+		[0, "&gimel;"],
+		[0, "&daleth;"],
+		[12, "&CapitalDifferentialD;"],
+		[0, "&dd;"],
+		[0, "&ee;"],
+		[0, "&ii;"],
+		[10, "&frac13;"],
+		[0, "&frac23;"],
+		[0, "&frac15;"],
+		[0, "&frac25;"],
+		[0, "&frac35;"],
+		[0, "&frac45;"],
+		[0, "&frac16;"],
+		[0, "&frac56;"],
+		[0, "&frac18;"],
+		[0, "&frac38;"],
+		[0, "&frac58;"],
+		[0, "&frac78;"],
+		[49, "&larr;"],
+		[0, "&ShortUpArrow;"],
+		[0, "&rarr;"],
+		[0, "&darr;"],
+		[0, "&harr;"],
+		[0, "&updownarrow;"],
+		[0, "&nwarr;"],
+		[0, "&nearr;"],
+		[0, "&LowerRightArrow;"],
+		[0, "&LowerLeftArrow;"],
+		[0, "&nlarr;"],
+		[0, "&nrarr;"],
+		[1, {
+			v: "&rarrw;",
+			n: 824,
+			o: "&nrarrw;"
+		}],
+		[0, "&Larr;"],
+		[0, "&Uarr;"],
+		[0, "&Rarr;"],
+		[0, "&Darr;"],
+		[0, "&larrtl;"],
+		[0, "&rarrtl;"],
+		[0, "&LeftTeeArrow;"],
+		[0, "&mapstoup;"],
+		[0, "&map;"],
+		[0, "&DownTeeArrow;"],
+		[1, "&hookleftarrow;"],
+		[0, "&hookrightarrow;"],
+		[0, "&larrlp;"],
+		[0, "&looparrowright;"],
+		[0, "&harrw;"],
+		[0, "&nharr;"],
+		[1, "&lsh;"],
+		[0, "&rsh;"],
+		[0, "&ldsh;"],
+		[0, "&rdsh;"],
+		[1, "&crarr;"],
+		[0, "&cularr;"],
+		[0, "&curarr;"],
+		[2, "&circlearrowleft;"],
+		[0, "&circlearrowright;"],
+		[0, "&leftharpoonup;"],
+		[0, "&DownLeftVector;"],
+		[0, "&RightUpVector;"],
+		[0, "&LeftUpVector;"],
+		[0, "&rharu;"],
+		[0, "&DownRightVector;"],
+		[0, "&dharr;"],
+		[0, "&dharl;"],
+		[0, "&RightArrowLeftArrow;"],
+		[0, "&udarr;"],
+		[0, "&LeftArrowRightArrow;"],
+		[0, "&leftleftarrows;"],
+		[0, "&upuparrows;"],
+		[0, "&rightrightarrows;"],
+		[0, "&ddarr;"],
+		[0, "&leftrightharpoons;"],
+		[0, "&Equilibrium;"],
+		[0, "&nlArr;"],
+		[0, "&nhArr;"],
+		[0, "&nrArr;"],
+		[0, "&DoubleLeftArrow;"],
+		[0, "&DoubleUpArrow;"],
+		[0, "&DoubleRightArrow;"],
+		[0, "&dArr;"],
+		[0, "&DoubleLeftRightArrow;"],
+		[0, "&DoubleUpDownArrow;"],
+		[0, "&nwArr;"],
+		[0, "&neArr;"],
+		[0, "&seArr;"],
+		[0, "&swArr;"],
+		[0, "&lAarr;"],
+		[0, "&rAarr;"],
+		[1, "&zigrarr;"],
+		[6, "&larrb;"],
+		[0, "&rarrb;"],
+		[15, "&DownArrowUpArrow;"],
+		[7, "&loarr;"],
+		[0, "&roarr;"],
+		[0, "&hoarr;"],
+		[0, "&forall;"],
+		[0, "&comp;"],
+		[0, {
+			v: "&part;",
+			n: 824,
+			o: "&npart;"
+		}],
+		[0, "&exist;"],
+		[0, "&nexist;"],
+		[0, "&empty;"],
+		[1, "&Del;"],
+		[0, "&Element;"],
+		[0, "&NotElement;"],
+		[1, "&ni;"],
+		[0, "&notni;"],
+		[2, "&prod;"],
+		[0, "&coprod;"],
+		[0, "&sum;"],
+		[0, "&minus;"],
+		[0, "&MinusPlus;"],
+		[0, "&dotplus;"],
+		[1, "&Backslash;"],
+		[0, "&lowast;"],
+		[0, "&compfn;"],
+		[1, "&radic;"],
+		[2, "&prop;"],
+		[0, "&infin;"],
+		[0, "&angrt;"],
+		[0, {
+			v: "&ang;",
+			n: 8402,
+			o: "&nang;"
+		}],
+		[0, "&angmsd;"],
+		[0, "&angsph;"],
+		[0, "&mid;"],
+		[0, "&nmid;"],
+		[0, "&DoubleVerticalBar;"],
+		[0, "&NotDoubleVerticalBar;"],
+		[0, "&and;"],
+		[0, "&or;"],
+		[0, {
+			v: "&cap;",
+			n: 65024,
+			o: "&caps;"
+		}],
+		[0, {
+			v: "&cup;",
+			n: 65024,
+			o: "&cups;"
+		}],
+		[0, "&int;"],
+		[0, "&Int;"],
+		[0, "&iiint;"],
+		[0, "&conint;"],
+		[0, "&Conint;"],
+		[0, "&Cconint;"],
+		[0, "&cwint;"],
+		[0, "&ClockwiseContourIntegral;"],
+		[0, "&awconint;"],
+		[0, "&there4;"],
+		[0, "&becaus;"],
+		[0, "&ratio;"],
+		[0, "&Colon;"],
+		[0, "&dotminus;"],
+		[1, "&mDDot;"],
+		[0, "&homtht;"],
+		[0, {
+			v: "&sim;",
+			n: 8402,
+			o: "&nvsim;"
+		}],
+		[0, {
+			v: "&backsim;",
+			n: 817,
+			o: "&race;"
+		}],
+		[0, {
+			v: "&ac;",
+			n: 819,
+			o: "&acE;"
+		}],
+		[0, "&acd;"],
+		[0, "&VerticalTilde;"],
+		[0, "&NotTilde;"],
+		[0, {
+			v: "&eqsim;",
+			n: 824,
+			o: "&nesim;"
+		}],
+		[0, "&sime;"],
+		[0, "&NotTildeEqual;"],
+		[0, "&cong;"],
+		[0, "&simne;"],
+		[0, "&ncong;"],
+		[0, "&ap;"],
+		[0, "&nap;"],
+		[0, "&ape;"],
+		[0, {
+			v: "&apid;",
+			n: 824,
+			o: "&napid;"
+		}],
+		[0, "&backcong;"],
+		[0, {
+			v: "&asympeq;",
+			n: 8402,
+			o: "&nvap;"
+		}],
+		[0, {
+			v: "&bump;",
+			n: 824,
+			o: "&nbump;"
+		}],
+		[0, {
+			v: "&bumpe;",
+			n: 824,
+			o: "&nbumpe;"
+		}],
+		[0, {
+			v: "&doteq;",
+			n: 824,
+			o: "&nedot;"
+		}],
+		[0, "&doteqdot;"],
+		[0, "&efDot;"],
+		[0, "&erDot;"],
+		[0, "&Assign;"],
+		[0, "&ecolon;"],
+		[0, "&ecir;"],
+		[0, "&circeq;"],
+		[1, "&wedgeq;"],
+		[0, "&veeeq;"],
+		[1, "&triangleq;"],
+		[2, "&equest;"],
+		[0, "&ne;"],
+		[0, {
+			v: "&Congruent;",
+			n: 8421,
+			o: "&bnequiv;"
+		}],
+		[0, "&nequiv;"],
+		[1, {
+			v: "&le;",
+			n: 8402,
+			o: "&nvle;"
+		}],
+		[0, {
+			v: "&ge;",
+			n: 8402,
+			o: "&nvge;"
+		}],
+		[0, {
+			v: "&lE;",
+			n: 824,
+			o: "&nlE;"
+		}],
+		[0, {
+			v: "&gE;",
+			n: 824,
+			o: "&ngE;"
+		}],
+		[0, {
+			v: "&lnE;",
+			n: 65024,
+			o: "&lvertneqq;"
+		}],
+		[0, {
+			v: "&gnE;",
+			n: 65024,
+			o: "&gvertneqq;"
+		}],
+		[0, {
+			v: "&ll;",
+			n: new Map(
+				/* #__PURE__ */ restoreDiff([[824, "&nLtv;"], [7577, "&nLt;"]])
+)
+		}],
+		[0, {
+			v: "&gg;",
+			n: new Map(
+				/* #__PURE__ */ restoreDiff([[824, "&nGtv;"], [7577, "&nGt;"]])
+)
+		}],
+		[0, "&between;"],
+		[0, "&NotCupCap;"],
+		[0, "&nless;"],
+		[0, "&ngt;"],
+		[0, "&nle;"],
+		[0, "&nge;"],
+		[0, "&lesssim;"],
+		[0, "&GreaterTilde;"],
+		[0, "&nlsim;"],
+		[0, "&ngsim;"],
+		[0, "&LessGreater;"],
+		[0, "&gl;"],
+		[0, "&NotLessGreater;"],
+		[0, "&NotGreaterLess;"],
+		[0, "&pr;"],
+		[0, "&sc;"],
+		[0, "&prcue;"],
+		[0, "&sccue;"],
+		[0, "&PrecedesTilde;"],
+		[0, {
+			v: "&scsim;",
+			n: 824,
+			o: "&NotSucceedsTilde;"
+		}],
+		[0, "&NotPrecedes;"],
+		[0, "&NotSucceeds;"],
+		[0, {
+			v: "&sub;",
+			n: 8402,
+			o: "&NotSubset;"
+		}],
+		[0, {
+			v: "&sup;",
+			n: 8402,
+			o: "&NotSuperset;"
+		}],
+		[0, "&nsub;"],
+		[0, "&nsup;"],
+		[0, "&sube;"],
+		[0, "&supe;"],
+		[0, "&NotSubsetEqual;"],
+		[0, "&NotSupersetEqual;"],
+		[0, {
+			v: "&subne;",
+			n: 65024,
+			o: "&varsubsetneq;"
+		}],
+		[0, {
+			v: "&supne;",
+			n: 65024,
+			o: "&varsupsetneq;"
+		}],
+		[1, "&cupdot;"],
+		[0, "&UnionPlus;"],
+		[0, {
+			v: "&sqsub;",
+			n: 824,
+			o: "&NotSquareSubset;"
+		}],
+		[0, {
+			v: "&sqsup;",
+			n: 824,
+			o: "&NotSquareSuperset;"
+		}],
+		[0, "&sqsube;"],
+		[0, "&sqsupe;"],
+		[0, {
+			v: "&sqcap;",
+			n: 65024,
+			o: "&sqcaps;"
+		}],
+		[0, {
+			v: "&sqcup;",
+			n: 65024,
+			o: "&sqcups;"
+		}],
+		[0, "&CirclePlus;"],
+		[0, "&CircleMinus;"],
+		[0, "&CircleTimes;"],
+		[0, "&osol;"],
+		[0, "&CircleDot;"],
+		[0, "&circledcirc;"],
+		[0, "&circledast;"],
+		[1, "&circleddash;"],
+		[0, "&boxplus;"],
+		[0, "&boxminus;"],
+		[0, "&boxtimes;"],
+		[0, "&dotsquare;"],
+		[0, "&RightTee;"],
+		[0, "&dashv;"],
+		[0, "&DownTee;"],
+		[0, "&bot;"],
+		[1, "&models;"],
+		[0, "&DoubleRightTee;"],
+		[0, "&Vdash;"],
+		[0, "&Vvdash;"],
+		[0, "&VDash;"],
+		[0, "&nvdash;"],
+		[0, "&nvDash;"],
+		[0, "&nVdash;"],
+		[0, "&nVDash;"],
+		[0, "&prurel;"],
+		[1, "&LeftTriangle;"],
+		[0, "&RightTriangle;"],
+		[0, {
+			v: "&LeftTriangleEqual;",
+			n: 8402,
+			o: "&nvltrie;"
+		}],
+		[0, {
+			v: "&RightTriangleEqual;",
+			n: 8402,
+			o: "&nvrtrie;"
+		}],
+		[0, "&origof;"],
+		[0, "&imof;"],
+		[0, "&multimap;"],
+		[0, "&hercon;"],
+		[0, "&intcal;"],
+		[0, "&veebar;"],
+		[1, "&barvee;"],
+		[0, "&angrtvb;"],
+		[0, "&lrtri;"],
+		[0, "&bigwedge;"],
+		[0, "&bigvee;"],
+		[0, "&bigcap;"],
+		[0, "&bigcup;"],
+		[0, "&diam;"],
+		[0, "&sdot;"],
+		[0, "&sstarf;"],
+		[0, "&divideontimes;"],
+		[0, "&bowtie;"],
+		[0, "&ltimes;"],
+		[0, "&rtimes;"],
+		[0, "&leftthreetimes;"],
+		[0, "&rightthreetimes;"],
+		[0, "&backsimeq;"],
+		[0, "&curlyvee;"],
+		[0, "&curlywedge;"],
+		[0, "&Sub;"],
+		[0, "&Sup;"],
+		[0, "&Cap;"],
+		[0, "&Cup;"],
+		[0, "&fork;"],
+		[0, "&epar;"],
+		[0, "&lessdot;"],
+		[0, "&gtdot;"],
+		[0, {
+			v: "&Ll;",
+			n: 824,
+			o: "&nLl;"
+		}],
+		[0, {
+			v: "&Gg;",
+			n: 824,
+			o: "&nGg;"
+		}],
+		[0, {
+			v: "&leg;",
+			n: 65024,
+			o: "&lesg;"
+		}],
+		[0, {
+			v: "&gel;",
+			n: 65024,
+			o: "&gesl;"
+		}],
+		[2, "&cuepr;"],
+		[0, "&cuesc;"],
+		[0, "&NotPrecedesSlantEqual;"],
+		[0, "&NotSucceedsSlantEqual;"],
+		[0, "&NotSquareSubsetEqual;"],
+		[0, "&NotSquareSupersetEqual;"],
+		[2, "&lnsim;"],
+		[0, "&gnsim;"],
+		[0, "&precnsim;"],
+		[0, "&scnsim;"],
+		[0, "&nltri;"],
+		[0, "&NotRightTriangle;"],
+		[0, "&nltrie;"],
+		[0, "&NotRightTriangleEqual;"],
+		[0, "&vellip;"],
+		[0, "&ctdot;"],
+		[0, "&utdot;"],
+		[0, "&dtdot;"],
+		[0, "&disin;"],
+		[0, "&isinsv;"],
+		[0, "&isins;"],
+		[0, {
+			v: "&isindot;",
+			n: 824,
+			o: "&notindot;"
+		}],
+		[0, "&notinvc;"],
+		[0, "&notinvb;"],
+		[1, {
+			v: "&isinE;",
+			n: 824,
+			o: "&notinE;"
+		}],
+		[0, "&nisd;"],
+		[0, "&xnis;"],
+		[0, "&nis;"],
+		[0, "&notnivc;"],
+		[0, "&notnivb;"],
+		[6, "&barwed;"],
+		[0, "&Barwed;"],
+		[1, "&lceil;"],
+		[0, "&rceil;"],
+		[0, "&LeftFloor;"],
+		[0, "&rfloor;"],
+		[0, "&drcrop;"],
+		[0, "&dlcrop;"],
+		[0, "&urcrop;"],
+		[0, "&ulcrop;"],
+		[0, "&bnot;"],
+		[1, "&profline;"],
+		[0, "&profsurf;"],
+		[1, "&telrec;"],
+		[0, "&target;"],
+		[5, "&ulcorn;"],
+		[0, "&urcorn;"],
+		[0, "&dlcorn;"],
+		[0, "&drcorn;"],
+		[2, "&frown;"],
+		[0, "&smile;"],
+		[9, "&cylcty;"],
+		[0, "&profalar;"],
+		[7, "&topbot;"],
+		[6, "&ovbar;"],
+		[1, "&solbar;"],
+		[60, "&angzarr;"],
+		[51, "&lmoustache;"],
+		[0, "&rmoustache;"],
+		[2, "&OverBracket;"],
+		[0, "&bbrk;"],
+		[0, "&bbrktbrk;"],
+		[37, "&OverParenthesis;"],
+		[0, "&UnderParenthesis;"],
+		[0, "&OverBrace;"],
+		[0, "&UnderBrace;"],
+		[2, "&trpezium;"],
+		[4, "&elinters;"],
+		[59, "&blank;"],
+		[164, "&circledS;"],
+		[55, "&boxh;"],
+		[1, "&boxv;"],
+		[9, "&boxdr;"],
+		[3, "&boxdl;"],
+		[3, "&boxur;"],
+		[3, "&boxul;"],
+		[3, "&boxvr;"],
+		[7, "&boxvl;"],
+		[7, "&boxhd;"],
+		[7, "&boxhu;"],
+		[7, "&boxvh;"],
+		[19, "&boxH;"],
+		[0, "&boxV;"],
+		[0, "&boxdR;"],
+		[0, "&boxDr;"],
+		[0, "&boxDR;"],
+		[0, "&boxdL;"],
+		[0, "&boxDl;"],
+		[0, "&boxDL;"],
+		[0, "&boxuR;"],
+		[0, "&boxUr;"],
+		[0, "&boxUR;"],
+		[0, "&boxuL;"],
+		[0, "&boxUl;"],
+		[0, "&boxUL;"],
+		[0, "&boxvR;"],
+		[0, "&boxVr;"],
+		[0, "&boxVR;"],
+		[0, "&boxvL;"],
+		[0, "&boxVl;"],
+		[0, "&boxVL;"],
+		[0, "&boxHd;"],
+		[0, "&boxhD;"],
+		[0, "&boxHD;"],
+		[0, "&boxHu;"],
+		[0, "&boxhU;"],
+		[0, "&boxHU;"],
+		[0, "&boxvH;"],
+		[0, "&boxVh;"],
+		[0, "&boxVH;"],
+		[19, "&uhblk;"],
+		[3, "&lhblk;"],
+		[3, "&block;"],
+		[8, "&blk14;"],
+		[0, "&blk12;"],
+		[0, "&blk34;"],
+		[13, "&square;"],
+		[8, "&blacksquare;"],
+		[0, "&EmptyVerySmallSquare;"],
+		[1, "&rect;"],
+		[0, "&marker;"],
+		[2, "&fltns;"],
+		[1, "&bigtriangleup;"],
+		[0, "&blacktriangle;"],
+		[0, "&triangle;"],
+		[2, "&blacktriangleright;"],
+		[0, "&rtri;"],
+		[3, "&bigtriangledown;"],
+		[0, "&blacktriangledown;"],
+		[0, "&dtri;"],
+		[2, "&blacktriangleleft;"],
+		[0, "&ltri;"],
+		[6, "&loz;"],
+		[0, "&cir;"],
+		[32, "&tridot;"],
+		[2, "&bigcirc;"],
+		[8, "&ultri;"],
+		[0, "&urtri;"],
+		[0, "&lltri;"],
+		[0, "&EmptySmallSquare;"],
+		[0, "&FilledSmallSquare;"],
+		[8, "&bigstar;"],
+		[0, "&star;"],
+		[7, "&phone;"],
+		[49, "&female;"],
+		[1, "&male;"],
+		[29, "&spades;"],
+		[2, "&clubs;"],
+		[1, "&hearts;"],
+		[0, "&diamondsuit;"],
+		[3, "&sung;"],
+		[2, "&flat;"],
+		[0, "&natural;"],
+		[0, "&sharp;"],
+		[163, "&check;"],
+		[3, "&cross;"],
+		[8, "&malt;"],
+		[21, "&sext;"],
+		[33, "&VerticalSeparator;"],
+		[25, "&lbbrk;"],
+		[0, "&rbbrk;"],
+		[84, "&bsolhsub;"],
+		[0, "&suphsol;"],
+		[28, "&LeftDoubleBracket;"],
+		[0, "&RightDoubleBracket;"],
+		[0, "&lang;"],
+		[0, "&rang;"],
+		[0, "&Lang;"],
+		[0, "&Rang;"],
+		[0, "&loang;"],
+		[0, "&roang;"],
+		[7, "&longleftarrow;"],
+		[0, "&longrightarrow;"],
+		[0, "&longleftrightarrow;"],
+		[0, "&DoubleLongLeftArrow;"],
+		[0, "&DoubleLongRightArrow;"],
+		[0, "&DoubleLongLeftRightArrow;"],
+		[1, "&longmapsto;"],
+		[2, "&dzigrarr;"],
+		[258, "&nvlArr;"],
+		[0, "&nvrArr;"],
+		[0, "&nvHarr;"],
+		[0, "&Map;"],
+		[6, "&lbarr;"],
+		[0, "&bkarow;"],
+		[0, "&lBarr;"],
+		[0, "&dbkarow;"],
+		[0, "&drbkarow;"],
+		[0, "&DDotrahd;"],
+		[0, "&UpArrowBar;"],
+		[0, "&DownArrowBar;"],
+		[2, "&Rarrtl;"],
+		[2, "&latail;"],
+		[0, "&ratail;"],
+		[0, "&lAtail;"],
+		[0, "&rAtail;"],
+		[0, "&larrfs;"],
+		[0, "&rarrfs;"],
+		[0, "&larrbfs;"],
+		[0, "&rarrbfs;"],
+		[2, "&nwarhk;"],
+		[0, "&nearhk;"],
+		[0, "&hksearow;"],
+		[0, "&hkswarow;"],
+		[0, "&nwnear;"],
+		[0, "&nesear;"],
+		[0, "&seswar;"],
+		[0, "&swnwar;"],
+		[8, {
+			v: "&rarrc;",
+			n: 824,
+			o: "&nrarrc;"
+		}],
+		[1, "&cudarrr;"],
+		[0, "&ldca;"],
+		[0, "&rdca;"],
+		[0, "&cudarrl;"],
+		[0, "&larrpl;"],
+		[2, "&curarrm;"],
+		[0, "&cularrp;"],
+		[7, "&rarrpl;"],
+		[2, "&harrcir;"],
+		[0, "&Uarrocir;"],
+		[0, "&lurdshar;"],
+		[0, "&ldrushar;"],
+		[2, "&LeftRightVector;"],
+		[0, "&RightUpDownVector;"],
+		[0, "&DownLeftRightVector;"],
+		[0, "&LeftUpDownVector;"],
+		[0, "&LeftVectorBar;"],
+		[0, "&RightVectorBar;"],
+		[0, "&RightUpVectorBar;"],
+		[0, "&RightDownVectorBar;"],
+		[0, "&DownLeftVectorBar;"],
+		[0, "&DownRightVectorBar;"],
+		[0, "&LeftUpVectorBar;"],
+		[0, "&LeftDownVectorBar;"],
+		[0, "&LeftTeeVector;"],
+		[0, "&RightTeeVector;"],
+		[0, "&RightUpTeeVector;"],
+		[0, "&RightDownTeeVector;"],
+		[0, "&DownLeftTeeVector;"],
+		[0, "&DownRightTeeVector;"],
+		[0, "&LeftUpTeeVector;"],
+		[0, "&LeftDownTeeVector;"],
+		[0, "&lHar;"],
+		[0, "&uHar;"],
+		[0, "&rHar;"],
+		[0, "&dHar;"],
+		[0, "&luruhar;"],
+		[0, "&ldrdhar;"],
+		[0, "&ruluhar;"],
+		[0, "&rdldhar;"],
+		[0, "&lharul;"],
+		[0, "&llhard;"],
+		[0, "&rharul;"],
+		[0, "&lrhard;"],
+		[0, "&udhar;"],
+		[0, "&duhar;"],
+		[0, "&RoundImplies;"],
+		[0, "&erarr;"],
+		[0, "&simrarr;"],
+		[0, "&larrsim;"],
+		[0, "&rarrsim;"],
+		[0, "&rarrap;"],
+		[0, "&ltlarr;"],
+		[1, "&gtrarr;"],
+		[0, "&subrarr;"],
+		[1, "&suplarr;"],
+		[0, "&lfisht;"],
+		[0, "&rfisht;"],
+		[0, "&ufisht;"],
+		[0, "&dfisht;"],
+		[5, "&lopar;"],
+		[0, "&ropar;"],
+		[4, "&lbrke;"],
+		[0, "&rbrke;"],
+		[0, "&lbrkslu;"],
+		[0, "&rbrksld;"],
+		[0, "&lbrksld;"],
+		[0, "&rbrkslu;"],
+		[0, "&langd;"],
+		[0, "&rangd;"],
+		[0, "&lparlt;"],
+		[0, "&rpargt;"],
+		[0, "&gtlPar;"],
+		[0, "&ltrPar;"],
+		[3, "&vzigzag;"],
+		[1, "&vangrt;"],
+		[0, "&angrtvbd;"],
+		[6, "&ange;"],
+		[0, "&range;"],
+		[0, "&dwangle;"],
+		[0, "&uwangle;"],
+		[0, "&angmsdaa;"],
+		[0, "&angmsdab;"],
+		[0, "&angmsdac;"],
+		[0, "&angmsdad;"],
+		[0, "&angmsdae;"],
+		[0, "&angmsdaf;"],
+		[0, "&angmsdag;"],
+		[0, "&angmsdah;"],
+		[0, "&bemptyv;"],
+		[0, "&demptyv;"],
+		[0, "&cemptyv;"],
+		[0, "&raemptyv;"],
+		[0, "&laemptyv;"],
+		[0, "&ohbar;"],
+		[0, "&omid;"],
+		[0, "&opar;"],
+		[1, "&operp;"],
+		[1, "&olcross;"],
+		[0, "&odsold;"],
+		[1, "&olcir;"],
+		[0, "&ofcir;"],
+		[0, "&olt;"],
+		[0, "&ogt;"],
+		[0, "&cirscir;"],
+		[0, "&cirE;"],
+		[0, "&solb;"],
+		[0, "&bsolb;"],
+		[3, "&boxbox;"],
+		[3, "&trisb;"],
+		[0, "&rtriltri;"],
+		[0, {
+			v: "&LeftTriangleBar;",
+			n: 824,
+			o: "&NotLeftTriangleBar;"
+		}],
+		[0, {
+			v: "&RightTriangleBar;",
+			n: 824,
+			o: "&NotRightTriangleBar;"
+		}],
+		[11, "&iinfin;"],
+		[0, "&infintie;"],
+		[0, "&nvinfin;"],
+		[4, "&eparsl;"],
+		[0, "&smeparsl;"],
+		[0, "&eqvparsl;"],
+		[5, "&blacklozenge;"],
+		[8, "&RuleDelayed;"],
+		[1, "&dsol;"],
+		[9, "&bigodot;"],
+		[0, "&bigoplus;"],
+		[0, "&bigotimes;"],
+		[1, "&biguplus;"],
+		[1, "&bigsqcup;"],
+		[5, "&iiiint;"],
+		[0, "&fpartint;"],
+		[2, "&cirfnint;"],
+		[0, "&awint;"],
+		[0, "&rppolint;"],
+		[0, "&scpolint;"],
+		[0, "&npolint;"],
+		[0, "&pointint;"],
+		[0, "&quatint;"],
+		[0, "&intlarhk;"],
+		[10, "&pluscir;"],
+		[0, "&plusacir;"],
+		[0, "&simplus;"],
+		[0, "&plusdu;"],
+		[0, "&plussim;"],
+		[0, "&plustwo;"],
+		[1, "&mcomma;"],
+		[0, "&minusdu;"],
+		[2, "&loplus;"],
+		[0, "&roplus;"],
+		[0, "&Cross;"],
+		[0, "&timesd;"],
+		[0, "&timesbar;"],
+		[1, "&smashp;"],
+		[0, "&lotimes;"],
+		[0, "&rotimes;"],
+		[0, "&otimesas;"],
+		[0, "&Otimes;"],
+		[0, "&odiv;"],
+		[0, "&triplus;"],
+		[0, "&triminus;"],
+		[0, "&tritime;"],
+		[0, "&intprod;"],
+		[2, "&amalg;"],
+		[0, "&capdot;"],
+		[1, "&ncup;"],
+		[0, "&ncap;"],
+		[0, "&capand;"],
+		[0, "&cupor;"],
+		[0, "&cupcap;"],
+		[0, "&capcup;"],
+		[0, "&cupbrcap;"],
+		[0, "&capbrcup;"],
+		[0, "&cupcup;"],
+		[0, "&capcap;"],
+		[0, "&ccups;"],
+		[0, "&ccaps;"],
+		[2, "&ccupssm;"],
+		[2, "&And;"],
+		[0, "&Or;"],
+		[0, "&andand;"],
+		[0, "&oror;"],
+		[0, "&orslope;"],
+		[0, "&andslope;"],
+		[1, "&andv;"],
+		[0, "&orv;"],
+		[0, "&andd;"],
+		[0, "&ord;"],
+		[1, "&wedbar;"],
+		[6, "&sdote;"],
+		[3, "&simdot;"],
+		[2, {
+			v: "&congdot;",
+			n: 824,
+			o: "&ncongdot;"
+		}],
+		[0, "&easter;"],
+		[0, "&apacir;"],
+		[0, {
+			v: "&apE;",
+			n: 824,
+			o: "&napE;"
+		}],
+		[0, "&eplus;"],
+		[0, "&pluse;"],
+		[0, "&Esim;"],
+		[0, "&Colone;"],
+		[0, "&Equal;"],
+		[1, "&ddotseq;"],
+		[0, "&equivDD;"],
+		[0, "&ltcir;"],
+		[0, "&gtcir;"],
+		[0, "&ltquest;"],
+		[0, "&gtquest;"],
+		[0, {
+			v: "&leqslant;",
+			n: 824,
+			o: "&nleqslant;"
+		}],
+		[0, {
+			v: "&geqslant;",
+			n: 824,
+			o: "&ngeqslant;"
+		}],
+		[0, "&lesdot;"],
+		[0, "&gesdot;"],
+		[0, "&lesdoto;"],
+		[0, "&gesdoto;"],
+		[0, "&lesdotor;"],
+		[0, "&gesdotol;"],
+		[0, "&lap;"],
+		[0, "&gap;"],
+		[0, "&lne;"],
+		[0, "&gne;"],
+		[0, "&lnap;"],
+		[0, "&gnap;"],
+		[0, "&lEg;"],
+		[0, "&gEl;"],
+		[0, "&lsime;"],
+		[0, "&gsime;"],
+		[0, "&lsimg;"],
+		[0, "&gsiml;"],
+		[0, "&lgE;"],
+		[0, "&glE;"],
+		[0, "&lesges;"],
+		[0, "&gesles;"],
+		[0, "&els;"],
+		[0, "&egs;"],
+		[0, "&elsdot;"],
+		[0, "&egsdot;"],
+		[0, "&el;"],
+		[0, "&eg;"],
+		[2, "&siml;"],
+		[0, "&simg;"],
+		[0, "&simlE;"],
+		[0, "&simgE;"],
+		[0, {
+			v: "&LessLess;",
+			n: 824,
+			o: "&NotNestedLessLess;"
+		}],
+		[0, {
+			v: "&GreaterGreater;",
+			n: 824,
+			o: "&NotNestedGreaterGreater;"
+		}],
+		[1, "&glj;"],
+		[0, "&gla;"],
+		[0, "&ltcc;"],
+		[0, "&gtcc;"],
+		[0, "&lescc;"],
+		[0, "&gescc;"],
+		[0, "&smt;"],
+		[0, "&lat;"],
+		[0, {
+			v: "&smte;",
+			n: 65024,
+			o: "&smtes;"
+		}],
+		[0, {
+			v: "&late;",
+			n: 65024,
+			o: "&lates;"
+		}],
+		[0, "&bumpE;"],
+		[0, {
+			v: "&PrecedesEqual;",
+			n: 824,
+			o: "&NotPrecedesEqual;"
+		}],
+		[0, {
+			v: "&sce;",
+			n: 824,
+			o: "&NotSucceedsEqual;"
+		}],
+		[2, "&prE;"],
+		[0, "&scE;"],
+		[0, "&precneqq;"],
+		[0, "&scnE;"],
+		[0, "&prap;"],
+		[0, "&scap;"],
+		[0, "&precnapprox;"],
+		[0, "&scnap;"],
+		[0, "&Pr;"],
+		[0, "&Sc;"],
+		[0, "&subdot;"],
+		[0, "&supdot;"],
+		[0, "&subplus;"],
+		[0, "&supplus;"],
+		[0, "&submult;"],
+		[0, "&supmult;"],
+		[0, "&subedot;"],
+		[0, "&supedot;"],
+		[0, {
+			v: "&subE;",
+			n: 824,
+			o: "&nsubE;"
+		}],
+		[0, {
+			v: "&supE;",
+			n: 824,
+			o: "&nsupE;"
+		}],
+		[0, "&subsim;"],
+		[0, "&supsim;"],
+		[2, {
+			v: "&subnE;",
+			n: 65024,
+			o: "&varsubsetneqq;"
+		}],
+		[0, {
+			v: "&supnE;",
+			n: 65024,
+			o: "&varsupsetneqq;"
+		}],
+		[2, "&csub;"],
+		[0, "&csup;"],
+		[0, "&csube;"],
+		[0, "&csupe;"],
+		[0, "&subsup;"],
+		[0, "&supsub;"],
+		[0, "&subsub;"],
+		[0, "&supsup;"],
+		[0, "&suphsub;"],
+		[0, "&supdsub;"],
+		[0, "&forkv;"],
+		[0, "&topfork;"],
+		[0, "&mlcp;"],
+		[8, "&Dashv;"],
+		[1, "&Vdashl;"],
+		[0, "&Barv;"],
+		[0, "&vBar;"],
+		[0, "&vBarv;"],
+		[1, "&Vbar;"],
+		[0, "&Not;"],
+		[0, "&bNot;"],
+		[0, "&rnmid;"],
+		[0, "&cirmid;"],
+		[0, "&midcir;"],
+		[0, "&topcir;"],
+		[0, "&nhpar;"],
+		[0, "&parsim;"],
+		[9, {
+			v: "&parsl;",
+			n: 8421,
+			o: "&nparsl;"
+		}],
+		[44343, { n: new Map(
+			/* #__PURE__ */ restoreDiff([
+				[56476, "&Ascr;"],
+				[1, "&Cscr;"],
+				[0, "&Dscr;"],
+				[2, "&Gscr;"],
+				[2, "&Jscr;"],
+				[0, "&Kscr;"],
+				[2, "&Nscr;"],
+				[0, "&Oscr;"],
+				[0, "&Pscr;"],
+				[0, "&Qscr;"],
+				[1, "&Sscr;"],
+				[0, "&Tscr;"],
+				[0, "&Uscr;"],
+				[0, "&Vscr;"],
+				[0, "&Wscr;"],
+				[0, "&Xscr;"],
+				[0, "&Yscr;"],
+				[0, "&Zscr;"],
+				[0, "&ascr;"],
+				[0, "&bscr;"],
+				[0, "&cscr;"],
+				[0, "&dscr;"],
+				[1, "&fscr;"],
+				[1, "&hscr;"],
+				[0, "&iscr;"],
+				[0, "&jscr;"],
+				[0, "&kscr;"],
+				[0, "&lscr;"],
+				[0, "&mscr;"],
+				[0, "&nscr;"],
+				[1, "&pscr;"],
+				[0, "&qscr;"],
+				[0, "&rscr;"],
+				[0, "&sscr;"],
+				[0, "&tscr;"],
+				[0, "&uscr;"],
+				[0, "&vscr;"],
+				[0, "&wscr;"],
+				[0, "&xscr;"],
+				[0, "&yscr;"],
+				[0, "&zscr;"],
+				[52, "&Afr;"],
+				[0, "&Bfr;"],
+				[1, "&Dfr;"],
+				[0, "&Efr;"],
+				[0, "&Ffr;"],
+				[0, "&Gfr;"],
+				[2, "&Jfr;"],
+				[0, "&Kfr;"],
+				[0, "&Lfr;"],
+				[0, "&Mfr;"],
+				[0, "&Nfr;"],
+				[0, "&Ofr;"],
+				[0, "&Pfr;"],
+				[0, "&Qfr;"],
+				[1, "&Sfr;"],
+				[0, "&Tfr;"],
+				[0, "&Ufr;"],
+				[0, "&Vfr;"],
+				[0, "&Wfr;"],
+				[0, "&Xfr;"],
+				[0, "&Yfr;"],
+				[1, "&afr;"],
+				[0, "&bfr;"],
+				[0, "&cfr;"],
+				[0, "&dfr;"],
+				[0, "&efr;"],
+				[0, "&ffr;"],
+				[0, "&gfr;"],
+				[0, "&hfr;"],
+				[0, "&ifr;"],
+				[0, "&jfr;"],
+				[0, "&kfr;"],
+				[0, "&lfr;"],
+				[0, "&mfr;"],
+				[0, "&nfr;"],
+				[0, "&ofr;"],
+				[0, "&pfr;"],
+				[0, "&qfr;"],
+				[0, "&rfr;"],
+				[0, "&sfr;"],
+				[0, "&tfr;"],
+				[0, "&ufr;"],
+				[0, "&vfr;"],
+				[0, "&wfr;"],
+				[0, "&xfr;"],
+				[0, "&yfr;"],
+				[0, "&zfr;"],
+				[0, "&Aopf;"],
+				[0, "&Bopf;"],
+				[1, "&Dopf;"],
+				[0, "&Eopf;"],
+				[0, "&Fopf;"],
+				[0, "&Gopf;"],
+				[1, "&Iopf;"],
+				[0, "&Jopf;"],
+				[0, "&Kopf;"],
+				[0, "&Lopf;"],
+				[0, "&Mopf;"],
+				[1, "&Oopf;"],
+				[3, "&Sopf;"],
+				[0, "&Topf;"],
+				[0, "&Uopf;"],
+				[0, "&Vopf;"],
+				[0, "&Wopf;"],
+				[0, "&Xopf;"],
+				[0, "&Yopf;"],
+				[1, "&aopf;"],
+				[0, "&bopf;"],
+				[0, "&copf;"],
+				[0, "&dopf;"],
+				[0, "&eopf;"],
+				[0, "&fopf;"],
+				[0, "&gopf;"],
+				[0, "&hopf;"],
+				[0, "&iopf;"],
+				[0, "&jopf;"],
+				[0, "&kopf;"],
+				[0, "&lopf;"],
+				[0, "&mopf;"],
+				[0, "&nopf;"],
+				[0, "&oopf;"],
+				[0, "&popf;"],
+				[0, "&qopf;"],
+				[0, "&ropf;"],
+				[0, "&sopf;"],
+				[0, "&topf;"],
+				[0, "&uopf;"],
+				[0, "&vopf;"],
+				[0, "&wopf;"],
+				[0, "&xopf;"],
+				[0, "&yopf;"],
+				[0, "&zopf;"]
+			])
+) }],
+		[8906, "&fflig;"],
+		[0, "&filig;"],
+		[0, "&fllig;"],
+		[0, "&ffilig;"],
+		[0, "&ffllig;"]
+	])
+);
 
+//#endregion
+//#region node_modules/.pnpm/entities@4.5.0/node_modules/entities/lib/esm/escape.js
 const xmlReplacer = /["&'<>$\x80-\uFFFF]/g;
 const xmlCodeMap = new Map([
 	[34, "&quot;"],
@@ -11079,41 +11183,25 @@ const xmlCodeMap = new Map([
 	[60, "&lt;"],
 	[62, "&gt;"]
 ]);
-const getCodePoint = String.prototype.codePointAt != null ? (str, index) => str.codePointAt(index) : (c, index) => (c.charCodeAt(index) & 64512) === 55296 ? (c.charCodeAt(index) - 55296) * 1024 + c.charCodeAt(index + 1) - 56320 + 65536 : c.charCodeAt(index);
-/**
-* Encodes all non-ASCII characters, as well as characters not valid in XML
-* documents using XML entities.
-*
-* If a character has no equivalent entity, a
-* numeric hexadecimal reference (eg. `&#xfc;`) will be used.
-*/
+const getCodePoint = String.prototype.codePointAt != null ? (str, index) => str.codePointAt(index) : (c$7, index) => (c$7.charCodeAt(index) & 64512) === 55296 ? (c$7.charCodeAt(index) - 55296) * 1024 + c$7.charCodeAt(index + 1) - 56320 + 65536 : c$7.charCodeAt(index);
 function encodeXML(str) {
 	let ret = "";
 	let lastIdx = 0;
 	let match;
 	while ((match = xmlReplacer.exec(str)) !== null) {
-		const i = match.index;
-		const char = str.charCodeAt(i);
+		const i$10 = match.index;
+		const char = str.charCodeAt(i$10);
 		const next = xmlCodeMap.get(char);
 		if (next !== undefined) {
-			ret += str.substring(lastIdx, i) + next;
-			lastIdx = i + 1;
+			ret += str.substring(lastIdx, i$10) + next;
+			lastIdx = i$10 + 1;
 		} else {
-			ret += `${str.substring(lastIdx, i)}&#x${getCodePoint(str, i).toString(16)};`;
+			ret += `${str.substring(lastIdx, i$10)}&#x${getCodePoint(str, i$10).toString(16)};`;
 			lastIdx = xmlReplacer.lastIndex += Number((char & 64512) === 55296);
 		}
 	}
 	return ret + str.substr(lastIdx);
 }
-/**
-* Encodes all non-ASCII characters, as well as characters not valid in XML
-* documents using numeric hexadecimal reference (eg. `&#xfc;`).
-*
-* Have a look at `escapeUTF8` if you want a more concise output at the expense
-* of reduced transportability.
-*
-* @param data String to escape.
-*/
 const escape$1 = encodeXML;
 /**
 * Creates a function that escapes all characters matched by the given regular
@@ -11125,8 +11213,8 @@ const escape$1 = encodeXML;
 * @returns Function that escapes all characters matched by the given regular
 * expression using the given map of characters to escape to their entities.
 */
-function getEscaper(regex, map) {
-	return function escape(data) {
+function getEscaper(regex, map$1) {
+	return function escape$2(data) {
 		let match;
 		let lastIdx = 0;
 		let result = "";
@@ -11134,37 +11222,18 @@ function getEscaper(regex, map) {
 			if (lastIdx !== match.index) {
 				result += data.substring(lastIdx, match.index);
 			}
-			result += map.get(match[0].charCodeAt(0));
+			result += map$1.get(match[0].charCodeAt(0));
 			lastIdx = match.index + 1;
 		}
 		return result + data.substring(lastIdx);
 	};
 }
-/**
-* Encodes all characters not valid in XML documents using XML entities.
-*
-* Note that the output will be character-set dependent.
-*
-* @param data String to escape.
-*/
 const escapeUTF8 = getEscaper(/[&<>'"]/g, xmlCodeMap);
-/**
-* Encodes all characters that have to be escaped in HTML attributes,
-* following {@link https://html.spec.whatwg.org/multipage/parsing.html#escapingString}.
-*
-* @param data String to escape.
-*/
 const escapeAttribute = getEscaper(/["&\u00A0]/g, new Map([
 	[34, "&quot;"],
 	[38, "&amp;"],
 	[160, "&nbsp;"]
 ]));
-/**
-* Encodes all characters that have to be escaped in HTML text,
-* following {@link https://html.spec.whatwg.org/multipage/parsing.html#escapingString}.
-*
-* @param data String to escape.
-*/
 const escapeText = getEscaper(/[&<>\u00A0]/g, new Map([
 	[38, "&amp;"],
 	[60, "&lt;"],
@@ -11172,29 +11241,12 @@ const escapeText = getEscaper(/[&<>\u00A0]/g, new Map([
 	[160, "&nbsp;"]
 ]));
 
+//#endregion
+//#region node_modules/.pnpm/entities@4.5.0/node_modules/entities/lib/esm/encode.js
 const htmlReplacer = /[\t\n!-,./:-@[-`\f{-}$\x80-\uFFFF]/g;
-/**
-* Encodes all characters in the input using HTML entities. This includes
-* characters that are valid ASCII characters in HTML documents, such as `#`.
-*
-* To get a more compact output, consider using the `encodeNonAsciiHTML`
-* function, which will only encode characters that are not valid in HTML
-* documents, as well as non-ASCII characters.
-*
-* If a character has no equivalent entity, a numeric hexadecimal reference
-* (eg. `&#xfc;`) will be used.
-*/
 function encodeHTML(data) {
 	return encodeHTMLTrieRe(htmlReplacer, data);
 }
-/**
-* Encodes all non-ASCII characters, as well as characters not valid in HTML
-* documents using HTML entities. This function will not encode characters that
-* are valid in HTML documents, such as `#`.
-*
-* If a character has no equivalent entity, a numeric hexadecimal reference
-* (eg. `&#xfc;`) will be used.
-*/
 function encodeNonAsciiHTML(data) {
 	return encodeHTMLTrieRe(xmlReplacer, data);
 }
@@ -11203,13 +11255,13 @@ function encodeHTMLTrieRe(regExp, str) {
 	let lastIdx = 0;
 	let match;
 	while ((match = regExp.exec(str)) !== null) {
-		const i = match.index;
-		ret += str.substring(lastIdx, i);
-		const char = str.charCodeAt(i);
+		const i$10 = match.index;
+		ret += str.substring(lastIdx, i$10);
+		const char = str.charCodeAt(i$10);
 		let next = encode_html_default.get(char);
 		if (typeof next === "object") {
-			if (i + 1 < str.length) {
-				const nextChar = str.charCodeAt(i + 1);
+			if (i$10 + 1 < str.length) {
+				const nextChar = str.charCodeAt(i$10 + 1);
 				const value = typeof next.n === "number" ? next.n === nextChar ? next.o : undefined : next.n.get(nextChar);
 				if (value !== undefined) {
 					ret += value;
@@ -11221,9 +11273,9 @@ function encodeHTMLTrieRe(regExp, str) {
 		}
 		if (next !== undefined) {
 			ret += next;
-			lastIdx = i + 1;
+			lastIdx = i$10 + 1;
 		} else {
-			const cp = getCodePoint(str, i);
+			const cp = getCodePoint(str, i$10);
 			ret += `&#x${cp.toString(16)};`;
 			lastIdx = regExp.lastIndex += Number(cp !== char);
 		}
@@ -11231,49 +11283,44 @@ function encodeHTMLTrieRe(regExp, str) {
 	return ret + str.substr(lastIdx);
 }
 
-/** The level of entities to support. */
+//#endregion
+//#region node_modules/.pnpm/entities@4.5.0/node_modules/entities/lib/esm/index.js
 var EntityLevel;
-(function(EntityLevel) {
+(function(EntityLevel$1) {
 	/** Support only XML entities. */
-	EntityLevel[EntityLevel["XML"] = 0] = "XML";
+	EntityLevel$1[EntityLevel$1["XML"] = 0] = "XML";
 	/** Support HTML entities, which are a superset of XML entities. */
-	EntityLevel[EntityLevel["HTML"] = 1] = "HTML";
+	EntityLevel$1[EntityLevel$1["HTML"] = 1] = "HTML";
 })(EntityLevel || (EntityLevel = {}));
 var EncodingMode;
-(function(EncodingMode) {
+(function(EncodingMode$1) {
 	/**
 	* The output is UTF-8 encoded. Only characters that need escaping within
 	* XML will be escaped.
 	*/
-	EncodingMode[EncodingMode["UTF8"] = 0] = "UTF8";
+	EncodingMode$1[EncodingMode$1["UTF8"] = 0] = "UTF8";
 	/**
 	* The output consists only of ASCII characters. Characters that need
 	* escaping within HTML, and characters that aren't ASCII characters will
 	* be escaped.
 	*/
-	EncodingMode[EncodingMode["ASCII"] = 1] = "ASCII";
+	EncodingMode$1[EncodingMode$1["ASCII"] = 1] = "ASCII";
 	/**
 	* Encode all characters that have an equivalent entity, as well as all
 	* characters that are not ASCII characters.
 	*/
-	EncodingMode[EncodingMode["Extensive"] = 2] = "Extensive";
+	EncodingMode$1[EncodingMode$1["Extensive"] = 2] = "Extensive";
 	/**
 	* Encode all characters that have to be escaped in HTML attributes,
 	* following {@link https://html.spec.whatwg.org/multipage/parsing.html#escapingString}.
 	*/
-	EncodingMode[EncodingMode["Attribute"] = 3] = "Attribute";
+	EncodingMode$1[EncodingMode$1["Attribute"] = 3] = "Attribute";
 	/**
 	* Encode all characters that have to be escaped in HTML text,
 	* following {@link https://html.spec.whatwg.org/multipage/parsing.html#escapingString}.
 	*/
-	EncodingMode[EncodingMode["Text"] = 4] = "Text";
+	EncodingMode$1[EncodingMode$1["Text"] = 4] = "Text";
 })(EncodingMode || (EncodingMode = {}));
-/**
-* Decodes a string with entities.
-*
-* @param data String to decode.
-* @param options Decoding options.
-*/
 function decode$1(data, options = EntityLevel.XML) {
 	const level = typeof options === "number" ? options : options.level;
 	if (level === EntityLevel.HTML) {
@@ -11282,25 +11329,12 @@ function decode$1(data, options = EntityLevel.XML) {
 	}
 	return decodeXML(data);
 }
-/**
-* Decodes a string with entities. Does not allow missing trailing semicolons for entities.
-*
-* @param data String to decode.
-* @param options Decoding options.
-* @deprecated Use `decode` with the `mode` set to `Strict`.
-*/
 function decodeStrict(data, options = EntityLevel.XML) {
-	var _a;
+	var _a$1;
 	const opts = typeof options === "number" ? { level: options } : options;
-	(_a = opts.mode) !== null && _a !== void 0 ? _a : opts.mode = DecodingMode.Strict;
+	(_a$1 = opts.mode) !== null && _a$1 !== void 0 ? _a$1 : opts.mode = DecodingMode.Strict;
 	return decode$1(data, opts);
 }
-/**
-* Encodes a string with entities.
-*
-* @param data String to encode.
-* @param options Encoding options.
-*/
 function encode$1(data, options = EntityLevel.XML) {
 	const opts = typeof options === "number" ? { level: options } : options;
 	if (opts.mode === EncodingMode.UTF8) return escapeUTF8(data);
@@ -11315,7 +11349,10 @@ function encode$1(data, options = EntityLevel.XML) {
 	return encodeXML(data);
 }
 
-var utils_exports = /* @__PURE__ */ __exportAll({
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/common/utils.mjs
+var utils_exports$1 = {};
+__export(utils_exports$1, {
 	arrayReplaceAt: () => arrayReplaceAt,
 	assign: () => assign$1,
 	escapeHtml: () => escapeHtml,
@@ -11361,41 +11398,41 @@ function assign$1(obj) {
 function arrayReplaceAt(src, pos, newElements) {
 	return [].concat(src.slice(0, pos), newElements, src.slice(pos + 1));
 }
-function isValidEntityCode(c) {
-	if (c >= 55296 && c <= 57343) {
+function isValidEntityCode(c$7) {
+	if (c$7 >= 55296 && c$7 <= 57343) {
 		return false;
 	}
-	if (c >= 64976 && c <= 65007) {
+	if (c$7 >= 64976 && c$7 <= 65007) {
 		return false;
 	}
-	if ((c & 65535) === 65535 || (c & 65535) === 65534) {
+	if ((c$7 & 65535) === 65535 || (c$7 & 65535) === 65534) {
 		return false;
 	}
-	if (c >= 0 && c <= 8) {
+	if (c$7 >= 0 && c$7 <= 8) {
 		return false;
 	}
-	if (c === 11) {
+	if (c$7 === 11) {
 		return false;
 	}
-	if (c >= 14 && c <= 31) {
+	if (c$7 >= 14 && c$7 <= 31) {
 		return false;
 	}
-	if (c >= 127 && c <= 159) {
+	if (c$7 >= 127 && c$7 <= 159) {
 		return false;
 	}
-	if (c > 1114111) {
+	if (c$7 > 1114111) {
 		return false;
 	}
 	return true;
 }
-function fromCodePoint(c) {
-	if (c > 65535) {
-		c -= 65536;
-		const surrogate1 = 55296 + (c >> 10);
-		const surrogate2 = 56320 + (c & 1023);
+function fromCodePoint(c$7) {
+	if (c$7 > 65535) {
+		c$7 -= 65536;
+		const surrogate1 = 55296 + (c$7 >> 10);
+		const surrogate2 = 56320 + (c$7 & 1023);
 		return String.fromCharCode(surrogate1, surrogate2);
 	}
-	return String.fromCharCode(c);
+	return String.fromCharCode(c$7);
 }
 const UNESCAPE_MD_RE = /\\([!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])/g;
 const ENTITY_RE = /&([a-z#][a-z0-9]{1,31});/gi;
@@ -11403,9 +11440,9 @@ const UNESCAPE_ALL_RE = new RegExp(UNESCAPE_MD_RE.source + "|" + ENTITY_RE.sourc
 const DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))$/i;
 function replaceEntityPattern(match, name) {
 	if (name.charCodeAt(0) === 35 && DIGITAL_ENTITY_TEST_RE.test(name)) {
-		const code = name[1].toLowerCase() === "x" ? parseInt(name.slice(2), 16) : parseInt(name.slice(1), 10);
-		if (isValidEntityCode(code)) {
-			return fromCodePoint(code);
+		const code$1 = name[1].toLowerCase() === "x" ? parseInt(name.slice(2), 16) : parseInt(name.slice(1), 10);
+		if (isValidEntityCode(code$1)) {
+			return fromCodePoint(code$1);
 		}
 		return match;
 	}
@@ -11425,11 +11462,11 @@ function unescapeAll(str) {
 	if (str.indexOf("\\") < 0 && str.indexOf("&") < 0) {
 		return str;
 	}
-	return str.replace(UNESCAPE_ALL_RE, function(match, escaped, entity) {
+	return str.replace(UNESCAPE_ALL_RE, function(match, escaped, entity$1) {
 		if (escaped) {
 			return escaped;
 		}
-		return replaceEntityPattern(match, entity);
+		return replaceEntityPattern(match, entity$1);
 	});
 }
 const HTML_ESCAPE_TEST_RE = /[&<>"]/;
@@ -11453,18 +11490,18 @@ const REGEXP_ESCAPE_RE = /[.?*+^$[\]\\(){}|-]/g;
 function escapeRE$1(str) {
 	return str.replace(REGEXP_ESCAPE_RE, "\\$&");
 }
-function isSpace(code) {
-	switch (code) {
+function isSpace(code$1) {
+	switch (code$1) {
 		case 9:
 		case 32: return true;
 	}
 	return false;
 }
-function isWhiteSpace(code) {
-	if (code >= 8192 && code <= 8202) {
+function isWhiteSpace(code$1) {
+	if (code$1 >= 8192 && code$1 <= 8202) {
 		return true;
 	}
-	switch (code) {
+	switch (code$1) {
 		case 9:
 		case 10:
 		case 11:
@@ -11480,7 +11517,7 @@ function isWhiteSpace(code) {
 	return false;
 }
 function isPunctChar(ch) {
-	return regex_default$2.test(ch) || regex_default$1.test(ch);
+	return regex_default$3.test(ch) || regex_default$5.test(ch);
 }
 function isMdAsciiPunct(ch) {
 	switch (ch) {
@@ -11531,6 +11568,8 @@ const lib = {
 	ucmicro: uc_exports
 };
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/helpers/parse_link_label.mjs
 function parseLinkLabel(state, start, disableNested) {
 	let level, found, marker, prevPos;
 	const max = state.posMax;
@@ -11565,8 +11604,10 @@ function parseLinkLabel(state, start, disableNested) {
 	return labelEnd;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/helpers/parse_link_destination.mjs
 function parseLinkDestination(str, start, max) {
-	let code;
+	let code$1;
 	let pos = start;
 	const result = {
 		ok: false,
@@ -11576,20 +11617,20 @@ function parseLinkDestination(str, start, max) {
 	if (str.charCodeAt(pos) === 60) {
 		pos++;
 		while (pos < max) {
-			code = str.charCodeAt(pos);
-			if (code === 10) {
+			code$1 = str.charCodeAt(pos);
+			if (code$1 === 10) {
 				return result;
 			}
-			if (code === 60) {
+			if (code$1 === 60) {
 				return result;
 			}
-			if (code === 62) {
+			if (code$1 === 62) {
 				result.pos = pos + 1;
 				result.str = unescapeAll(str.slice(start + 1, pos));
 				result.ok = true;
 				return result;
 			}
-			if (code === 92 && pos + 1 < max) {
+			if (code$1 === 92 && pos + 1 < max) {
 				pos += 2;
 				continue;
 			}
@@ -11599,27 +11640,27 @@ function parseLinkDestination(str, start, max) {
 	}
 	let level = 0;
 	while (pos < max) {
-		code = str.charCodeAt(pos);
-		if (code === 32) {
+		code$1 = str.charCodeAt(pos);
+		if (code$1 === 32) {
 			break;
 		}
-		if (code < 32 || code === 127) {
+		if (code$1 < 32 || code$1 === 127) {
 			break;
 		}
-		if (code === 92 && pos + 1 < max) {
+		if (code$1 === 92 && pos + 1 < max) {
 			if (str.charCodeAt(pos + 1) === 32) {
 				break;
 			}
 			pos += 2;
 			continue;
 		}
-		if (code === 40) {
+		if (code$1 === 40) {
 			level++;
 			if (level > 32) {
 				return result;
 			}
 		}
-		if (code === 41) {
+		if (code$1 === 41) {
 			if (level === 0) {
 				break;
 			}
@@ -11639,8 +11680,10 @@ function parseLinkDestination(str, start, max) {
 	return result;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/helpers/parse_link_title.mjs
 function parseLinkTitle(str, start, max, prev_state) {
-	let code;
+	let code$1;
 	let pos = start;
 	const state = {
 		ok: false,
@@ -11668,15 +11711,15 @@ function parseLinkTitle(str, start, max, prev_state) {
 		state.marker = marker;
 	}
 	while (pos < max) {
-		code = str.charCodeAt(pos);
-		if (code === state.marker) {
+		code$1 = str.charCodeAt(pos);
+		if (code$1 === state.marker) {
 			state.pos = pos + 1;
 			state.str += unescapeAll(str.slice(start, pos));
 			state.ok = true;
 			return state;
-		} else if (code === 40 && state.marker === 41) {
+		} else if (code$1 === 40 && state.marker === 41) {
 			return state;
-		} else if (code === 92 && pos + 1 < max) {
+		} else if (code$1 === 92 && pos + 1 < max) {
 			pos++;
 		}
 		pos++;
@@ -11686,19 +11729,17 @@ function parseLinkTitle(str, start, max, prev_state) {
 	return state;
 }
 
-var helpers_exports = /* @__PURE__ */ __exportAll({
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/helpers/index.mjs
+var helpers_exports = {};
+__export(helpers_exports, {
 	parseLinkDestination: () => parseLinkDestination,
 	parseLinkLabel: () => parseLinkLabel,
 	parseLinkTitle: () => parseLinkTitle
 });
 
-/**
-* class Renderer
-*
-* Generates HTML from parsed token stream. Each instance has independent
-* copy of rules. Those can be rewritten with ease. Also, you can add new
-* rules if you create plugin and adds new token types.
-**/
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/renderer.mjs
 const default_rules = {};
 default_rules.code_inline = function(tokens, idx, options, env, slf) {
 	const token = tokens[idx];
@@ -11728,13 +11769,13 @@ default_rules.fence = function(tokens, idx, options, env, slf) {
 		return highlighted + "\n";
 	}
 	if (info) {
-		const i = token.attrIndex("class");
+		const i$10 = token.attrIndex("class");
 		const tmpAttrs = token.attrs ? token.attrs.slice() : [];
-		if (i < 0) {
+		if (i$10 < 0) {
 			tmpAttrs.push(["class", options.langPrefix + langName]);
 		} else {
-			tmpAttrs[i] = tmpAttrs[i].slice();
-			tmpAttrs[i][1] += " " + options.langPrefix + langName;
+			tmpAttrs[i$10] = tmpAttrs[i$10].slice();
+			tmpAttrs[i$10][1] += " " + options.langPrefix + langName;
 		}
 		const tmpToken = { attrs: tmpAttrs };
 		return `<pre><code${slf.renderAttrs(tmpToken)}>${highlighted}</code></pre>\n`;
@@ -11803,13 +11844,13 @@ function Renderer() {
 * Render token attributes to string.
 **/
 Renderer.prototype.renderAttrs = function renderAttrs(token) {
-	let i, l, result;
+	let i$10, l$5, result;
 	if (!token.attrs) {
 		return "";
 	}
 	result = "";
-	for (i = 0, l = token.attrs.length; i < l; i++) {
-		result += " " + escapeHtml(token.attrs[i][0]) + "=\"" + escapeHtml(token.attrs[i][1]) + "\"";
+	for (i$10 = 0, l$5 = token.attrs.length; i$10 < l$5; i$10++) {
+		result += " " + escapeHtml(token.attrs[i$10][0]) + "=\"" + escapeHtml(token.attrs[i$10][1]) + "\"";
 	}
 	return result;
 };
@@ -11864,12 +11905,12 @@ Renderer.prototype.renderToken = function renderToken(tokens, idx, options) {
 Renderer.prototype.renderInline = function(tokens, options, env) {
 	let result = "";
 	const rules = this.rules;
-	for (let i = 0, len = tokens.length; i < len; i++) {
-		const type = tokens[i].type;
-		if (typeof rules[type] !== "undefined") {
-			result += rules[type](tokens, i, options, env, this);
+	for (let i$10 = 0, len = tokens.length; i$10 < len; i$10++) {
+		const type$2 = tokens[i$10].type;
+		if (typeof rules[type$2] !== "undefined") {
+			result += rules[type$2](tokens, i$10, options, env, this);
 		} else {
-			result += this.renderToken(tokens, i, options);
+			result += this.renderToken(tokens, i$10, options);
 		}
 	}
 	return result;
@@ -11886,17 +11927,17 @@ Renderer.prototype.renderInline = function(tokens, options, env) {
 **/
 Renderer.prototype.renderInlineAsText = function(tokens, options, env) {
 	let result = "";
-	for (let i = 0, len = tokens.length; i < len; i++) {
-		switch (tokens[i].type) {
+	for (let i$10 = 0, len = tokens.length; i$10 < len; i$10++) {
+		switch (tokens[i$10].type) {
 			case "text":
-				result += tokens[i].content;
+				result += tokens[i$10].content;
 				break;
 			case "image":
-				result += this.renderInlineAsText(tokens[i].children, options, env);
+				result += this.renderInlineAsText(tokens[i$10].children, options, env);
 				break;
 			case "html_inline":
 			case "html_block":
-				result += tokens[i].content;
+				result += tokens[i$10].content;
 				break;
 			case "softbreak":
 			case "hardbreak":
@@ -11919,20 +11960,22 @@ Renderer.prototype.renderInlineAsText = function(tokens, options, env) {
 Renderer.prototype.render = function(tokens, options, env) {
 	let result = "";
 	const rules = this.rules;
-	for (let i = 0, len = tokens.length; i < len; i++) {
-		const type = tokens[i].type;
-		if (type === "inline") {
-			result += this.renderInline(tokens[i].children, options, env);
-		} else if (typeof rules[type] !== "undefined") {
-			result += rules[type](tokens, i, options, env, this);
+	for (let i$10 = 0, len = tokens.length; i$10 < len; i$10++) {
+		const type$2 = tokens[i$10].type;
+		if (type$2 === "inline") {
+			result += this.renderInline(tokens[i$10].children, options, env);
+		} else if (typeof rules[type$2] !== "undefined") {
+			result += rules[type$2](tokens, i$10, options, env, this);
 		} else {
-			result += this.renderToken(tokens, i, options, env);
+			result += this.renderToken(tokens, i$10, options, env);
 		}
 	}
 	return result;
 };
 var renderer_default = Renderer;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/ruler.mjs
 /**
 * class Ruler
 *
@@ -11958,9 +12001,9 @@ function Ruler() {
 	this.__cache__ = null;
 }
 Ruler.prototype.__find__ = function(name) {
-	for (let i = 0; i < this.__rules__.length; i++) {
-		if (this.__rules__[i].name === name) {
-			return i;
+	for (let i$10 = 0; i$10 < this.__rules__.length; i$10++) {
+		if (this.__rules__[i$10].name === name) {
+			return i$10;
 		}
 	}
 	return -1;
@@ -12148,12 +12191,12 @@ Ruler.prototype.push = function(ruleName, fn, options) {
 *
 * See also [[Ruler.disable]], [[Ruler.enableOnly]].
 **/
-Ruler.prototype.enable = function(list, ignoreInvalid) {
-	if (!Array.isArray(list)) {
-		list = [list];
+Ruler.prototype.enable = function(list$1, ignoreInvalid) {
+	if (!Array.isArray(list$1)) {
+		list$1 = [list$1];
 	}
 	const result = [];
-	list.forEach(function(name) {
+	list$1.forEach(function(name) {
 		const idx = this.__find__(name);
 		if (idx < 0) {
 			if (ignoreInvalid) {
@@ -12177,14 +12220,14 @@ Ruler.prototype.enable = function(list, ignoreInvalid) {
 *
 * See also [[Ruler.disable]], [[Ruler.enable]].
 **/
-Ruler.prototype.enableOnly = function(list, ignoreInvalid) {
-	if (!Array.isArray(list)) {
-		list = [list];
+Ruler.prototype.enableOnly = function(list$1, ignoreInvalid) {
+	if (!Array.isArray(list$1)) {
+		list$1 = [list$1];
 	}
 	this.__rules__.forEach(function(rule) {
 		rule.enabled = false;
 	});
-	this.enable(list, ignoreInvalid);
+	this.enable(list$1, ignoreInvalid);
 };
 /**
 * Ruler.disable(list [, ignoreInvalid]) -> Array
@@ -12198,12 +12241,12 @@ Ruler.prototype.enableOnly = function(list, ignoreInvalid) {
 *
 * See also [[Ruler.enable]], [[Ruler.enableOnly]].
 **/
-Ruler.prototype.disable = function(list, ignoreInvalid) {
-	if (!Array.isArray(list)) {
-		list = [list];
+Ruler.prototype.disable = function(list$1, ignoreInvalid) {
+	if (!Array.isArray(list$1)) {
+		list$1 = [list$1];
 	}
 	const result = [];
-	list.forEach(function(name) {
+	list$1.forEach(function(name) {
 		const idx = this.__find__(name);
 		if (idx < 0) {
 			if (ignoreInvalid) {
@@ -12234,6 +12277,8 @@ Ruler.prototype.getRules = function(chainName) {
 };
 var ruler_default = Ruler;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/token.mjs
 /**
 * class Token
 **/
@@ -12242,13 +12287,13 @@ var ruler_default = Ruler;
 *
 * Create new token and fill passed properties.
 **/
-function Token(type, tag, nesting) {
+function Token(type$2, tag, nesting) {
 	/**
 	* Token#type -> String
 	*
 	* Type of the token (string, e.g. "paragraph_open")
 	**/
-	this.type = type;
+	this.type = type$2;
 	/**
 	* Token#tag -> String
 	*
@@ -12343,9 +12388,9 @@ Token.prototype.attrIndex = function attrIndex(name) {
 		return -1;
 	}
 	const attrs = this.attrs;
-	for (let i = 0, len = attrs.length; i < len; i++) {
-		if (attrs[i][0] === name) {
-			return i;
+	for (let i$10 = 0, len = attrs.length; i$10 < len; i$10++) {
+		if (attrs[i$10][0] === name) {
+			return i$10;
 		}
 	}
 	return -1;
@@ -12405,6 +12450,8 @@ Token.prototype.attrJoin = function attrJoin(name, value) {
 };
 var token_default = Token;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_core/state_core.mjs
 function StateCore(src, md, env) {
 	this.src = src;
 	this.env = env;
@@ -12415,6 +12462,8 @@ function StateCore(src, md, env) {
 StateCore.prototype.Token = token_default;
 var state_core_default = StateCore;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_core/normalize.mjs
 const NEWLINES_RE = /\r\n?|\n/g;
 const NULL_RE = /\0/g;
 function normalize(state) {
@@ -12424,6 +12473,8 @@ function normalize(state) {
 	state.src = str;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_core/block.mjs
 function block(state) {
 	let token;
 	if (state.inlineMode) {
@@ -12437,16 +12488,20 @@ function block(state) {
 	}
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_core/inline.mjs
 function inline(state) {
 	const tokens = state.tokens;
-	for (let i = 0, l = tokens.length; i < l; i++) {
-		const tok = tokens[i];
+	for (let i$10 = 0, l$5 = tokens.length; i$10 < l$5; i$10++) {
+		const tok = tokens[i$10];
 		if (tok.type === "inline") {
 			state.md.inline.parse(tok.content, state.md, state.env, tok.children);
 		}
 	}
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_core/linkify.mjs
 function isLinkOpen$1(str) {
 	return /^<a[>\s]/i.test(str);
 }
@@ -12458,18 +12513,18 @@ function linkify$1(state) {
 	if (!state.md.options.linkify) {
 		return;
 	}
-	for (let j = 0, l = blockTokens.length; j < l; j++) {
-		if (blockTokens[j].type !== "inline" || !state.md.linkify.pretest(blockTokens[j].content)) {
+	for (let j$2 = 0, l$5 = blockTokens.length; j$2 < l$5; j$2++) {
+		if (blockTokens[j$2].type !== "inline" || !state.md.linkify.pretest(blockTokens[j$2].content)) {
 			continue;
 		}
-		let tokens = blockTokens[j].children;
+		let tokens = blockTokens[j$2].children;
 		let htmlLinkLevel = 0;
-		for (let i = tokens.length - 1; i >= 0; i--) {
-			const currentToken = tokens[i];
+		for (let i$10 = tokens.length - 1; i$10 >= 0; i$10--) {
+			const currentToken = tokens[i$10];
 			if (currentToken.type === "link_close") {
-				i--;
-				while (tokens[i].level !== currentToken.level && tokens[i].type !== "link_open") {
-					i--;
+				i$10--;
+				while (tokens[i$10].level !== currentToken.level && tokens[i$10].type !== "link_open") {
+					i$10--;
 				}
 				continue;
 			}
@@ -12485,12 +12540,12 @@ function linkify$1(state) {
 				continue;
 			}
 			if (currentToken.type === "text" && state.md.linkify.test(currentToken.content)) {
-				const text = currentToken.content;
-				let links = state.md.linkify.match(text);
+				const text$1 = currentToken.content;
+				let links = state.md.linkify.match(text$1);
 				const nodes = [];
 				let level = currentToken.level;
 				let lastPos = 0;
-				if (links.length > 0 && links[0].index === 0 && i > 0 && tokens[i - 1].type === "text_special") {
+				if (links.length > 0 && links[0].index === 0 && i$10 > 0 && tokens[i$10 - 1].type === "text_special") {
 					links = links.slice(1);
 				}
 				for (let ln = 0; ln < links.length; ln++) {
@@ -12510,7 +12565,7 @@ function linkify$1(state) {
 					const pos = links[ln].index;
 					if (pos > lastPos) {
 						const token = new state.Token("text", "", 0);
-						token.content = text.slice(lastPos, pos);
+						token.content = text$1.slice(lastPos, pos);
 						token.level = level;
 						nodes.push(token);
 					}
@@ -12531,18 +12586,20 @@ function linkify$1(state) {
 					nodes.push(token_c);
 					lastPos = links[ln].lastIndex;
 				}
-				if (lastPos < text.length) {
+				if (lastPos < text$1.length) {
 					const token = new state.Token("text", "", 0);
-					token.content = text.slice(lastPos);
+					token.content = text$1.slice(lastPos);
 					token.level = level;
 					nodes.push(token);
 				}
-				blockTokens[j].children = tokens = arrayReplaceAt(tokens, i, nodes);
+				blockTokens[j$2].children = tokens = arrayReplaceAt(tokens, i$10, nodes);
 			}
 		}
 	}
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_core/replacements.mjs
 const RARE_RE = /\+-|\.\.|\?\?\?\?|!!!!|,,|--/;
 const SCOPED_ABBR_TEST_RE = /\((c|tm|r)\)/i;
 const SCOPED_ABBR_RE = /\((c|tm|r)\)/gi;
@@ -12556,8 +12613,8 @@ function replaceFn(match, name) {
 }
 function replace_scoped(inlineTokens) {
 	let inside_autolink = 0;
-	for (let i = inlineTokens.length - 1; i >= 0; i--) {
-		const token = inlineTokens[i];
+	for (let i$10 = inlineTokens.length - 1; i$10 >= 0; i$10--) {
+		const token = inlineTokens[i$10];
 		if (token.type === "text" && !inside_autolink) {
 			token.content = token.content.replace(SCOPED_ABBR_RE, replaceFn);
 		}
@@ -12571,8 +12628,8 @@ function replace_scoped(inlineTokens) {
 }
 function replace_rare(inlineTokens) {
 	let inside_autolink = 0;
-	for (let i = inlineTokens.length - 1; i >= 0; i--) {
-		const token = inlineTokens[i];
+	for (let i$10 = inlineTokens.length - 1; i$10 >= 0; i$10--) {
+		const token = inlineTokens[i$10];
 		if (token.type === "text" && !inside_autolink) {
 			if (RARE_RE.test(token.content)) {
 				token.content = token.content.replace(/\+-/g, "±").replace(/\.{2,}/g, "…").replace(/([?!])…/g, "$1..").replace(/([?!]){4,}/g, "$1$1$1").replace(/,{2,}/g, ",").replace(/(^|[^-])---(?=[^-]|$)/gm, "$1—").replace(/(^|\s)--(?=\s|$)/gm, "$1–").replace(/(^|[^-\s])--(?=[^-\s]|$)/gm, "$1–");
@@ -12604,6 +12661,8 @@ function replace(state) {
 	}
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_core/smartquotes.mjs
 const QUOTE_TEST_RE = /['"]/;
 const QUOTE_RE = /['"]/g;
 const APOSTROPHE = "’";
@@ -12611,52 +12670,52 @@ function replaceAt(str, index, ch) {
 	return str.slice(0, index) + ch + str.slice(index + 1);
 }
 function process_inlines(tokens, state) {
-	let j;
+	let j$2;
 	const stack = [];
-	for (let i = 0; i < tokens.length; i++) {
-		const token = tokens[i];
-		const thisLevel = tokens[i].level;
-		for (j = stack.length - 1; j >= 0; j--) {
-			if (stack[j].level <= thisLevel) {
+	for (let i$10 = 0; i$10 < tokens.length; i$10++) {
+		const token = tokens[i$10];
+		const thisLevel = tokens[i$10].level;
+		for (j$2 = stack.length - 1; j$2 >= 0; j$2--) {
+			if (stack[j$2].level <= thisLevel) {
 				break;
 			}
 		}
-		stack.length = j + 1;
+		stack.length = j$2 + 1;
 		if (token.type !== "text") {
 			continue;
 		}
-		let text = token.content;
+		let text$1 = token.content;
 		let pos = 0;
-		let max = text.length;
+		let max = text$1.length;
 		OUTER: while (pos < max) {
 			QUOTE_RE.lastIndex = pos;
-			const t = QUOTE_RE.exec(text);
-			if (!t) {
+			const t$7 = QUOTE_RE.exec(text$1);
+			if (!t$7) {
 				break;
 			}
 			let canOpen = true;
 			let canClose = true;
-			pos = t.index + 1;
-			const isSingle = t[0] === "'";
+			pos = t$7.index + 1;
+			const isSingle = t$7[0] === "'";
 			let lastChar = 32;
-			if (t.index - 1 >= 0) {
-				lastChar = text.charCodeAt(t.index - 1);
+			if (t$7.index - 1 >= 0) {
+				lastChar = text$1.charCodeAt(t$7.index - 1);
 			} else {
-				for (j = i - 1; j >= 0; j--) {
-					if (tokens[j].type === "softbreak" || tokens[j].type === "hardbreak") break;
-					if (!tokens[j].content) continue;
-					lastChar = tokens[j].content.charCodeAt(tokens[j].content.length - 1);
+				for (j$2 = i$10 - 1; j$2 >= 0; j$2--) {
+					if (tokens[j$2].type === "softbreak" || tokens[j$2].type === "hardbreak") break;
+					if (!tokens[j$2].content) continue;
+					lastChar = tokens[j$2].content.charCodeAt(tokens[j$2].content.length - 1);
 					break;
 				}
 			}
 			let nextChar = 32;
 			if (pos < max) {
-				nextChar = text.charCodeAt(pos);
+				nextChar = text$1.charCodeAt(pos);
 			} else {
-				for (j = i + 1; j < tokens.length; j++) {
-					if (tokens[j].type === "softbreak" || tokens[j].type === "hardbreak") break;
-					if (!tokens[j].content) continue;
-					nextChar = tokens[j].content.charCodeAt(0);
+				for (j$2 = i$10 + 1; j$2 < tokens.length; j$2++) {
+					if (tokens[j$2].type === "softbreak" || tokens[j$2].type === "hardbreak") break;
+					if (!tokens[j$2].content) continue;
+					nextChar = tokens[j$2].content.charCodeAt(0);
 					break;
 				}
 			}
@@ -12678,7 +12737,7 @@ function process_inlines(tokens, state) {
 					canClose = false;
 				}
 			}
-			if (nextChar === 34 && t[0] === "\"") {
+			if (nextChar === 34 && t$7[0] === "\"") {
 				if (lastChar >= 48 && lastChar <= 57) {
 					canClose = canOpen = false;
 				}
@@ -12689,18 +12748,18 @@ function process_inlines(tokens, state) {
 			}
 			if (!canOpen && !canClose) {
 				if (isSingle) {
-					token.content = replaceAt(token.content, t.index, APOSTROPHE);
+					token.content = replaceAt(token.content, t$7.index, APOSTROPHE);
 				}
 				continue;
 			}
 			if (canClose) {
-				for (j = stack.length - 1; j >= 0; j--) {
-					let item = stack[j];
-					if (stack[j].level < thisLevel) {
+				for (j$2 = stack.length - 1; j$2 >= 0; j$2--) {
+					let item = stack[j$2];
+					if (stack[j$2].level < thisLevel) {
 						break;
 					}
-					if (item.single === isSingle && stack[j].level === thisLevel) {
-						item = stack[j];
+					if (item.single === isSingle && stack[j$2].level === thisLevel) {
+						item = stack[j$2];
 						let openQuote;
 						let closeQuote;
 						if (isSingle) {
@@ -12710,28 +12769,28 @@ function process_inlines(tokens, state) {
 							openQuote = state.md.options.quotes[0];
 							closeQuote = state.md.options.quotes[1];
 						}
-						token.content = replaceAt(token.content, t.index, closeQuote);
+						token.content = replaceAt(token.content, t$7.index, closeQuote);
 						tokens[item.token].content = replaceAt(tokens[item.token].content, item.pos, openQuote);
 						pos += closeQuote.length - 1;
-						if (item.token === i) {
+						if (item.token === i$10) {
 							pos += openQuote.length - 1;
 						}
-						text = token.content;
-						max = text.length;
-						stack.length = j;
+						text$1 = token.content;
+						max = text$1.length;
+						stack.length = j$2;
 						continue OUTER;
 					}
 				}
 			}
 			if (canOpen) {
 				stack.push({
-					token: i,
-					pos: t.index,
+					token: i$10,
+					pos: t$7.index,
 					single: isSingle,
 					level: thisLevel
 				});
 			} else if (canClose && isSingle) {
-				token.content = replaceAt(token.content, t.index, APOSTROPHE);
+				token.content = replaceAt(token.content, t$7.index, APOSTROPHE);
 			}
 		}
 	}
@@ -12748,13 +12807,15 @@ function smartquotes(state) {
 	}
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_core/text_join.mjs
 function text_join(state) {
 	let curr, last;
 	const blockTokens = state.tokens;
-	const l = blockTokens.length;
-	for (let j = 0; j < l; j++) {
-		if (blockTokens[j].type !== "inline") continue;
-		const tokens = blockTokens[j].children;
+	const l$5 = blockTokens.length;
+	for (let j$2 = 0; j$2 < l$5; j$2++) {
+		if (blockTokens[j$2].type !== "inline") continue;
+		const tokens = blockTokens[j$2].children;
 		const max = tokens.length;
 		for (curr = 0; curr < max; curr++) {
 			if (tokens[curr].type === "text_special") {
@@ -12777,12 +12838,8 @@ function text_join(state) {
 	}
 }
 
-/** internal
-* class Core
-*
-* Top-level rules executor. Glues block/inline parsers and does intermediate
-* transformations.
-**/
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/parser_core.mjs
 const _rules$2 = [
 	["normalize", normalize],
 	["block", block],
@@ -12802,8 +12859,8 @@ function Core() {
 	* [[Ruler]] instance. Keep configuration of core rules.
 	**/
 	this.ruler = new ruler_default();
-	for (let i = 0; i < _rules$2.length; i++) {
-		this.ruler.push(_rules$2[i][0], _rules$2[i][1]);
+	for (let i$10 = 0; i$10 < _rules$2.length; i$10++) {
+		this.ruler.push(_rules$2[i$10][0], _rules$2[i$10][1]);
 	}
 }
 /**
@@ -12813,13 +12870,15 @@ function Core() {
 **/
 Core.prototype.process = function(state) {
 	const rules = this.ruler.getRules("");
-	for (let i = 0, l = rules.length; i < l; i++) {
-		rules[i](state);
+	for (let i$10 = 0, l$5 = rules.length; i$10 < l$5; i$10++) {
+		rules[i$10](state);
 	}
 };
 Core.prototype.State = state_core_default;
 var parser_core_default = Core;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/state_block.mjs
 function StateBlock(src, md, env, tokens) {
 	this.src = src;
 	this.md = md;
@@ -12838,9 +12897,9 @@ function StateBlock(src, md, env, tokens) {
 	this.listIndent = -1;
 	this.parentType = "root";
 	this.level = 0;
-	const s = this.src;
-	for (let start = 0, pos = 0, indent = 0, offset = 0, len = s.length, indent_found = false; pos < len; pos++) {
-		const ch = s.charCodeAt(pos);
+	const s$9 = this.src;
+	for (let start = 0, pos = 0, indent = 0, offset = 0, len = s$9.length, indent_found = false; pos < len; pos++) {
+		const ch = s$9.charCodeAt(pos);
 		if (!indent_found) {
 			if (isSpace(ch)) {
 				indent++;
@@ -12869,15 +12928,15 @@ function StateBlock(src, md, env, tokens) {
 			start = pos + 1;
 		}
 	}
-	this.bMarks.push(s.length);
-	this.eMarks.push(s.length);
+	this.bMarks.push(s$9.length);
+	this.eMarks.push(s$9.length);
 	this.tShift.push(0);
 	this.sCount.push(0);
 	this.bsCount.push(0);
 	this.lineMax = this.bMarks.length - 1;
 }
-StateBlock.prototype.push = function(type, tag, nesting) {
-	const token = new token_default(type, tag, nesting);
+StateBlock.prototype.push = function(type$2, tag, nesting) {
+	const token = new token_default(type$2, tag, nesting);
 	token.block = true;
 	if (nesting < 0) this.level--;
 	token.level = this.level;
@@ -12916,20 +12975,20 @@ StateBlock.prototype.skipSpacesBack = function skipSpacesBack(pos, min) {
 	}
 	return pos;
 };
-StateBlock.prototype.skipChars = function skipChars(pos, code) {
+StateBlock.prototype.skipChars = function skipChars(pos, code$1) {
 	for (let max = this.src.length; pos < max; pos++) {
-		if (this.src.charCodeAt(pos) !== code) {
+		if (this.src.charCodeAt(pos) !== code$1) {
 			break;
 		}
 	}
 	return pos;
 };
-StateBlock.prototype.skipCharsBack = function skipCharsBack(pos, code, min) {
+StateBlock.prototype.skipCharsBack = function skipCharsBack(pos, code$1, min) {
 	if (pos <= min) {
 		return pos;
 	}
 	while (pos > min) {
-		if (code !== this.src.charCodeAt(--pos)) {
+		if (code$1 !== this.src.charCodeAt(--pos)) {
 			return pos + 1;
 		}
 	}
@@ -12940,7 +12999,7 @@ StateBlock.prototype.getLines = function getLines(begin, end, indent, keepLastLF
 		return "";
 	}
 	const queue = new Array(end - begin);
-	for (let i = 0, line = begin; line < end; line++, i++) {
+	for (let i$10 = 0, line = begin; line < end; line++, i$10++) {
 		let lineIndent = 0;
 		const lineStart = this.bMarks[line];
 		let first = lineStart;
@@ -12966,9 +13025,9 @@ StateBlock.prototype.getLines = function getLines(begin, end, indent, keepLastLF
 			first++;
 		}
 		if (lineIndent > indent) {
-			queue[i] = new Array(lineIndent - indent + 1).join(" ") + this.src.slice(first, last);
+			queue[i$10] = new Array(lineIndent - indent + 1).join(" ") + this.src.slice(first, last);
 		} else {
-			queue[i] = this.src.slice(first, last);
+			queue[i$10] = this.src.slice(first, last);
 		}
 	}
 	return queue.join("");
@@ -12976,6 +13035,8 @@ StateBlock.prototype.getLines = function getLines(begin, end, indent, keepLastLF
 StateBlock.prototype.Token = token_default;
 var state_block_default = StateBlock;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/table.mjs
 const MAX_AUTOCOMPLETED_CELLS = 65536;
 function getLine(state, line) {
 	const pos = state.bMarks[line] + state.tShift[line];
@@ -13047,21 +13108,21 @@ function table(state, startLine, endLine, silent) {
 	let lineText = getLine(state, startLine + 1);
 	let columns = lineText.split("|");
 	const aligns = [];
-	for (let i = 0; i < columns.length; i++) {
-		const t = columns[i].trim();
-		if (!t) {
-			if (i === 0 || i === columns.length - 1) {
+	for (let i$10 = 0; i$10 < columns.length; i$10++) {
+		const t$7 = columns[i$10].trim();
+		if (!t$7) {
+			if (i$10 === 0 || i$10 === columns.length - 1) {
 				continue;
 			} else {
 				return false;
 			}
 		}
-		if (!/^:?-+:?$/.test(t)) {
+		if (!/^:?-+:?$/.test(t$7)) {
 			return false;
 		}
-		if (t.charCodeAt(t.length - 1) === 58) {
-			aligns.push(t.charCodeAt(0) === 58 ? "center" : "right");
-		} else if (t.charCodeAt(0) === 58) {
+		if (t$7.charCodeAt(t$7.length - 1) === 58) {
+			aligns.push(t$7.charCodeAt(0) === 58 ? "center" : "right");
+		} else if (t$7.charCodeAt(0) === 58) {
 			aligns.push("left");
 		} else {
 			aligns.push("");
@@ -13094,13 +13155,13 @@ function table(state, startLine, endLine, silent) {
 	token_tho.map = [startLine, startLine + 1];
 	const token_htro = state.push("tr_open", "tr", 1);
 	token_htro.map = [startLine, startLine + 1];
-	for (let i = 0; i < columns.length; i++) {
+	for (let i$10 = 0; i$10 < columns.length; i$10++) {
 		const token_ho = state.push("th_open", "th", 1);
-		if (aligns[i]) {
-			token_ho.attrs = [["style", "text-align:" + aligns[i]]];
+		if (aligns[i$10]) {
+			token_ho.attrs = [["style", "text-align:" + aligns[i$10]]];
 		}
 		const token_il = state.push("inline", "", 0);
-		token_il.content = columns[i].trim();
+		token_il.content = columns[i$10].trim();
 		token_il.children = [];
 		state.push("th_close", "th", -1);
 	}
@@ -13113,8 +13174,8 @@ function table(state, startLine, endLine, silent) {
 			break;
 		}
 		let terminate = false;
-		for (let i = 0, l = terminatorRules.length; i < l; i++) {
-			if (terminatorRules[i](state, nextLine, endLine, true)) {
+		for (let i$10 = 0, l$5 = terminatorRules.length; i$10 < l$5; i$10++) {
+			if (terminatorRules[i$10](state, nextLine, endLine, true)) {
 				terminate = true;
 				break;
 			}
@@ -13142,13 +13203,13 @@ function table(state, startLine, endLine, silent) {
 		}
 		const token_tro = state.push("tr_open", "tr", 1);
 		token_tro.map = [nextLine, nextLine + 1];
-		for (let i = 0; i < columnCount; i++) {
+		for (let i$10 = 0; i$10 < columnCount; i$10++) {
 			const token_tdo = state.push("td_open", "td", 1);
-			if (aligns[i]) {
-				token_tdo.attrs = [["style", "text-align:" + aligns[i]]];
+			if (aligns[i$10]) {
+				token_tdo.attrs = [["style", "text-align:" + aligns[i$10]]];
 			}
 			const token_il = state.push("inline", "", 0);
-			token_il.content = columns[i] ? columns[i].trim() : "";
+			token_il.content = columns[i$10] ? columns[i$10].trim() : "";
 			token_il.children = [];
 			state.push("td_close", "td", -1);
 		}
@@ -13165,6 +13226,8 @@ function table(state, startLine, endLine, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/code.mjs
 function code(state, startLine, endLine) {
 	if (state.sCount[startLine] - state.blkIndent < 4) {
 		return false;
@@ -13190,6 +13253,8 @@ function code(state, startLine, endLine) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/fence.mjs
 function fence(state, startLine, endLine, silent) {
 	let pos = state.bMarks[startLine] + state.tShift[startLine];
 	let max = state.eMarks[startLine];
@@ -13258,6 +13323,8 @@ function fence(state, startLine, endLine, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/blockquote.mjs
 function blockquote(state, startLine, endLine, silent) {
 	let pos = state.bMarks[startLine] + state.tShift[startLine];
 	let max = state.eMarks[startLine];
@@ -13337,8 +13404,8 @@ function blockquote(state, startLine, endLine, silent) {
 			break;
 		}
 		let terminate = false;
-		for (let i = 0, l = terminatorRules.length; i < l; i++) {
-			if (terminatorRules[i](state, nextLine, endLine, true)) {
+		for (let i$10 = 0, l$5 = terminatorRules.length; i$10 < l$5; i$10++) {
+			if (terminatorRules[i$10](state, nextLine, endLine, true)) {
 				terminate = true;
 				break;
 			}
@@ -13372,16 +13439,18 @@ function blockquote(state, startLine, endLine, silent) {
 	state.lineMax = oldLineMax;
 	state.parentType = oldParentType;
 	lines[1] = state.line;
-	for (let i = 0; i < oldTShift.length; i++) {
-		state.bMarks[i + startLine] = oldBMarks[i];
-		state.tShift[i + startLine] = oldTShift[i];
-		state.sCount[i + startLine] = oldSCount[i];
-		state.bsCount[i + startLine] = oldBSCount[i];
+	for (let i$10 = 0; i$10 < oldTShift.length; i$10++) {
+		state.bMarks[i$10 + startLine] = oldBMarks[i$10];
+		state.tShift[i$10 + startLine] = oldTShift[i$10];
+		state.sCount[i$10 + startLine] = oldSCount[i$10];
+		state.bsCount[i$10 + startLine] = oldBSCount[i$10];
 	}
 	state.blkIndent = oldIndent;
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/hr.mjs
 function hr(state, startLine, endLine, silent) {
 	const max = state.eMarks[startLine];
 	if (state.sCount[startLine] - state.blkIndent >= 4) {
@@ -13415,6 +13484,8 @@ function hr(state, startLine, endLine, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/list.mjs
 function skipBulletListMarker(state, startLine) {
 	const max = state.eMarks[startLine];
 	let pos = state.bMarks[startLine] + state.tShift[startLine];
@@ -13467,11 +13538,11 @@ function skipOrderedListMarker(state, startLine) {
 }
 function markTightParagraphs(state, idx) {
 	const level = state.level + 2;
-	for (let i = idx + 2, l = state.tokens.length - 2; i < l; i++) {
-		if (state.tokens[i].level === level && state.tokens[i].type === "paragraph_open") {
-			state.tokens[i + 2].hidden = true;
-			state.tokens[i].hidden = true;
-			i += 2;
+	for (let i$10 = idx + 2, l$5 = state.tokens.length - 2; i$10 < l$5; i$10++) {
+		if (state.tokens[i$10].level === level && state.tokens[i$10].type === "paragraph_open") {
+			state.tokens[i$10 + 2].hidden = true;
+			state.tokens[i$10].hidden = true;
+			i$10 += 2;
 		}
 	}
 }
@@ -13598,8 +13669,8 @@ function list(state, startLine, endLine, silent) {
 			break;
 		}
 		let terminate = false;
-		for (let i = 0, l = terminatorRules.length; i < l; i++) {
-			if (terminatorRules[i](state, nextLine, endLine, true)) {
+		for (let i$10 = 0, l$5 = terminatorRules.length; i$10 < l$5; i$10++) {
+			if (terminatorRules[i$10](state, nextLine, endLine, true)) {
 				terminate = true;
 				break;
 			}
@@ -13638,6 +13709,8 @@ function list(state, startLine, endLine, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/reference.mjs
 function reference(state, startLine, _endLine, silent) {
 	let pos = state.bMarks[startLine] + state.tShift[startLine];
 	let max = state.eMarks[startLine];
@@ -13648,16 +13721,16 @@ function reference(state, startLine, _endLine, silent) {
 	if (state.src.charCodeAt(pos) !== 91) {
 		return false;
 	}
-	function getNextLine(nextLine) {
+	function getNextLine(nextLine$1) {
 		const endLine = state.lineMax;
-		if (nextLine >= endLine || state.isEmpty(nextLine)) {
+		if (nextLine$1 >= endLine || state.isEmpty(nextLine$1)) {
 			return null;
 		}
 		let isContinuation = false;
-		if (state.sCount[nextLine] - state.blkIndent > 3) {
+		if (state.sCount[nextLine$1] - state.blkIndent > 3) {
 			isContinuation = true;
 		}
-		if (state.sCount[nextLine] < 0) {
+		if (state.sCount[nextLine$1] < 0) {
 			isContinuation = true;
 		}
 		if (!isContinuation) {
@@ -13665,8 +13738,8 @@ function reference(state, startLine, _endLine, silent) {
 			const oldParentType = state.parentType;
 			state.parentType = "reference";
 			let terminate = false;
-			for (let i = 0, l = terminatorRules.length; i < l; i++) {
-				if (terminatorRules[i](state, nextLine, endLine, true)) {
+			for (let i$10 = 0, l$5 = terminatorRules.length; i$10 < l$5; i$10++) {
+				if (terminatorRules[i$10](state, nextLine$1, endLine, true)) {
 					terminate = true;
 					break;
 				}
@@ -13676,9 +13749,9 @@ function reference(state, startLine, _endLine, silent) {
 				return null;
 			}
 		}
-		const pos = state.bMarks[nextLine] + state.tShift[nextLine];
-		const max = state.eMarks[nextLine];
-		return state.src.slice(pos, max + 1);
+		const pos$1 = state.bMarks[nextLine$1] + state.tShift[nextLine$1];
+		const max$1 = state.eMarks[nextLine$1];
+		return state.src.slice(pos$1, max$1 + 1);
 	}
 	let str = state.src.slice(pos, max + 1);
 	max = str.length;
@@ -13760,12 +13833,12 @@ function reference(state, startLine, _endLine, silent) {
 		nextLine++;
 		titleRes = state.md.helpers.parseLinkTitle(str, pos, max, titleRes);
 	}
-	let title;
+	let title$1;
 	if (pos < max && start !== pos && titleRes.ok) {
-		title = titleRes.str;
+		title$1 = titleRes.str;
 		pos = titleRes.pos;
 	} else {
-		title = "";
+		title$1 = "";
 		pos = destEndPos;
 		nextLine = destEndLineNo;
 	}
@@ -13777,8 +13850,8 @@ function reference(state, startLine, _endLine, silent) {
 		pos++;
 	}
 	if (pos < max && str.charCodeAt(pos) !== 10) {
-		if (title) {
-			title = "";
+		if (title$1) {
+			title$1 = "";
 			pos = destEndPos;
 			nextLine = destEndLineNo;
 			while (pos < max) {
@@ -13797,7 +13870,6 @@ function reference(state, startLine, _endLine, silent) {
 	if (!label) {
 		return false;
 	}
-	/* istanbul ignore if */
 	if (silent) {
 		return true;
 	}
@@ -13806,7 +13878,7 @@ function reference(state, startLine, _endLine, silent) {
 	}
 	if (typeof state.env.references[label] === "undefined") {
 		state.env.references[label] = {
-			title,
+			title: title$1,
 			href
 		};
 	}
@@ -13814,6 +13886,8 @@ function reference(state, startLine, _endLine, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/common/html_blocks.mjs
 var html_blocks_default = [
 	"address",
 	"article",
@@ -13879,6 +13953,8 @@ var html_blocks_default = [
 	"ul"
 ];
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/common/html_re.mjs
 const attr_name = "[a-zA-Z_:][a-zA-Z0-9:._-]*";
 const unquoted = "[^\"'=<>`\\x00-\\x20]+";
 const single_quoted = "'[^']*'";
@@ -13894,6 +13970,8 @@ const cdata = "<!\\[CDATA\\[[\\s\\S]*?\\]\\]>";
 const HTML_TAG_RE = new RegExp("^(?:" + open_tag + "|" + close_tag + "|" + comment + "|" + processing + "|" + declaration + "|" + cdata + ")");
 const HTML_OPEN_CLOSE_TAG_RE = new RegExp("^(?:" + open_tag + "|" + close_tag + ")");
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/html_block.mjs
 const HTML_SEQUENCES = [
 	[
 		/^<(script|pre|style|textarea)(?=(\s|>|$))/i,
@@ -13944,20 +14022,20 @@ function html_block(state, startLine, endLine, silent) {
 		return false;
 	}
 	let lineText = state.src.slice(pos, max);
-	let i = 0;
-	for (; i < HTML_SEQUENCES.length; i++) {
-		if (HTML_SEQUENCES[i][0].test(lineText)) {
+	let i$10 = 0;
+	for (; i$10 < HTML_SEQUENCES.length; i$10++) {
+		if (HTML_SEQUENCES[i$10][0].test(lineText)) {
 			break;
 		}
 	}
-	if (i === HTML_SEQUENCES.length) {
+	if (i$10 === HTML_SEQUENCES.length) {
 		return false;
 	}
 	if (silent) {
-		return HTML_SEQUENCES[i][2];
+		return HTML_SEQUENCES[i$10][2];
 	}
 	let nextLine = startLine + 1;
-	if (!HTML_SEQUENCES[i][1].test(lineText)) {
+	if (!HTML_SEQUENCES[i$10][1].test(lineText)) {
 		for (; nextLine < endLine; nextLine++) {
 			if (state.sCount[nextLine] < state.blkIndent) {
 				break;
@@ -13965,7 +14043,7 @@ function html_block(state, startLine, endLine, silent) {
 			pos = state.bMarks[nextLine] + state.tShift[nextLine];
 			max = state.eMarks[nextLine];
 			lineText = state.src.slice(pos, max);
-			if (HTML_SEQUENCES[i][1].test(lineText)) {
+			if (HTML_SEQUENCES[i$10][1].test(lineText)) {
 				if (lineText.length !== 0) {
 					nextLine++;
 				}
@@ -13980,6 +14058,8 @@ function html_block(state, startLine, endLine, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/heading.mjs
 function heading(state, startLine, endLine, silent) {
 	let pos = state.bMarks[startLine] + state.tShift[startLine];
 	let max = state.eMarks[startLine];
@@ -14020,6 +14100,8 @@ function heading(state, startLine, endLine, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/lheading.mjs
 function lheading(state, startLine, endLine) {
 	const terminatorRules = state.md.block.ruler.getRules("paragraph");
 	if (state.sCount[startLine] - state.blkIndent >= 4) {
@@ -14053,8 +14135,8 @@ function lheading(state, startLine, endLine) {
 			continue;
 		}
 		let terminate = false;
-		for (let i = 0, l = terminatorRules.length; i < l; i++) {
-			if (terminatorRules[i](state, nextLine, endLine, true)) {
+		for (let i$10 = 0, l$5 = terminatorRules.length; i$10 < l$5; i$10++) {
+			if (terminatorRules[i$10](state, nextLine, endLine, true)) {
 				terminate = true;
 				break;
 			}
@@ -14081,6 +14163,8 @@ function lheading(state, startLine, endLine) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_block/paragraph.mjs
 function paragraph(state, startLine, endLine) {
 	const terminatorRules = state.md.block.ruler.getRules("paragraph");
 	const oldParentType = state.parentType;
@@ -14094,8 +14178,8 @@ function paragraph(state, startLine, endLine) {
 			continue;
 		}
 		let terminate = false;
-		for (let i = 0, l = terminatorRules.length; i < l; i++) {
-			if (terminatorRules[i](state, nextLine, endLine, true)) {
+		for (let i$10 = 0, l$5 = terminatorRules.length; i$10 < l$5; i$10++) {
+			if (terminatorRules[i$10](state, nextLine, endLine, true)) {
 				terminate = true;
 				break;
 			}
@@ -14117,11 +14201,8 @@ function paragraph(state, startLine, endLine) {
 	return true;
 }
 
-/** internal
-* class ParserBlock
-*
-* Block-level tokenizer.
-**/
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/parser_block.mjs
 const _rules$1 = [
 	[
 		"table",
@@ -14200,8 +14281,8 @@ function ParserBlock() {
 	* [[Ruler]] instance. Keep configuration of block rules.
 	**/
 	this.ruler = new ruler_default();
-	for (let i = 0; i < _rules$1.length; i++) {
-		this.ruler.push(_rules$1[i][0], _rules$1[i][1], { alt: (_rules$1[i][2] || []).slice() });
+	for (let i$10 = 0; i$10 < _rules$1.length; i$10++) {
+		this.ruler.push(_rules$1[i$10][0], _rules$1[i$10][1], { alt: (_rules$1[i$10][2] || []).slice() });
 	}
 }
 ParserBlock.prototype.tokenize = function(state, startLine, endLine) {
@@ -14224,8 +14305,8 @@ ParserBlock.prototype.tokenize = function(state, startLine, endLine) {
 		}
 		const prevLine = state.line;
 		let ok = false;
-		for (let i = 0; i < len; i++) {
-			ok = rules[i](state, line, endLine, false);
+		for (let i$10 = 0; i$10 < len; i$10++) {
+			ok = rules[i$10](state, line, endLine, false);
 			if (ok) {
 				if (prevLine >= state.line) {
 					throw new Error("block rule didn't increment state.line");
@@ -14261,6 +14342,8 @@ ParserBlock.prototype.parse = function(src, md, env, outTokens) {
 ParserBlock.prototype.State = state_block_default;
 var parser_block_default = ParserBlock;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/state_inline.mjs
 function StateInline(src, md, env, outTokens) {
 	this.src = src;
 	this.env = env;
@@ -14287,11 +14370,11 @@ StateInline.prototype.pushPending = function() {
 	this.pending = "";
 	return token;
 };
-StateInline.prototype.push = function(type, tag, nesting) {
+StateInline.prototype.push = function(type$2, tag, nesting) {
 	if (this.pending) {
 		this.pushPending();
 	}
-	const token = new token_default(type, tag, nesting);
+	const token = new token_default(type$2, tag, nesting);
 	let token_meta = null;
 	if (nesting < 0) {
 		this.level--;
@@ -14336,6 +14419,8 @@ StateInline.prototype.scanDelims = function(start, canSplitWord) {
 StateInline.prototype.Token = token_default;
 var state_inline_default = StateInline;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/text.mjs
 function isTerminatorChar(ch) {
 	switch (ch) {
 		case 10:
@@ -14379,6 +14464,8 @@ function text(state, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/linkify.mjs
 const SCHEME_RE = /(?:^|[^a-z0-9.+-])([a-z][a-z0-9.+-]*)$/i;
 function linkify(state, silent) {
 	if (!state.md.options.linkify) return false;
@@ -14392,9 +14479,9 @@ function linkify(state, silent) {
 	const match = state.pending.match(SCHEME_RE);
 	if (!match) return false;
 	const proto = match[1];
-	const link = state.md.linkify.matchAtStart(state.src.slice(pos - proto.length));
-	if (!link) return false;
-	let url = link.url;
+	const link$1 = state.md.linkify.matchAtStart(state.src.slice(pos - proto.length));
+	if (!link$1) return false;
+	let url = link$1.url;
 	if (url.length <= proto.length) return false;
 	url = url.replace(/\*+$/, "");
 	const fullUrl = state.md.normalizeLink(url);
@@ -14415,6 +14502,8 @@ function linkify(state, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/newline.mjs
 function newline(state, silent) {
 	let pos = state.pos;
 	if (state.src.charCodeAt(pos) !== 10) {
@@ -14445,8 +14534,10 @@ function newline(state, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/escape.mjs
 const ESCAPED = [];
-for (let i = 0; i < 256; i++) {
+for (let i$10 = 0; i$10 < 256; i$10++) {
 	ESCAPED.push(0);
 }
 "\\!\"#$%&'()*+,./:;<=>?@[]^_`{|}~-".split("").forEach(function(ch) {
@@ -14495,6 +14586,8 @@ function escape(state, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/backticks.mjs
 function backtick(state, silent) {
 	let pos = state.pos;
 	const ch = state.src.charCodeAt(pos);
@@ -14539,6 +14632,8 @@ function backtick(state, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/strikethrough.mjs
 function strikethrough_tokenize(state, silent) {
 	const start = state.pos;
 	const marker = state.src.charCodeAt(start);
@@ -14560,7 +14655,7 @@ function strikethrough_tokenize(state, silent) {
 		token.content = ch;
 		len--;
 	}
-	for (let i = 0; i < len; i += 2) {
+	for (let i$10 = 0; i$10 < len; i$10 += 2) {
 		token = state.push("text", "", 0);
 		token.content = ch + ch;
 		state.delimiters.push({
@@ -14579,8 +14674,8 @@ function postProcess$1(state, delimiters) {
 	let token;
 	const loneMarkers = [];
 	const max = delimiters.length;
-	for (let i = 0; i < max; i++) {
-		const startDelim = delimiters[i];
+	for (let i$10 = 0; i$10 < max; i$10++) {
+		const startDelim = delimiters[i$10];
 		if (startDelim.marker !== 126) {
 			continue;
 		}
@@ -14605,16 +14700,16 @@ function postProcess$1(state, delimiters) {
 		}
 	}
 	while (loneMarkers.length) {
-		const i = loneMarkers.pop();
-		let j = i + 1;
-		while (j < state.tokens.length && state.tokens[j].type === "s_close") {
-			j++;
+		const i$10 = loneMarkers.pop();
+		let j$2 = i$10 + 1;
+		while (j$2 < state.tokens.length && state.tokens[j$2].type === "s_close") {
+			j$2++;
 		}
-		j--;
-		if (i !== j) {
-			token = state.tokens[j];
-			state.tokens[j] = state.tokens[i];
-			state.tokens[i] = token;
+		j$2--;
+		if (i$10 !== j$2) {
+			token = state.tokens[j$2];
+			state.tokens[j$2] = state.tokens[i$10];
+			state.tokens[i$10] = token;
 		}
 	}
 }
@@ -14633,6 +14728,8 @@ var strikethrough_default = {
 	postProcess: strikethrough_postProcess
 };
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/emphasis.mjs
 function emphasis_tokenize(state, silent) {
 	const start = state.pos;
 	const marker = state.src.charCodeAt(start);
@@ -14643,7 +14740,7 @@ function emphasis_tokenize(state, silent) {
 		return false;
 	}
 	const scanned = state.scanDelims(state.pos, marker === 42);
-	for (let i = 0; i < scanned.length; i++) {
+	for (let i$10 = 0; i$10 < scanned.length; i$10++) {
 		const token = state.push("text", "", 0);
 		token.content = String.fromCharCode(marker);
 		state.delimiters.push({
@@ -14660,8 +14757,8 @@ function emphasis_tokenize(state, silent) {
 }
 function postProcess(state, delimiters) {
 	const max = delimiters.length;
-	for (let i = max - 1; i >= 0; i--) {
-		const startDelim = delimiters[i];
+	for (let i$10 = max - 1; i$10 >= 0; i$10--) {
+		const startDelim = delimiters[i$10];
 		if (startDelim.marker !== 95 && startDelim.marker !== 42) {
 			continue;
 		}
@@ -14669,7 +14766,7 @@ function postProcess(state, delimiters) {
 			continue;
 		}
 		const endDelim = delimiters[startDelim.end];
-		const isStrong = i > 0 && delimiters[i - 1].end === startDelim.end + 1 && delimiters[i - 1].marker === startDelim.marker && delimiters[i - 1].token === startDelim.token - 1 && delimiters[startDelim.end + 1].token === endDelim.token + 1;
+		const isStrong = i$10 > 0 && delimiters[i$10 - 1].end === startDelim.end + 1 && delimiters[i$10 - 1].marker === startDelim.marker && delimiters[i$10 - 1].token === startDelim.token - 1 && delimiters[startDelim.end + 1].token === endDelim.token + 1;
 		const ch = String.fromCharCode(startDelim.marker);
 		const token_o = state.tokens[startDelim.token];
 		token_o.type = isStrong ? "strong_open" : "em_open";
@@ -14684,9 +14781,9 @@ function postProcess(state, delimiters) {
 		token_c.markup = isStrong ? ch + ch : ch;
 		token_c.content = "";
 		if (isStrong) {
-			state.tokens[delimiters[i - 1].token].content = "";
+			state.tokens[delimiters[i$10 - 1].token].content = "";
 			state.tokens[delimiters[startDelim.end + 1].token].content = "";
-			i--;
+			i$10--;
 		}
 	}
 }
@@ -14705,10 +14802,12 @@ var emphasis_default = {
 	postProcess: emphasis_post_process
 };
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/link.mjs
 function link(state, silent) {
-	let code, label, res, ref;
+	let code$1, label, res, ref;
 	let href = "";
-	let title = "";
+	let title$1 = "";
 	let start = state.pos;
 	let parseReference = true;
 	if (state.src.charCodeAt(state.pos) !== 91) {
@@ -14726,8 +14825,8 @@ function link(state, silent) {
 		parseReference = false;
 		pos++;
 		for (; pos < max; pos++) {
-			code = state.src.charCodeAt(pos);
-			if (!isSpace(code) && code !== 10) {
+			code$1 = state.src.charCodeAt(pos);
+			if (!isSpace(code$1) && code$1 !== 10) {
 				break;
 			}
 		}
@@ -14745,18 +14844,18 @@ function link(state, silent) {
 			}
 			start = pos;
 			for (; pos < max; pos++) {
-				code = state.src.charCodeAt(pos);
-				if (!isSpace(code) && code !== 10) {
+				code$1 = state.src.charCodeAt(pos);
+				if (!isSpace(code$1) && code$1 !== 10) {
 					break;
 				}
 			}
 			res = state.md.helpers.parseLinkTitle(state.src, pos, state.posMax);
 			if (pos < max && start !== pos && res.ok) {
-				title = res.str;
+				title$1 = res.str;
 				pos = res.pos;
 				for (; pos < max; pos++) {
-					code = state.src.charCodeAt(pos);
-					if (!isSpace(code) && code !== 10) {
+					code$1 = state.src.charCodeAt(pos);
+					if (!isSpace(code$1) && code$1 !== 10) {
 						break;
 					}
 				}
@@ -14791,7 +14890,7 @@ function link(state, silent) {
 			return false;
 		}
 		href = ref.href;
-		title = ref.title;
+		title$1 = ref.title;
 	}
 	if (!silent) {
 		state.pos = labelStart;
@@ -14799,8 +14898,8 @@ function link(state, silent) {
 		const token_o = state.push("link_open", "a", 1);
 		const attrs = [["href", href]];
 		token_o.attrs = attrs;
-		if (title) {
-			attrs.push(["title", title]);
+		if (title$1) {
+			attrs.push(["title", title$1]);
 		}
 		state.linkLevel++;
 		state.md.inline.tokenize(state);
@@ -14812,8 +14911,10 @@ function link(state, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/image.mjs
 function image(state, silent) {
-	let code, content, label, pos, ref, res, title, start;
+	let code$1, content, label, pos, ref, res, title$1, start;
 	let href = "";
 	const oldPos = state.pos;
 	const max = state.posMax;
@@ -14832,8 +14933,8 @@ function image(state, silent) {
 	if (pos < max && state.src.charCodeAt(pos) === 40) {
 		pos++;
 		for (; pos < max; pos++) {
-			code = state.src.charCodeAt(pos);
-			if (!isSpace(code) && code !== 10) {
+			code$1 = state.src.charCodeAt(pos);
+			if (!isSpace(code$1) && code$1 !== 10) {
 				break;
 			}
 		}
@@ -14852,23 +14953,23 @@ function image(state, silent) {
 		}
 		start = pos;
 		for (; pos < max; pos++) {
-			code = state.src.charCodeAt(pos);
-			if (!isSpace(code) && code !== 10) {
+			code$1 = state.src.charCodeAt(pos);
+			if (!isSpace(code$1) && code$1 !== 10) {
 				break;
 			}
 		}
 		res = state.md.helpers.parseLinkTitle(state.src, pos, state.posMax);
 		if (pos < max && start !== pos && res.ok) {
-			title = res.str;
+			title$1 = res.str;
 			pos = res.pos;
 			for (; pos < max; pos++) {
-				code = state.src.charCodeAt(pos);
-				if (!isSpace(code) && code !== 10) {
+				code$1 = state.src.charCodeAt(pos);
+				if (!isSpace(code$1) && code$1 !== 10) {
 					break;
 				}
 			}
 		} else {
-			title = "";
+			title$1 = "";
 		}
 		if (pos >= max || state.src.charCodeAt(pos) !== 41) {
 			state.pos = oldPos;
@@ -14899,7 +15000,7 @@ function image(state, silent) {
 			return false;
 		}
 		href = ref.href;
-		title = ref.title;
+		title$1 = ref.title;
 	}
 	if (!silent) {
 		content = state.src.slice(labelStart, labelEnd);
@@ -14910,8 +15011,8 @@ function image(state, silent) {
 		token.attrs = attrs;
 		token.children = tokens;
 		token.content = content;
-		if (title) {
-			attrs.push(["title", title]);
+		if (title$1) {
+			attrs.push(["title", title$1]);
 		}
 	}
 	state.pos = pos;
@@ -14919,6 +15020,8 @@ function image(state, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/autolink.mjs
 const EMAIL_RE = /^([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)$/;
 const AUTOLINK_RE = /^([a-zA-Z][a-zA-Z0-9+.-]{1,31}):([^<>\x00-\x20]*)$/;
 function autolink(state, silent) {
@@ -14976,6 +15079,8 @@ function autolink(state, silent) {
 	return false;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/html_inline.mjs
 function isLinkOpen(str) {
 	return /^<a[>\s]/i.test(str);
 }
@@ -15013,6 +15118,8 @@ function html_inline(state, silent) {
 	return true;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/entity.mjs
 const DIGITAL_RE = /^&#((?:x[a-f0-9]{1,6}|[0-9]{1,7}));/i;
 const NAMED_RE = /^&([a-z][a-z0-9]{1,31});/i;
 function entity(state, silent) {
@@ -15025,9 +15132,9 @@ function entity(state, silent) {
 		const match = state.src.slice(pos).match(DIGITAL_RE);
 		if (match) {
 			if (!silent) {
-				const code = match[1][0].toLowerCase() === "x" ? parseInt(match[1].slice(1), 16) : parseInt(match[1], 10);
+				const code$1 = match[1][0].toLowerCase() === "x" ? parseInt(match[1].slice(1), 16) : parseInt(match[1], 10);
 				const token = state.push("text_special", "", 0);
-				token.content = isValidEntityCode(code) ? fromCodePoint(code) : fromCodePoint(65533);
+				token.content = isValidEntityCode(code$1) ? fromCodePoint(code$1) : fromCodePoint(65533);
 				token.markup = match[0];
 				token.info = "entity";
 			}
@@ -15053,6 +15160,8 @@ function entity(state, silent) {
 	return false;
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/balance_pairs.mjs
 function processDelimiters(delimiters) {
 	const openersBottom = {};
 	const max = delimiters.length;
@@ -15123,6 +15232,8 @@ function link_pairs(state) {
 	}
 }
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/rules_inline/fragments_join.mjs
 function fragments_join(state) {
 	let curr, last;
 	let level = 0;
@@ -15146,11 +15257,8 @@ function fragments_join(state) {
 	}
 }
 
-/** internal
-* class ParserInline
-*
-* Tokenizes paragraph content.
-**/
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/parser_inline.mjs
 const _rules = [
 	["text", text],
 	["linkify", linkify],
@@ -15181,8 +15289,8 @@ function ParserInline() {
 	* [[Ruler]] instance. Keep configuration of inline rules.
 	**/
 	this.ruler = new ruler_default();
-	for (let i = 0; i < _rules.length; i++) {
-		this.ruler.push(_rules[i][0], _rules[i][1]);
+	for (let i$10 = 0; i$10 < _rules.length; i$10++) {
+		this.ruler.push(_rules[i$10][0], _rules[i$10][1]);
 	}
 	/**
 	* ParserInline#ruler2 -> Ruler
@@ -15191,8 +15299,8 @@ function ParserInline() {
 	* (e.g. in emphasis-like rules).
 	**/
 	this.ruler2 = new ruler_default();
-	for (let i = 0; i < _rules2.length; i++) {
-		this.ruler2.push(_rules2[i][0], _rules2[i][1]);
+	for (let i$10 = 0; i$10 < _rules2.length; i$10++) {
+		this.ruler2.push(_rules2[i$10][0], _rules2[i$10][1]);
 	}
 }
 ParserInline.prototype.skipToken = function(state) {
@@ -15207,9 +15315,9 @@ ParserInline.prototype.skipToken = function(state) {
 	}
 	let ok = false;
 	if (state.level < maxNesting) {
-		for (let i = 0; i < len; i++) {
+		for (let i$10 = 0; i$10 < len; i$10++) {
 			state.level++;
-			ok = rules[i](state, true);
+			ok = rules[i$10](state, true);
 			state.level--;
 			if (ok) {
 				if (pos >= state.pos) {
@@ -15235,8 +15343,8 @@ ParserInline.prototype.tokenize = function(state) {
 		const prevPos = state.pos;
 		let ok = false;
 		if (state.level < maxNesting) {
-			for (let i = 0; i < len; i++) {
-				ok = rules[i](state, false);
+			for (let i$10 = 0; i$10 < len; i$10++) {
+				ok = rules[i$10](state, false);
 				if (ok) {
 					if (prevPos >= state.pos) {
 						throw new Error("inline rule didn't increment state.pos");
@@ -15267,20 +15375,22 @@ ParserInline.prototype.parse = function(str, md, env, outTokens) {
 	this.tokenize(state);
 	const rules = this.ruler2.getRules("");
 	const len = rules.length;
-	for (let i = 0; i < len; i++) {
-		rules[i](state);
+	for (let i$10 = 0; i$10 < len; i$10++) {
+		rules[i$10](state);
 	}
 };
 ParserInline.prototype.State = state_inline_default;
 var parser_inline_default = ParserInline;
 
+//#endregion
+//#region node_modules/.pnpm/linkify-it@5.0.0/node_modules/linkify-it/lib/re.mjs
 function re_default(opts) {
 	const re = {};
 	opts = opts || {};
-	re.src_Any = regex_default$5.source;
-	re.src_Cc = regex_default$4.source;
-	re.src_Z = regex_default.source;
-	re.src_P = regex_default$2.source;
+	re.src_Any = regex_default.source;
+	re.src_Cc = regex_default$1.source;
+	re.src_Z = regex_default$2.source;
+	re.src_P = regex_default$3.source;
 	re.src_ZPCc = [
 		re.src_Z,
 		re.src_P,
@@ -15313,6 +15423,8 @@ function re_default(opts) {
 	return re;
 }
 
+//#endregion
+//#region node_modules/.pnpm/linkify-it@5.0.0/node_modules/linkify-it/index.mjs
 function assign(obj) {
 	const sources = Array.prototype.slice.call(arguments, 1);
 	sources.forEach(function(source) {
@@ -15349,13 +15461,13 @@ const defaultOptions = {
 	fuzzyIP: false
 };
 function isOptionsObj(obj) {
-	return Object.keys(obj || {}).reduce(function(acc, k) {
-		return acc || defaultOptions.hasOwnProperty(k);
+	return Object.keys(obj || {}).reduce(function(acc, k$1) {
+		return acc || defaultOptions.hasOwnProperty(k$1);
 	}, false);
 }
 const defaultSchemas = {
-	"http:": { validate: function(text, pos, self) {
-		const tail = text.slice(pos);
+	"http:": { validate: function(text$1, pos, self) {
+		const tail = text$1.slice(pos);
 		if (!self.re.http) {
 			self.re.http = new RegExp("^\\/\\/" + self.re.src_auth + self.re.src_host_port_strict + self.re.src_path, "i");
 		}
@@ -15366,24 +15478,24 @@ const defaultSchemas = {
 	} },
 	"https:": "http:",
 	"ftp:": "http:",
-	"//": { validate: function(text, pos, self) {
-		const tail = text.slice(pos);
+	"//": { validate: function(text$1, pos, self) {
+		const tail = text$1.slice(pos);
 		if (!self.re.no_http) {
 			self.re.no_http = new RegExp("^" + self.re.src_auth + "(?:localhost|(?:(?:" + self.re.src_domain + ")\\.)+" + self.re.src_domain_root + ")" + self.re.src_port + self.re.src_host_terminator + self.re.src_path, "i");
 		}
 		if (self.re.no_http.test(tail)) {
-			if (pos >= 3 && text[pos - 3] === ":") {
+			if (pos >= 3 && text$1[pos - 3] === ":") {
 				return 0;
 			}
-			if (pos >= 3 && text[pos - 3] === "/") {
+			if (pos >= 3 && text$1[pos - 3] === "/") {
 				return 0;
 			}
 			return tail.match(self.re.no_http)[0].length;
 		}
 		return 0;
 	} },
-	"mailto:": { validate: function(text, pos, self) {
-		const tail = text.slice(pos);
+	"mailto:": { validate: function(text$1, pos, self) {
+		const tail = text$1.slice(pos);
 		if (!self.re.mailto) {
 			self.re.mailto = new RegExp("^" + self.re.src_email_name + "@" + self.re.src_host_strict, "i");
 		}
@@ -15400,8 +15512,8 @@ function resetScanCache(self) {
 	self.__text_cache__ = "";
 }
 function createValidator(re) {
-	return function(text, pos) {
-		const tail = text.slice(pos);
+	return function(text$1, pos) {
+		const tail = text$1.slice(pos);
 		if (re.test(tail)) {
 			return tail.match(re)[0].length;
 		}
@@ -15495,7 +15607,7 @@ function compile(self) {
 function Match(self, shift) {
 	const start = self.__index__;
 	const end = self.__last_index__;
-	const text = self.__text_cache__.slice(start, end);
+	const text$1 = self.__text_cache__.slice(start, end);
 	/**
 	* Match#schema -> String
 	*
@@ -15519,19 +15631,19 @@ function Match(self, shift) {
 	*
 	* Matched string.
 	**/
-	this.raw = text;
+	this.raw = text$1;
 	/**
 	* Match#text -> String
 	*
 	* Notmalized text of matched string.
 	**/
-	this.text = text;
+	this.text = text$1;
 	/**
 	* Match#url -> String
 	*
 	* Normalized url of matched string.
 	**/
-	this.url = text;
+	this.url = text$1;
 }
 function createMatch(self, shift) {
 	const match = new Match(self, shift);
@@ -15624,31 +15736,31 @@ LinkifyIt.prototype.set = function set(options) {
 *
 * Searches linkifiable pattern and returns `true` on success or `false` on fail.
 **/
-LinkifyIt.prototype.test = function test(text) {
-	this.__text_cache__ = text;
+LinkifyIt.prototype.test = function test(text$1) {
+	this.__text_cache__ = text$1;
 	this.__index__ = -1;
-	if (!text.length) {
+	if (!text$1.length) {
 		return false;
 	}
-	let m, ml, me, len, shift, next, re, tld_pos, at_pos;
-	if (this.re.schema_test.test(text)) {
+	let m$3, ml, me, len, shift, next, re, tld_pos, at_pos;
+	if (this.re.schema_test.test(text$1)) {
 		re = this.re.schema_search;
 		re.lastIndex = 0;
-		while ((m = re.exec(text)) !== null) {
-			len = this.testSchemaAt(text, m[2], re.lastIndex);
+		while ((m$3 = re.exec(text$1)) !== null) {
+			len = this.testSchemaAt(text$1, m$3[2], re.lastIndex);
 			if (len) {
-				this.__schema__ = m[2];
-				this.__index__ = m.index + m[1].length;
-				this.__last_index__ = m.index + m[0].length + len;
+				this.__schema__ = m$3[2];
+				this.__index__ = m$3.index + m$3[1].length;
+				this.__last_index__ = m$3.index + m$3[0].length + len;
 				break;
 			}
 		}
 	}
 	if (this.__opts__.fuzzyLink && this.__compiled__["http:"]) {
-		tld_pos = text.search(this.re.host_fuzzy_test);
+		tld_pos = text$1.search(this.re.host_fuzzy_test);
 		if (tld_pos >= 0) {
 			if (this.__index__ < 0 || tld_pos < this.__index__) {
-				if ((ml = text.match(this.__opts__.fuzzyIP ? this.re.link_fuzzy : this.re.link_no_ip_fuzzy)) !== null) {
+				if ((ml = text$1.match(this.__opts__.fuzzyIP ? this.re.link_fuzzy : this.re.link_no_ip_fuzzy)) !== null) {
 					shift = ml.index + ml[1].length;
 					if (this.__index__ < 0 || shift < this.__index__) {
 						this.__schema__ = "";
@@ -15660,9 +15772,9 @@ LinkifyIt.prototype.test = function test(text) {
 		}
 	}
 	if (this.__opts__.fuzzyEmail && this.__compiled__["mailto:"]) {
-		at_pos = text.indexOf("@");
+		at_pos = text$1.indexOf("@");
 		if (at_pos >= 0) {
-			if ((me = text.match(this.re.email_fuzzy)) !== null) {
+			if ((me = text$1.match(this.re.email_fuzzy)) !== null) {
 				shift = me.index + me[1].length;
 				next = me.index + me[0].length;
 				if (this.__index__ < 0 || shift < this.__index__ || shift === this.__index__ && next > this.__last_index__) {
@@ -15682,8 +15794,8 @@ LinkifyIt.prototype.test = function test(text) {
 * can exists. Can be used for speed optimization, when you need to check that
 * link NOT exists.
 **/
-LinkifyIt.prototype.pretest = function pretest(text) {
-	return this.re.pretest.test(text);
+LinkifyIt.prototype.pretest = function pretest(text$1) {
+	return this.re.pretest.test(text$1);
 };
 /**
 * LinkifyIt#testSchemaAt(text, name, position) -> Number
@@ -15694,11 +15806,11 @@ LinkifyIt.prototype.pretest = function pretest(text) {
 * Similar to [[LinkifyIt#test]] but checks only specific protocol tail exactly
 * at given position. Returns length of found pattern (0 on fail).
 **/
-LinkifyIt.prototype.testSchemaAt = function testSchemaAt(text, schema, pos) {
+LinkifyIt.prototype.testSchemaAt = function testSchemaAt(text$1, schema, pos) {
 	if (!this.__compiled__[schema.toLowerCase()]) {
 		return 0;
 	}
-	return this.__compiled__[schema.toLowerCase()].validate(text, pos, this);
+	return this.__compiled__[schema.toLowerCase()].validate(text$1, pos, this);
 };
 /**
 * LinkifyIt#match(text) -> Array|null
@@ -15716,14 +15828,14 @@ LinkifyIt.prototype.testSchemaAt = function testSchemaAt(text, schema, pos) {
 * - __text__ - normalized text
 * - __url__ - link, generated from matched text
 **/
-LinkifyIt.prototype.match = function match(text) {
+LinkifyIt.prototype.match = function match(text$1) {
 	const result = [];
 	let shift = 0;
-	if (this.__index__ >= 0 && this.__text_cache__ === text) {
+	if (this.__index__ >= 0 && this.__text_cache__ === text$1) {
 		result.push(createMatch(this, shift));
 		shift = this.__last_index__;
 	}
-	let tail = shift ? text.slice(shift) : text;
+	let tail = shift ? text$1.slice(shift) : text$1;
 	while (this.test(tail)) {
 		result.push(createMatch(this, shift));
 		tail = tail.slice(this.__last_index__);
@@ -15740,17 +15852,17 @@ LinkifyIt.prototype.match = function match(text) {
 * Returns fully-formed (not fuzzy) link if it starts at the beginning
 * of the string, and null otherwise.
 **/
-LinkifyIt.prototype.matchAtStart = function matchAtStart(text) {
-	this.__text_cache__ = text;
+LinkifyIt.prototype.matchAtStart = function matchAtStart(text$1) {
+	this.__text_cache__ = text$1;
 	this.__index__ = -1;
-	if (!text.length) return null;
-	const m = this.re.schema_at_start.exec(text);
-	if (!m) return null;
-	const len = this.testSchemaAt(text, m[2], m[0].length);
+	if (!text$1.length) return null;
+	const m$3 = this.re.schema_at_start.exec(text$1);
+	if (!m$3) return null;
+	const len = this.testSchemaAt(text$1, m$3[2], m$3[0].length);
 	if (!len) return null;
-	this.__schema__ = m[2];
-	this.__index__ = m.index + m[1].length;
-	this.__last_index__ = m.index + m[0].length + len;
+	this.__schema__ = m$3[2];
+	this.__index__ = m$3.index + m$3[1].length;
+	this.__last_index__ = m$3.index + m$3[0].length + len;
 	return createMatch(this, 0);
 };
 /** chainable
@@ -15768,15 +15880,15 @@ LinkifyIt.prototype.matchAtStart = function matchAtStart(text) {
 *
 * If list is replaced, then exact match for 2-chars root zones will be checked.
 **/
-LinkifyIt.prototype.tlds = function tlds(list, keepOld) {
-	list = Array.isArray(list) ? list : [list];
+LinkifyIt.prototype.tlds = function tlds(list$1, keepOld) {
+	list$1 = Array.isArray(list$1) ? list$1 : [list$1];
 	if (!keepOld) {
-		this.__tlds__ = list.slice();
+		this.__tlds__ = list$1.slice();
 		this.__tlds_replaced__ = true;
 		compile(this);
 		return this;
 	}
-	this.__tlds__ = this.__tlds__.concat(list).sort().filter(function(el, idx, arr) {
+	this.__tlds__ = this.__tlds__.concat(list$1).sort().filter(function(el, idx, arr) {
 		return el !== arr[idx - 1];
 	}).reverse();
 	compile(this);
@@ -15787,7 +15899,7 @@ LinkifyIt.prototype.tlds = function tlds(list, keepOld) {
 *
 * Default normalizer (if schema does not define it's own).
 **/
-LinkifyIt.prototype.normalize = function normalize(match) {
+LinkifyIt.prototype.normalize = function normalize$1(match) {
 	if (!match.schema) {
 		match.url = "http://" + match.url;
 	}
@@ -15803,6 +15915,8 @@ LinkifyIt.prototype.normalize = function normalize(match) {
 LinkifyIt.prototype.onCompile = function onCompile() {};
 var linkify_it_default = LinkifyIt;
 
+//#endregion
+//#region node_modules/.pnpm/punycode.js@2.3.1/node_modules/punycode.js/punycode.es6.js
 /** Highest positive signed 32-bit float value */
 const maxInt = 2147483647;
 /** Bootstring parameters */
@@ -15834,8 +15948,8 @@ const stringFromCharCode = String.fromCharCode;
 * @param {String} type The error type.
 * @returns {Error} Throws a `RangeError` with the applicable error message.
 */
-function error(type) {
-	throw new RangeError(errors[type]);
+function error(type$2) {
+	throw new RangeError(errors[type$2]);
 }
 /**
 * A generic `Array#map` utility function.
@@ -15958,13 +16072,13 @@ const digitToBasic = function(digit, flag) {
 * @private
 */
 const adapt = function(delta, numPoints, firstTime) {
-	let k = 0;
+	let k$1 = 0;
 	delta = firstTime ? floor(delta / damp) : delta >> 1;
 	delta += floor(delta / numPoints);
-	for (; delta > baseMinusTMin * tMax >> 1; k += base) {
+	for (; delta > baseMinusTMin * tMax >> 1; k$1 += base) {
 		delta = floor(delta / baseMinusTMin);
 	}
-	return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
+	return floor(k$1 + (baseMinusTMin + 1) * delta / (delta + skew));
 };
 /**
 * Converts a Punycode string of ASCII-only symbols to a string of Unicode
@@ -15976,22 +16090,22 @@ const adapt = function(delta, numPoints, firstTime) {
 const decode = function(input) {
 	const output = [];
 	const inputLength = input.length;
-	let i = 0;
-	let n = initialN;
+	let i$10 = 0;
+	let n$11 = initialN;
 	let bias = initialBias;
 	let basic = input.lastIndexOf(delimiter);
 	if (basic < 0) {
 		basic = 0;
 	}
-	for (let j = 0; j < basic; ++j) {
-		if (input.charCodeAt(j) >= 128) {
+	for (let j$2 = 0; j$2 < basic; ++j$2) {
+		if (input.charCodeAt(j$2) >= 128) {
 			error("not-basic");
 		}
-		output.push(input.charCodeAt(j));
+		output.push(input.charCodeAt(j$2));
 	}
 	for (let index = basic > 0 ? basic + 1 : 0; index < inputLength;) {
-		const oldi = i;
-		for (let w = 1, k = base;; k += base) {
+		const oldi = i$10;
+		for (let w$1 = 1, k$1 = base;; k$1 += base) {
 			if (index >= inputLength) {
 				error("invalid-input");
 			}
@@ -15999,28 +16113,28 @@ const decode = function(input) {
 			if (digit >= base) {
 				error("invalid-input");
 			}
-			if (digit > floor((maxInt - i) / w)) {
+			if (digit > floor((maxInt - i$10) / w$1)) {
 				error("overflow");
 			}
-			i += digit * w;
-			const t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
-			if (digit < t) {
+			i$10 += digit * w$1;
+			const t$7 = k$1 <= bias ? tMin : k$1 >= bias + tMax ? tMax : k$1 - bias;
+			if (digit < t$7) {
 				break;
 			}
-			const baseMinusT = base - t;
-			if (w > floor(maxInt / baseMinusT)) {
+			const baseMinusT = base - t$7;
+			if (w$1 > floor(maxInt / baseMinusT)) {
 				error("overflow");
 			}
-			w *= baseMinusT;
+			w$1 *= baseMinusT;
 		}
 		const out = output.length + 1;
-		bias = adapt(i - oldi, out, oldi == 0);
-		if (floor(i / out) > maxInt - n) {
+		bias = adapt(i$10 - oldi, out, oldi == 0);
+		if (floor(i$10 / out) > maxInt - n$11) {
 			error("overflow");
 		}
-		n += floor(i / out);
-		i %= out;
-		output.splice(i++, 0, n);
+		n$11 += floor(i$10 / out);
+		i$10 %= out;
+		output.splice(i$10++, 0, n$11);
 	}
 	return String.fromCodePoint(...output);
 };
@@ -16035,7 +16149,7 @@ const encode = function(input) {
 	const output = [];
 	input = ucs2decode(input);
 	const inputLength = input.length;
-	let n = initialN;
+	let n$11 = initialN;
 	let delta = 0;
 	let bias = initialBias;
 	for (const currentValue of input) {
@@ -16049,32 +16163,32 @@ const encode = function(input) {
 		output.push(delimiter);
 	}
 	while (handledCPCount < inputLength) {
-		let m = maxInt;
+		let m$3 = maxInt;
 		for (const currentValue of input) {
-			if (currentValue >= n && currentValue < m) {
-				m = currentValue;
+			if (currentValue >= n$11 && currentValue < m$3) {
+				m$3 = currentValue;
 			}
 		}
 		const handledCPCountPlusOne = handledCPCount + 1;
-		if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
+		if (m$3 - n$11 > floor((maxInt - delta) / handledCPCountPlusOne)) {
 			error("overflow");
 		}
-		delta += (m - n) * handledCPCountPlusOne;
-		n = m;
+		delta += (m$3 - n$11) * handledCPCountPlusOne;
+		n$11 = m$3;
 		for (const currentValue of input) {
-			if (currentValue < n && ++delta > maxInt) {
+			if (currentValue < n$11 && ++delta > maxInt) {
 				error("overflow");
 			}
-			if (currentValue === n) {
+			if (currentValue === n$11) {
 				let q = delta;
-				for (let k = base;; k += base) {
-					const t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
-					if (q < t) {
+				for (let k$1 = base;; k$1 += base) {
+					const t$7 = k$1 <= bias ? tMin : k$1 >= bias + tMax ? tMax : k$1 - bias;
+					if (q < t$7) {
 						break;
 					}
-					const qMinusT = q - t;
-					const baseMinusT = base - t;
-					output.push(stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0)));
+					const qMinusT = q - t$7;
+					const baseMinusT = base - t$7;
+					output.push(stringFromCharCode(digitToBasic(t$7 + qMinusT % baseMinusT, 0)));
 					q = floor(qMinusT / baseMinusT);
 				}
 				output.push(stringFromCharCode(digitToBasic(q, 0)));
@@ -16084,7 +16198,7 @@ const encode = function(input) {
 			}
 		}
 		++delta;
-		++n;
+		++n$11;
 	}
 	return output.join("");
 };
@@ -16134,6 +16248,8 @@ const punycode = {
 };
 var punycode_es6_default = punycode;
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/presets/default.mjs
 var default_default = {
 	options: {
 		html: false,
@@ -16153,6 +16269,8 @@ var default_default = {
 	}
 };
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/presets/zero.mjs
 var zero_default = {
 	options: {
 		html: false,
@@ -16180,6 +16298,8 @@ var zero_default = {
 	}
 };
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/presets/commonmark.mjs
 var commonmark_default = {
 	options: {
 		html: true,
@@ -16233,6 +16353,8 @@ var commonmark_default = {
 	}
 };
 
+//#endregion
+//#region node_modules/.pnpm/markdown-it@14.1.0/node_modules/markdown-it/lib/index.mjs
 const config = {
 	default: default_default,
 	zero: zero_default,
@@ -16502,7 +16624,7 @@ function MarkdownIt(presetName, options) {
 	* Assorted utility functions, useful to write plugins. See details
 	* [here](https://github.com/markdown-it/markdown-it/blob/master/lib/common/utils.mjs).
 	**/
-	this.utils = utils_exports;
+	this.utils = utils_exports$1;
 	/**
 	* MarkdownIt#helpers -> helpers
 	*
@@ -16593,20 +16715,20 @@ MarkdownIt.prototype.configure = function(presets) {
 *             .disable('smartquotes');
 * ```
 **/
-MarkdownIt.prototype.enable = function(list, ignoreInvalid) {
+MarkdownIt.prototype.enable = function(list$1, ignoreInvalid) {
 	let result = [];
-	if (!Array.isArray(list)) {
-		list = [list];
+	if (!Array.isArray(list$1)) {
+		list$1 = [list$1];
 	}
 	[
 		"core",
 		"block",
 		"inline"
 	].forEach(function(chain) {
-		result = result.concat(this[chain].ruler.enable(list, true));
+		result = result.concat(this[chain].ruler.enable(list$1, true));
 	}, this);
-	result = result.concat(this.inline.ruler2.enable(list, true));
-	const missed = list.filter(function(name) {
+	result = result.concat(this.inline.ruler2.enable(list$1, true));
+	const missed = list$1.filter(function(name) {
 		return result.indexOf(name) < 0;
 	});
 	if (missed.length && !ignoreInvalid) {
@@ -16621,20 +16743,20 @@ MarkdownIt.prototype.enable = function(list, ignoreInvalid) {
 *
 * The same as [[MarkdownIt.enable]], but turn specified rules off.
 **/
-MarkdownIt.prototype.disable = function(list, ignoreInvalid) {
+MarkdownIt.prototype.disable = function(list$1, ignoreInvalid) {
 	let result = [];
-	if (!Array.isArray(list)) {
-		list = [list];
+	if (!Array.isArray(list$1)) {
+		list$1 = [list$1];
 	}
 	[
 		"core",
 		"block",
 		"inline"
 	].forEach(function(chain) {
-		result = result.concat(this[chain].ruler.disable(list, true));
+		result = result.concat(this[chain].ruler.disable(list$1, true));
 	}, this);
-	result = result.concat(this.inline.ruler2.disable(list, true));
-	const missed = list.filter(function(name) {
+	result = result.concat(this.inline.ruler2.disable(list$1, true));
+	const missed = list$1.filter(function(name) {
 		return result.indexOf(name) < 0;
 	});
 	if (missed.length && !ignoreInvalid) {
@@ -16730,12 +16852,8 @@ MarkdownIt.prototype.renderInline = function(src, env) {
 };
 var lib_default = MarkdownIt;
 
-/**
-* This is only safe for (and intended to be used for) text node positions. If
-* you are using attribute position, then this is only safe if the attribute
-* value is surrounded by double-quotes, and is unsafe otherwise (because the
-* value could break out of the attribute value and e.g. add another attribute).
-*/
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/directives/sanitizer.js
 function escapeNodeText(str) {
 	const frag = document.createElement("div");
 	D(b`${str}`, frag);
@@ -16750,7 +16868,9 @@ function unescapeNodeText(str) {
 	return frag.value;
 }
 
-var MarkdownDirective = class extends i$5 {
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/directives/markdown.js
+var MarkdownDirective = class extends i$3 {
 	#markdownIt = lib_default({ highlight: (str, lang) => {
 		switch (lang) {
 			case "html": {
@@ -16841,45 +16961,47 @@ var MarkdownDirective = class extends i$5 {
 		}
 		const htmlString = this.#markdownIt.render(value);
 		this.#unapplyTagClassMap();
-		return o(htmlString);
+		return o$1(htmlString);
 	}
 };
-const markdown = e$10(MarkdownDirective);
+const markdown = e$1(MarkdownDirective);
 const markdownItStandalone = lib_default();
 function renderMarkdownToHtmlString(value) {
 	return markdownItStandalone.render(value);
 }
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/text.js
 var __esDecorate$1 = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -16887,13 +17009,13 @@ var __esDecorate$1 = void 0 && (void 0).__esDecorate || function(ctor, descripto
 };
 var __runInitializers$1 = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Text = (() => {
-	let _classDecorators = [t$1("a2ui-text")];
+	let _classDecorators = [t("a2ui-text")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -16904,14 +17026,14 @@ let Text = (() => {
 	let _usageHint_decorators;
 	let _usageHint_initializers = [];
 	let _usageHint_extraInitializers = [];
-	var Text = class extends _classSuper {
+	var Text$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_text_decorators = [n$6()];
-			_usageHint_decorators = [n$6({
+			_text_decorators = [n()];
+			_usageHint_decorators = [n({
 				reflect: true,
 				attribute: "usage-hint"
 			})];
@@ -16948,7 +17070,7 @@ let Text = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Text = _classThis = _classDescriptor.value;
+			Text$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -16971,7 +17093,7 @@ let Text = (() => {
 			this.#usageHint_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       :host {
         display: block;
         flex: var(--weight);
@@ -17049,7 +17171,7 @@ let Text = (() => {
 				"caption",
 				"body"
 			];
-			return expected.every((v) => v in styles);
+			return expected.every((v$2) => v$2 in styles);
 		}
 		#getAdditionalStyles() {
 			let additionalStyles = {};
@@ -17066,8 +17188,8 @@ let Text = (() => {
 		render() {
 			const classes = merge(this.theme.components.Text.all, this.usageHint ? this.theme.components.Text[this.usageHint] : {});
 			return b`<section
-      class=${e$2(classes)}
-      style=${this.theme.additionalStyles?.Text ? o$2(this.#getAdditionalStyles()) : A}
+      class=${e(classes)}
+      style=${this.theme.additionalStyles?.Text ? o(this.#getAdditionalStyles()) : A}
     >
       ${this.#renderText()}
     </section>`;
@@ -17080,39 +17202,41 @@ let Text = (() => {
 			__runInitializers$1(_classThis, _classExtraInitializers);
 		}
 	};
-	return Text = _classThis;
+	return Text$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/video.js
 var __esDecorate = void 0 && (void 0).__esDecorate || function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-	function accept(f) {
-		if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-		return f;
+	function accept(f$4) {
+		if (f$4 !== void 0 && typeof f$4 !== "function") throw new TypeError("Function expected");
+		return f$4;
 	}
 	var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
 	var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
 	var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-	var _, done = false;
-	for (var i = decorators.length - 1; i >= 0; i--) {
+	var _$1, done = false;
+	for (var i$10 = decorators.length - 1; i$10 >= 0; i$10--) {
 		var context = {};
-		for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-		for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-		context.addInitializer = function(f) {
+		for (var p$3 in contextIn) context[p$3] = p$3 === "access" ? {} : contextIn[p$3];
+		for (var p$3 in contextIn.access) context.access[p$3] = contextIn.access[p$3];
+		context.addInitializer = function(f$4) {
 			if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-			extraInitializers.push(accept(f || null));
+			extraInitializers.push(accept(f$4 || null));
 		};
-		var result = (0, decorators[i])(kind === "accessor" ? {
+		var result = (0, decorators[i$10])(kind === "accessor" ? {
 			get: descriptor.get,
 			set: descriptor.set
 		} : descriptor[key], context);
 		if (kind === "accessor") {
 			if (result === void 0) continue;
 			if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-			if (_ = accept(result.get)) descriptor.get = _;
-			if (_ = accept(result.set)) descriptor.set = _;
-			if (_ = accept(result.init)) initializers.unshift(_);
-		} else if (_ = accept(result)) {
-			if (kind === "field") initializers.unshift(_);
-			else descriptor[key] = _;
+			if (_$1 = accept(result.get)) descriptor.get = _$1;
+			if (_$1 = accept(result.set)) descriptor.set = _$1;
+			if (_$1 = accept(result.init)) initializers.unshift(_$1);
+		} else if (_$1 = accept(result)) {
+			if (kind === "field") initializers.unshift(_$1);
+else descriptor[key] = _$1;
 		}
 	}
 	if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -17120,13 +17244,13 @@ var __esDecorate = void 0 && (void 0).__esDecorate || function(ctor, descriptorI
 };
 var __runInitializers = void 0 && (void 0).__runInitializers || function(thisArg, initializers, value) {
 	var useValue = arguments.length > 2;
-	for (var i = 0; i < initializers.length; i++) {
-		value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+	for (var i$10 = 0; i$10 < initializers.length; i$10++) {
+		value = useValue ? initializers[i$10].call(thisArg, value) : initializers[i$10].call(thisArg);
 	}
 	return useValue ? value : void 0;
 };
 let Video = (() => {
-	let _classDecorators = [t$1("a2ui-video")];
+	let _classDecorators = [t("a2ui-video")];
 	let _classDescriptor;
 	let _classExtraInitializers = [];
 	let _classThis;
@@ -17134,13 +17258,13 @@ let Video = (() => {
 	let _url_decorators;
 	let _url_initializers = [];
 	let _url_extraInitializers = [];
-	var Video = class extends _classSuper {
+	var Video$1 = class extends _classSuper {
 		static {
 			_classThis = this;
 		}
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
-			_url_decorators = [n$6()];
+			_url_decorators = [n()];
 			__esDecorate(this, null, _url_decorators, {
 				kind: "accessor",
 				name: "url",
@@ -17160,7 +17284,7 @@ let Video = (() => {
 				name: _classThis.name,
 				metadata: _metadata
 			}, null, _classExtraInitializers);
-			Video = _classThis = _classDescriptor.value;
+			Video$1 = _classThis = _classDescriptor.value;
 			if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -17176,7 +17300,7 @@ let Video = (() => {
 			this.#url_accessor_storage = value;
 		}
 		static {
-			this.styles = [structuralStyles, i$9`
+			this.styles = [structuralStyles, i`
       * {
         box-sizing: border-box;
       }
@@ -17221,8 +17345,8 @@ let Video = (() => {
 		}
 		render() {
 			return b`<section
-      class=${e$2(this.theme.components.Video)}
-      style=${this.theme.additionalStyles?.Video ? o$2(this.theme.additionalStyles?.Video) : A}
+      class=${e(this.theme.components.Video)}
+      style=${this.theme.additionalStyles?.Video ? o(this.theme.additionalStyles?.Video) : A}
     >
       ${this.#renderVideo()}
     </section>`;
@@ -17235,16 +17359,15 @@ let Video = (() => {
 			__runInitializers(_classThis, _classExtraInitializers);
 		}
 	};
-	return Video = _classThis;
+	return Video$1 = _classThis;
 })();
 
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/custom-components/index.js
 function registerCustomComponents() {}
 
-/**
-* Type-safely retrieves a custom element constructor using the tagName map.
-* @param tagName The tag name to look up (must exist in HTMLElementTagNameMap).
-* @returns The specific constructor type or undefined.
-*/
+//#endregion
+//#region vendor/a2ui/renderers/lit/dist/src/0.8/ui/ui.js
 function instanceOf(tagName) {
 	const ctor = customElements.get(tagName);
 	if (!ctor) {
@@ -17254,7 +17377,9 @@ function instanceOf(tagName) {
 	return new ctor();
 }
 
-const modalStyles = i$9`
+//#endregion
+//#region apps/shared/OpenClawKit/Tools/CanvasA2UI/bootstrap.js
+const modalStyles = i`
   dialog {
     position: fixed;
     inset: 0;
@@ -17278,7 +17403,6 @@ const modalElement = customElements.get("a2ui-modal");
 if (modalElement && Array.isArray(modalElement.styles)) {
 	modalElement.styles = [...modalElement.styles, modalStyles];
 }
-const empty = Object.freeze({});
 const emptyClasses = () => ({});
 const textHintStyles = () => ({
 	h1: {},
@@ -17294,7 +17418,7 @@ const cardShadow = isAndroid ? "0 2px 10px rgba(0,0,0,.18)" : "0 10px 30px rgba(
 const buttonShadow = isAndroid ? "0 2px 10px rgba(6, 182, 212, 0.14)" : "0 10px 25px rgba(6, 182, 212, 0.18)";
 const statusShadow = isAndroid ? "0 2px 10px rgba(0, 0, 0, 0.18)" : "0 10px 24px rgba(0, 0, 0, 0.25)";
 const statusBlur = isAndroid ? "10px" : "14px";
-const moltbotTheme = {
+const openclawTheme = {
 	components: {
 		AudioPlayer: emptyClasses(),
 		Button: emptyClasses(),
@@ -17450,32 +17574,32 @@ const moltbotTheme = {
 		Image: { borderRadius: "12px" }
 	}
 };
-var MoltbotA2UIHost = class extends i$6 {
+var OpenClawA2UIHost = class extends i$1 {
 	static properties = {
 		surfaces: { state: true },
 		pendingAction: { state: true },
 		toast: { state: true }
 	};
 	#processor = Data.createSignalA2uiMessageProcessor();
-	#themeProvider = new i$3(this, {
+	themeProvider = new i$2(this, {
 		context: themeContext,
-		initialValue: moltbotTheme
+		initialValue: openclawTheme
 	});
 	surfaces = [];
 	pendingAction = null;
 	toast = null;
 	#statusListener = null;
-	static styles = i$9`
+	static styles = i`
     :host {
       display: block;
       height: 100%;
       position: relative;
       box-sizing: border-box;
       padding:
-        var(--moltbot-a2ui-inset-top, 0px)
-        var(--moltbot-a2ui-inset-right, 0px)
-        var(--moltbot-a2ui-inset-bottom, 0px)
-        var(--moltbot-a2ui-inset-left, 0px);
+        var(--openclaw-a2ui-inset-top, 0px)
+        var(--openclaw-a2ui-inset-right, 0px)
+        var(--openclaw-a2ui-inset-bottom, 0px)
+        var(--openclaw-a2ui-inset-left, 0px);
     }
 
     #surfaces {
@@ -17484,14 +17608,14 @@ var MoltbotA2UIHost = class extends i$6 {
       gap: 12px;
       height: 100%;
       overflow: auto;
-      padding-bottom: var(--moltbot-a2ui-scroll-pad-bottom, 0px);
+      padding-bottom: var(--openclaw-a2ui-scroll-pad-bottom, 0px);
     }
 
     .status {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      top: var(--moltbot-a2ui-status-top, 12px);
+      top: var(--openclaw-a2ui-status-top, 12px);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -17502,9 +17626,9 @@ var MoltbotA2UIHost = class extends i$6 {
       color: rgba(255, 255, 255, 0.92);
       font: 13px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
       pointer-events: none;
-      backdrop-filter: blur(${r$11(statusBlur)});
-      -webkit-backdrop-filter: blur(${r$11(statusBlur)});
-      box-shadow: ${r$11(statusShadow)};
+      backdrop-filter: blur(${r(statusBlur)});
+      -webkit-backdrop-filter: blur(${r(statusBlur)});
+      box-shadow: ${r(statusShadow)};
       z-index: 5;
     }
 
@@ -17512,7 +17636,7 @@ var MoltbotA2UIHost = class extends i$6 {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: var(--moltbot-a2ui-toast-bottom, 12px);
+      bottom: var(--openclaw-a2ui-toast-bottom, 12px);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -17523,9 +17647,9 @@ var MoltbotA2UIHost = class extends i$6 {
       color: rgba(255, 255, 255, 0.92);
       font: 13px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
       pointer-events: none;
-      backdrop-filter: blur(${r$11(statusBlur)});
-      -webkit-backdrop-filter: blur(${r$11(statusBlur)});
-      box-shadow: ${r$11(statusShadow)};
+      backdrop-filter: blur(${r(statusBlur)});
+      -webkit-backdrop-filter: blur(${r(statusBlur)});
+      box-shadow: ${r(statusShadow)};
       z-index: 5;
     }
 
@@ -17538,7 +17662,7 @@ var MoltbotA2UIHost = class extends i$6 {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      top: var(--moltbot-a2ui-empty-top, var(--moltbot-a2ui-status-top, 12px));
+      top: var(--openclaw-a2ui-empty-top, var(--openclaw-a2ui-status-top, 12px));
       text-align: center;
       opacity: 0.8;
       padding: 10px 12px;
@@ -17575,26 +17699,29 @@ var MoltbotA2UIHost = class extends i$6 {
 			reset: () => this.reset(),
 			getSurfaces: () => Array.from(this.#processor.getSurfaces().keys())
 		};
-		globalThis.moltbotA2UI = api;
-		globalThis.clawdbotA2UI = api;
+		globalThis.openclawA2UI = api;
 		this.addEventListener("a2uiaction", (evt) => this.#handleA2UIAction(evt));
 		this.#statusListener = (evt) => this.#handleActionStatus(evt);
-		globalThis.addEventListener("moltbot:a2ui-action-status", this.#statusListener);
+		for (const eventName of ["openclaw:a2ui-action-status"]) {
+			globalThis.addEventListener(eventName, this.#statusListener);
+		}
 		this.#syncSurfaces();
 	}
 	disconnectedCallback() {
 		super.disconnectedCallback();
 		if (this.#statusListener) {
-			globalThis.removeEventListener("moltbot:a2ui-action-status", this.#statusListener);
+			for (const eventName of ["openclaw:a2ui-action-status"]) {
+				globalThis.removeEventListener(eventName, this.#statusListener);
+			}
 			this.#statusListener = null;
 		}
 	}
 	#makeActionId() {
 		return globalThis.crypto?.randomUUID?.() ?? `a2ui_${Date.now()}_${Math.random().toString(16).slice(2)}`;
 	}
-	#setToast(text, kind = "ok", timeoutMs = 1400) {
+	#setToast(text$1, kind = "ok", timeoutMs = 1400) {
 		const toast = {
-			text,
+			text: text$1,
 			kind,
 			expiresAt: Date.now() + timeoutMs
 		};
@@ -17609,8 +17736,12 @@ var MoltbotA2UIHost = class extends i$6 {
 	}
 	#handleActionStatus(evt) {
 		const detail = evt?.detail ?? null;
-		if (!detail || typeof detail.id !== "string") return;
-		if (!this.pendingAction || this.pendingAction.id !== detail.id) return;
+		if (!detail || typeof detail.id !== "string") {
+			return;
+		}
+		if (!this.pendingAction || this.pendingAction.id !== detail.id) {
+			return;
+		}
 		if (detail.ok) {
 			this.pendingAction = {
 				...this.pendingAction,
@@ -17655,7 +17786,9 @@ var MoltbotA2UIHost = class extends i$6 {
 		for (const item of ctxItems) {
 			const key = item?.key;
 			const value = item?.value ?? null;
-			if (!key || !value) continue;
+			if (!key || !value) {
+				continue;
+			}
 			if (typeof value.path === "string") {
 				const resolved = sourceNode ? this.#processor.getData(sourceNode, value.path, surfaceId ?? undefined) : null;
 				context[key] = resolved;
@@ -17690,17 +17823,17 @@ var MoltbotA2UIHost = class extends i$6 {
 			timestamp: new Date().toISOString(),
 			...Object.keys(context).length ? { context } : {}
 		};
-		globalThis.__moltbotLastA2UIAction = userAction;
-		const handler = globalThis.webkit?.messageHandlers?.moltbotCanvasA2UIAction ?? globalThis.webkit?.messageHandlers?.clawdbotCanvasA2UIAction ?? globalThis.moltbotCanvasA2UIAction ?? globalThis.clawdbotCanvasA2UIAction;
+		globalThis.__openclawLastA2UIAction = userAction;
+		const handler = globalThis.webkit?.messageHandlers?.openclawCanvasA2UIAction ?? globalThis.openclawCanvasA2UIAction;
 		if (handler?.postMessage) {
 			try {
-				if (handler === globalThis.moltbotCanvasA2UIAction || handler === globalThis.clawdbotCanvasA2UIAction) {
+				if (handler === globalThis.openclawCanvasA2UIAction) {
 					handler.postMessage(JSON.stringify({ userAction }));
 				} else {
 					handler.postMessage({ userAction });
 				}
-			} catch (e) {
-				const msg = String(e?.message ?? e);
+			} catch (e$14) {
+				const msg = String(e$14?.message ?? e$14);
 				this.pendingAction = {
 					id: actionId,
 					name,
@@ -17759,7 +17892,7 @@ var MoltbotA2UIHost = class extends i$6 {
       ${this.pendingAction && this.pendingAction.phase !== "error" ? b`<div class="status"><div class="spinner"></div><div>${statusText}</div></div>` : ""}
       ${this.toast ? b`<div class="toast ${this.toast.kind === "error" ? "error" : ""}">${this.toast.text}</div>` : ""}
       <section id="surfaces">
-      ${c$2(this.surfaces, ([surfaceId]) => surfaceId, ([surfaceId, surface]) => b`<a2ui-surface
+      ${c(this.surfaces, ([surfaceId]) => surfaceId, ([surfaceId, surface]) => b`<a2ui-surface
           .surfaceId=${surfaceId}
           .surface=${surface}
           .processor=${this.#processor}
@@ -17767,4 +17900,8 @@ var MoltbotA2UIHost = class extends i$6 {
     </section>`;
 	}
 };
-customElements.define("moltbot-a2ui-host", MoltbotA2UIHost);
+if (!customElements.get("openclaw-a2ui-host")) {
+	customElements.define("openclaw-a2ui-host", OpenClawA2UIHost);
+}
+
+//#endregion

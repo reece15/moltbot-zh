@@ -1,9 +1,11 @@
+import type { OpenClawConfig } from "../../../config/config.js";
+import type { RuntimeEnv } from "../../../runtime.js";
+import type { AuthChoice, OnboardOptions } from "../../onboard-types.js";
 import { upsertAuthProfile } from "../../../agents/auth-profiles.js";
 import { normalizeProviderId } from "../../../agents/model-selection.js";
 import { parseDurationMs } from "../../../cli/parse-duration.js";
-import type { MoltbotConfig } from "../../../config/config.js";
 import { upsertSharedEnvVar } from "../../../infra/env-file.js";
-import type { RuntimeEnv } from "../../../runtime.js";
+import { shortenHomePath } from "../../../utils.js";
 import { buildTokenProfileId, validateAnthropicSetupToken } from "../../auth-token.js";
 import { applyGoogleGeminiModelDefault } from "../../google-gemini-model-default.js";
 import {
@@ -18,10 +20,11 @@ import {
   applySyntheticConfig,
   applyVeniceConfig,
   applyVercelAiGatewayConfig,
+  applyXiaomiConfig,
   applyZaiConfig,
   setAnthropicApiKey,
   setGeminiApiKey,
-  setKimiCodeApiKey,
+  setKimiCodingApiKey,
   setMinimaxApiKey,
   setMoonshotApiKey,
   setOpencodeZenApiKey,
@@ -30,19 +33,18 @@ import {
   setSyntheticApiKey,
   setVeniceApiKey,
   setVercelAiGatewayApiKey,
+  setXiaomiApiKey,
   setZaiApiKey,
 } from "../../onboard-auth.js";
-import type { AuthChoice, OnboardOptions } from "../../onboard-types.js";
 import { resolveNonInteractiveApiKey } from "../api-keys.js";
-import { shortenHomePath } from "../../../utils.js";
 
 export async function applyNonInteractiveAuthChoice(params: {
-  nextConfig: MoltbotConfig;
+  nextConfig: OpenClawConfig;
   authChoice: AuthChoice;
   opts: OnboardOptions;
   runtime: RuntimeEnv;
-  baseConfig: MoltbotConfig;
-}): Promise<MoltbotConfig | null> {
+  baseConfig: OpenClawConfig;
+}): Promise<OpenClawConfig | null> {
   const { authChoice, opts, runtime, baseConfig } = params;
   let nextConfig = params.nextConfig;
 
@@ -77,8 +79,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "ANTHROPIC_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setAnthropicApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setAnthropicApiKey(resolved.key);
+    }
     return applyAuthProfileConfig(nextConfig, {
       profileId: "anthropic:default",
       provider: "anthropic",
@@ -150,8 +156,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "GEMINI_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setGeminiApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setGeminiApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "google:default",
       provider: "google",
@@ -169,8 +179,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "ZAI_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setZaiApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setZaiApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "zai:default",
       provider: "zai",
@@ -198,6 +212,29 @@ export async function applyNonInteractiveAuthChoice(params: {
     return applySiliconFlowConfig(nextConfig);
   }
 
+  if (authChoice === "xiaomi-api-key") {
+    const resolved = await resolveNonInteractiveApiKey({
+      provider: "xiaomi",
+      cfg: baseConfig,
+      flagValue: opts.xiaomiApiKey,
+      flagName: "--xiaomi-api-key",
+      envVar: "XIAOMI_API_KEY",
+      runtime,
+    });
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setXiaomiApiKey(resolved.key);
+    }
+    nextConfig = applyAuthProfileConfig(nextConfig, {
+      profileId: "xiaomi:default",
+      provider: "xiaomi",
+      mode: "api_key",
+    });
+    return applyXiaomiConfig(nextConfig);
+  }
+
   if (authChoice === "openai-api-key") {
     const resolved = await resolveNonInteractiveApiKey({
       provider: "openai",
@@ -208,7 +245,9 @@ export async function applyNonInteractiveAuthChoice(params: {
       runtime,
       allowProfile: false,
     });
-    if (!resolved) return null;
+    if (!resolved) {
+      return null;
+    }
     const key = resolved.key;
     const result = upsertSharedEnvVar({ key: "OPENAI_API_KEY", value: key });
     process.env.OPENAI_API_KEY = key;
@@ -225,8 +264,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "OPENROUTER_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setOpenrouterApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setOpenrouterApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "openrouter:default",
       provider: "openrouter",
@@ -244,8 +287,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "AI_GATEWAY_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setVercelAiGatewayApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setVercelAiGatewayApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "vercel-ai-gateway:default",
       provider: "vercel-ai-gateway",
@@ -263,8 +310,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "MOONSHOT_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setMoonshotApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setMoonshotApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "moonshot:default",
       provider: "moonshot",
@@ -275,18 +326,22 @@ export async function applyNonInteractiveAuthChoice(params: {
 
   if (authChoice === "kimi-code-api-key") {
     const resolved = await resolveNonInteractiveApiKey({
-      provider: "kimi-code",
+      provider: "kimi-coding",
       cfg: baseConfig,
       flagValue: opts.kimiCodeApiKey,
       flagName: "--kimi-code-api-key",
-      envVar: "KIMICODE_API_KEY",
+      envVar: "KIMI_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setKimiCodeApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setKimiCodingApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
-      profileId: "kimi-code:default",
-      provider: "kimi-code",
+      profileId: "kimi-coding:default",
+      provider: "kimi-coding",
       mode: "api_key",
     });
     return applyKimiCodeConfig(nextConfig);
@@ -301,8 +356,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "SYNTHETIC_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setSyntheticApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setSyntheticApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "synthetic:default",
       provider: "synthetic",
@@ -320,8 +379,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "VENICE_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setVeniceApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setVeniceApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "venice:default",
       provider: "venice",
@@ -343,8 +406,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "MINIMAX_API_KEY",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setMinimaxApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setMinimaxApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "minimax:default",
       provider: "minimax",
@@ -355,7 +422,9 @@ export async function applyNonInteractiveAuthChoice(params: {
     return applyMinimaxApiConfig(nextConfig, modelId);
   }
 
-  if (authChoice === "minimax") return applyMinimaxConfig(nextConfig);
+  if (authChoice === "minimax") {
+    return applyMinimaxConfig(nextConfig);
+  }
 
   if (authChoice === "opencode-zen") {
     const resolved = await resolveNonInteractiveApiKey({
@@ -366,8 +435,12 @@ export async function applyNonInteractiveAuthChoice(params: {
       envVar: "OPENCODE_API_KEY (or OPENCODE_ZEN_API_KEY)",
       runtime,
     });
-    if (!resolved) return null;
-    if (resolved.source !== "profile") await setOpencodeZenApiKey(resolved.key);
+    if (!resolved) {
+      return null;
+    }
+    if (resolved.source !== "profile") {
+      await setOpencodeZenApiKey(resolved.key);
+    }
     nextConfig = applyAuthProfileConfig(nextConfig, {
       profileId: "opencode:default",
       provider: "opencode",
@@ -380,7 +453,8 @@ export async function applyNonInteractiveAuthChoice(params: {
     authChoice === "oauth" ||
     authChoice === "chutes" ||
     authChoice === "openai-codex" ||
-    authChoice === "qwen-portal"
+    authChoice === "qwen-portal" ||
+    authChoice === "minimax-portal"
   ) {
     runtime.error("OAuth requires interactive mode.");
     runtime.exit(1);

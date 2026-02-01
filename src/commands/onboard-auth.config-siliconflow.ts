@@ -1,4 +1,4 @@
-import type { MoltbotConfig } from "../config/config.js";
+import type { OpenClawConfig } from "../config/config.js";
 import {
   buildSiliconFlowModelDefinition,
   SILICONFLOW_BASE_URL,
@@ -6,7 +6,7 @@ import {
   SILICONFLOW_DEFAULT_MODEL_REF,
 } from "./onboard-auth.models.js";
 
-export function applySiliconFlowProviderConfig(cfg: MoltbotConfig): MoltbotConfig {
+export function applySiliconFlowProviderConfig(cfg: OpenClawConfig): OpenClawConfig {
   const models = { ...cfg.agents?.defaults?.models };
 
   // Set default model if needed, or just aliases
@@ -75,7 +75,7 @@ export function applySiliconFlowProviderConfig(cfg: MoltbotConfig): MoltbotConfi
   };
 }
 
-export function applySiliconFlowConfig(cfg: MoltbotConfig): MoltbotConfig {
+export function applySiliconFlowConfig(cfg: OpenClawConfig): OpenClawConfig {
   // Update agent defaults to use SiliconFlow
   const updated = applySiliconFlowProviderConfig(cfg);
 

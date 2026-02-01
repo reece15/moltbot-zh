@@ -1,5 +1,4 @@
 import { describe, expect, it, vi, afterEach } from "vitest";
-
 import { __testing } from "./web-search.js";
 
 const {
