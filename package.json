@@ -255,7 +255,11 @@
     "yaml": "^2.8.2",
     "yargs": "^17.7.2",
     "zod": "^3.24.1",
-    "zod-to-json-schema": "^3.24.1"
+    "zod-to-json-schema": "^3.24.1",
+    "proper-lockfile": "^4.1.2",
+    "node-edge-tts": "^1.2.3",
+    "osc-progress": "^0.3.0",
+    "cli-highlight": "^2.1.11"
   },
   "devDependencies": {
     "@types/cross-spawn": "^6.0.6",

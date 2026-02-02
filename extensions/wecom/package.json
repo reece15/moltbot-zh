@@ -1,9 +1,9 @@
 {
-  "name": "@moltbot/wecom",
+  "name": "@openclaw/wecom",
   "version": "1.0.0",
   "type": "module",
   "description": "Moltbot WeCom (Enterprise WeChat) channel plugin",
-  "moltbot": {
+  "openclaw": {
     "extensions": [
       "./index.ts"
     ]
@@ -12,6 +12,6 @@
     "axios": "^1.6.0"
   },
   "devDependencies": {
-    "moltbot": "workspace:*"
+    "openclaw": "workspace:moltbot@*"
   }
 }

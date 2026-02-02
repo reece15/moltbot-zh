@@ -17,7 +17,16 @@ export function resolveExtraParams(params: {
 }): Record<string, unknown> | undefined {
   const modelKey = `${params.provider}/${params.modelId}`;
   const modelConfig = params.cfg?.agents?.defaults?.models?.[modelKey];
-  return modelConfig?.params ? { ...modelConfig.params } : undefined;
+
+  const providerConfig = params.cfg?.models?.providers?.[params.provider];
+  const timeout = providerConfig?.timeout;
+
+  const result: Record<string, unknown> = modelConfig?.params ? { ...modelConfig.params } : {};
+  if (typeof timeout === "number") {
+    result.timeout = timeout;
+  }
+
+  return Object.keys(result).length > 0 ? result : undefined;
 }
 
 type CacheControlTtl = "5m" | "1h";
@@ -50,12 +59,18 @@ function createStreamFnWithExtraParams(
     return undefined;
   }
 
-  const streamParams: Partial<SimpleStreamOptions> & { cacheControlTtl?: CacheControlTtl } = {};
+  const streamParams: Partial<SimpleStreamOptions> & {
+    cacheControlTtl?: CacheControlTtl;
+    timeout?: number;
+  } = {};
   if (typeof extraParams.temperature === "number") {
     streamParams.temperature = extraParams.temperature;
   }
   if (typeof extraParams.maxTokens === "number") {
     streamParams.maxTokens = extraParams.maxTokens;
+  }
+  if (typeof extraParams.timeout === "number") {
+    streamParams.timeout = extraParams.timeout;
   }
   const cacheControlTtl = resolveCacheControlTtl(extraParams, provider, modelId);
   if (cacheControlTtl) {

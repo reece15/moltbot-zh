@@ -6,6 +6,9 @@
   "devDependencies": {
     "openclaw": "workspace:moltbot@*"
   },
+  "dependencies": {
+    "zod-to-json-schema": "^3.24.1"
+  },
   "peerDependencies": {
     "openclaw": ">=2026.1.26"
   },

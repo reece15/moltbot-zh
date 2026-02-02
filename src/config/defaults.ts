@@ -237,6 +237,7 @@ export function applySiliconFlowEnv(cfg: OpenClawConfig): OpenClawConfig {
     baseUrl: process.env.SILICONFLOW_BASE_URL || "https://api.siliconflow.cn/v1",
     apiKey,
     api: "openai-completions",
+    timeout: 120000,
     models: [
       {
         id: "deepseek-ai/DeepSeek-V3",

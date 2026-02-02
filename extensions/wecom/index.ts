@@ -1,5 +1,5 @@
-import type { MoltbotPluginApi } from "moltbot/plugin-sdk";
-import { emptyPluginConfigSchema } from "moltbot/plugin-sdk";
+import type { MoltbotPluginApi } from "openclaw/plugin-sdk";
+import { emptyPluginConfigSchema } from "openclaw/plugin-sdk";
 
 import { wecomPlugin } from "./src/channel.js";
 import { setWeComRuntime } from "./src/runtime.js";

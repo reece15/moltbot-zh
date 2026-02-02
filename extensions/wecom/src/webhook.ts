@@ -1,7 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { WeComCrypto } from "./wxcrypto.js";
 import { getWeComClient } from "./client.js";
-import type { ReplyPayload } from "moltbot/plugin-sdk";
+import type { ReplyPayload } from "openclaw/plugin-sdk";
 import { getWeComRuntime } from "./runtime.js";
 import { KeyedTaskQueue } from "./queue.js";
 
@@ -212,7 +212,7 @@ export async function handleWeComWebhook(
             try {
                 await client.sendText(fromUser, textToSend);
             } catch (err) {
-                console.error(`[WeCom] Failed to send buffer: ${String(err)}`);
+                console.error(`[WeCom] CRITICAL: Failed to send buffer to ${fromUser} after retries. Error: ${String(err)}`);
             }
         };
 
@@ -270,7 +270,7 @@ export async function handleWeComWebhook(
                                     await client.sendText(fromUser, remaining);
                                     sentText += remaining;
                                 } catch (err) {
-                                    console.error(`[WeCom] Failed to send final reply: ${String(err)}`);
+                                    console.error(`[WeCom] CRITICAL: Failed to send final reply to ${fromUser}: ${String(err)}`);
                                 }
                             }
                         } else {
@@ -279,7 +279,7 @@ export async function handleWeComWebhook(
                              try {
                                 await client.sendText(fromUser, text);
                              } catch (err) {
-                                console.error(`[WeCom] Failed to send other reply: ${String(err)}`);
+                                console.error(`[WeCom] CRITICAL: Failed to send other reply to ${fromUser}: ${String(err)}`);
                              }
                         }
                     },

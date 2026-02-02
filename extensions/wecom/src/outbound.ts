@@ -1,4 +1,4 @@
-import type { ChannelOutboundAdapter, ChannelOutboundContext, OutboundDeliveryResult } from "moltbot/plugin-sdk";
+import type { ChannelOutboundAdapter, ChannelOutboundContext, OutboundDeliveryResult } from "openclaw/plugin-sdk";
 import { getWeComClient } from "./client.js";
 import type { WeComConfig } from "./types.js";
 

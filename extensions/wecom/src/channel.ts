@@ -13,7 +13,7 @@ import {
   type ChannelGatewayContext,
   deleteAccountFromConfigSection,
   setAccountEnabledInConfigSection,
-} from "moltbot/plugin-sdk";
+} from "openclaw/plugin-sdk";
 import { WeComConfigSchema, type ResolvedWeComAccount, type WeComConfig } from "./types.js";
 import { getWeComClient } from "./client.js";
 import { handleWeComWebhook } from "./webhook.js";
