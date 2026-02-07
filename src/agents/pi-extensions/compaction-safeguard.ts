@@ -200,7 +200,9 @@ export default function compactionSafeguardExtension(api: ExtensionAPI): void {
       let messagesToSummarize = preparation.messagesToSummarize;
 
       const runtime = getCompactionSafeguardRuntime(ctx.sessionManager);
-      const maxHistoryShare = runtime?.maxHistoryShare ?? 0.5;
+      // Reduce default history share from 0.5 to 0.4 to provide a larger safety buffer
+      // against token estimation inaccuracies (especially for Chinese content/MiniMax).
+      const maxHistoryShare = runtime?.maxHistoryShare ?? 0.4;
 
       const tokensBefore =
         typeof preparation.tokensBefore === "number" && Number.isFinite(preparation.tokensBefore)
@@ -210,23 +212,46 @@ export default function compactionSafeguardExtension(api: ExtensionAPI): void {
       let droppedSummary: string | undefined;
 
       if (tokensBefore !== undefined) {
-        const summarizableTokens =
-          estimateMessagesTokens(messagesToSummarize) + estimateMessagesTokens(turnPrefixMessages);
-        const newContentTokens = Math.max(0, Math.floor(tokensBefore - summarizableTokens));
-        // Apply SAFETY_MARGIN so token underestimates don't trigger unnecessary pruning
-        const maxHistoryTokens = Math.floor(contextWindowTokens * maxHistoryShare * SAFETY_MARGIN);
+        // Calculate tokens that are candidates for pruning vs. immutable tokens
+        const prunableTokens = estimateMessagesTokens(messagesToSummarize);
+        const immutableTokens = Math.max(0, Math.floor(tokensBefore - prunableTokens));
 
-        if (newContentTokens > maxHistoryTokens) {
+        // Preventive detection for overflow risks
+        if (tokensBefore > contextWindowTokens * 0.95) {
+          console.warn(
+            `Compaction safeguard: total tokens ${tokensBefore} is dangerously close to window ${contextWindowTokens} (95%).`,
+          );
+        }
+
+        // Budget calculation:
+        // 1. Soft limit: Target keeping history within specific share (e.g. 40%)
+        // 2. Hard limit: Ensure Total <= Window * 0.95 (safety buffer)
+        const softLimit = Math.floor(contextWindowTokens * maxHistoryShare * SAFETY_MARGIN);
+        const hardLimit = Math.floor(contextWindowTokens * 0.95) - immutableTokens;
+        
+        // The allowed budget for prunable history is the lower of the two
+        const allowedPrunableTokens = Math.min(softLimit, hardLimit);
+
+        // Calculate the effective share to pass to the pruning function
+        // We must convert the token budget back to a "share of window" for the utility function
+        const effectiveShare = Math.max(0.01, allowedPrunableTokens / contextWindowTokens);
+
+        if (prunableTokens > allowedPrunableTokens) {
+          console.warn(
+            `Compaction safeguard: pruning history. Current: ${prunableTokens}, Allowed: ${allowedPrunableTokens} ` +
+              `(Soft: ${softLimit}, Hard: ${hardLimit}, Immutable: ${immutableTokens}). Effective Share: ${effectiveShare.toFixed(3)}`
+          );
+          
           const pruned = pruneHistoryForContextShare({
             messages: messagesToSummarize,
             maxContextTokens: contextWindowTokens,
-            maxHistoryShare,
+            maxHistoryShare: effectiveShare,
             parts: 2,
           });
           if (pruned.droppedChunks > 0) {
-            const newContentRatio = (newContentTokens / contextWindowTokens) * 100;
+            const immutableRatio = (immutableTokens / contextWindowTokens) * 100;
             console.warn(
-              `Compaction safeguard: new content uses ${newContentRatio.toFixed(
+              `Compaction safeguard: immutable content uses ${immutableRatio.toFixed(
                 1,
               )}% of context; dropped ${pruned.droppedChunks} older chunk(s) ` +
                 `(${pruned.droppedMessages} messages) to fit history budget.`,

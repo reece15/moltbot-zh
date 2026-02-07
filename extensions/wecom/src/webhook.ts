@@ -3,10 +3,6 @@ import { WeComCrypto } from "./wxcrypto.js";
 import { getWeComClient } from "./client.js";
 import type { ReplyPayload } from "openclaw/plugin-sdk";
 import { getWeComRuntime } from "./runtime.js";
-import { KeyedTaskQueue } from "./queue.js";
-
-// Queue for sequential processing of messages per user
-const dispatchQueue = new KeyedTaskQueue();
 
 // Cache for deduplicating messages (MsgId -> timestamp)
 const processedMsgIds = new Map<string, number>();
@@ -40,7 +36,8 @@ function readBody(req: IncomingMessage): Promise<string> {
 }
 
 function extractXmlField(xml: string, field: string): string | undefined {
-  const regex = new RegExp(`<${field}><!\\[CDATA\\[([\\s\\S]*?)\\]\\]><\\/${field}>|<${field}>([\\s\\S]*?)<\\/${field}>`);
+  // Allow whitespace around CDATA or content
+  const regex = new RegExp(`<${field}>(?:\\s*<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>\\s*|([\\s\\S]*?))<\\/${field}>`);
   const match = xml.match(regex);
   return match ? (match[1] || match[2]) : undefined;
 }
@@ -127,10 +124,15 @@ export async function handleWeComWebhook(
       const { message: decryptedXml } = crypto.decrypt(encrypt);
       console.log(`[WeCom] Decrypted message: ${decryptedXml}`);
       
-      const content = extractXmlField(decryptedXml, "Content");
+      let content = extractXmlField(decryptedXml, "Content");
       const fromUser = extractXmlField(decryptedXml, "FromUserName");
       const msgType = extractXmlField(decryptedXml, "MsgType");
       const msgId = extractXmlField(decryptedXml, "MsgId");
+
+      // Trim content to handle leading/trailing newlines or spaces (e.g. from XML formatting or user input)
+      if (content) {
+        content = content.trim();
+      }
 
       if (msgType !== "text" || !content || !fromUser) {
           console.log("[WeCom] Ignored non-text message or missing fields");
@@ -168,6 +170,7 @@ export async function handleWeComWebhook(
           From: fromUser,
           Body: content,
           channel: "wecom",
+          CommandAuthorized: true, // Allow slash commands from authenticated WeCom users
           channelData: {
               wecom: {
                   corpid: params.corpid,
@@ -177,130 +180,30 @@ export async function handleWeComWebhook(
           }
       };
 
-      // Process in background (sequentially per user)
-      dispatchQueue.enqueue(fromUser, async () => {
-        let sentText = "";
-        let buffer = "";
-        let debounceTimer: NodeJS.Timeout | null = null;
-        
-        const flushBuffer = async () => {
-            if (debounceTimer) {
-                clearTimeout(debounceTimer);
-                debounceTimer = null;
-            }
-            if (!buffer) return;
-            
-            let textToSend = buffer;
-            const originalBuffer = buffer;
-            buffer = "";
-            
-            // If this is the first packet, trim start to avoid leading newlines
-            if (sentText.length === 0) {
-                textToSend = textToSend.trimStart();
-            }
-
-            // We must update sentText with the ORIGINAL buffer content 
-            // because sentText tracks the raw LLM stream for offsetting later.
-            sentText += originalBuffer;
-            
-            if (!textToSend) {
-                 // Buffer was only whitespace, skipping send
-                return;
-            }
-            
-            console.log(`[WeCom] Flushing buffer for ${fromUser}, len=${textToSend.length}`);
+      await runtime.channel.reply.dispatchReplyWithBufferedBlockDispatcher({
+        ctx: ctxPayload,
+        cfg: config,
+        dispatcherOptions: {
+          responsePrefix: runtime.channel.reply.resolveEffectiveMessagesConfig(config, agentId)
+            .responsePrefix,
+          deliver: async (payload: ReplyPayload) => {
+            const text = payload.text || "";
+            if (!text) return;
+            console.log(`[WeCom] deliver() called for ${fromUser}, text len=${text.length}`);
             try {
-                await client.sendText(fromUser, textToSend);
+              await client.sendText(fromUser, text);
             } catch (err) {
-                console.error(`[WeCom] CRITICAL: Failed to send buffer to ${fromUser} after retries. Error: ${String(err)}`);
+              console.error(`[WeCom] CRITICAL: Failed to send reply to ${fromUser}: ${String(err)}`);
             }
-        };
-
-        try {
-            await runtime.channel.reply.dispatchReplyWithBufferedBlockDispatcher({
-                ctx: ctxPayload,
-                cfg: config,
-                dispatcherOptions: {
-                    responsePrefix: runtime.channel.reply.resolveEffectiveMessagesConfig(config, agentId).responsePrefix,
-                    deliver: async (payload: ReplyPayload, info: any) => {
-                        const kind = info.kind as "tool" | "block" | "final";
-                        const text = payload.text || "";
-                        if (!text) return;
-
-                        console.log(`[WeCom] deliver() called for ${fromUser}, kind=${kind}, text len=${text.length}`);
-
-                        if (kind === "block") {
-                            buffer += text;
-                            
-                            // Flush if buffer is large enough
-                            if (buffer.length > 1000) {
-                                await flushBuffer();
-                            } else {
-                                // Debounce flush for short messages
-                                if (debounceTimer) clearTimeout(debounceTimer);
-                                debounceTimer = setTimeout(() => {
-                                    debounceTimer = null;
-                                    void flushBuffer();
-                                }, 1000); // 1 second debounce
-                            }
-                        } else if (kind === "final") {
-                            // Flush any pending block buffer immediately
-                            await flushBuffer();
-                            
-                            // Calculate remaining text to send
-                            let remaining = text;
-                            if (text.startsWith(sentText)) {
-                                remaining = text.slice(sentText.length);
-                            } else {
-                                // Fallback for safety
-                                if (sentText.length > 0) {
-                                    console.warn(`[WeCom] Final text mismatch. Sent: ${sentText.length}, Final: ${text.length}`);
-                                }
-                            }
-
-                            // If nothing has been tracked in sentText yet, this is the first content.
-                            // Trim leading whitespace.
-                            if (sentText.length === 0) {
-                                remaining = remaining.trimStart();
-                            }
-
-                            if (remaining.trim()) {
-                                console.log(`[WeCom] Sending final remaining text for ${fromUser}, len=${remaining.length}`);
-                                try {
-                                    await client.sendText(fromUser, remaining);
-                                    sentText += remaining;
-                                } catch (err) {
-                                    console.error(`[WeCom] CRITICAL: Failed to send final reply to ${fromUser}: ${String(err)}`);
-                                }
-                            }
-                        } else {
-                             // Tool output or other kinds - flush immediately
-                             await flushBuffer(); 
-                             try {
-                                await client.sendText(fromUser, text);
-                             } catch (err) {
-                                console.error(`[WeCom] CRITICAL: Failed to send other reply to ${fromUser}: ${String(err)}`);
-                             }
-                        }
-                    },
-                    onError: (err: any) => {
-                        console.error(`[WeCom] Dispatch error: ${err}`);
-                    }
-                },
-                replyOptions: {
-                    // Always enable streaming to capture blocks for buffering
-                    disableBlockStreaming: false
-                }
-            });
-        } finally {
-            // Ensure any pending buffer is flushed at the end
-            if (buffer) {
-                await flushBuffer();
-            }
-            if (debounceTimer) {
-                clearTimeout(debounceTimer);
-            }
-        }
+          },
+          onError: (err: any) => {
+            console.error(`[WeCom] Dispatch error: ${err}`);
+          },
+        },
+        replyOptions: {
+          disableBlockStreaming:
+            typeof params.blockStreaming === "boolean" ? !params.blockStreaming : undefined,
+        },
       });
 
     } catch (err) {

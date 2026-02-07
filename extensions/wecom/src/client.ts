@@ -40,16 +40,14 @@ export class WeComClient {
   }
 
   async sendText(toUser: string, content: string): Promise<void> {
-    // 1. Chunking to avoid 2048 byte limit
-    // WeCom limit is 2048 bytes. UTF-8 chars can be 3-4 bytes. 
-    // 600 chars * 3 bytes = 1800 bytes, safe margin.
-    const CHUNK_SIZE = 600; 
+    const CHUNK_SIZE = 1600; 
     const chunks: string[] = [];
     if (content.length === 0) {
         chunks.push("");
     } else {
-        for (let i = 0; i < content.length; i += CHUNK_SIZE) {
-            chunks.push(content.slice(i, i + CHUNK_SIZE));
+        const chars = Array.from(content);
+        for (let i = 0; i < chars.length; i += CHUNK_SIZE) {
+            chunks.push(chars.slice(i, i + CHUNK_SIZE).join(""));
         }
     }
 
