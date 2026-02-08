@@ -2,3 +2,4 @@ moltbot-package/
 dist/
 node_modules/
 .env
+.claude/

@@ -58,7 +58,7 @@ export const wecomPlugin: ChannelPlugin<ResolvedWeComAccount> = {
              corpid: account.corpid,
              corpsecret: account.corpsecret,
              agentid: String(account.agentid),
-             blockStreaming: account.blockStreaming
+             blockStreaming: account.blockStreaming ?? true
            });
         }
       });
@@ -159,6 +159,7 @@ export const wecomPlugin: ChannelPlugin<ResolvedWeComAccount> = {
                 agentid: process.env.WECOM_AGENTID || "",
                 token: process.env.WECOM_TOKEN,
                 encodingAESKey: process.env.WECOM_AESKEY,
+                blockStreaming: true,
                 enabled: true
             };
         }
@@ -170,7 +171,7 @@ export const wecomPlugin: ChannelPlugin<ResolvedWeComAccount> = {
         const token = acc.token || process.env.WECOM_TOKEN;
         const encodingAESKey = acc.encodingAESKey || process.env.WECOM_AESKEY;
 
-        return { ...acc, id: accountId, token, encodingAESKey };
+        return { ...acc, id: accountId, token, encodingAESKey, blockStreaming: acc.blockStreaming ?? true };
     },
     defaultAccountId: (cfg: MoltbotConfig) => {
         if (process.env.WECOM_CORPID) return "env";
@@ -208,13 +209,14 @@ export const wecomPlugin: ChannelPlugin<ResolvedWeComAccount> = {
                 agentid: process.env.WECOM_AGENTID || "",
                 token: process.env.WECOM_TOKEN,
                 encodingAESKey: process.env.WECOM_AESKEY,
+                blockStreaming: true,
                 enabled: true
             };
        } else {
             const wecom = cfg.channels?.wecom as WeComConfig | undefined;
             const acc = wecom?.[id];
             if (acc) {
-                account = { ...acc, id };
+                account = { ...acc, id, blockStreaming: acc.blockStreaming ?? true };
             }
        }
        
